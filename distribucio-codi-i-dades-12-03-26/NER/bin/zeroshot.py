@@ -8,7 +8,7 @@ from common import get_prompts, load_dataset, prepare_messages, encode, generate
 def load_model():
     t0 = time.time()
 
-    MODEL_PATH = f"/scratch/nas/1/PDI/mml0/llama32B3/snapshots/snap0"
+    MODEL_PATH = f"/scratch/nas/1/PDI/mgl0/llama32B3/snapshots/snap0"
 
     # load model
     model = AutoModelForCausalLM.from_pretrained(MODEL_PATH, 

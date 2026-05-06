@@ -45,9 +45,9 @@ def stats(prd, exp, ok) :
    Given the count of predicted, expected and matches, 
    compute precisio, recall and F1
    '''
-   P = 100.0*ok/prd if prd>0 else 0
-   R = 100.0*ok/exp if exp>0 else 0
-   F = 2*P*R/(P+R) if P+R>0 else 0
+   P = 100.0*ok/prd if prd>0 else 0 # Precision
+   R = 100.0*ok/exp if exp>0 else 0 # Recall
+   F = 2*P*R/(P+R) if P+R>0 else 0 # F1 score
    return P, R, F
 
 

@@ -5,6 +5,9 @@ import torch
 def get_prompts():
     # we can set the prompts manually, or better, load them from a given file,
     # so we can experiment with different prompt combinations without changing the code
+
+    # EXTREU-RE'LS D'UN JSON
+
     prompts = {}
     prompts["sysprompt"] = "\n".join(["You are an journalist assistant in a news agency and your mission is to read news items and extract the list of entities mentioned in it.",
                    "Mentioned entities may belong to one of the following types:",
@@ -69,9 +72,12 @@ def generate(model, tokenizer, input_ids):
     with torch.no_grad():
         gen_tokens = model.generate(input_ids,
                                     max_new_tokens=256,
-                                    pad_token_id=tokenizer.eos_token_id
+                                    pad_token_id=tokenizer.eos_token_id, # if there are two or more sequences in the batch, they may have different lengths, so we need to pad them to the same length (we add EOS token to fill the blanks). We use the eos_token_id for padding, so it will not affect the generation
+                                    do_sample=False, # we want the most likely continuation, so we set do_sample to False, which means that the model will not sample from the distribution of possible continuations, but will always choose the one with the highest probability. If we set it to True, the model would sample from the distribution, which could lead to more diverse but also less accurate responses.
+                                    temperature=0.7,
+                                    top_p=0.9
                                    )
-    promptlen = len(input_ids[0])
+    promptlen = len(input_ids[0]) # input_ids is a batch of sequences [ [13, 543, 54], [342, 432, 264]... ], but we have only one sequence in the batch, so we take the length of the first one. We need this to know where the prompt ends and the generated text starts in gen_tokens.
     # decode obtained tokens back into text
     gen_text = tokenizer.decode(gen_tokens[0][promptlen:], skip_special_tokens=True)
     return gen_text

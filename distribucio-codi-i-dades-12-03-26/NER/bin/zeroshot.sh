@@ -11,7 +11,7 @@
 ##   sbatch fewshot.sh 10
 
 # activate virtual environment with needed python modules
-source /scratch/nas/1/PDI/mml0/MML.venv/bin/activate
+source /scratch/nas/1/PDI/mgl0/MLL.venv/bin/activate
 
 # run the few-shot extractor
 python3 zeroshot.py 
