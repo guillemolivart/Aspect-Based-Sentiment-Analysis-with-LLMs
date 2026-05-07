@@ -1,0 +1,25 @@
+========= ABSA THINKING PROBE =========
+model_path=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/model
+prompt_file=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/prompts/absa_v2.json
+data=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/devel.json
+generation={'temperature': 1.0, 'top_p': 0.95, 'top_k': 20, 'min_p': 0.0, 'repetition_penalty': 1.0, 'max_new_tokens': 4096}
+selection=spaced
+examples=8
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   7%|▋         | 22/320 [00:00<00:01, 216.82it/s]Loading weights:  30%|██▉       | 95/320 [00:00<00:00, 504.52it/s]Loading weights:  54%|█████▍    | 172/320 [00:00<00:00, 617.10it/s]Loading weights:  77%|███████▋  | 246/320 [00:00<00:00, 661.06it/s]Loading weights:  99%|█████████▉| 318/320 [00:00<00:00, 674.91it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 623.95it/s]
+Processing example 0: es_matilde-la-zaragoza_comment-4639
+Processing example 19: es_salamanca_20_EliasMansilla_2014-10-18
+Processing example 37: es_barceloneta_130_Alvaro_2008-03-21
+Processing example 56: en_ProfessorThom's_478606543
+Processing example 75: es_barceloneta_56_JuanLuis_2012-06-10
+Processing example 94: es_doble-uno-zaragoza_comment-4741
+Processing example 112: es_bal-donsera-zaragoza_comment-1753
+Processing example 131: es_balmes_rossello_58_RaulHervas_2014-01-26
+Done
+Output: outputs/thinking/qwen35_2b_think_devel_prompt_v2_m4096_pilot8.json
+Summary: outputs/thinking/qwen35_2b_think_devel_prompt_v2_m4096_pilot8.summary.csv
+Analysis: outputs/thinking/qwen35_2b_think_devel_prompt_v2_m4096_pilot8.analysis.md
+M.avg P/R/F1: 43.8 23.3 28.6
+m.avg P/R/F1: 66.7 18.2 28.6
+closed=2/8 hit_limit=6/8 unfinished_at_limit=6/8

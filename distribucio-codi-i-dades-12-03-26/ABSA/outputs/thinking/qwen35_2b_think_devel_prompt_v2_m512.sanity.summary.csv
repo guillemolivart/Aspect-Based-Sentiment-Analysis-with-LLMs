@@ -1,0 +1,3 @@
+index,id,language,prompt_tokens,output_tokens,thinking_tokens,final_tokens,closed_thinking,hit_token_limit,unfinished_at_limit,ended_with_eos,elapsed_sec,predicted,expected,ok,precision,recall,f1
+0,es_matilde-la-zaragoza_comment-4639,es,786,512,512,0,False,True,True,False,18.42989683151245,0,3,0,0.0,0.0,0.0
+1,es_la_poma_21_EvaCorominasMateo_2014-05-04,es,793,512,512,0,False,True,True,False,17.471571683883667,0,2,0,0.0,0.0,0.0

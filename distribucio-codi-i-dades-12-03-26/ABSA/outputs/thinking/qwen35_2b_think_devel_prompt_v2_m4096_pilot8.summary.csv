@@ -1,0 +1,9 @@
+index,id,language,prompt_tokens,output_tokens,thinking_tokens,final_tokens,closed_thinking,hit_token_limit,unfinished_at_limit,ended_with_eos,elapsed_sec,predicted,expected,ok,precision,recall,f1
+0,es_matilde-la-zaragoza_comment-4639,es,786,4096,4096,0,False,True,True,False,142.11674904823303,0,3,0,0.0,0.0,0.0
+19,es_salamanca_20_EliasMansilla_2014-10-18,es,785,838,826,11,True,False,False,False,29.175612688064575,1,1,1,100.0,100.0,100.0
+37,es_barceloneta_130_Alvaro_2008-03-21,es,828,4096,4096,0,False,True,True,False,142.42434096336365,0,5,0,0.0,0.0,0.0
+56,en_ProfessorThom's_478606543,en,886,4096,4096,0,False,True,True,False,142.7232129573822,0,4,0,0.0,0.0,0.0
+75,es_barceloneta_56_JuanLuis_2012-06-10,es,831,4096,4096,0,False,True,True,False,142.66033267974854,0,3,0,0.0,0.0,0.0
+94,es_doble-uno-zaragoza_comment-4741,es,884,4096,4096,0,False,True,True,False,141.96623539924622,0,4,0,0.0,0.0,0.0
+112,es_bal-donsera-zaragoza_comment-1753,es,896,4096,4096,0,False,True,True,False,141.81245613098145,0,1,0,0.0,0.0,0.0
+131,es_balmes_rossello_58_RaulHervas_2014-01-26,es,798,3600,3588,11,True,False,False,False,124.7859902381897,1,1,0,0.0,0.0,0.0
