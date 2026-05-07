@@ -160,22 +160,45 @@ def _json_candidates(text):
         if char not in "[{":
             continue
         fragment = cleaned[start:].lstrip()
-        try:
-            obj, _ = decoder.raw_decode(fragment)
-            yield obj
-            continue
-        except json.JSONDecodeError:
-            pass
+        for candidate in _repair_jsonish(fragment):
+            try:
+                obj, _ = decoder.raw_decode(candidate)
+                yield obj
+                continue
+            except json.JSONDecodeError:
+                pass
 
-        end = max(fragment.rfind("}"), fragment.rfind("]"))
-        if end == -1:
-            continue
-        try:
-            obj = ast.literal_eval(fragment[: end + 1])
-        except (SyntaxError, ValueError):
-            continue
-        if isinstance(obj, (dict, list)):
-            yield obj
+            end = max(candidate.rfind("}"), candidate.rfind("]"))
+            if end == -1:
+                continue
+            try:
+                obj = ast.literal_eval(candidate[: end + 1])
+            except (SyntaxError, ValueError):
+                continue
+            if isinstance(obj, (dict, list)):
+                yield obj
+
+
+def _repair_jsonish(fragment):
+    yield fragment
+
+    repaired = re.sub(
+        r'([\{,]\s*)([A-Za-z_][A-Za-z0-9_]*)"\s*:',
+        r'\1"\2":',
+        fragment,
+    )
+    repaired = re.sub(
+        r'([\{,]\s*)([A-Za-z_][A-Za-z0-9_]*)\s*:',
+        r'\1"\2":',
+        repaired,
+    )
+    repaired = re.sub(
+        r'(:\s*)(positive|negative|neutral|conflict)(\s*[,}\]])',
+        r'\1"\2"\3',
+        repaired,
+    )
+    if repaired != fragment:
+        yield repaired
 
 
 def normalize_prediction(prediction):
