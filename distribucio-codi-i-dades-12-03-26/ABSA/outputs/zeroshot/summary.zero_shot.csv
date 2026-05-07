@@ -1,0 +1,8 @@
+system,P_macro,R_macro,F1_macro,P_micro,R_micro,F1_micro,predicted,gold,ok
+qwen35_2b_nothink_devel_prompt_v1,47.4,55.8,46.9,39.8,56.6,46.7,646,454,257
+qwen35_2b_nothink_devel_prompt_v2,66.3,50.2,53.9,63.1,49.3,55.4,355,454,224
+oracle_aspects_majority_polarity,72.6,72.6,72.6,71.8,71.8,71.8,454,454,326
+top3_positive,60.4,56.8,55.6,60.4,52.6,56.2,396,454,239
+top3_majority,60.4,56.8,55.6,60.4,52.6,56.2,396,454,239
+top4_positive,51.9,63.4,54.5,51.9,60.4,55.8,528,454,274
+top4_majority,51.9,63.4,54.5,51.9,60.4,55.8,528,454,274

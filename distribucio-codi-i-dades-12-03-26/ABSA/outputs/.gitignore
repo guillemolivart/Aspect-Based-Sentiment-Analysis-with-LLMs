@@ -2,8 +2,8 @@
 !.gitignore
 
 !baselines/
-baselines/*
-!baselines/summary.devel.csv
+!baselines/*.json
+!baselines/*.csv
 
 !zeroshot/
 zeroshot/*
@@ -11,3 +11,4 @@ zeroshot/*
 !zeroshot/*.stats.txt
 !zeroshot/*.run.log
 !zeroshot/*.analysis.md
+!zeroshot/*.csv
