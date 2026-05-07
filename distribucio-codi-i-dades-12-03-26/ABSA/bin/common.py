@@ -106,6 +106,10 @@ def encode(tokenizer, messages, enable_thinking=False):
 
 
 def generate(model, tokenizer, model_inputs, generation_config):
+    return generate_with_metadata(model, tokenizer, model_inputs, generation_config)["text"]
+
+
+def generate_with_metadata(model, tokenizer, model_inputs, generation_config):
     import torch
 
     kwargs = {
@@ -138,7 +142,20 @@ def generate(model, tokenizer, model_inputs, generation_config):
 
     prompt_len = model_inputs["input_ids"].shape[-1]
     output_ids = generated_ids[0][prompt_len:]
-    return tokenizer.decode(output_ids, skip_special_tokens=True)
+    output_token_ids = output_ids.tolist()
+    eos_token_id = tokenizer.eos_token_id
+    eos_token_ids = set(eos_token_id if isinstance(eos_token_id, list) else [eos_token_id])
+    ended_with_eos = bool(output_token_ids and output_token_ids[-1] in eos_token_ids)
+    return {
+        "text": tokenizer.decode(output_ids, skip_special_tokens=True),
+        "text_with_special_tokens": tokenizer.decode(output_ids, skip_special_tokens=False),
+        "prompt_tokens": prompt_len,
+        "output_tokens": len(output_token_ids),
+        "output_token_ids": output_token_ids,
+        "ended_with_eos": ended_with_eos,
+        "hit_token_limit": len(output_token_ids) >= generation_config["max_new_tokens"]
+        and not ended_with_eos,
+    }
 
 
 def strip_thinking(text):

@@ -12,3 +12,10 @@ zeroshot/*
 !zeroshot/*.run.log
 !zeroshot/*.analysis.md
 !zeroshot/*.csv
+
+!thinking/
+thinking/*
+!thinking/*.json
+!thinking/*.csv
+!thinking/*.run.log
+!thinking/*.analysis.md
