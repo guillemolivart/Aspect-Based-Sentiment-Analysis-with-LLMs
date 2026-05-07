@@ -26,6 +26,8 @@ def parse_args():
     parser.add_argument("--temperature", type=float, default=None)
     parser.add_argument("--top-p", type=float, default=None)
     parser.add_argument("--top-k", type=int, default=None)
+    parser.add_argument("--min-p", type=float, default=None)
+    parser.add_argument("--repetition-penalty", type=float, default=None)
     parser.add_argument("--max-new-tokens", type=int, default=512)
     parser.add_argument("--limit", type=int, default=None)
     parser.add_argument("--start", type=int, default=0)
@@ -36,18 +38,22 @@ def parse_args():
 
 def resolved_generation_config(args):
     if args.thinking:
-        temperature = 0.6 if args.temperature is None else args.temperature
+        temperature = 1.0 if args.temperature is None else args.temperature
         top_p = 0.95 if args.top_p is None else args.top_p
         top_k = 20 if args.top_k is None else args.top_k
     else:
-        temperature = 0.0 if args.temperature is None else args.temperature
+        temperature = 1.0 if args.temperature is None else args.temperature
         top_p = 1.0 if args.top_p is None else args.top_p
-        top_k = args.top_k
+        top_k = 20 if args.top_k is None else args.top_k
 
     return {
         "temperature": temperature,
         "top_p": top_p,
         "top_k": top_k,
+        "min_p": 0.0 if args.min_p is None else args.min_p,
+        "repetition_penalty": (
+            1.0 if args.repetition_penalty is None else args.repetition_penalty
+        ),
         "max_new_tokens": args.max_new_tokens,
     }
 
@@ -95,8 +101,15 @@ def default_output_name(data_path, prompt_name, generation_config, thinking):
     temp = generation_config["temperature"]
     top_p = generation_config["top_p"]
     top_k = generation_config["top_k"]
+    min_p = generation_config["min_p"]
+    repetition_penalty = generation_config["repetition_penalty"]
+    max_new_tokens = generation_config["max_new_tokens"]
     top_k_part = "none" if top_k is None else str(top_k)
-    name = f"ZS.{data_path.stem}.{prompt_name}.{mode}.t{temp}.p{top_p}.k{top_k_part}.json"
+    name = (
+        f"ZS.{data_path.stem}.{prompt_name}.{mode}"
+        f".t{temp}.p{top_p}.k{top_k_part}.mp{min_p}.rp{repetition_penalty}"
+        f".m{max_new_tokens}.json"
+    )
     return OUTPUT_DIR / name
 
 

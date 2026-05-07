@@ -124,8 +124,14 @@ def generate(model, tokenizer, model_inputs, generation_config):
         )
         if generation_config["top_k"] is not None:
             kwargs["top_k"] = generation_config["top_k"]
+        if generation_config.get("min_p") is not None:
+            kwargs["min_p"] = generation_config["min_p"]
     else:
         kwargs["do_sample"] = False
+
+    repetition_penalty = generation_config.get("repetition_penalty")
+    if repetition_penalty is not None and repetition_penalty != 1.0:
+        kwargs["repetition_penalty"] = repetition_penalty
 
     with torch.no_grad():
         generated_ids = model.generate(**model_inputs, **kwargs)

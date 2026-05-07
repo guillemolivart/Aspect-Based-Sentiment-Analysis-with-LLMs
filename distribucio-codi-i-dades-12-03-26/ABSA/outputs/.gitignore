@@ -1,2 +1,13 @@
 *
 !.gitignore
+
+!baselines/
+baselines/*
+!baselines/summary.devel.csv
+
+!zeroshot/
+zeroshot/*
+!zeroshot/*.json
+!zeroshot/*.stats.txt
+!zeroshot/*.run.log
+!zeroshot/*.analysis.md
