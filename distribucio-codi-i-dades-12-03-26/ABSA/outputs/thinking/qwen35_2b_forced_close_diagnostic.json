@@ -1,0 +1,192 @@
+{
+  "model": "Qwen/Qwen3.5-2B",
+  "prompt": "absa_v2",
+  "end_ids": [
+    248069
+  ],
+  "records": [
+    {
+      "index": 0,
+      "id": "es_matilde-la-zaragoza_comment-4639",
+      "text": "Excelente atención y calidad",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "cases": [
+        {
+          "case": "nothink_empty_think_template",
+          "prompt_tail": "\n\nReview language: es\nReview text:\nExcelente atención y calidad<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+          "output_tokens": 10,
+          "output": "{\"restaurant_general\": \"positive\"}\n",
+          "prediction": {
+            "restaurant_general": "positive"
+          },
+          "counts": {
+            "predicted": 1,
+            "expected": 3,
+            "ok": 1,
+            "prf": [
+              100.0,
+              33.333333333333336,
+              50.0
+            ]
+          },
+          "elapsed_sec": 1.3253860473632812
+        },
+        {
+          "case": "manual_empty_forced_close",
+          "output_tokens": 15,
+          "output": "{\n  \"restaurant_general\": \"positive\"\n}\n",
+          "prediction": {
+            "restaurant_general": "positive"
+          },
+          "counts": {
+            "predicted": 1,
+            "expected": 3,
+            "ok": 1,
+            "prf": [
+              100.0,
+              33.333333333333336,
+              50.0
+            ]
+          },
+          "elapsed_sec": 0.7019071578979492
+        },
+        {
+          "case": "partial_512_then_forced_close",
+          "partial_tokens": 512,
+          "partial_closed_naturally": false,
+          "partial_tail": "tions (similar to food but for drinks).\n            *   ambience: atmosphere, decor, comfort, noise, cleanliness, space, suitability.\n            *   service: staff, attention, kindness, speed, professionalism, reservations, waiting, coordination, treatment.\n            *   location: position, neighborhood, access, surroundings, view.\n            *   *Constraint Note:* If multiple statements discuss the same aspect, return one final polarity. If several statements discuss the same aspect, return one final polarity for that aspect. (This implies summarizing the aspect).\n        *   *Constraint Note:* \"Do not infer unsupported categories.\"\n        *   *Constraint Note:* \"A mention without evaluation is not enough.\"\n\n2.  **Analyze the Input Text:**\n    *   **Text:** \"Excelente atención y calidad\"\n    *   **Language:** Spanish.\n    *   **Translation/Interpretation:** \"Excellent attention and",
+          "output_tokens": 96,
+          "output": "**Aspect:** \"quality\"\n**Polarity:** \"positive\"\n\n**Review:** \"Excelente atención y calidad\"\n**Source Language:** Spanish\n**Language to Output:** English\n\n**Aspect Mapping:**\n*   \"Atención\": service\n*   \"Calidad\": food_quality\n\n**Text:** \"Excelente atención y calidad\"\n*   **Atención**: This implies service quality/profession. It relates to \"service\".\n*   **",
+          "prediction": {},
+          "counts": {
+            "predicted": 0,
+            "expected": 3,
+            "ok": 0,
+            "prf": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "elapsed_sec": 21.297424793243408
+        },
+        {
+          "case": "partial_1024_then_forced_close",
+          "partial_tokens": 1024,
+          "partial_closed_naturally": false,
+          "partial_tail": "itive`.\n        *   Wait, does \"quality\" imply `food_quality` specifically?\n        *   The prompt valid aspects list: `food_quality: opinion about food taste, freshness, cooking, ingredients, or quality.`\n        *   So \"Calidad\" maps to `food_quality`.\n        *   The prompt valid aspects list: `service: opinion about staff, attention...`.\n        *   So \"Atención\" maps to `service`.\n        *   Wait, if the review says \"Excellent attention\", is it `service`? Yes.\n        *   Is it `restaurant_general`? No, that's too broad/overall.\n        *   So we have two distinct aspects: `service` and `food_quality`.\n        *   Both have positive sentiment (\"Excelente\" = excellent/positive).\n\n4.  **Check Constraints:**\n    *   \"Neutral means an explicitly evaluated aspect is average, acceptable, normal, okay, correct, or neither good nor bad.\"\n    *   \"Do not infer unsupported categories.\"\n    *",
+          "output_tokens": 16,
+          "output": "{\"service\": \"positive\", \"food_quality\": \"positive\"}\n",
+          "prediction": {
+            "service": "positive",
+            "food_quality": "positive"
+          },
+          "counts": {
+            "predicted": 2,
+            "expected": 3,
+            "ok": 2,
+            "prf": [
+              100.0,
+              66.66666666666667,
+              80.0
+            ]
+          },
+          "elapsed_sec": 36.14867448806763
+        }
+      ]
+    },
+    {
+      "index": 131,
+      "id": "es_balmes_rossello_58_RaulHervas_2014-01-26",
+      "text": "Restaurante para no tirar cohetes pero en general sales satisfecho.",
+      "gold": {
+        "restaurant_general": "neutral"
+      },
+      "cases": [
+        {
+          "case": "nothink_empty_think_template",
+          "prompt_tail": "ante para no tirar cohetes pero en general sales satisfecho.<|im_end|>\n<|im_start|>assistant\n<think>\n\n</think>\n\n",
+          "output_tokens": 10,
+          "output": "{\"restaurant_general\": \"positive\"}\n",
+          "prediction": {
+            "restaurant_general": "positive"
+          },
+          "counts": {
+            "predicted": 1,
+            "expected": 1,
+            "ok": 0,
+            "prf": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "elapsed_sec": 0.5280194282531738
+        },
+        {
+          "case": "manual_empty_forced_close",
+          "output_tokens": 10,
+          "output": "{\"restaurant_general\": \"positive\"}\n",
+          "prediction": {
+            "restaurant_general": "positive"
+          },
+          "counts": {
+            "predicted": 1,
+            "expected": 1,
+            "ok": 0,
+            "prf": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "elapsed_sec": 0.5306777954101562
+        },
+        {
+          "case": "partial_512_then_forced_close",
+          "partial_tokens": 512,
+          "partial_closed_naturally": false,
+          "partial_tail": "atisfecho.\"\n    *   Translation/Meaning: \"Restaurant for not firing rockets [metaphorical] but in general sells satisfied [sales satisfied, likely a typo for 'satisfecho', meaning 'satisfied'].\"\n    *   \"Restaurante\" = Restaurant.\n    *   \"para no tirar cohetes\" = \"for not shooting rockets\" (Metaphor: \"rocket\" here likely refers to a very high price/standard of service or a specific context joke, but primarily it's a \"rocket fueling\" idiom? Or \"rocket fueling\"? In context of Spanish slang, \"tira cohetes\" might mean \"throwing rockets\"? No, \"tira cohetes\" usually implies high risk or violence metaphorically in a specific slang, but in restaurant slang, it often means \"too high\" or \"expensive\". However, looking closely: \"tira cohetes\" usually translates to \"throwing rockets\". But wait, in Spanish, there's a slang term \"tira de cohetes\"? No. Wait, looking at the phrase \"para no tirar cohetes",
+          "output_tokens": 96,
+          "output": "    The instruction \"para no tirar cohetes\" is ambiguous. In some slang contexts, \"cohetes\" could imply a high price point (like expensive fireworks in a restaurant context? No, that doesn't make sense). Let's re-read the text carefully: \"Restaurante para no tirar cohetes pero en general sales satisfecho\".\n    \"para no tirar cohetes\" -> \"to not shoot rockets\". This might be slang. In",
+          "prediction": {},
+          "counts": {
+            "predicted": 0,
+            "expected": 1,
+            "ok": 0,
+            "prf": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "elapsed_sec": 21.335034608840942
+        },
+        {
+          "case": "partial_1024_then_forced_close",
+          "partial_tokens": 1024,
+          "partial_closed_naturally": false,
+          "partial_tail": "satisfecho.\"\n        *   Interpretation: \"Restaurant for not shooting rockets but generally [sales] satisfied.\"\n        *   Wait, looking closely at the word \"sales\". In Spanish, \"sales\" can be a typo for \"satisfeciones\"? No. \"sales\" could be \"sales\" (verb 'to sell' or 'salesmen').\n        *   Actually, looking at the pattern: \"Restaurante para no tirar cohetes pero en general [se] satisfecho\" or \"Restaurante para no tirar cohetes pero en general [es] satisfecho\".\n        *   Let's assume the sentiment is Positive overall (\"en general satisfecho\").\n        *   But is there an explicit aspect?\n        *   Does it evaluate \"restaurant_general\"? Yes (\"en general sales satisfecho\" -> generally satisfied). \"Restaurante\" is the subject. \"satisfecho\" is the sentiment. This maps to `restaurant_general`.\n        *   Does it evaluate \"service\", \"food_quality\", etc?\n        *   It mentions \"Restaur",
+          "output_tokens": 96,
+          "output": "\"Restaurante para no tirar cohetes pero en general sales satisfecho.\"\nIt seems the phrase \"sales satisfecho\" likely means \"satisfecho\" (satisfied) but misspelled. Or maybe \"se siente satisfecho\". Regardless, \"en general\" sets the sentiment.\nIs \"Restaurante\" evaluated? Yes, generally the overall state.\nKey: \"restaurant_general\". Value: \"positive\".\nOr does",
+          "prediction": {},
+          "counts": {
+            "predicted": 0,
+            "expected": 1,
+            "ok": 0,
+            "prf": [
+              0.0,
+              0.0,
+              0.0
+            ]
+          },
+          "elapsed_sec": 38.98598074913025
+        }
+      ]
+    }
+  ]
+}
