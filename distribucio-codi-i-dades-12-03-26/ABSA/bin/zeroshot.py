@@ -27,6 +27,7 @@ def parse_args():
     parser.add_argument("--top-p", type=float, default=None)
     parser.add_argument("--top-k", type=int, default=None)
     parser.add_argument("--min-p", type=float, default=None)
+    parser.add_argument("--presence-penalty", type=float, default=None)
     parser.add_argument("--repetition-penalty", type=float, default=None)
     parser.add_argument("--max-new-tokens", type=int, default=512)
     parser.add_argument("--limit", type=int, default=None)
@@ -41,16 +42,23 @@ def resolved_generation_config(args):
         temperature = 1.0 if args.temperature is None else args.temperature
         top_p = 0.95 if args.top_p is None else args.top_p
         top_k = 20 if args.top_k is None else args.top_k
+        presence_penalty = (
+            1.5 if args.presence_penalty is None else args.presence_penalty
+        )
     else:
         temperature = 1.0 if args.temperature is None else args.temperature
         top_p = 1.0 if args.top_p is None else args.top_p
         top_k = 20 if args.top_k is None else args.top_k
+        presence_penalty = (
+            2.0 if args.presence_penalty is None else args.presence_penalty
+        )
 
     return {
         "temperature": temperature,
         "top_p": top_p,
         "top_k": top_k,
         "min_p": 0.0 if args.min_p is None else args.min_p,
+        "presence_penalty": presence_penalty,
         "repetition_penalty": (
             1.0 if args.repetition_penalty is None else args.repetition_penalty
         ),
@@ -102,12 +110,14 @@ def default_output_name(data_path, prompt_name, generation_config, thinking):
     top_p = generation_config["top_p"]
     top_k = generation_config["top_k"]
     min_p = generation_config["min_p"]
+    presence_penalty = generation_config["presence_penalty"]
     repetition_penalty = generation_config["repetition_penalty"]
     max_new_tokens = generation_config["max_new_tokens"]
     top_k_part = "none" if top_k is None else str(top_k)
     name = (
         f"ZS.{data_path.stem}.{prompt_name}.{mode}"
-        f".t{temp}.p{top_p}.k{top_k_part}.mp{min_p}.rp{repetition_penalty}"
+        f".t{temp}.p{top_p}.k{top_k_part}.mp{min_p}.pp{presence_penalty}"
+        f".rp{repetition_penalty}"
         f".m{max_new_tokens}.json"
     )
     return OUTPUT_DIR / name

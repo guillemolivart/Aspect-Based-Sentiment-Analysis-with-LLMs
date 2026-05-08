@@ -137,6 +137,19 @@ def generate_with_metadata(model, tokenizer, model_inputs, generation_config):
     if repetition_penalty is not None and repetition_penalty != 1.0:
         kwargs["repetition_penalty"] = repetition_penalty
 
+    presence_penalty = generation_config.get("presence_penalty")
+    if presence_penalty is not None and presence_penalty != 0.0:
+        from transformers import LogitsProcessorList
+
+        kwargs["logits_processor"] = LogitsProcessorList(
+            [
+                PresencePenaltyLogitsProcessor(
+                    presence_penalty,
+                    prompt_length=model_inputs["input_ids"].shape[-1],
+                )
+            ]
+        )
+
     with torch.no_grad():
         generated_ids = model.generate(**model_inputs, **kwargs)
 
@@ -156,6 +169,26 @@ def generate_with_metadata(model, tokenizer, model_inputs, generation_config):
         "hit_token_limit": len(output_token_ids) >= generation_config["max_new_tokens"]
         and not ended_with_eos,
     }
+
+
+class PresencePenaltyLogitsProcessor:
+    def __init__(self, penalty, prompt_length):
+        self.penalty = float(penalty)
+        self.prompt_length = int(prompt_length)
+
+    def __call__(self, input_ids, scores):
+        import torch
+
+        if self.penalty == 0.0:
+            return scores
+
+        for row, sequence in enumerate(input_ids):
+            generated = sequence[self.prompt_length :]
+            if generated.numel() == 0:
+                continue
+            seen_tokens = torch.unique(generated)
+            scores[row, seen_tokens] -= self.penalty
+        return scores
 
 
 def strip_thinking(text):

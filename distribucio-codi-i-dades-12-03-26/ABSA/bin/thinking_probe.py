@@ -35,6 +35,7 @@ def parse_args():
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--top-k", type=int, default=20)
     parser.add_argument("--min-p", type=float, default=0.0)
+    parser.add_argument("--presence-penalty", type=float, default=1.5)
     parser.add_argument("--repetition-penalty", type=float, default=1.0)
     parser.add_argument("--max-new-tokens", type=int, default=4096)
     parser.add_argument("--limit", type=int, default=20)
@@ -50,6 +51,7 @@ def generation_config(args):
         "top_p": args.top_p,
         "top_k": args.top_k,
         "min_p": args.min_p,
+        "presence_penalty": args.presence_penalty,
         "repetition_penalty": args.repetition_penalty,
         "max_new_tokens": args.max_new_tokens,
     }
@@ -73,7 +75,7 @@ def select_examples(examples, args):
 def default_paths(data_path, prompt_name, config):
     name = (
         f"qwen35_2b_think_{data_path.stem}_{prompt_name}"
-        f"_m{config['max_new_tokens']}.pilot"
+        f"_pp{config['presence_penalty']}_m{config['max_new_tokens']}.pilot"
     )
     return (
         DEFAULT_OUTPUT_DIR / f"{name}.json",
