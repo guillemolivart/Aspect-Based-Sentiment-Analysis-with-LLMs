@@ -1,0 +1,2159 @@
+{
+  "summary": {
+    "generation_config": {
+      "temperature": 0.6,
+      "top_p": 0.8,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 2.0,
+      "repetition_penalty": 1.0,
+      "max_new_tokens": 512
+    },
+    "examples": 132,
+    "time_sec": 138.60015892982483,
+    "sec_per_example": 1.0500012040138245,
+    "precision_macro": 72.12391774891776,
+    "recall_macro": 60.85046897546899,
+    "f1_macro": 64.13517458972002,
+    "precision_micro": 73.8544474393531,
+    "recall_micro": 60.352422907488986,
+    "f1_micro": 66.42424242424241
+  },
+  "examples": [
+    {
+      "text": "Excelente atención y calidad",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_matilde-la-zaragoza_comment-4639",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Muy agradable y servicial!!!Muy recomendablePara repetir",
+      "gold": {
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_la_poma_21_EvaCorominasMateo_2014-05-04",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "This place is incredibly tiny.They refuse to seat parties of 3 or more on weekends.The hostess is rude to the point of being offensive.The food was bland oily.I just don't understand all the hype...",
+      "gold": {
+        "service": "negative",
+        "food_quality": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "1131595",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "negative",
+        "food_quality": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"service\": \"negative\", \"food_quality\": \"negative\"}\n"
+    },
+    {
+      "text": "Desde que lo descubrí hace unos años, siempre que voy a barcelona, voy a l ólive.me encanta.",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_l_olive_14_ClaraGarcia_2013-03-21",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Un sitio recomendable en pleno centro de barcelona",
+      "gold": {
+        "location": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_9reinas_28_JoseManuelBarcenaFernandez_2013-07-20",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "La verdad es que resulta muy caro para lo que recibes.Tenia unas expectativas muy altas tras haber estado en el Barcelonta de mismo grupo, sinembargo me decepcionó muchísimo: comida recalentada, mucho ruido, mesas muy cerca, trato frio y desagradable...No pienso volver.",
+      "gold": {
+        "restaurant_prices": "negative",
+        "food_quality": "negative",
+        "ambience": "negative",
+        "service": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "es_l_olive_68_Anonimo_2009-05-06",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "negative",
+        "service": "negative",
+        "ambience": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"negative\", \"service\": \"negative\", \"ambience\": \"negative\", \"drinks_prices\": null, \"location\": null}\n"
+    },
+    {
+      "text": "Muy buen servicio y ambiente.La comida nos gustó a todos.Un pelo más caro de lo que esperábamos.Ambiente muy agradable y animado.Recomendable.",
+      "gold": {
+        "service": "positive",
+        "ambience": "positive",
+        "food_quality": "positive",
+        "restaurant_prices": "negative",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cafe_kafka_27_AlexG_2013-04-14",
+      "language": "es",
+      "prediction": {
+        "service": "positive",
+        "ambience": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"service\": \"positive\", \"ambience\": \"positive\", \"food_quality\": \"positive\", \"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "Me ha causado una gratisima impresión, tanto en la calidad de sus productos como en el exquisito trato de su personal.Repetiré cuando regrese por Barcelona y ya he recomendado a mis amigos.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_l_olive_33_Pepe_2011-04-24",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Personal amable pero la comida muy floja.Sin ninguna gracia, arroz poco sabroso.No lo recomendaría!!!",
+      "gold": {
+        "service": "positive",
+        "food_quality": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "es_cullera_de_boix_48_Anna_2013-02-12",
+      "language": "es",
+      "prediction": {
+        "food_quality": "negative"
+      },
+      "raw_generation": "{\"personal_amable\": \"positive\", \"food_quality\": \"negative\"}\n"
+    },
+    {
+      "text": "Ultimamente hemos ido en varias ocasiones a la Bodega de Chema.La especialidad del restaurante (cabrito con patatas) es espectacular.Además es en el único sitio en el que se puede comer con garantías y gran calidad.Raciones generosas y precios cerrados sin sorpresas, lo cual es muy raro actualmente.Es decir, relación calidad precio muy buena.Los entrantes excelentes (mi debilidad es el huevo pochado).No perderse el sorbete de mojito.Ya hemos repetido y volveremos a hacerlo.",
+      "gold": {
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "food_prices": "positive",
+        "drinks_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_bodega-de-chema-la-zaragoza_comment-4180",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "neutral",
+        "ambience": "negative",
+        "drinks_style_options": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"neutral\", \"ambience\": \"negative\", \"drinks_style_options\": \"positive\"}\n"
+    },
+    {
+      "text": "He ido un par de veces a cenar y no ha estado del todo mal.Degusté el tomate a la andaluza, unas ortigillas de mar fritas, un besugo a la espalda y un postre se supone casero (pero no), típica tarta prefabricada y descongelada.Decir que tanto el tomate (buenísimo) como el besugo estaba en su punto, pero hubo varias cosas que no cuadraban.Las ortiguillas no se parecían en nada al recuerdo que yo tenía de las de Cádiz, había un par de personas fumando en zona de no fumadores, pero lo peor de todo fue la manera de atendernos de la “maitre”, era seria, seca, arisca y parecía estar dos o tres escalones por debajo del lugar en el que trabajaba, estaba poco dispuesta a nuestra atención ya que se le veía todo el rato en la cocina hablando con otra de sus compañeras.",
+      "gold": {
+        "restaurant_general": "negative",
+        "food_quality": "conflict",
+        "ambience": "negative",
+        "service": "negative"
+      },
+      "id": "es_puerto-de-santa-maria-zaragoza_comment-3144",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "negative",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"mixed\", \"service\": \"negative\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "This is an amazing place to try some roti rolls.I really recommend the very simple Unda (Egg) rolls.Delicate spices, onions, eggs and a kick-ass roti.Amazing!",
+      "gold": {
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "680345",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "As a retired hipster, I can say with some degree of certainty that for the last year Lucky Strike has been the best laid-back late night in the city.The wait staff is pleasant, fun, and for the most part gorgeous (in the wonderful aesthetic beautification way, not in that she's-way-cuter-than-me-that-b@#$* way).The food is yummy, especially their cooked-to-perfection mussels in spicy tomato sauce and their shoestring crispy fries.But the best part about LS is the late night atmosphere, delightfully free of the BTs.You can get a completely delish martini in a glass (that's about 2 1/2 drinks) for $8.50 (I recommend the Vanilla Shanty, mmmm!) in a great homey setting with great music.The in-house lady DJ on Saturday nights has outrageously good taste in music, and moreover, takes requests.You can't go wrong with this place.",
+      "gold": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "positive",
+        "drinks_quality": "positive",
+        "drinks_style_options": "positive",
+        "drinks_prices": "positive"
+      },
+      "id": "490565",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "positive",
+        "drinks_style_options": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"positive\", \"drinks_style_options\": \"positive\"}\n"
+    },
+    {
+      "text": "To celebrate a birthday, three of us went to Mare anticipating great food.Not one of our meals was edible - bland and/or made with weird rosemary or orange flavoring.Fish was overdone.Cute place, nice wait staff but would never go there again.Someone else recommended the dessert - we also left that.One of us actually liked the expresso - that's it.Skip this restaurant, it's a big disappointment.",
+      "gold": {
+        "food_quality": "negative",
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "negative"
+      },
+      "id": "1404042",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "negative",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"negative\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Un menú rico.Me ha encantado poder degustar tres entrantes y elegir un segundo.Servicio amable y profesional.Un detalle poder llevarse la comida que sobraba (iba con una persona mayor que no come mucho y le han puesto la corvina sobrante en un envase).Sitio a recordar.",
+      "gold": {
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_bodega-de-chema-la-zaragoza_comment-4372",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Chintzy portions– The sushi here is perfectly good, but for $5 a piece, either the slices of fish should be larger, or there should be no pretense that this is a moderately priced restaurant (even for NYC).We easily spent more than $40 per person (not including alcohol) and were still hungry.I'm astonished that this restaurant is categorized as $$$ rather than $$$$.",
+      "gold": {
+        "food_quality": "positive",
+        "food_style_options": "negative",
+        "food_prices": "negative",
+        "restaurant_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "en_BlueRibbonSushi_478219459",
+      "language": "en",
+      "prediction": {
+        "food_quality": "positive",
+        "restaurant_prices": "negative"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"restaurant_prices\": \"negative\"}\n"
+    },
+    {
+      "text": "Prefiero no opinar por el desengaño que tuve.",
+      "gold": {
+        "restaurant_general": "negative"
+      },
+      "id": "es_l_olive_20_JosepLlopisGimeno_2012-03-20",
+      "language": "es",
+      "prediction": {},
+      "raw_generation": "{}\n"
+    },
+    {
+      "text": "Terrible Waste of money.. scammersI agree that dining at Casa La Femme is like no other dining experience!BUT not in a good way.I am actually offended to have spent so much money on such a bad experience.I literally just got back home after visiting Casa La Femme and was so offended by my visit felt it necessary to try and warn other diners who value their money and time.We went to celebrate two birthdays and wanted to do something special and different.Our visit their to say the least, was an unpleasant and costly experience!And even more so unpleasant because it was so costly for such an unpleasant experience.We did arrive late for our reservation so I can not complain too much about the wait for a table.Although we were told 10-15 minutes and it was more like 45 minutes.We were ushered to the bar to wait momentarily and upon arrival were so excited.The place is beautiful!The hostess was very pleasant.However, our $14 drinks were were horrible!Once we finally got a table, despite indicating we wanted an alla carte menu we were pushed into a table that was only price fixed!Since we were already waiting so long, we felt we had no other choice but to accept it.Our experience did not ever get any better.For each course we waited over 1/2 hour to 45 minutes and were never offered a drink.We also asked for Hooka six times and the waiter kept telling us one minute and never returning with the Hooka.After the 4th time i asked again and the waiter than said after our dinner.We asked for beverages and never received them.We asked for sides which the waiter than admitted that he forgot to put in that part of our order.My chicken was inedible as there were so many fatty lumps which i had to keep spitting out into my napkin.I would not expect this for a $55 dinner.By the time we finished our dinner we still had not received one beverage NOR hooka!What we did do was waste 3 hours being trapped in a table waiting and waiting for food and drinks and hooka.. some of which we never received!The only beverage we did receive was water in dirty glasses!To top it all off.. the main reason we came to your restaurant was for the belly dancers and missed the first show as we were not seated yet and the 2nd belly dancer only danced at two tables in the back of the restaurant and never made it around to the other half of the restaurant.By the time we left our wallets were empy and so were our stomachs AND we missed the show we were supposed to see following our dinner, which would have been acceptable if we got to enjoy the experience of good food and belly dancers!If it seemed possible to do so while there I would have fought my bill since my dinner portion of my meal was inedible!I have never left a restaurant feeling as if i was abused, and wasted my hard earned money.MY husbands birthday and my sons was not as it was intended... and we drove two hours to spend too much money to be treated terribly!I wish I COULD be refunded!",
+      "gold": {
+        "restaurant_general": "negative",
+        "restaurant_prices": "negative",
+        "service": "negative",
+        "ambience": "positive",
+        "drinks_quality": "negative",
+        "drinks_prices": "negative",
+        "food_quality": "negative",
+        "food_prices": "negative"
+      },
+      "id": "CLF#3",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "negative",
+        "service": "negative",
+        "ambience": "positive",
+        "drinks_quality": "negative",
+        "location": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"negative\", \"service\": \"negative\", \"ambience\": \"positive\", \"drinks_quality\": \"negative\", \"location\": \"neutral\"}\n"
+    },
+    {
+      "text": "Ayer cenamos en este restaurante y realmente estaba todo exquisito.Las sardinas a la brasa espectaculares.El Minicuit igual.La Tarta de manzana, hummmm.Realmente nos encanto el restaurante y el trato.Totalmente aconsejable.Enhorabuena.",
+      "gold": {
+        "food_quality": "positive",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "id": "es_ratatouille-zaragoza_comment-4799",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Todo estuvo muy bien",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_salamanca_20_EliasMansilla_2014-10-18",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "Lucky Strike is a great casual place to just grab a bite to eat.Yeah the crowd can take it a bit seriously, but it shouldn't.Great food, great decor, great service.I recommend it!Just ignore the trendy wannabes.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "ambience": "positive",
+        "service": "positive"
+      },
+      "id": "530517",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\", \"ambience\": \"positive\"}\n"
+    },
+    {
+      "text": "<->Aunque los productos sean de calidad el precio es elevado<+>El local y su situación",
+      "gold": {
+        "food_quality": "positive",
+        "food_prices": "negative",
+        "restaurant_general": "conflict"
+      },
+      "id": "es_barceloneta_0_Jesus_2015-09-07",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "positive",
+        "location": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"positive\", \"location\": \"neutral\"}\n"
+    },
+    {
+      "text": "Not because you are \"The Four Seasons\"... – you are allowed to charge an arm and a leg for a romatic dinner.The food was excellent as well as service, however, I left The Four Seasons very dissappointed.I do not think dinner in Manhattan should cost $400.00 where I am not swept off my feet.",
+      "gold": {
+        "restaurant_prices": "negative",
+        "food_quality": "positive",
+        "service": "positive",
+        "restaurant_general": "negative",
+        "food_prices": "negative"
+      },
+      "id": "TFS#8",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"service\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Copio lo que ya escribí hace unas semanas en otra página web tras mi, también dolorasa, visita a este sótano.” Fui con unos amigos a los que les había dado una buena impresión tomando unas tapas.Hay un listado de sugerencias plastificado y sin precio, incluido en la carta y tan largo como la carta.Además te leen aún más sugerencias.Pedimos varias de las sugerencias del listado, porque la carta normal era muy poco original.¡Todas costaron entre 23 y 28 €, hasta las ensaladas!Muy caro, carísimo para la calidad.Además teniendo que correr para salir a tiempo, porque hacen turnos para cenar.¡A estos precios me parece un insulto!Yo no voy a volver.",
+      "gold": {
+        "restaurant_general": "negative",
+        "food_style_options": "negative",
+        "food_prices": "negative",
+        "restaurant_prices": "negative",
+        "service": "negative"
+      },
+      "id": "es_la-despensa_comment-786",
+      "language": "es",
+      "prediction": {
+        "food_quality": "negative",
+        "restaurant_prices": "negative",
+        "drinks_style_options": "neutral"
+      },
+      "raw_generation": "{\"food_quality\": \"negative\", \"restaurant_prices\": \"negative\", \"drinks_style_options\": \"neutral\"}\n"
+    },
+    {
+      "text": "Buen ambiente, buena comida, un sitio recomendable.",
+      "gold": {
+        "ambience": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_91_JuanCarlosGallegoMartinez_2012-03-25",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Me ha encantado lo mismo que a los tres compañeros que me acompañaron.La comida, la presentación y el servicio muy buenos.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "id": "es_barceloneta_91_NicolasPerezPerez_2011-02-17",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Muy bueno restaurante.",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_cullera_de_boix_86_MonicaDeOliveira_2011-11-24",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "I was speechless by the horrible food.I attended a holiday dinner at the restaurant, and the food was majorly disappointing.Rather than eating the meat entree being offered, I requested a vegetarian dish.Rather than preparing vegetarian dish, the chef presented me with a plate of steamed vegetables (minus sauce, seasoning, or any form or aesthetic presentation).I was so stunned, and I left the dinner hungry and majorly disappointing.This place survives on reputation alone.I will NEVER return.",
+      "gold": {
+        "food_quality": "negative",
+        "service": "negative",
+        "food_style_options": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "TFS#11",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"negative\"}\n"
+    },
+    {
+      "text": "La calidad de la comida excelente, el servicio super amable y siempre atento.El ambiente muy acogedor.Una experiencia culinaria inolvidable.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_9reinas_56_Michael_2011-09-28",
+      "language": "es",
+      "prediction": {
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"service\": \"positive\", \"ambience\": \"positive\"}\n"
+    },
+    {
+      "text": "Always good.– A sushi-fiend friend recently visited and our group of three just had to come for dinner.6pm on a Sat before a Broadway play and we were quickly seated and served.Amazing Spanish Mackeral special appetizer and perfect box sushi (that eel with avodcao -- um um um).As usual the omikase didn't disappoint in freshness, although it scored low on creativity and selection.Their specialty rolls are impressive, though I can't remember what we had.Great selection of sakes.Green tea creme brulee gets better each time I have it.It isn't the cheapest sushi but has been worth it every time.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "food_style_options": "negative",
+        "drinks_style_options": "positive",
+        "food_prices": "neutral",
+        "restaurant_general": "positive"
+      },
+      "id": "en_BlueRibbonSushi_478218524",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "neutral",
+        "ambience": "neutral",
+        "drinks_style_options": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"neutral\", \"ambience\": \"neutral\", \"drinks_style_options\": \"positive\"}\n"
+    },
+    {
+      "text": "Fuimos a comer una calçotada y no hubo queja.Muy buena la comida, un local muy bien decorado y un excelente servicio.Lo recomiendo.",
+      "gold": {
+        "food_quality": "positive",
+        "ambience": "positive",
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_55_DiegoPostigo_2014-01-28",
+      "language": "es",
+      "prediction": {
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"service\": \"positive\", \"ambience\": \"positive\", \"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "Servicio muy bueno, quedamos contentos de la calçotada.",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_96_Marivi_2012-02-10",
+      "language": "es",
+      "prediction": {
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"service\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Food was good and the view of the new york city skiline was terrific even on a foggy rainy day like that of when I went.I would highly recommand requesting a table by the window.Although they do the typical what kind of water would you like questions the service was good and overall very relaxing to place to eat.",
+      "gold": {
+        "food_quality": "positive",
+        "location": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "773720",
+      "language": "en",
+      "prediction": {
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "este domingo 15 de marzo me desplace desde galicia con unos amigos para competir en la maraton de bcn.Como soy de la tierra, les dije de ir a comer una calçotada para que probaran algo que en Galicia no se suele comer.Por temas logísticos, busque un lugar dentro de bcn, cerca del hotel, aunque yo pensaba en que se comería mejor en alguna masia.Pues tengo que decir que fue un exito.Les encanto a todos, muy buenos, bien hechos, y las carnes, patatas al caliu, alcachofas y escalibadas, realmente buenas.Salieron encantados, y yo más.Me encanta llevar a la gente a mi tierra y que vuelvan encantados del trato y de la gente.Muy recomendable, tanto la calidad como el servicio.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "id": "es_maur_muntaner_3_CarlosReinleinFarre_2015-03-16",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Pésimo.El trato de los camareros hacia los clientes fue bastante malo: bordes, malas caras, etc...La comida fatal y para colmo el precio.Es caro y se come mal",
+      "gold": {
+        "restaurant_general": "negative",
+        "service": "negative",
+        "food_quality": "negative",
+        "food_prices": "neutral",
+        "restaurant_prices": "negative"
+      },
+      "id": "es_cullera_de_boix_114_Meri_2008-03-16",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "negative",
+        "service": "negative",
+        "ambience": "neutral",
+        "drinks_style_options": "neutral",
+        "location": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"negative\", \"service\": \"negative\", \"ambience\": \"neutral\", \"drinks_style_options\": \"neutral\", \"location\": \"neutral\"}\n"
+    },
+    {
+      "text": "sorpresa agradable.",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_cullera_de_boix_90_EvaGonzalez_2011-03-25",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "La mejor carne que he comido en Barcelona.",
+      "gold": {
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_9reinas_36_LuisAlbertoReyesFigueroa_2013-03-24",
+      "language": "es",
+      "prediction": {
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "Repito cada vez que puedo, con la familia o con la empresa.La atención es exquisita y la comida (fideua,arroces y entrantes) de muy buena calidad.El precio lo vale y el entorno más.",
+      "gold": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_prices": "positive",
+        "ambience": "positive"
+      },
+      "id": "es_barceloneta_130_Alvaro_2008-03-21",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\", \"ambience\": \"positive\"}\n"
+    },
+    {
+      "text": "Went on a 3 day oyster binge, with Fish bringing up the closing, and I am so glad this was the place it O trip ended, because it was so great!Service was devine, oysters where a sensual as they come, and the price can't be beat!!!You can't go wrong here.",
+      "gold": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_prices": "positive"
+      },
+      "id": "1028246",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "neutral",
+        "drinks_style_options": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"neutral\", \"drinks_style_options\": \"negative\"}\n"
+    },
+    {
+      "text": "Indo Chinese food, pretty good...Not a very fancy place but very good Chinese style Indian food.The chicken lollipop is my favorite, most of the dishes (I have to agree with a previous reviewer) are quite oily and very spicy, espeically the Chilli Chicken.My mom originally introduced me to this place, but even she (being Indian) feels the food can be somewhat over the top spicy and far too oily.Still we keep going back :)",
+      "gold": {
+        "food_quality": "conflict",
+        "ambience": "neutral",
+        "restaurant_general": "positive"
+      },
+      "id": "TM#4",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "negative",
+        "service": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"negative\", \"service\": \"neutral\"}\n"
+    },
+    {
+      "text": "He ido varias veces a este restaurante por varios motivos: buena relación calidad precio, servicio rápido y atento, muy buena situación (cerca de Pl.Urquinaona) y la comida es exquisita.Totalmente recomendable para cualquier evento: familia, amigos y pareja",
+      "gold": {
+        "food_quality": "positive",
+        "food_prices": "positive",
+        "service": "positive",
+        "location": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cullera_de_boix_14_Ju_2014-12-14",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "location": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"location\": \"positive\"}\n"
+    },
+    {
+      "text": "Un restaurante exceccional, con una calidad de productos impresionantes, el pescado recien traido de San SEBASTIAN, y la carne, en pocos restaurantes la comes como en la sidreria.volveria, siempre que pudiese",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "id": "es_kupela-la-sidreria-zaragoza_comment-3017",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "La calidad de la comida no  corresponde al precio, además las mesas estan demasiado juntas y oyes sin quere todas las conversaciones de alrededor.Definitivamente no volveré, al menos pagando yo.",
+      "gold": {
+        "food_quality": "negative",
+        "food_prices": "negative",
+        "ambience": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "es_l_olive_42_Manuel_2010-11-13",
+      "language": "es",
+      "prediction": {
+        "food_quality": "negative",
+        "restaurant_general": "negative"
+      },
+      "raw_generation": "{\"food_quality\": \"negative\", \"restaurant_general\": \"negative\"}\n"
+    },
+    {
+      "text": "This is one of my favorite spot, very relaxing the food is great all the times , celebrated my engagement and my wedding here , it was very well organized .The staff is very good.Love their drink menu.I highly recommend this beautiful place.",
+      "gold": {
+        "restaurant_general": "positive",
+        "ambience": "positive",
+        "food_quality": "positive",
+        "service": "positive",
+        "drinks_style_options": "positive"
+      },
+      "id": "TR#1",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive",
+        "drinks_style_options": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\", \"drinks_style_options\": \"positive\"}\n"
+    },
+    {
+      "text": "Todo muy bien, hubiera sido perfecto si alguno de los chuletones estuviera mas en su punto, pues nos lo sirvieron demasiado pasado.",
+      "gold": {
+        "food_quality": "neutral",
+        "restaurant_general": "positive"
+      },
+      "id": "es_luis-candelas-zaragoza_comment-4780",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"negative\"}\n"
+    },
+    {
+      "text": "Servicio excelente y un buen ambiente gracias a unos camareros super simpaticos y profesionales.",
+      "gold": {
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cafe_kafka_29_Rafael_2013-03-15",
+      "language": "es",
+      "prediction": {
+        "service": "positive",
+        "ambience": "positive"
+      },
+      "raw_generation": "{\"service\": \"positive\", \"ambience\": \"positive\"}\n"
+    },
+    {
+      "text": "Hacía tiempo no me encontraba con una experiencia en la que no fallara nada y así ha sido.Fui con mi mujer y mis suegros y todos quedaron encantados: servicio, velocidad, puntos de cocción, raciones, calidad/precio,  Solo dos peros: el vino de la casa tenía un punto de rancidumbre y que nos podrían haber puesto en un punto más céntrico del salón.Totalmente recomendable para una comida distendida, con aroma a brasa.",
+      "gold": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "restaurant_prices": "positive",
+        "drinks_quality": "negative"
+      },
+      "id": "es_balmes_rossello_61_EnriqueClaros_2014-01-12",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "drinks_quality": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"speed\": \"neutral\", \"cooking_quality\": \"positive\", \"portion_size\": \"positive\", \"food_quality\": \"positive\", \"price_quality\": \"neutral\", \"drinks_quality\": \"negative\"}\n"
+    },
+    {
+      "text": "Recomendable.",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_70_SoniaFernandezCaras_2013-04-29",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "La comida muy bien, pero si algo destaca por encima de todo, es el atentísimo trato de todo el personal, al que ves con ganas de  que todo este bien para el cliente.Sin dudarlo repetiremos.Si hubiese que poner algún pero, este sería lo justos que estábamos, pero entiendo que con un grupo de 18 y en un día de reyes, no debe ser fácil la ubicación.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "restaurant_general": "positive",
+        "ambience": "neutral"
+      },
+      "id": "es_balmes_rossello_98_FranciscoVidalSerret_2012-01-07",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "location": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"location\": \"negative\"}\n"
+    },
+    {
+      "text": "Conjuga perfectamente calidad,servicio y ambiente.Recomendable.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_l_olive_9_Pedro-LuisSantiago_2014-02-02",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "Holy Hummus!– The food is here is incredible, though the quality is inconsistent during lunch.Dinners have always been excellent, in terms of food quality.The open sesame combo plate is a bargain for the heap of food given.The side of potatoes is to die for, as is the labne (yogurt dip).Also, they serve THE best hummus in America, with a drizzle of fragrant olive oil (which, I believe is the traditional way)!The only drawback is the crowded seating and the slow service.There have been several occasions when we've just not gotten some side dishes we've ordered.However, this place is a gem, and I won't stop going back.",
+      "gold": {
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "food_prices": "positive",
+        "service": "negative",
+        "restaurant_general": "positive"
+      },
+      "id": "en_OpenSesame_477970940",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "negative",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"mixed\", \"service\": \"negative\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Comimos calçots con mis amigos extranjeros, por la noche y en Barcelona... no parecia la mejor manera de introducir este evento tipico catalan a mis amigos, pero en Balmes/Rossello comimos una calçotada digna de la mejor masia.servicio estupendo, brasas de verdad, con alcachofas y parriladas.La salsa romesco estaba increible y no con demasiado ajo que te repite toda la noche como en algunos sitios!Super recomendable!!",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_42_CarlotaAmargos_2014-03-16",
+      "language": "es",
+      "prediction": {
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Servicio excelente, al igual que el solomillo...",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_l_olive_1_JavierNevotMondejar_2015-02-18",
+      "language": "es",
+      "prediction": {
+        "service": "positive"
+      },
+      "raw_generation": "{\"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Excelente descripción Fernando, tenía entendido que La Matilde era bastante más caro, bueno es saber que por ese precio sepuede cenar allí.",
+      "gold": {
+        "restaurant_general": "positive",
+        "restaurant_prices": "positive"
+      },
+      "id": "es_matilde-la-zaragoza_comment-1565",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "neutral",
+        "food_prices": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"neutral\", \"food_prices\": \"negative\"}\n"
+    },
+    {
+      "text": "Hola JoséEn Colette no tienen zona de no fumadores.La verdad es que es un local bastante pequeño.Las mesas son grandes y el espacio entre ellas es bastante amplio.El restaurante estaba bastante lleno (aunque no completo) y sin embargo estuvimos muy tranquilos, con casi total intimidad.Aunque había fumadores en la mesa de al lado no sentimos ninguna molestia durante la comida.Creo que la ventilación era bastante buena, aunque  no sé lo que ocuriría si hubiera mayor número de fumadores o más compulsivos.",
+      "gold": {
+        "ambience": "positive",
+        "restaurant_general": "neutral"
+      },
+      "id": "es_colette-zaragoza_comment-1145",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "ambience": "positive",
+        "location": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"ambience\": \"positive\", \"location\": \"neutral\"}\n"
+    },
+    {
+      "text": "Hemos ido varias veces a cenar al 9reinas y nunca defrauda!La calidad de las carnes el excelente servicio y su buena bodega lo convierte en un lugar espectacular!!Sin duda repetiremos.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive",
+        "drinks_quality": "positive"
+      },
+      "id": "es_9reinas_26_Lucia_2013-12-10",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Best Neighborhood Standby.You Can't Go Wrong Here.– Every neighborhood has a few great local bars that are the best secrets.In Grammercy/Union Square/East Village this is my neighbors and my favorite spot.The music is great, no night better or worse, the bar tenders are generous with the pouring, and the lighthearted atmosphere will lifts you spirits.Seriously, you can't go wrong, if it is unpretentious local fun you seek.Oh, and the cheese fries are awesome!",
+      "gold": {
+        "ambience": "positive",
+        "drinks_style_options": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "en_ProfessorThom's_478606543",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"ambience\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Muy extrañada con los comentarios abajo, este restaurante es uno de mis favoritos, siempre que vienen amigos los llevamos allí, el trato es inmejorable y el dueño es muy querido, amable se integra con la gente.La comida siempre ha sido muy buena, creo que estas personas han tenido mala suerte porque en realidad voy dos o 3 veces al año y siempre slago contenta.",
+      "gold": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "id": "es_salamanca_36_Jenny_2013-02-28",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Muy buena comida y relación calidad-precio.Servicio amable",
+      "gold": {
+        "food_quality": "positive",
+        "food_prices": "positive",
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_36_AnaMariaGonzalez_2014-04-28",
+      "language": "es",
+      "prediction": {
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Esperaba un poco más del arroz, por lo demás, todo muy correcto.",
+      "gold": {
+        "food_quality": "neutral",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cullera_de_boix_72_RicardGrane_2012-02-27",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "neutral",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"neutral\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Love Al Di LaI recommend this place to everyone.Great food.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "id": "ADLT#8",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Me gusto mucho el menú.Para no quedarse con hambre.Con el descuento del 50% sale muy buen precio.",
+      "gold": {
+        "food_style_options": "positive",
+        "restaurant_prices": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cullera_de_boix_31_AlvaroBalbas_2013-10-14",
+      "language": "es",
+      "prediction": {
+        "food_quality": "positive",
+        "restaurant_prices": "negative"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"restaurant_prices\": \"negative\"}\n"
+    },
+    {
+      "text": "Great sushi experience.Nice value.Unique apppetizers.Try sushimi cucumber roll.",
+      "gold": {
+        "food_quality": "positive",
+        "restaurant_prices": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "447697",
+      "language": "en",
+      "prediction": {
+        "food_quality": "positive",
+        "service": "neutral"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"service\": \"neutral\"}\n"
+    },
+    {
+      "text": "Fuimos 21 personas, trato excepcional, la cena estuvo bien.El unico inconveniente el espacio, apenas nos podiamos mover.Por lo demás muy bien.",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "negative",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cullera_de_boix_53_CarmenTorcalCastro_2012-11-14",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "ambience": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"ambience\": \"negative\"}\n"
+    },
+    {
+      "text": "One of the best, if not THE best, restaurants in Park Slope (and NY in general)Everything on the menu is great.This establishment is the real deal.Wish NY had more of these kind of places: intimate, superb food, homey, top notch all the way around, certainly worth the wait.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "ambience": "positive"
+      },
+      "id": "ADLT#3",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Taking Hot Dogs to the next levelAt first glance this place seems a bit pricey for a hot dog joint, but at Bark you don't just get your average hot dog.Here the hot dog is elevated to the level of a real entree with numerous variations available.",
+      "gold": {
+        "food_quality": "positive",
+        "restaurant_prices": "negative",
+        "food_style_options": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "BHD#8",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Our first time in New York and we had to try a New York Bagel.We were not dissappointed in the least bit by this little gem.The bagel was huge.They were served warm and had a soft fluffy interior.The workers there also absolutely load the bagel with cream cheese (gets a little messy).I loved it and would HIGHLY RECOMMEND.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_style_options": "positive",
+        "food_quality": "positive"
+      },
+      "id": "1297844",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "ambiente triston.Te sirven demasiado rapido y los camareros juegan y hablan mientras.Los segundos buenos.Los primeros de picar muy flojos, buñuelos llenos de espinas y seitons amargos.No volveré.",
+      "gold": {
+        "ambience": "negative",
+        "service": "negative",
+        "food_quality": "conflict",
+        "restaurant_general": "negative"
+      },
+      "id": "es_l_olive_51_Johnny_2010-01-17",
+      "language": "es",
+      "prediction": {
+        "ambience": "negative",
+        "service": "negative"
+      },
+      "raw_generation": "{\"ambience\": \"negative\", \"service\": \"negative\"}\n"
+    },
+    {
+      "text": "La comida la verdad muy buena pero la oferta q sale aqui luego no es la mismo de alli me salio  5€ mas caro por pers el menu.por lo demas bastante bien",
+      "gold": {
+        "food_quality": "positive",
+        "food_prices": "negative",
+        "restaurant_general": "conflict"
+      },
+      "id": "es_bodega-de-chema-la-zaragoza_comment-4292",
+      "language": "es",
+      "prediction": {
+        "food_quality": "positive",
+        "restaurant_prices": "negative"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"restaurant_prices\": \"negative\"}\n"
+    },
+    {
+      "text": "Excelente !Muy rica comida y muy buen servicio.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "id": "es_l_olive_60_Luisa_2009-09-07",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "AVOID THE PLACE– Save yourself the waste of time & DO NOT visit.I made my 1st trip to the restaurant after finding their webpage online.When I got there I sat up stairs where the atmosphere was cozy & the service was horrible!I waited for 10-15 minutes for service ordered a beer & was never served again.After sitting there with my empty glass for over 20 minutes I left.I went home & looked them up online again where I discovered there is a link for a give away that doesn't work so emailed the restaurant about the non existent service & deceptive link.I never heard back from anyone more than a month ago.After telling my friend about the situation he said lets try again but we will visit the lower bar.After sitting at the bar for over 20 minutes the bar keep had made only 2 drinks & kept telling us she'd be right with us.We left without ever getting service.As of writing this I just tried their give away a link again & it still doesn't work.There are so many better places to visit!",
+      "gold": {
+        "ambience": "positive",
+        "service": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "en_ParkChaletGardenRestaurant_477778210",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "negative",
+        "ambience": "positive",
+        "drinks_style_options": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"service\": \"negative\", \"ambience\": \"positive\", \"drinks_style_options\": \"negative\"}\n"
+    },
+    {
+      "text": "Para Gonzalo, le voy a contestar brevemente: No me gusta que me peloteen, al personal de sala tampoco le gusta hacerlo, pero a veces hay que reconocer que entra dentro de su “labor” porque hay a quién le gusta, pero es distinto pelotear que interesarse por el bienestar de los comensales, sobre todo cuando se llevan un plato enterito de nuevo a cocina, un “¿no les ha gustado?”, “¿está todo bien?”, a la hora de recoger los platos no molesta,no es peloteo, es educación.Dice que no me cree cuando comento que no entendía a la persona que me traía los platos cuando los presentaba, pues le puedo asegurar que la chica no hablaba castellano ni a medias, ¿qué quiere que le diga?, si quiere pregunte en el restaurante el personal que tenían para esas fechas, es algo tan sencillo de validar que no merece más palabras.Tampoco se cree que me quedé con hambre, pues sí, me quedé con hambre, y a mi me gusta cuando voy a comer a un restaurante, independientemente del nivel y precio, salir comido, sino no lo llamaría ir a comer… podríamos decir ¿vamos a una exhibición de cocina al restaurante Bal d’ Onsera donde incluso, por 80 euros por persona, nos permiten probar un poquito de cada creación?, pero eso sí, luego a comer nos vamos a casa.Finalmente me gustaría agradecerle que haya incluido su nombre y apellidos, como yo lo hago, dando la cara, está muy bien tener diferentes puntos de vista, esto enriquece, yo doy mi opinión y usted la suya.Por desgracia lo habitual es que la gente en internet se esconda y demuestren su cobardía, no es su caso, gracias por su franqueza.",
+      "gold": {
+        "service": "negative",
+        "food_prices": "negative",
+        "food_style_options": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "es_bal-donsera-zaragoza_comment-3238",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "neutral",
+        "ambience": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"service\": \"neutral\", \"ambience\": \"positive\"}\n"
+    },
+    {
+      "text": "Comedor espacioso.Inmejorables vistas.Servicio atento al cliente.Ambiente familiar.Cocina inmejorable.Notable en general.",
+      "gold": {
+        "ambience": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_barceloneta_54_MiguelMercadoVidal_2012-06-24",
+      "language": "es",
+      "prediction": {},
+      "raw_generation": "{\"comedor_espacioso\": \"positive\", \"vistas\": \"positive\", \"servicio_atento_al_cliente\": \"positive\", \"ambiente_familiar\": \"neutral\", \"cocina_inmejorable\": \"positive\", \"notable_en_general\": \"positive\"}\n"
+    },
+    {
+      "text": "I can't believe people complain about no cheese sticks?Who has room for Cheesesticks with the best pizza in NYC!Get the pepperoni - YUM - and a family style salad.Great staff.Always great service!I go twice a month!Fantastic!",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "1543345",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Que en alusion a los comentarios de alguien que se hace pasar por mi persona utilizando mi nombre y haciendo criticas hacia este restaurante.Hago saber que no tengo nada que ver con sus opiniones",
+      "gold": {},
+      "id": "es_colette-zaragoza_comment-2660",
+      "language": "es",
+      "prediction": {},
+      "raw_generation": "{}\n"
+    },
+    {
+      "text": "Para mi gusto, la paella del moll del rellotge está en el punto justo.Un restaurante al que yo calificaría como valor seguro en cuanto a la cocina pero mejorable en servicio aunque sin ser desastroso ni mucho menos.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "neutral",
+        "restaurant_general": "positive"
+      },
+      "id": "es_barceloneta_56_JuanLuis_2012-06-10",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "neutral",
+        "service": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"neutral\", \"service\": \"negative\"}\n"
+    },
+    {
+      "text": "Best drumsticks over rice and sour spicy soup in town!Beef noodle soup is good as well.The service is good and the resturant is clean.Best Taiwanese food in NY!",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "682391",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "The food is good, I can't lie.But the staff was so horrible to us.The hostess and the waitress were incredibly rude and did everything they could to rush us out.We were planning to get dessert but the waitress basically through the bill at us before we had a chance to order.This place is pricey, and yes, the food is worth it; but the service makes you feel like you should be paying a quater of the price.Save yourself the time and trouble and skip this one!",
+      "gold": {
+        "food_quality": "positive",
+        "service": "negative",
+        "restaurant_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "1561259",
+      "language": "en",
+      "prediction": {
+        "food_quality": "positive",
+        "service": "negative",
+        "restaurant_general": "negative"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"service\": \"negative\", \"restaurant_general\": \"negative\"}\n"
+    },
+    {
+      "text": "Went to Cafe Spice with 4 of my friends on a saturday night.We were greeted promptly by the waiter who was very nice and cordial.She was very helpful in suggesting us drinks and helped us in ordering a lot of good dishes since we knew nothing about Indian food.We were fast to order the appetizer platter since we were very hungry.The food looked very appetizing and delicious since it came on a variety of fancy plates.We ended our great experience by having Gulab Jamun (dessert) recommended by the waiter.I thanked my friend who recommended me this restaurant and will certainly recommend it to others.",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "1728733",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "My friend from Milan and myself were pleasantly surprised when we arrived and everyone spoke italian.Too bad the food wasn't of the same heritage.The porcini mushroom pasta special was tasteless, so was the seafood tagliatelle.A real dissapointment.But that wasn't the icing on the cake: a tiramisu that resembled nothing I have ever had.They should have called it mascarpone with chocolate chips-good but a far cry from what the name implies.Priced at upper intermediate range.",
+      "gold": {
+        "food_quality": "negative",
+        "restaurant_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "553097",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "negative",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"negative\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "I got an excellent piece of cheesecake and we had several other nice pastries.I would recommend Roxy's for that, but not for their food.My son and his girlfriend both wanted cheeseburgers and they were huge!But, they were too big for the bun.Consequently, their burgers fell apart in their hands and made such a mess that they did'nt feel like finishing them.Also they were $15 each!I had a huge pastrami sandwich on a roll.It was $14 not really bad for a pound of Pastrami-but it didn't have much taste-I've had better for less elsewhere!",
+      "gold": {
+        "food_quality": "conflict",
+        "food_style_options": "negative",
+        "food_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "1710746",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "negative",
+        "service": "neutral",
+        "ambience": "neutral",
+        "food_prices": "negative",
+        "drinks_style_options": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"negative\", \"service\": \"neutral\", \"ambience\": \"neutral\", \"food_prices\": \"negative\", \"drinks_style_options\": \"neutral\"}\n"
+    },
+    {
+      "text": "Su atención muy buena, la comida excelente, un restaurante muy bello.",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_l_olive_11_ClaudiaVelutini_2014-01-01",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Soy asidua del restaurante cuando hay celebraciones de empresa o familiares.La relación calidad/precio es excelente teniendo en cuenta lo que hay por ahí.Muy recomendable.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "food_prices": "positive"
+      },
+      "id": "es_l_olive_86_Marian_2006-12-15",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "El local es una pasada.Impresionante.Y la cocina a la misma altura.Han conseguido dar calidad a precios súper asequibles.Se nota hasta en los vinos, buenos y baratos.El conjunto está a otro nivel.Fantástico.Reserva antes de ir o no podrás comer.Recomendadisimo!",
+      "gold": {
+        "ambience": "positive",
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "food_prices": "positive",
+        "drinks_quality": "positive",
+        "drinks_prices": "positive"
+      },
+      "id": "es_doble-uno-zaragoza_comment-4533",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"prices\": \"negative\"}\n"
+    },
+    {
+      "text": "Comimos mi marido y yo en el restaurante el sábado pasado, el menú temático de la trufa y el cabrito, es estupendo, equilibrado, bueno quizas demasiado, pero nosotros somos de buen comer y sabemos apreciar lo bueno.Nos sirvieron con agilidad, sin esperas.El vino HEREDAD “RED”, delicioso y agradable de tomar.Es interesante el precio, incluyendo el IVA, la calidad de los platos lo merece.Seguid así y seguiréis llenando el comedor como siempre.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "drinks_quality": "positive",
+        "food_prices": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_bodega-de-chema-la-zaragoza_comment-4331",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "neutral",
+        "drinks_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\", \"ambience\": \"neutral\", \"drinks_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Hemos vuelto, hoy martes 18 de junio de 2013, despues de un año aproximadamente, para una celebración, y la conclusión de este sitio, es que: “siempre aciertas”.No se puede poner otra.Hemos comido estupendamente con unos platos exquisitos con una elaboracion esmerada, el servicio en su justa medida y el personal de cocina; los autores de las delicias que salen a la mesa: Una ovación cerrada, la vuelta al ruedo y las dos orejas.Mas que otro “cachirulo” sugiero al autor de este blog, la marca “siempre aciertas”.Un saludo y…..volveremos!!!!(y no somos ni familia ni amigos de los dueños, eh!, sino gente que valora el trabajo bien hecho.Bien lo sabe el autor del blog.)",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "id": "es_la-scala-zaragoza_comment-4000",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Excelente comida casera que me recuerda la comida de mi madre.han realizado una gran reforma para satisfacer a sus clientes ¨gracias",
+      "gold": {
+        "food_quality": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_luis-candelas-zaragoza_comment-3240",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Estuve el Sábado pasado y la verdad es que me gustó mucho.Moderno,diferente,buen servicio,carta divertida y original.Las mini hamburguesas de ternasco,ibérico y buey ya de por si merecen una visita.",
+      "gold": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_style_options": "positive",
+        "food_quality": "positive"
+      },
+      "id": "es_cafe-meccano-gastrobar-zaragoza_comment-3143",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Good spreads, great beverage selections and bagels really tasty.THE BIG COMPLAINT: NO TOASTING AVAILABLE.I complete the total bagel experience by having it lightly toasted.Murray won't do it.Won't or Can't is not in the service directory.But who says Murray's is anything about service.So close, but not good enough.",
+      "gold": {
+        "food_quality": "positive",
+        "drinks_style_options": "positive",
+        "service": "negative",
+        "restaurant_general": "neutral"
+      },
+      "id": "449802",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"service\": \"neutral\"}\n"
+    },
+    {
+      "text": "Óptima relación calidad-precio en el menú de mediodía, en un local chic muy bien ambientado.",
+      "gold": {
+        "food_quality": "positive",
+        "food_prices": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cafe_kafka_46_Josep_2011-12-23",
+      "language": "es",
+      "prediction": {
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "Yum!Serves really good sushi.Not the biggest portions but adequate.Green Tea creme brulee is a must!Don't leave the restaurant without it.",
+      "gold": {
+        "food_quality": "positive",
+        "food_style_options": "neutral",
+        "restaurant_general": "positive"
+      },
+      "id": "en_BlueRibbonSushi_478218171",
+      "language": "en",
+      "prediction": {
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Hola estuvimos el Sábado y realmente es caro para lo que cenamos,además el menu que reservamos en su día el de degustación B (26 euros por persona) no lo tenian, nos dijeron que habia otro de 29 euros, pero que faltaban varios platos, lo que nos hizo elegir el de 35 euros con copa incluida,si bien los platos estaban bien elaborados el precio a nuestro entender es alto y las raciones para dos personas escasas.Por lo que respecta al ambiente esta muy bien y la actuación de un drag queen muy entretanida, no descartamos volver pero sólo a tomar una copa y disfrutar de la música.",
+      "gold": {
+        "restaurant_prices": "negative",
+        "food_quality": "positive",
+        "food_style_options": "negative",
+        "ambience": "positive",
+        "restaurant_general": "conflict"
+      },
+      "id": "es_cafe-meccano-gastrobar-zaragoza_comment-4314",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "positive",
+        "service": "neutral",
+        "ambience": "positive",
+        "drinks_prices": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"positive\", \"service\": \"neutral\", \"ambience\": \"positive\", \"drinks_prices\": \"negative\"}\n"
+    },
+    {
+      "text": "Don't go with a larger group than 4!I went here for a family birthday dinner.Five of us walked in at approximately 6:20 on a Thursday evening.The hostess said \"Wow that's a large group, unless you aren't together\", to which I replied \"no we are, and there will be one more, so a table for six please.\"At first we were a little taken aback, as this seemed to present a problem, although the restaurant looked fairly empty, but they hastily put the table together for us.The menu is fairly simple without much descriptions.There was no tap beer that evening, which was a disappointment.Not much of a selection of bottled beer either, we went with Brahma.The appetizers we ordered were served quickly - an order of fried oysters and clams were delicious but a tiny portion (maybe 3 of each).The lobster knuckles (special of the day) were ok, but pretty tasteless.I believe there were 2 shrimp in the \"salt encrusted shrimp\" appetizer.After we ate our appetizers (which took all of 8 minutes) we ordered another round of Brahma's - and tried to stall a little as we waited for our sixth dinner member.The waitress appeared and asked us if we wanted to go ahead and order.We replied that we would like to wait 5 more minutes if that was okay.She replied \"well it would be more convenient for us if you ordered now, since you are a larger party, and it might get crowded.\"We called the other person who was very close by, and she told us to order for her, so we did.The food arrived in about 15 minutes.I had the Thai style Fried Sea Bass...which was very good.Everyone seemed generally happy with their food, except my brother who had the grilled Mahi Mahi, seemingly drenched in Grapfruit Juice!I heard the lobster roll was excellent.They seemed to continue to rush us along, taking plates without asking if we were done (my sister still had her fork in hand).All in all the food was good - a little on the expensive side, but fresh.Service not the friendliest to our \"large party\"!Probably would not go back here.",
+      "gold": {
+        "service": "negative",
+        "drinks_style_options": "negative",
+        "food_quality": "positive",
+        "food_style_options": "negative",
+        "food_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "BFC#9",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "negative",
+        "food_quality": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"service\": \"negative\", \"food_quality\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Sábado por la noche,  reservo para 4 personas en el colette, y al llegar no sólo no tenemos reserva sino que el colette, supuestamente de más calidad que el Quartz, ya no existe como tal,  nos  dicen que se han fusionado, son el mismo restaurante y nos buscan una mesa en este ultimo.Sin  ofrecernos la carta de menús nos dan la carta de platos, supongo  a ver si cuela, hasta que preguntamos por los menús, que entonces nos explican las excelencias de sus menús, que no es de mala calidad aunque pedimos una botella de vino de la carta, ya que no se puede elegir color, pero el servicio no nos parece acorde con la supuesta calidad del restaurante.El local es estrecho y alargado por lo que al fondo es difícil comunicarse sin gritar sí está lleno , como es el caso.Me parece excesiva la valoración en esta web, sin intención de desaconsejar el restaurante, sabiendo lo que ofrecen.",
+      "gold": {
+        "restaurant_general": "negative",
+        "service": "negative",
+        "ambience": "negative"
+      },
+      "id": "es_colette-zaragoza_comment-4024",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "negative",
+        "ambience": "negative",
+        "food_quality": "neutral",
+        "location": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"service\": \"negative\", \"ambience\": \"negative\", \"food_quality\": \"neutral\", \"location\": \"negative\"}\n"
+    },
+    {
+      "text": "Hemos quedado encantados.Estuvimos anoche, 22 de febrero 2015.Mi marido pidio un reservado sólo para nosotros, y no nos faltó de nada.Pedimos un menú degustación y todo buenísimo.Cinco Platos con cantidades suficientes para llenarte.No tardaban nada en servirnos, atentos siempre para que no tuviésemos que esperar.Super recomendable.Sólo un pequeño detalle, faltaba música de ambiente para ser perfecto.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_style_options": "positive",
+        "service": "positive",
+        "ambience": "negative"
+      },
+      "id": "es_doble-uno-zaragoza_comment-4741",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "We ate at this Thai place following the reviews but very unhappy with the foods.We thought that this place is using too much of MSG cooking in the foods.Why?They don't concern much of customer's health, just want to make money.please don't fool us.",
+      "gold": {
+        "food_quality": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "1642666",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"negative\"}\n"
+    },
+    {
+      "text": "comimos bien,sevicio amable,tardaron 2 plato mucho tiempo y no me gusto que aun quedando en la paella  y fideua mas racion,se la llevaron sin preguntar.",
+      "gold": {
+        "service": "conflict",
+        "restaurant_general": "positive"
+      },
+      "id": "es_barceloneta_33_Jorge_2013-08-05",
+      "language": "es",
+      "prediction": {
+        "food_quality": "negative",
+        "service": "positive"
+      },
+      "raw_generation": "{\"food_quality\": \"negative\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "How is this palce still open?I honestly don't even know where to begin.My boyfriend and I are avid restaurant goers, and we are always on the lookout for new places and our friend had recommended Flatbush Farms.We arrived and were seated immediately, which made us both happy.We ordered our appetizers, I ordered the chicken and my boyfriend the salmon.Everything was going good until we got our meals.I took one look at the chicken and I was appalled.It was served with skin, over a bed of extremely undercooked spinach and mashed potatoes.My boyfriend asked me if I wanted to switch and eat his salmon instead, while he de-skinned the chicken so that I could enjoy the white meat.I took one bite from the $24 salmon, and I have never, in the 17 years I have been going to restaurants tasted salmon as fishy, as dry, and as bland as the one in Flatbush Farms.At this point, the waitress comes over and asks us if everything was okay, I was literally so shocked that I was speechless and didn't say anything, and guess what, the waitress WALKED away.So, I switch with my boyfriend again to see if maybe I could stomach the meat and spinach again, but the spinach was so undercooked that I just could not bite through it.I couldn't even enjoy the mashed potatoes because it was hidden completely under the chicken and spinach.I've had better chicken at BBQs!!!!So I decide to report back to the waitress because it was completely inedible.Guess what, I waited for TWENTY minutes before she came over and when she finally did, she says, \"oh well, I wish you would have said something earlier\" No apology, nothing.After that she simply took our plates, walked away, came back another TWENTY minutes later with the bill and the chicken on it!!!!!!!!!!!!No desert menu, no apology, nothing!!!!!!I was literally going to explode, but instead, my boyfriend took the bill and went to find the manager.This is where it really really gets bad: the manager said, there is absolutely nothing we can do, it's a matter of taste that she didn't like it, and I cannot comp it.Again, no apology, no is there anything else I can get you, no can I get you a drink to make up for it, nothing!!!!We refused to pay for it because at this point it had nothing to do with the food anymore.The level of rudeness was preposterous.The manager came to the table and said we can do what we want, so we paid for what we did enjoy, the drinks and appetizers, and walked out.I HAVE NEVER EVER HAD SUCH AN UNPLEASANT EXPERIENCE.THIS STAFF SHOULD BE FIRED.",
+      "gold": {
+        "restaurant_general": "negative",
+        "food_quality": "negative",
+        "food_style_options": "negative",
+        "food_prices": "negative",
+        "service": "negative",
+        "drinks_quality": "positive"
+      },
+      "id": "FF#3",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "negative",
+        "service": "negative",
+        "ambience": "neutral",
+        "food_quality": "negative",
+        "food_prices": "positive",
+        "drinks_quality": "negative",
+        "location": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"service\": \"negative\", \"ambience\": \"neutral\", \"food_quality\": \"negative\", \"food_prices\": \"positive\", \"drinks_quality\": \"negative\", \"location\": \"neutral\"}\n"
+    },
+    {
+      "text": "La atención al cliente no es la correcta y la comida no está a l´altura del precio.",
+      "gold": {
+        "service": "negative",
+        "food_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "id": "es_cullera_de_boix_27_Sandra_2013-12-24",
+      "language": "es",
+      "prediction": {
+        "service": "negative",
+        "food_quality": "neutral",
+        "restaurant_general": "negative"
+      },
+      "raw_generation": "{\"service\": \"negative\", \"food_quality\": \"neutral\", \"restaurant_general\": \"negative\"}\n"
+    },
+    {
+      "text": "I really liked this place.Everything I had was good, and I'm a eater.It was pretty inexpensive too.",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "restaurant_prices": "positive"
+      },
+      "id": "555734",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "food_prices": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"food_prices\": \"negative\"}\n"
+    },
+    {
+      "text": "Hola estuvo sensacional el servicio la comida los pequeños detalles la verdad a una altura muy alta.",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_salamanca_11_RobertCebrianPain_2015-01-11",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Muy bien.Recomendable.Todo ok..",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_la-scala-zaragoza_comment-4835",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "Perfecto.",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_83_CarlosLopezRodriguez_2012-12-23",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "La comida,muy buena.El trato amable,y el servicio rápido.El precio para los tiempos de crisis que atravesamos un poco por encima de nuestros presupuestos.No obstante buena relación calidad precio.Seguramente volveremos",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "restaurant_prices": "conflict",
+        "restaurant_general": "positive"
+      },
+      "id": "es_luis-candelas-zaragoza_comment-4570",
+      "language": "es",
+      "prediction": {
+        "food_quality": "positive",
+        "service": "positive",
+        "restaurant_general": "positive",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"food_quality\": \"positive\", \"service\": \"positive\", \"restaurant_general\": \"positive\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "Comimos muy bien.El servicio muy correcto y atento.El lugar es pequeño pero muy acogedor.Disfrutamos de una buena comida a buen precio.",
+      "gold": {
+        "service": "positive",
+        "ambience": "positive",
+        "food_quality": "positive",
+        "food_prices": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cafe_casa_lletres_16_Mimi_2014-12-09",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "food_quality": "positive",
+        "food_prices": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"ambience\": \"positive\", \"food_quality\": \"positive\", \"food_prices\": \"positive\"}\n"
+    },
+    {
+      "text": "Everytime I decide to try another place on the UES, I get angry that I didn't just go to Zucchero Pomodori.This is by far my favorite place in the neighborhood.The service is excellent, the decor is great, and the food is delicious and comes in large portions.You'll pay at least double at any other Italian restaurant in the city, and most still don't compare.I'm partial to the Gnocchi.",
+      "gold": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "restaurant_prices": "positive"
+      },
+      "id": "1126886",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "food_quality": "positive",
+        "food_prices": "negative",
+        "restaurant_prices": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"ambience\": \"positive\", \"food_quality\": \"positive\", \"food_prices\": \"negative\", \"restaurant_prices\": \"neutral\"}\n"
+    },
+    {
+      "text": "Comida y Servicio estupendo",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "id": "es_9reinas_58_NuriaCasas_2011-09-17",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Disfrutar con tu pareja de un ambiente muy moderno pero sin perder calidez y disfrutando de una carta muy variada que cubre un amplia gama de preferencias",
+      "gold": {
+        "ambience": "positive",
+        "food_style_options": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_48_PilarAlarcon_2014-02-15",
+      "language": "es",
+      "prediction": {
+        "ambience": "positive",
+        "food_style_options": "positive"
+      },
+      "raw_generation": "{\"ambience\": \"positive\", \"food_style_options\": \"positive\"}\n"
+    },
+    {
+      "text": "para meri,no te pongas asi mujer,que no es para tanto,seguro que tu eres de las que te gusta que te hagan la pelota te inviten a chupitos,i encima te lo regalen",
+      "gold": {},
+      "id": "es_cullera_de_boix_110_ElDefensor_2008-08-15",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\"}\n"
+    },
+    {
+      "text": "Una comida deliciosa.Excelente arroz y buen trato.La localizacion es muy buena.Si tienes oportunidad de comer en la terraza...un plus.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "location": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_barceloneta_25_JoseOrtego_2013-10-27",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "location": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"location\": \"positive\"}\n"
+    },
+    {
+      "text": "Finally a meal that you will remember for a long time!– In a age of incremental cost cutting in restaurants, its nice to see a place that bucks that trend, and just plain delivers high quality food and good service, period.This is the place to relax and enjoy the finest quality food the industry can offer.Caution - its real food for people who love the best.Some of the food is clearly oriented toward foodies (like me) so if your not a foodie (nothing wrong with that)- head over to McDonalds or some Ruby Tuesday and have at it!If your looking for real quality  (not the BS that is seen on yelp ratings - which allegedly recently got in trouble for \"adjusting\" ratings), you need to get in here!",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "en_Sage_480875505",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "location": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"location\": \"negative\"}\n"
+    },
+    {
+      "text": "Unico en Zaragoza, Ya era hora!!!.Excelentes istalaciones, muy buena atención e inmejorable cocina… digno de probar.Lo recomiendo!!!",
+      "gold": {
+        "restaurant_general": "positive",
+        "ambience": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "id": "es_colette-zaragoza_comment-574",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "ambience": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"ambience\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Yo comí este martes, y de maravilla; como siempre.Fiel a mi tradición en este restaurante, no pedí y dejé que me dieran de comer y de beber.Enhorabuena a Bal D’Onsera por conservar su estrella Michelin en el 2010 y lamento que se la hayan quitado al Lillas Pastia.Ahora merece la pena volver a echar un vistazo a los comentarios o críticas de los “expertos culinarios”.Ojala hubiera más restaurantes con estrella Michelin en Zaragoza; sería muy bueno para todos!",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_bal-donsera-zaragoza_comment-1753",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "neutral",
+        "ambience": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"neutral\", \"ambience\": \"neutral\"}\n"
+    },
+    {
+      "text": "He estado varias veces,el trato profesional y muy amable, en cuanto al producto, muy bien en calidad y cantidad, sin sorpresas",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_mas-torres-zaragoza_comment-3944",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Poco espacio entre las mesas para un restaurante de precios altos.Mala iluminacion.Las escaleras y detalles del mobiliario, con polvo y desgastados, necesitan renovación.Servicio bueno.el detalle del entrante, que lo cobran...",
+      "gold": {
+        "ambience": "negative",
+        "restaurant_prices": "negative",
+        "service": "positive",
+        "food_prices": "negative",
+        "restaurant_general": "neutral"
+      },
+      "id": "es_l_olive_82_UnAranes_2007-07-09",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "negative",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"negative\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Great place to relax and enjoy your dinnerThere is something about their atmosphere that makes me come back nearly every week.Place is open till late, no dress code.Good food: my favorite is the seafood spaghetti.Highly recommended!",
+      "gold": {
+        "ambience": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "TR#3",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "ambience": "positive",
+        "food_quality": "positive",
+        "location": "neutral"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"ambience\": \"positive\", \"food_quality\": \"positive\", \"location\": \"neutral\"}\n"
+    },
+    {
+      "text": "Como siempre excelente.",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_barceloneta_99_JoseRuizMartos_2010-10-12",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    },
+    {
+      "text": "Tomo nota de este restaurante.Ya veras cuando se lo cuente a mi padre que gaditano hasta la médula.Un saludo y enhorabuena por esta magnifica página , amigo.",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_puerto-de-santa-maria-zaragoza_comment-1451",
+      "language": "es",
+      "prediction": {},
+      "raw_generation": "{}\n"
+    },
+    {
+      "text": "Buen sitio atención buenísima y mis invitados quedaron impresionados.",
+      "gold": {
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_salamanca_19_LuisSoleSole_2014-10-31",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Enhorabuena!!, ahora sí lo has entendido.",
+      "gold": {},
+      "id": "es_bal-donsera-zaragoza_comment-2198",
+      "language": "es",
+      "prediction": {},
+      "raw_generation": "{}\n"
+    },
+    {
+      "text": "Great food, great prices, great service.If you are looking for a good quality, cheap eats - this is the place.",
+      "gold": {
+        "food_quality": "positive",
+        "restaurant_prices": "positive",
+        "service": "positive",
+        "food_prices": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "512294",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\"}\n"
+    },
+    {
+      "text": "Tuvimos una experiencia magnífica, la atención inmejorable, las recomendaciones del encargado del restaurante acertadisimas, un vino riquísimo.Recomiendo que quien desee una buena comida se ponga en manos del maitre.",
+      "gold": {
+        "service": "positive",
+        "drinks_quality": "positive",
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "id": "es_cafe_kafka_21_GuillermoFerrer_2013-10-02",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "Hicimos la cena de trabajo y estuvimos muy bien atendidos, el servicio muy bueno y la comida de las mejores que hemos hecho un dia como este que los restaurantes se llenan de grupos.No bajaron ni la calidad ni la presentacion.Aunque estabamos varios grupos no sufrimos por el ruido y nosotros pudimos hablar sin gritar.",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cullera_de_boix_80_MontseBoschArgelich_2011-12-19",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "neutral",
+        "ambience": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"neutral\", \"ambience\": \"negative\"}\n"
+    },
+    {
+      "text": "Servicio atento y eficiente, ambiente agradable.Ambiente de amigos, no recomendable para negocios.Precios: correctos, lo normal en estos tiempos.Plato degustación: un poco abundante de más, pero bien cocinado.Únicos comentarios crítico: luz escasa para un restaurante; aquí prima la decoración sobre la función.Tampoco es aconsejable mezclar demasiado a los clientes que toman copas con los comensales.Por lo demás, muy recomendable.",
+      "gold": {
+        "service": "positive",
+        "ambience": "conflict",
+        "restaurant_prices": "neutral",
+        "food_quality": "positive",
+        "food_style_options": "neutral",
+        "restaurant_general": "positive"
+      },
+      "id": "es_cafe_kafka_45_FranciscoVeigaRodriguez_2011-12-24",
+      "language": "es",
+      "prediction": {
+        "service": "positive",
+        "ambience": "neutral",
+        "food_quality": "negative",
+        "drinks_style_options": "negative"
+      },
+      "raw_generation": "{\"service\": \"positive\", \"ambience\": \"neutral\", \"food_quality\": \"negative\", \"drinks_style_options\": \"negative\"}\n"
+    },
+    {
+      "text": "Comida excelente aunque tuvimos que pedir varias veces lo mismo por falta de coordinación en el servicio.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "negative",
+        "restaurant_general": "neutral"
+      },
+      "id": "es_balmes_rossello_20_RoserFabre_2015-02-01",
+      "language": "es",
+      "prediction": {},
+      "raw_generation": "{\"comida\": \"positive\", \"servicio\": \"negative\"}\n"
+    },
+    {
+      "text": "Seriously, this place kicks ass.The atmosphere is unheralded, the service impecible, and the food magnificant.Best Italian food I ever had (and being Italian, that means alot).It is nearly impossible to get a table, so if you ever have the chance to go here for dinner, DO NOT pass it up.",
+      "gold": {
+        "restaurant_general": "positive",
+        "ambience": "positive",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "id": "444818",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "neutral",
+        "location": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"neutral\", \"location\": \"negative\"}\n"
+    },
+    {
+      "text": "Hace unas semanas que paseaba por la zona de la Romareda con mi mujer y mi hijo.Cuando vimos el retaurante Pasta City y decidimos quedarnos a comer.El aspecto del local es una imitacion pobre de los tipicos restaurantes americanos de comida rapida.Y como en su mayoria esta acristalado y era un dia de calor, casi se podian asar pollos en el comedor sin necesidad de horno.De todas formas decidimos quedarnos.Pedimos la carta, y nuestra sorpresa es que nos traen tres cartas, incluida la de postres.Pensamos, bueno por lo menos tendremos variedad.Variedad si, pero en la carta.Por que en la practica, de nuestra primera eleccion de platos.No tenian dos.Incluido algo tan elemental y basico como un entrecot.Nos recomendaron unos costillares a la brasa, y le hicimos caso al camarero.De primero, para ir picando una variedad de aritos de cebolla, nugets y unos rebozados de mozzarella con varias salsas de bote como las que puedes encontrar en cualquier supermercado.Eso si, servidas en unos pequeños cuencos.Y de segundo un menu infantil para el peque, compuesto por una hambueguesa con patatas y los recomendados costillares, junto con dos refrescos y una cerveza.A esta altura de mi opinion creo que sobra decir que la comida no dejo de ser la tipica de una franquicia de este tipo pero en malo.Todo con salsa de bote y productos congelados.Vamos que tampoco hace falta tener un gran Chef en la cocina.La factura fue excesiva para el tipo de comida la calidad y la cantidad.Pagamos 64 euros.El servicio fue bueno, pero tambien decir que en el comedor eramos cuatro y el de la guitarra.Resumiendo.Mi experiencia es negativa y no volvere mas.Cualquier otro local con menu especial esta mejor de precio y su comida es casera y mas fresca.",
+      "gold": {
+        "ambience": "negative",
+        "food_quality": "negative",
+        "restaurant_prices": "negative",
+        "service": "positive",
+        "restaurant_general": "negative"
+      },
+      "id": "es_pasta-city-zaragoza_comment-3691",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "negative",
+        "food_quality": "neutral",
+        "service": "positive",
+        "ambience": "neutral",
+        "location": "neutral",
+        "drinks_style_options": "neutral",
+        "food_prices": "negative",
+        "restaurant_prices": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"negative\", \"food_quality\": \"neutral\", \"service\": \"positive\", \"ambience\": \"neutral\", \"location\": \"neutral\", \"drinks_style_options\": \"neutral\", \"food_prices\": \"negative\", \"restaurant_prices\": \"negative\"}\n"
+    },
+    {
+      "text": "Excellent food for great pricesMy husband and I have been sold on this from the first visit.The wait staff is very courteous and accomodating.The space is limited so be prepared to wait up to 45 minutes - 1 hour, but be richly rewarded when you savor the delicious indo-chinese food.There are no negatives to speak of.",
+      "gold": {
+        "food_quality": "positive",
+        "food_prices": "positive",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "id": "TM#7",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "ambience": "negative"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"service\": \"positive\", \"food_quality\": \"positive\", \"ambience\": \"negative\"}\n"
+    },
+    {
+      "text": "Genial!!Todo estuvo muy bien",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "id": "es_matilde-la-zaragoza_comment-4338",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\"}\n"
+    },
+    {
+      "text": "My Girlfriend and I stumbled onto this hopping place the other night and had a great time!THe Pizza and wine were excellent-the service too--but what really MADE this place was the backyard dining area.It is one the nicest outdoor restaurants I have ever seen in NY--I am from Italy and this place rivals the ones in my country.They tell me they are going to cover the garden in glass for the winter, so i'm looking forward to going there on a snowy night to enjoy it.Check this place out!HIGHLY RECOMMENDED!!!!!",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "drinks_quality": "positive",
+        "service": "positive",
+        "ambience": "positive"
+      },
+      "id": "1395421",
+      "language": "en",
+      "prediction": {
+        "restaurant_general": "positive",
+        "food_quality": "positive",
+        "service": "positive",
+        "ambience": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\", \"food_quality\": \"positive\", \"service\": \"positive\", \"ambience\": \"positive\"}\n"
+    },
+    {
+      "text": "Comida buena, servicio muy bueno, atención al cliente excelente.",
+      "gold": {
+        "food_quality": "positive",
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "id": "es_balmes_rossello_94_LluisNavarro_2012-03-14",
+      "language": "es",
+      "prediction": {},
+      "raw_generation": "{\"comida_buena\": \"positive\", \"servicio_muy_bueno\": \"positive\"}\n"
+    },
+    {
+      "text": "Restaurante para no tirar cohetes pero en general sales satisfecho.",
+      "gold": {
+        "restaurant_general": "neutral"
+      },
+      "id": "es_balmes_rossello_58_RaulHervas_2014-01-26",
+      "language": "es",
+      "prediction": {
+        "restaurant_general": "positive"
+      },
+      "raw_generation": "{\"restaurant_general\": \"positive\"}\n"
+    }
+  ]
+}

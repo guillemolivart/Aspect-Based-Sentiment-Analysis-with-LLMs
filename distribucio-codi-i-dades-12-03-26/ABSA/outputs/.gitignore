@@ -27,3 +27,11 @@ hyperparam_sweep/*
 !hyperparam_sweep/*.txt
 !hyperparam_sweep/*.run.log
 !hyperparam_sweep/*.analysis.md
+
+!optuna/
+optuna/*
+!optuna/*.json
+!optuna/*.csv
+!optuna/*.txt
+!optuna/*.run.log
+!optuna/*.analysis.md

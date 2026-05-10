@@ -1,0 +1,14 @@
+===== RUN: v6_F_refined_3_topk30 =====
+Start: 2026-05-10 18:28:12 UTC
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<01:12,  4.42it/s]Loading weights:  13%|█▎        | 41/320 [00:00<00:01, 155.77it/s]Loading weights:  25%|██▍       | 79/320 [00:00<00:01, 229.35it/s]Loading weights:  36%|███▌      | 115/320 [00:00<00:00, 270.92it/s]Loading weights:  46%|████▌     | 147/320 [00:00<00:00, 281.84it/s]Loading weights:  58%|█████▊    | 186/320 [00:00<00:00, 310.20it/s]Loading weights:  70%|███████   | 224/320 [00:00<00:00, 325.70it/s]Loading weights:  81%|████████  | 258/320 [00:00<00:00, 316.47it/s]Loading weights:  92%|█████████▎| 296/320 [00:01<00:00, 334.57it/s]Loading weights: 100%|██████████| 320/320 [00:01<00:00, 279.21it/s]
+Run 1/1: {'temperature': 0.7, 'top_p': 0.8, 'top_k': 30, 'min_p': 0.0, 'presence_penalty': 2.0, 'repetition_penalty': 1.0, 'max_new_tokens': 512}
+Sweep complete
+Summary CSV: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_F_refined_3_topk30.summary.csv
+Chosen configuration saved: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_F_refined_3_topk30.chosen.json
+Sweep complete
+Summary CSV: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_F_refined_3_topk30.summary.csv
+Exit code: 0
+End: 2026-05-10 18:30:36 UTC
+
