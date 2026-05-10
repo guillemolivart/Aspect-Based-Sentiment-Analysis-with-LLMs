@@ -1,0 +1,16 @@
+========= ABSA ZERO SHOT =========
+model_path=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/model
+prompt_file=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/prompts/absa_v9.json
+data=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/devel.json
+thinking=False
+generation={'temperature': 1.0, 'top_p': 1.0, 'top_k': 20, 'min_p': 0.0, 'presence_penalty': 2.0, 'repetition_penalty': 1.0, 'max_new_tokens': 512}
+examples=132
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:57,  5.53it/s]Loading weights:  13%|█▎        | 42/320 [00:00<00:01, 180.50it/s]Loading weights:  25%|██▌       | 81/320 [00:00<00:00, 254.72it/s]Loading weights:  38%|███▊      | 120/320 [00:00<00:00, 299.53it/s]Loading weights:  50%|████▉     | 159/320 [00:00<00:00, 326.53it/s]Loading weights:  63%|██████▎   | 201/320 [00:00<00:00, 350.62it/s]Loading weights:  75%|███████▌  | 240/320 [00:00<00:00, 355.69it/s]Loading weights:  89%|████████▉ | 286/320 [00:00<00:00, 386.94it/s]Loading weights: 100%|██████████| 320/320 [00:01<00:00, 315.44it/s]
+Model loading took 7.0 seconds
+Processing example 0: es_matilde-la-zaragoza_comment-4639
+Processing example 1: es_la_poma_21_EvaCorominasMateo_2014-05-04
+Processing example 2: 1131595
+Processing example 3: es_l_olive_14_ClaraGarcia_2013-03-21
+Processing example 4: es_9reinas_28_JoseManuelBarcenaFernandez_2013-07-20

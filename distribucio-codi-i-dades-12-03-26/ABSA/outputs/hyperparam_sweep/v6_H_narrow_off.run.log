@@ -1,0 +1,28 @@
+===== RUN: v6_H_narrow_off =====
+Start: 2026-05-10 16:58:41 UTC
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:42,  7.44it/s]Loading weights:  14%|█▍        | 45/320 [00:00<00:01, 226.00it/s]Loading weights:  28%|██▊       | 88/320 [00:00<00:00, 309.65it/s]Loading weights:  41%|████▏     | 132/320 [00:00<00:00, 355.19it/s]Loading weights:  54%|█████▍    | 173/320 [00:00<00:00, 367.03it/s]Loading weights:  68%|██████▊   | 219/320 [00:00<00:00, 394.16it/s]Loading weights:  81%|████████▏ | 260/320 [00:00<00:00, 385.64it/s]Loading weights:  96%|█████████▌| 306/320 [00:00<00:00, 399.22it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 356.35it/s]
+Run 1/1: {'temperature': 1.0, 'top_p': 0.95, 'top_k': 20, 'min_p': 0.0, 'presence_penalty': 2.0, 'repetition_penalty': 1.0, 'max_new_tokens': 512}
+Sweep complete
+Summary CSV: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_H_narrow_off.summary.csv
+Chosen configuration saved: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_H_narrow_off.chosen.json
+Sweep complete
+Summary CSV: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_H_narrow_off.summary.csv
+Exit code: 0
+End: 2026-05-10 17:01:24 UTC
+
+===== RUN: v6_H_narrow_off =====
+Start: 2026-05-10 17:44:52 UTC
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:35,  9.02it/s]Loading weights:  20%|█▉        | 63/320 [00:00<00:00, 352.75it/s]Loading weights:  38%|███▊      | 120/320 [00:00<00:00, 435.97it/s]Loading weights:  56%|█████▋    | 180/320 [00:00<00:00, 498.44it/s]Loading weights:  73%|███████▎  | 234/320 [00:00<00:00, 509.74it/s]Loading weights:  91%|█████████ | 290/320 [00:00<00:00, 523.64it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 454.12it/s]
+Run 1/1: {'temperature': 1.0, 'top_p': 0.95, 'top_k': 20, 'min_p': 0.0, 'presence_penalty': 2.0, 'repetition_penalty': 1.0, 'max_new_tokens': 512}
+Sweep complete
+Summary CSV: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_H_narrow_off.summary.csv
+Chosen configuration saved: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_H_narrow_off.chosen.json
+Sweep complete
+Summary CSV: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/hyperparam_sweep/v6_H_narrow_off.summary.csv
+Exit code: 0
+End: 2026-05-10 17:47:23 UTC
+

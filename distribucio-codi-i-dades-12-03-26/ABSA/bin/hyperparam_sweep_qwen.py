@@ -298,13 +298,12 @@ def main():
     chosen_path = OUTPUT_DIR / "hyperparam_sweep" / f"{args.output_prefix}.chosen.json"
     with open(chosen_path, "w", encoding="utf-8") as fd:
         json.dump({"baseline": baseline_cfg, "chosen": chosen, "all": results}, fd, ensure_ascii=False, indent=2)
+    csv_path = OUTPUT_DIR / "hyperparam_sweep" / f"{args.output_prefix}.summary.csv"
 
     print("Sweep complete")
     print(f"Summary CSV: {csv_path}")
     print(f"Chosen configuration saved: {chosen_path}")
 
-    # write CSV summary
-    csv_path = OUTPUT_DIR / "hyperparam_sweep" / f"{args.output_prefix}.summary.csv"
     with open(csv_path, "w", newline='', encoding="utf-8") as csvfd:
         writer = csv.writer(csvfd)
         header = [

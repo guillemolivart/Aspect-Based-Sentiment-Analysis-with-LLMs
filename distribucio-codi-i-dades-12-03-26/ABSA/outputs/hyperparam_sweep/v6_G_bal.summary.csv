@@ -1,0 +1,2 @@
+run,temperature,top_p,top_k,min_p,presence_penalty,repetition_penalty,examples,f1_micro,f1_macro,sec_per_example
+1,0.8,0.95,20,0.0,1.5,1.0,132,64.218,63.473,1.111

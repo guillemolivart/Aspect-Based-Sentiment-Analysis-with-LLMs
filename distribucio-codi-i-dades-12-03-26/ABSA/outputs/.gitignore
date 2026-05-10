@@ -19,3 +19,11 @@ thinking/*
 !thinking/*.csv
 !thinking/*.run.log
 !thinking/*.analysis.md
+
+!hyperparam_sweep/
+hyperparam_sweep/*
+!hyperparam_sweep/*.json
+!hyperparam_sweep/*.csv
+!hyperparam_sweep/*.txt
+!hyperparam_sweep/*.run.log
+!hyperparam_sweep/*.analysis.md
