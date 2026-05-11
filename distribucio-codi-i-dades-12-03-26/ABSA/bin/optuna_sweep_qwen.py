@@ -21,6 +21,15 @@ from common import (
 )
 
 
+STRONG_SEED_TRIALS = [
+    {"temperature": 0.65, "top_p": 0.75, "top_k": 20, "presence_penalty": 2.0},
+    {"temperature": 0.70, "top_p": 0.80, "top_k": 20, "presence_penalty": 1.8},
+    {"temperature": 0.70, "top_p": 0.80, "top_k": 20, "presence_penalty": 2.0},
+    {"temperature": 0.70, "top_p": 0.75, "top_k": 20, "presence_penalty": 2.0},
+    {"temperature": 0.70, "top_p": 0.80, "top_k": 30, "presence_penalty": 2.0},
+]
+
+
 def counts(prediction, gold):
     """Count predicted vs expected items and matches."""
     def flatten(value, prefix=""):
@@ -79,13 +88,13 @@ def load_model(model_path, load_in_4bit=False):
             bnb_4bit_compute_dtype=dtype,
         )
     else:
-        model_kwargs["torch_dtype"] = dtype
+        model_kwargs["dtype"] = dtype
 
     try:
         model = AutoModelForCausalLM.from_pretrained(model_path, **model_kwargs)
     except TypeError:
-        if "torch_dtype" in model_kwargs:
-            model_kwargs["dtype"] = model_kwargs.pop("torch_dtype")
+        if "dtype" in model_kwargs:
+            model_kwargs["torch_dtype"] = model_kwargs.pop("dtype")
         model = AutoModelForCausalLM.from_pretrained(model_path, **model_kwargs)
 
     model.eval()
@@ -95,14 +104,14 @@ def load_model(model_path, load_in_4bit=False):
 def objective(trial, model, tokenizer, prompts, examples, args):
     """
     Optuna objective function: evaluate a configuration and return the score.
-    Score = 0.75 * f1_macro + 0.25 * f1_micro (to maximize).
+    Score prioritizes corpus-level micro F1 while keeping example-level macro F1 relevant.
     """
     
-    # Suggest hyperparameters from narrow search space
-    temperature = trial.suggest_categorical("temperature", [0.6, 0.65, 0.68, 0.7])
-    top_p = trial.suggest_categorical("top_p", [0.7, 0.75, 0.78, 0.8])
-    top_k = trial.suggest_categorical("top_k", [10, 15, 20, 25])
-    presence_penalty = trial.suggest_categorical("presence_penalty", [1.8, 1.9, 2.0, 2.1])
+    # Narrow search around the region that already dominated the manual sweeps.
+    temperature = trial.suggest_categorical("temperature", [0.60, 0.62, 0.65, 0.68, 0.70, 0.72])
+    top_p = trial.suggest_categorical("top_p", [0.72, 0.75, 0.78, 0.80, 0.82])
+    top_k = trial.suggest_categorical("top_k", [15, 20, 25, 30])
+    presence_penalty = trial.suggest_categorical("presence_penalty", [1.7, 1.8, 1.9, 2.0, 2.1, 2.2])
     
     # Fixed parameters
     min_p = 0.0
@@ -137,38 +146,28 @@ def objective(trial, model, tokenizer, prompts, examples, args):
         predicted_total += predicted
         expected_total += expected
         ok_total += ok
+
+        precision, recall, f1 = prf(predicted, expected, ok)
+        precision_macro += precision
+        recall_macro += recall
+        f1_macro += f1
         
         processed.append({"id": example["id"], "prediction": prediction, "gold": example["gold"]})
     
-    # Calculate overall metrics
     n = len(processed)
-    
-    if predicted_total > 0:
-        precision_macro = 100.0 * ok_total / predicted_total
-    if expected_total > 0:
-        recall_macro = 100.0 * ok_total / expected_total
-    if precision_macro + recall_macro > 0:
-        f1_macro = 2 * precision_macro * recall_macro / (precision_macro + recall_macro)
-    
-    # Micro F1 (per-sample average)
-    precision_micro = recall_micro = f1_micro = 0.0
-    if n > 0:
-        for example in processed:
-            pred, exp, ok = counts(example["prediction"], example["gold"])
-            p, r, f = prf(pred, exp, ok)
-            precision_micro += p
-            recall_micro += r
-            f1_micro += f
-        
-        precision_micro /= n
-        recall_micro /= n
-        f1_micro /= n
+    if n:
+        precision_macro /= n
+        recall_macro /= n
+        f1_macro /= n
+
+    precision_micro, recall_micro, f1_micro = prf(
+        predicted_total, expected_total, ok_total
+    )
     
     elapsed = time.time() - t0
     sec_per_example = elapsed / len(processed) if processed else 0.0
     
-    # Composite score: 75% macro F1 + 25% micro F1
-    score = (0.75 * f1_macro) + (0.25 * f1_micro)
+    score = (0.75 * f1_micro) + (0.25 * f1_macro)
     
     # Store trial info
     trial.set_user_attr("generation_config", generation_config)
@@ -181,7 +180,10 @@ def objective(trial, model, tokenizer, prompts, examples, args):
     trial.set_user_attr("time_sec", elapsed)
     trial.set_user_attr("sec_per_example", sec_per_example)
     
-    print(f"  -> f1_macro={f1_macro:.2f}%, f1_micro={f1_micro:.2f}%, score={score:.2f}")
+    print(
+        f"  -> f1_macro={f1_macro:.2f}%, "
+        f"f1_micro={f1_micro:.2f}%, score={score:.2f}"
+    )
     
     return score
 
@@ -246,8 +248,6 @@ def main():
 
         import torch
         model_path = Path(args.model_path)
-        tokenizer = __import__("transformers").AutoTokenizer.from_pretrained(model_path)
-        tokenizer.pad_token_id = tokenizer.pad_token_id or tokenizer.eos_token_id
 
         cuda_available = torch.cuda.is_available()
         if not cuda_available and not args.allow_cpu:
@@ -257,30 +257,7 @@ def main():
                 "Fix Torch/CUDA compatibility or pass --allow-cpu to force CPU execution."
             )
 
-        dtype = torch.bfloat16 if cuda_available and torch.cuda.is_bf16_supported() else (
-            torch.float16 if cuda_available else torch.float32
-        )
-
-        model_kwargs = {"device_map": "auto"}
-        if args.load_in_4bit:
-            model_kwargs["quantization_config"] = __import__("transformers").BitsAndBytesConfig(
-                load_in_4bit=True, bnb_4bit_quant_type="nf4", bnb_4bit_compute_dtype=dtype
-            )
-        else:
-            model_kwargs["torch_dtype"] = dtype
-
-        try:
-            model = __import__("transformers").AutoModel.from_pretrained(
-                model_path, trust_remote_code=True, **model_kwargs
-            )
-        except TypeError:
-            if "torch_dtype" in model_kwargs:
-                model_kwargs["dtype"] = model_kwargs.pop("torch_dtype")
-            model = __import__("transformers").AutoModel.from_pretrained(
-                model_path, trust_remote_code=True, **model_kwargs
-            )
-
-        model.eval()
+        model, tokenizer = load_model(model_path, args.load_in_4bit)
 
         print("========= OPTUNA HYPERPARAMETER OPTIMIZATION =========")
         print(f"model_path={args.model_path}")
@@ -302,14 +279,8 @@ def main():
             study_name=args.output_prefix
         )
 
-        # Inject baseline configuration as the very first trial
-        baseline_params = {
-            "temperature": 0.65,
-            "top_p": 0.75,
-            "top_k": 20,
-            "presence_penalty": 2.0,
-        }
-        study.enqueue_trial(baseline_params)
+        for params in STRONG_SEED_TRIALS:
+            study.enqueue_trial(params)
 
         # Optimize
         study.optimize(
@@ -378,6 +349,8 @@ def main():
             writer.writeheader()
 
             for trial in study.trials:
+                if trial.value is None:
+                    continue
                 writer.writerow({
                     "trial_number": trial.number,
                     "temperature": trial.params.get("temperature"),

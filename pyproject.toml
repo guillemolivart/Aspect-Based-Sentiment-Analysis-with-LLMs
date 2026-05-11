@@ -6,6 +6,7 @@ readme = "README.md"
 requires-python = ">=3.13"
 dependencies = [
     "datasets>=4.8.2",
+    "optuna>=4.0.0",
     "peft>=0.18.1",
     "torch>=2.10.0",
     "transformers>=5.3.0",
