@@ -1,0 +1,21 @@
+{
+  "trial_number": 15,
+  "score": 68.80881114333827,
+  "generation_config": {
+    "temperature": 0.68,
+    "top_p": 0.72,
+    "top_k": 20,
+    "presence_penalty": 1.8,
+    "min_p": 0.0,
+    "repetition_penalty": 1.0,
+    "max_new_tokens": 512
+  },
+  "metrics": {
+    "f1_macro": 68.36320665866121,
+    "f1_micro": 68.95734597156397,
+    "precision_macro": 74.34163059163062,
+    "recall_macro": 65.61056998557,
+    "precision_micro": 74.61538461538461,
+    "recall_micro": 64.09691629955947
+  }
+}
