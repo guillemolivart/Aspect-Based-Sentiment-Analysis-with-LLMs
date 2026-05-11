@@ -22,6 +22,13 @@ thinking/*
 
 !hyperparam_sweep/
 hyperparam_sweep/*
+!hyperparam_sweep/seed_stability_top4/
+hyperparam_sweep/seed_stability_top4/*
+!hyperparam_sweep/seed_stability_top4/*.json
+!hyperparam_sweep/seed_stability_top4/*.csv
+!hyperparam_sweep/seed_stability_top4/*.txt
+!hyperparam_sweep/seed_stability_top4/*.run.log
+!hyperparam_sweep/seed_stability_top4/*.analysis.md
 !hyperparam_sweep/*.json
 !hyperparam_sweep/*.csv
 !hyperparam_sweep/*.txt
