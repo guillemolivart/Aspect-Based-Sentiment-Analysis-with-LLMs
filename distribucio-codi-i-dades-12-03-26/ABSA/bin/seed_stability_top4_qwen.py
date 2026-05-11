@@ -1,8 +1,9 @@
 #!/usr/bin/env python3
-"""Run the top-4 ABSA configurations with 4 new seeds + original baseline.
+"""Run the top-8 ABSA configurations with 4 new seeds + original baseline.
 
-Loads original results from AGGREGATED_RESULTS.csv, then runs 4 new experiments
-with fixed seeds. Creates per-config tables with: Original + Runs 1-4 + Mean.
+Loads the first four baselines from AGGREGATED_RESULTS.csv and the last four
+from optuna_absa_v6_best_region.summary.csv, then runs 4 new experiments with
+fixed seeds. Creates per-config tables with: Original + Runs 1-4 + Mean.
 """
 
 import argparse
@@ -28,6 +29,8 @@ from common import (
 TOP_CONFIGS = [
     {
         "name": "v6_F_refined_9_temp065_topp75",
+        "baseline_source": "aggregated",
+        "baseline_key": "v6_F_refined_9_temp065_topp75",
         "temperature": 0.65,
         "top_p": 0.75,
         "top_k": 20,
@@ -37,6 +40,8 @@ TOP_CONFIGS = [
     },
     {
         "name": "v6_F_refined_5_pp18",
+        "baseline_source": "aggregated",
+        "baseline_key": "v6_F_refined_5_pp18",
         "temperature": 0.70,
         "top_p": 0.80,
         "top_k": 20,
@@ -46,6 +51,8 @@ TOP_CONFIGS = [
     },
     {
         "name": "v6_F_cons_off_pres",
+        "baseline_source": "aggregated",
+        "baseline_key": "v6_F_cons_off_pres",
         "temperature": 0.70,
         "top_p": 0.80,
         "top_k": 20,
@@ -55,11 +62,57 @@ TOP_CONFIGS = [
     },
     {
         "name": "v6_F_refined_7_topp75",
+        "baseline_source": "aggregated",
+        "baseline_key": "v6_F_refined_7_topp75",
         "temperature": 0.70,
         "top_p": 0.75,
         "top_k": 20,
         "min_p": 0.0,
         "presence_penalty": 2.0,
+        "repetition_penalty": 1.0,
+    },
+    {
+        "name": "optuna_trial_15_best",
+        "baseline_source": "optuna",
+        "baseline_key": 15,
+        "temperature": 0.68,
+        "top_p": 0.72,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 1.8,
+        "repetition_penalty": 1.0,
+    },
+    {
+        "name": "optuna_trial_10",
+        "baseline_source": "optuna",
+        "baseline_key": 10,
+        "temperature": 0.68,
+        "top_p": 0.72,
+        "top_k": 30,
+        "min_p": 0.0,
+        "presence_penalty": 1.7,
+        "repetition_penalty": 1.0,
+    },
+    {
+        "name": "optuna_trial_21",
+        "baseline_source": "optuna",
+        "baseline_key": 21,
+        "temperature": 0.65,
+        "top_p": 0.8,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 1.7,
+        "repetition_penalty": 1.0,
+    },
+    {
+        "name": "optuna_trial_29",
+        "baseline_source": "optuna",
+        "baseline_key": 29,
+        "temperature": 0.65,
+        "top_p": 0.75,
+        "top_k": 20,
+        "min_p": 0.0,
+        "presence_penalty": 1.8,
         "repetition_penalty": 1.0,
     },
 ]
@@ -159,6 +212,43 @@ def format_value(value):
     if isinstance(value, float):
         return f"{value:.3f}"
     return value
+
+
+def load_metric_rows(csv_path, key_field, metric_fields):
+    rows = {}
+    metric_key_aliases = {
+        "f1-micro": "f1_micro",
+        "f1_macro": "f1_macro",
+        "f1-macro": "f1_macro",
+        "prec_macro": "precision_macro",
+        "prec-macro": "precision_macro",
+        "precision_macro": "precision_macro",
+        "rec_macro": "recall_macro",
+        "rec-macro": "recall_macro",
+        "recall_macro": "recall_macro",
+        "prec_micro": "precision_micro",
+        "prec-micro": "precision_micro",
+        "precision_micro": "precision_micro",
+        "rec_micro": "recall_micro",
+        "rec-micro": "recall_micro",
+        "recall_micro": "recall_micro",
+    }
+    with open(csv_path, "r", encoding="utf-8") as f:
+        reader = csv.DictReader(f)
+        for row in reader:
+            cleaned_row = {
+                (key.strip() if isinstance(key, str) else key): (
+                    value.strip() if isinstance(value, str) else value
+                )
+                for key, value in row.items()
+            }
+            key = cleaned_row[key_field]
+            metric_row = {}
+            for field in metric_fields:
+                normalized_field = metric_key_aliases.get(field.strip().lower(), field.strip().lower().replace("-", "_"))
+                metric_row[normalized_field] = float(cleaned_row[field])
+            rows[key] = metric_row
+    return rows
 
 
 def evaluate_config(model, tokenizer, prompts, selected, config, seed, max_new_tokens):
@@ -343,27 +433,45 @@ def main():
     output_dir = Path(args.output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
 
-    # Load original results from AGGREGATED_RESULTS.csv
+    # Load original results from the two source tables.
     aggregated_path = OUTPUT_DIR / "hyperparam_sweep" / "AGGREGATED_RESULTS.csv"
-    original_results = {}
+    optuna_path = OUTPUT_DIR / "optuna" / "optuna_absa_v6_best_region.summary.csv"
+    original_results = {"aggregated": {}, "optuna": {}}
+
     if aggregated_path.exists():
-        with open(aggregated_path, "r", encoding="utf-8") as f:
-            reader = csv.DictReader(f)
-            for row in reader:
-                config_name = row["Config"].strip()
-                original_results[config_name] = {
-                    "f1_micro": float(row["F1-Micro"]),
-                    "f1_macro": float(row["F1-Macro"]),
-                    "precision_macro": float(row["Prec-Macro"]),
-                    "recall_macro": float(row["Rec-Macro"]),
-                    "precision_micro": float(row["Prec-Micro"]),
-                    "recall_micro": float(row["Rec-Micro"]),
-                }
+        original_results["aggregated"] = load_metric_rows(
+            aggregated_path,
+            key_field="Config",
+            metric_fields=[
+                "F1-Micro",
+                "F1-Macro",
+                "Prec-Macro",
+                "Rec-Macro",
+                "Prec-Micro",
+                "Rec-Micro",
+            ],
+        )
     else:
-        print(f"WARNING: {aggregated_path} not found. Running without original baseline.")
+        print(f"WARNING: {aggregated_path} not found. Running without aggregated baseline.")
+
+    if optuna_path.exists():
+        original_results["optuna"] = load_metric_rows(
+            optuna_path,
+            key_field="trial_number",
+            metric_fields=[
+                "f1_micro",
+                "f1_macro",
+                "precision_macro",
+                "recall_macro",
+                "precision_micro",
+                "recall_micro",
+            ],
+        )
+    else:
+        print(f"WARNING: {optuna_path} not found. Running without optuna baseline.")
 
     print("========= SEED STABILITY EXPERIMENT =========")
-    print(f"NOTE: Original results loaded from AGGREGATED_RESULTS.csv")
+    print(f"NOTE: Original results loaded from AGGREGATED_RESULTS.csv and optuna_absa_v6_best_region.summary.csv")
     print(f"      Running 4 new experiments with fixed seeds.")
     print(f"model_path={args.model_path}")
     print(f"prompt_file={prompts['path']}")
@@ -379,8 +487,10 @@ def main():
         config_rows = []
 
         # Add original result as run 0
-        if config["name"] in original_results:
-            orig = original_results[config["name"]]
+        baseline_source = config["baseline_source"]
+        baseline_key = str(config["baseline_key"])
+        if baseline_key in original_results.get(baseline_source, {}):
+            orig = original_results[baseline_source][baseline_key]
             original_row = {
                 "seed": "original",
                 "examples": len(selected),
@@ -400,9 +510,9 @@ def main():
                 "recall_micro": orig["recall_micro"],
             }
             config_rows.append(original_row)
-            print(f"Run 0 (original): F1-Micro={orig['f1_micro']:.2f} | F1-Macro={orig['f1_macro']:.2f}")
+            print(f"Run 0 (original from {baseline_source}): F1-Micro={orig['f1_micro']:.2f} | F1-Macro={orig['f1_macro']:.2f}")
         else:
-            print(f"WARNING: Original result for {config['name']} not found in AGGREGATED_RESULTS.csv")
+            print(f"WARNING: Original result for {config['name']} not found in {baseline_source} baseline")
 
         # Run 4 new experiments with fixed seeds
         for run_num, seed in enumerate(seeds, start=1):
