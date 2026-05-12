@@ -1,0 +1,332 @@
+{
+  "config": {
+    "method": "dense_topk",
+    "k": 5,
+    "seed": 42,
+    "model_path": "/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/model",
+    "embedding_model_path": "/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/embedding_model/qwen3_embedding_0_6b",
+    "embedding_cache": "/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/fewshot/cache/qwen3_embedding_0_6b.train.071af2919a0b7667.npz",
+    "prompt_file": "/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/prompts/absa_v6.json",
+    "data": "/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/devel.json",
+    "train_data": "/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/train.json",
+    "thinking": false,
+    "generation_config": {
+      "temperature": 0.68,
+      "top_p": 0.72,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 1.8,
+      "repetition_penalty": 1.0,
+      "max_new_tokens": 512
+    },
+    "retrieve_candidates": 50,
+    "redundancy_threshold": 0.92,
+    "mmr_lambda_override": null,
+    "base_score_weights": {
+      "semantic": 0.72,
+      "same_language": 0.06,
+      "aspect_cue_coverage": 0.14,
+      "rare_or_hard_label_helpfulness": 0.05,
+      "length_label_count_fit": 0.03
+    },
+    "lambda_by_k": {
+      "1": 1.0,
+      "2": 0.88,
+      "4": 0.8,
+      "6": 0.76,
+      "8": 0.72,
+      "10": 0.7,
+      "12": 0.68
+    },
+    "manual_hard_bank": [
+      {
+        "id": "1225162",
+        "notes": "Broad positive example covering food, ambience, service, prices, drinks style, and drinks prices."
+      },
+      {
+        "id": "1632445",
+        "notes": "Separates good food/service/ambience from limited menu and high prices."
+      },
+      {
+        "id": "1212346",
+        "notes": "Food conflict plus negative service, menu/amount, and food prices."
+      },
+      {
+        "id": "es_balmes_rossello_12_LauraRamosMartinez_2015-02-23",
+        "notes": "Spanish neutral/conflict example with service and ambience complications."
+      },
+      {
+        "id": "es_cafe_kafka_40_Kadulillo_2012-03-03",
+        "notes": "Short Spanish example with positive ambience, food prices, and drinks quality."
+      },
+      {
+        "id": "es_l_olive_77_Mathews_2007-12-07",
+        "notes": "Separates food prices, drinks prices, drinks style, ambience, and neutral restaurant general."
+      },
+      {
+        "id": "744478",
+        "notes": "Positive location and both food/restaurant prices."
+      },
+      {
+        "id": "es_cafe_casa_lletres_9_RicardoSantolariaPerez_2015-01-06",
+        "notes": "Legitimate neutral labels and negative portion/value."
+      },
+      {
+        "id": "1459569",
+        "notes": "English negative service, drinks prices, neutral food quality, and negative restaurant general."
+      },
+      {
+        "id": "es_doble-uno-zaragoza_comment-4729",
+        "notes": "Spanish example with restaurant conflict, service conflict, drinks style negative, restaurant prices negative, and ambience positive."
+      },
+      {
+        "id": "es_puerto-de-santa-maria-zaragoza_comment-802",
+        "notes": "Empty-gold question/comment example for reducing over-labeling at larger K."
+      },
+      {
+        "id": "es_luis-candelas-zaragoza_comment-4486",
+        "notes": "Spanish drinks quality negative while the overall meal remains positive."
+      }
+    ],
+    "start": 0,
+    "limit": null,
+    "resume": true,
+    "checkpoint_every": 1,
+    "time_sec": 106.90324521064758,
+    "new_examples": 132,
+    "sec_per_new_example": 0.8098730697776332
+  },
+  "examples": 132,
+  "predicted_total": 381,
+  "expected_total": 454,
+  "ok_total": 302,
+  "precision_macro": 80.3661616161616,
+  "recall_macro": 68.36219336219335,
+  "f1_macro": 72.39446580355667,
+  "precision_micro": 79.26509186351706,
+  "recall_micro": 66.51982378854626,
+  "f1_micro": 72.33532934131738,
+  "empty_prediction_count": 1,
+  "json_parse_ok_count": 132,
+  "json_parse_ok_rate": 100.0,
+  "hit_token_limit_count": 0,
+  "avg_prompt_tokens": 1964.8636363636363,
+  "avg_output_tokens": 19.742424242424242,
+  "per_aspect": {
+    "restaurant_general": {
+      "predicted": 119,
+      "expected": 128,
+      "ok": 105,
+      "precision": 88.23529411764706,
+      "recall": 82.03125,
+      "f1": 85.02024291497975
+    },
+    "restaurant_prices": {
+      "predicted": 5,
+      "expected": 24,
+      "ok": 3,
+      "precision": 60.0,
+      "recall": 12.5,
+      "f1": 20.689655172413794
+    },
+    "food_quality": {
+      "predicted": 108,
+      "expected": 100,
+      "ok": 89,
+      "precision": 82.4074074074074,
+      "recall": 89.0,
+      "f1": 85.57692307692308
+    },
+    "food_prices": {
+      "predicted": 3,
+      "expected": 26,
+      "ok": 2,
+      "precision": 66.66666666666667,
+      "recall": 7.6923076923076925,
+      "f1": 13.793103448275861
+    },
+    "food_style_options": {
+      "predicted": 1,
+      "expected": 24,
+      "ok": 1,
+      "precision": 100.0,
+      "recall": 4.166666666666667,
+      "f1": 8.0
+    },
+    "drinks_quality": {
+      "predicted": 1,
+      "expected": 10,
+      "ok": 0,
+      "precision": 0.0,
+      "recall": 0.0,
+      "f1": 0.0
+    },
+    "drinks_prices": {
+      "predicted": 3,
+      "expected": 3,
+      "ok": 1,
+      "precision": 33.333333333333336,
+      "recall": 33.333333333333336,
+      "f1": 33.333333333333336
+    },
+    "drinks_style_options": {
+      "predicted": 5,
+      "expected": 6,
+      "ok": 4,
+      "precision": 80.0,
+      "recall": 66.66666666666667,
+      "f1": 72.72727272727272
+    },
+    "ambience": {
+      "predicted": 45,
+      "expected": 47,
+      "ok": 26,
+      "precision": 57.77777777777778,
+      "recall": 55.319148936170215,
+      "f1": 56.52173913043479
+    },
+    "service": {
+      "predicted": 84,
+      "expected": 82,
+      "ok": 70,
+      "precision": 83.33333333333333,
+      "recall": 85.36585365853658,
+      "f1": 84.33734939759036
+    },
+    "location": {
+      "predicted": 7,
+      "expected": 4,
+      "ok": 1,
+      "precision": 14.285714285714286,
+      "recall": 25.0,
+      "f1": 18.181818181818183
+    }
+  },
+  "per_polarity": {
+    "conflict": {
+      "predicted": 3,
+      "expected": 10,
+      "ok": 1,
+      "precision": 33.333333333333336,
+      "recall": 10.0,
+      "f1": 15.384615384615385
+    },
+    "negative": {
+      "predicted": 84,
+      "expected": 103,
+      "ok": 57,
+      "precision": 67.85714285714286,
+      "recall": 55.33980582524272,
+      "f1": 60.962566844919785
+    },
+    "neutral": {
+      "predicted": 23,
+      "expected": 15,
+      "ok": 2,
+      "precision": 8.695652173913043,
+      "recall": 13.333333333333334,
+      "f1": 10.526315789473685
+    },
+    "positive": {
+      "predicted": 271,
+      "expected": 326,
+      "ok": 242,
+      "precision": 89.2988929889299,
+      "recall": 74.23312883435582,
+      "f1": 81.07202680067002
+    }
+  },
+  "selection": {
+    "selected_total": 660,
+    "avg_k": 5.0,
+    "selection_method_counts": {
+      "dense_topk": 660
+    },
+    "avg_semantic_similarity": 0.7568038335352233,
+    "avg_redundancy": null,
+    "avg_base_score": null,
+    "avg_mmr_score": null,
+    "top_selected_example_ids": [
+      {
+        "id": "es_cafe_casa_lletres_10_FranciscoJavierRosAlbizu_2014-12-22",
+        "count": 44
+      },
+      {
+        "id": "es_matilde-la-zaragoza_comment-4325",
+        "count": 31
+      },
+      {
+        "id": "es_balmes_rossello_35_AnaMariaGonzalez_2014-04-28",
+        "count": 28
+      },
+      {
+        "id": "es_ratatouille-zaragoza_comment-4844",
+        "count": 28
+      },
+      {
+        "id": "es_bodega-de-chema-la-zaragoza_comment-4783",
+        "count": 27
+      },
+      {
+        "id": "es_cullera_de_boix_12_JoanPascualMartori_2014-12-29",
+        "count": 21
+      },
+      {
+        "id": "es_cullera_de_boix_94_CarlosDelgadoRodriguez_2011-02-09",
+        "count": 17
+      },
+      {
+        "id": "es_9reinas_10_JordiCollGranell_2014-09-21",
+        "count": 15
+      },
+      {
+        "id": "es_l_olive_81_LuisJavierLorenzoSalazar_2007-08-01",
+        "count": 14
+      },
+      {
+        "id": "es_maur_muntaner_1_MarisolMosqueraMosquera_2015-03-23",
+        "count": 13
+      },
+      {
+        "id": "es_cullera_de_boix_22_BeatrizDelRio_2014-03-30",
+        "count": 12
+      },
+      {
+        "id": "es_cullera_de_boix_76_AntonioDiezDeBlas_2011-12-28",
+        "count": 10
+      },
+      {
+        "id": "es_balmes_rossello_17_EloinaMartinezSoriano_2015-02-17",
+        "count": 10
+      },
+      {
+        "id": "es_doble-uno-zaragoza_comment-4616",
+        "count": 10
+      },
+      {
+        "id": "es_cafe_kafka_33_AnaCarbonell_2013-01-24",
+        "count": 9
+      },
+      {
+        "id": "PP#9",
+        "count": 9
+      },
+      {
+        "id": "1380450",
+        "count": 9
+      },
+      {
+        "id": "es_cullera_de_boix_39_JoseManuelGimenezPerez_2013-05-06",
+        "count": 9
+      },
+      {
+        "id": "es_la_poma_2_YolandaBaraza_2015-02-26",
+        "count": 9
+      },
+      {
+        "id": "es_barceloneta_128_MariaCantero_2008-04-01",
+        "count": 8
+      }
+    ]
+  }
+}

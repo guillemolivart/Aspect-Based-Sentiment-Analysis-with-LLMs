@@ -1,0 +1,168 @@
+Loaded train embeddings from /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/fewshot/cache/qwen3_embedding_0_6b.train.071af2919a0b7667.npz
+Loading embedding model for query encoding
+Loading weights:   0%|          | 0/310 [00:00<?, ?it/s]Loading weights:  35%|███▍      | 107/310 [00:00<00:00, 1062.21it/s]Loading weights:  88%|████████▊ | 273/310 [00:00<00:00, 1406.48it/s]Loading weights: 100%|██████████| 310/310 [00:00<00:00, 1387.62it/s]
+Embedding model loading took 3.9 seconds
+========= ABSA FEW SHOT =========
+model_path=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/model
+embedding_model_path=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/embedding_model/qwen3_embedding_0_6b
+prompt_file=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/prompts/absa_v6.json
+data=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/devel.json
+train_data=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/train.json
+method=absa_mmr
+k=5
+seed=42
+thinking=False
+generation={'temperature': 0.68, 'top_p': 0.72, 'top_k': 20, 'min_p': 0.0, 'presence_penalty': 1.8, 'repetition_penalty': 1.0, 'max_new_tokens': 512}
+examples=132
+output=/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/fewshot/fs_absa_mmr_k5_seed42.json
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:41,  7.67it/s]Loading weights:  21%|██        | 66/320 [00:00<00:00, 338.02it/s]Loading weights:  39%|███▉      | 125/320 [00:00<00:00, 443.99it/s]Loading weights:  54%|█████▍    | 173/320 [00:00<00:00, 456.28it/s]Loading weights:  72%|███████▏  | 231/320 [00:00<00:00, 491.07it/s]Loading weights:  91%|█████████▏| 292/320 [00:00<00:00, 528.55it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 468.45it/s]
+Generator loading took 1.4 seconds
+Processing example 0: es_matilde-la-zaragoza_comment-4639
+Processing example 1: es_la_poma_21_EvaCorominasMateo_2014-05-04
+Processing example 2: 1131595
+Processing example 3: es_l_olive_14_ClaraGarcia_2013-03-21
+Processing example 4: es_9reinas_28_JoseManuelBarcenaFernandez_2013-07-20
+Processing example 5: es_l_olive_68_Anonimo_2009-05-06
+Processing example 6: es_cafe_kafka_27_AlexG_2013-04-14
+Processing example 7: es_l_olive_33_Pepe_2011-04-24
+Processing example 8: es_cullera_de_boix_48_Anna_2013-02-12
+Processing example 9: es_bodega-de-chema-la-zaragoza_comment-4180
+Processing example 10: es_puerto-de-santa-maria-zaragoza_comment-3144
+Processing example 11: 680345
+Processing example 12: 490565
+Processing example 13: 1404042
+Processing example 14: es_bodega-de-chema-la-zaragoza_comment-4372
+Processing example 15: en_BlueRibbonSushi_478219459
+Processing example 16: es_l_olive_20_JosepLlopisGimeno_2012-03-20
+Processing example 17: CLF#3
+Processing example 18: es_ratatouille-zaragoza_comment-4799
+Processing example 19: es_salamanca_20_EliasMansilla_2014-10-18
+Processing example 20: 530517
+Processing example 21: es_barceloneta_0_Jesus_2015-09-07
+Processing example 22: TFS#8
+Processing example 23: es_la-despensa_comment-786
+Processing example 24: es_balmes_rossello_91_JuanCarlosGallegoMartinez_2012-03-25
+Processing example 25: es_barceloneta_91_NicolasPerezPerez_2011-02-17
+Processing example 26: es_cullera_de_boix_86_MonicaDeOliveira_2011-11-24
+Processing example 27: TFS#11
+Processing example 28: es_9reinas_56_Michael_2011-09-28
+Processing example 29: en_BlueRibbonSushi_478218524
+Processing example 30: es_balmes_rossello_55_DiegoPostigo_2014-01-28
+Processing example 31: es_balmes_rossello_96_Marivi_2012-02-10
+Processing example 32: 773720
+Processing example 33: es_maur_muntaner_3_CarlosReinleinFarre_2015-03-16
+Processing example 34: es_cullera_de_boix_114_Meri_2008-03-16
+Processing example 35: es_cullera_de_boix_90_EvaGonzalez_2011-03-25
+Processing example 36: es_9reinas_36_LuisAlbertoReyesFigueroa_2013-03-24
+Processing example 37: es_barceloneta_130_Alvaro_2008-03-21
+Processing example 38: 1028246
+Processing example 39: TM#4
+Processing example 40: es_cullera_de_boix_14_Ju_2014-12-14
+Processing example 41: es_kupela-la-sidreria-zaragoza_comment-3017
+Processing example 42: es_l_olive_42_Manuel_2010-11-13
+Processing example 43: TR#1
+Processing example 44: es_luis-candelas-zaragoza_comment-4780
+Processing example 45: es_cafe_kafka_29_Rafael_2013-03-15
+Processing example 46: es_balmes_rossello_61_EnriqueClaros_2014-01-12
+Processing example 47: es_balmes_rossello_70_SoniaFernandezCaras_2013-04-29
+Processing example 48: es_balmes_rossello_98_FranciscoVidalSerret_2012-01-07
+Processing example 49: es_l_olive_9_Pedro-LuisSantiago_2014-02-02
+Processing example 50: en_OpenSesame_477970940
+Processing example 51: es_balmes_rossello_42_CarlotaAmargos_2014-03-16
+Processing example 52: es_l_olive_1_JavierNevotMondejar_2015-02-18
+Processing example 53: es_matilde-la-zaragoza_comment-1565
+Processing example 54: es_colette-zaragoza_comment-1145
+Processing example 55: es_9reinas_26_Lucia_2013-12-10
+Processing example 56: en_ProfessorThom's_478606543
+Processing example 57: es_salamanca_36_Jenny_2013-02-28
+Processing example 58: es_balmes_rossello_36_AnaMariaGonzalez_2014-04-28
+Processing example 59: es_cullera_de_boix_72_RicardGrane_2012-02-27
+Processing example 60: ADLT#8
+Processing example 61: es_cullera_de_boix_31_AlvaroBalbas_2013-10-14
+Processing example 62: 447697
+Processing example 63: es_cullera_de_boix_53_CarmenTorcalCastro_2012-11-14
+Processing example 64: ADLT#3
+Processing example 65: BHD#8
+Processing example 66: 1297844
+Processing example 67: es_l_olive_51_Johnny_2010-01-17
+Processing example 68: es_bodega-de-chema-la-zaragoza_comment-4292
+Processing example 69: es_l_olive_60_Luisa_2009-09-07
+Processing example 70: en_ParkChaletGardenRestaurant_477778210
+Processing example 71: es_bal-donsera-zaragoza_comment-3238
+Processing example 72: es_barceloneta_54_MiguelMercadoVidal_2012-06-24
+Processing example 73: 1543345
+Processing example 74: es_colette-zaragoza_comment-2660
+Processing example 75: es_barceloneta_56_JuanLuis_2012-06-10
+Processing example 76: 682391
+Processing example 77: 1561259
+Processing example 78: 1728733
+Processing example 79: 553097
+Processing example 80: 1710746
+Processing example 81: es_l_olive_11_ClaudiaVelutini_2014-01-01
+Processing example 82: es_l_olive_86_Marian_2006-12-15
+Processing example 83: es_doble-uno-zaragoza_comment-4533
+Processing example 84: es_bodega-de-chema-la-zaragoza_comment-4331
+Processing example 85: es_la-scala-zaragoza_comment-4000
+Processing example 86: es_luis-candelas-zaragoza_comment-3240
+Processing example 87: es_cafe-meccano-gastrobar-zaragoza_comment-3143
+Processing example 88: 449802
+Processing example 89: es_cafe_kafka_46_Josep_2011-12-23
+Processing example 90: en_BlueRibbonSushi_478218171
+Processing example 91: es_cafe-meccano-gastrobar-zaragoza_comment-4314
+Processing example 92: BFC#9
+Processing example 93: es_colette-zaragoza_comment-4024
+Processing example 94: es_doble-uno-zaragoza_comment-4741
+Processing example 95: 1642666
+Processing example 96: es_barceloneta_33_Jorge_2013-08-05
+Processing example 97: FF#3
+Processing example 98: es_cullera_de_boix_27_Sandra_2013-12-24
+Processing example 99: 555734
+Processing example 100: es_salamanca_11_RobertCebrianPain_2015-01-11
+Processing example 101: es_la-scala-zaragoza_comment-4835
+Processing example 102: es_balmes_rossello_83_CarlosLopezRodriguez_2012-12-23
+Processing example 103: es_luis-candelas-zaragoza_comment-4570
+Processing example 104: es_cafe_casa_lletres_16_Mimi_2014-12-09
+Processing example 105: 1126886
+Processing example 106: es_9reinas_58_NuriaCasas_2011-09-17
+Processing example 107: es_balmes_rossello_48_PilarAlarcon_2014-02-15
+Processing example 108: es_cullera_de_boix_110_ElDefensor_2008-08-15
+Processing example 109: es_barceloneta_25_JoseOrtego_2013-10-27
+Processing example 110: en_Sage_480875505
+Processing example 111: es_colette-zaragoza_comment-574
+Processing example 112: es_bal-donsera-zaragoza_comment-1753
+Processing example 113: es_mas-torres-zaragoza_comment-3944
+Processing example 114: es_l_olive_82_UnAranes_2007-07-09
+Processing example 115: TR#3
+Processing example 116: es_barceloneta_99_JoseRuizMartos_2010-10-12
+Processing example 117: es_puerto-de-santa-maria-zaragoza_comment-1451
+Processing example 118: es_salamanca_19_LuisSoleSole_2014-10-31
+Processing example 119: es_bal-donsera-zaragoza_comment-2198
+Processing example 120: 512294
+Processing example 121: es_cafe_kafka_21_GuillermoFerrer_2013-10-02
+Processing example 122: es_cullera_de_boix_80_MontseBoschArgelich_2011-12-19
+Processing example 123: es_cafe_kafka_45_FranciscoVeigaRodriguez_2011-12-24
+Processing example 124: es_balmes_rossello_20_RoserFabre_2015-02-01
+Processing example 125: 444818
+Processing example 126: es_pasta-city-zaragoza_comment-3691
+Processing example 127: TM#7
+Processing example 128: es_matilde-la-zaragoza_comment-4338
+Processing example 129: 1395421
+Processing example 130: es_balmes_rossello_94_LluisNavarro_2012-03-14
+Processing example 131: es_balmes_rossello_58_RaulHervas_2014-01-26
+Summary: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/fewshot/fs_absa_mmr_k5_seed42.summary.json
+Done
+Processed 132 new examples in 107.0 seconds
+Total records in output: 132
+0.81 sec/new example
+Output: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/fewshot/fs_absa_mmr_k5_seed42.json
+========= SUMMARY =========
+Micro P/R/F: 77.84 66.52 71.73
+Macro P/R/F: 79.12 68.54 72.01
+Pred/Gold/OK: 388 454 302
+JSON parse ok: 132/132 (100.0%)
+Empty predictions: 1
+Hit token limit: 0
+Average selected K: 5.00
+===== END fs_absa_mmr_k5_seed42 status=0 2026-05-11T01:20:11+00:00 =====
