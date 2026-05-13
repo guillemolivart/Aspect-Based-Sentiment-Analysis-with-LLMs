@@ -14,8 +14,7 @@
 source /scratch/nas/1/PDI/mml0/MML.venv/bin/activate
 
 # run the few-shot extractor
-python3 finetune-inference.py $*
+python3 fewshot.py $*
 
 # deactivate the virtual environment
 deactivate
-

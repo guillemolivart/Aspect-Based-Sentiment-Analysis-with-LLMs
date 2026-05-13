@@ -51,29 +51,29 @@ def tokenize_dataset(tokenizer, dataset, prompts) :
 	newDS = {"input_ids": [],
              "labels": []}
     
-	for example in dataset :
+    for example in dataset :
         # prepare messages for that example
-		msg = prepare_messages(prompts, example) + [{"role": "assistant", "content": json.dumps(example["gold"], ensure_ascii=False)}]
+        msg = prepare_messages(prompts, example) + [{"role": "assistant", "content": json.dumps(example["gold"], ensure_ascii=False)}]
 
         # convert messages to a whole text prompt
-		text = tokenizer.apply_chat_template(msg, tokenize=False)
+        text = tokenizer.apply_chat_template(msg, tokenize=False)
 
         # tokenize and encode text
-		tokens = tokenizer(text,
-		                   truncation=True,
-		                   max_length=512,
-		                   padding="max_length"
-		                  )
+        tokens = tokenizer(text,
+                           truncation=True,
+                           max_length=512,
+                           padding="max_length"
+                          )
 
         # mark padding tokens with -100 so the trainer ignores them
-		labels = [-100 if tk == tokenizer.pad_token_id else tk for tk in tokens["input_ids"]]
+        labels = [-100 if tk == tokenizer.pad_token_id else tk for tk in tokens["input_ids"]]
 
-	    # add example to new dataset
-		newDS["input_ids"].append(tokens["input_ids"])
-		newDS["labels"].append(labels)
+        # add example to new dataset
+        newDS["input_ids"].append(tokens["input_ids"])
+        newDS["labels"].append(labels)
 
     # create and return tokenized+encoded dataset
-	return Dataset.from_dict(newDS)
+    return Dataset.from_dict(newDS)
 
 
 # ------------ tokenize dataset in batches of appropriate size -----------------
@@ -139,5 +139,3 @@ print(f"Training took {time.time()-t0:.1f} seconds")
 trainer.save_model()
 
 print("Fine-tuning complete!")
-
-

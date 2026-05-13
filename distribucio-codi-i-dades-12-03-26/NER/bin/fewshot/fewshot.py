@@ -43,6 +43,7 @@ def get_few_shots(train, num_few_shot) :
     return train[:num_few_shot]
 
     
+
 # ------------ prepare prompt messages for an example ----------------
 def prepare_messages(prompts, shots, question) :
     
@@ -112,4 +113,3 @@ with open(outfname, "w") as of :
 # clean up gpu
 del model
 torch.cuda.empty_cache() 
-

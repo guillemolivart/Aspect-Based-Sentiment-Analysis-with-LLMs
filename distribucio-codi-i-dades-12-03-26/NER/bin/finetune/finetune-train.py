@@ -54,7 +54,7 @@ def get_prompts():
                   
     prompts["usrprompt"] = "\n".join(["Given the following text, extract entities, classified by their type (PER, LOC, ORG)",
                "Provide the output as a json dictionary, with a key for each appearing entity type, and a list of names as value (e.g. {\"PER\":[\"John Smith\"], \"LOC\":[\"USA\", \"Berlin\"]} )",
-	       "",
+               "",
                "It is important that you take into account the following constraints:",
                "  - If an entity is mentioned twice with the same words, extract it only once.",
                "  - If an entity is mentioned twice with the different words (e.g. John Smith and Mr. Smith), extract it in both cases.",
@@ -78,35 +78,35 @@ def load_dataset(data) :
 def tokenize_dataset(tokenizer, dataset, prompts) :
 
     # prepare to create tokenized and encoded version of the dataset 
-	newDS = {"input_ids": [],
+    newDS = {"input_ids": [],
              "labels": []}
     
-	for example in dataset :
+    for example in dataset :
         # prepare messages for that example
-		msg = [{"role": "system", "content": prompts["sysprompt"]},
-		       {"role": "user", "content": prompts["usrprompt"] + "\nTEXT: " + example["text"]},
-		       {"role": "assistant", "content": json.dumps(example["gold"])}
-		      ]
+        msg = [{"role": "system", "content": prompts["sysprompt"]},
+               {"role": "user", "content": prompts["usrprompt"] + "\nTEXT: " + example["text"]},
+               {"role": "assistant", "content": json.dumps(example["gold"])}
+              ]
 
         # convert messages to a whole text prompt
-		text = tokenizer.apply_chat_template(msg, tokenize=False)
+        text = tokenizer.apply_chat_template(msg, tokenize=False)
 
         # tokenize and encode text
-		tokens = tokenizer(text,
-		                   truncation=True,
-		                   max_length=512,
-		                   padding="max_length"
-		                  )
+        tokens = tokenizer(text,
+                           truncation=True,
+                           max_length=512,
+                           padding="max_length"
+                          )
 
         # mark padding tokens with -100 so the trainer ignores them
-		labels = [-100 if tk == tokenizer.pad_token_id else tk for tk in tokens["input_ids"]]
+        labels = [-100 if tk == tokenizer.pad_token_id else tk for tk in tokens["input_ids"]]
 
-	    # add example to new dataset
-		newDS["input_ids"].append(tokens["input_ids"])
-		newDS["labels"].append(labels)
+        # add example to new dataset
+        newDS["input_ids"].append(tokens["input_ids"])
+        newDS["labels"].append(labels)
 
     # create and return tokenized+encoded dataset
-	return Dataset.from_dict(newDS)
+    return Dataset.from_dict(newDS)
 
 
 # ------------ tokenize dataset in batches of appropriate size -----------------
@@ -172,5 +172,3 @@ print(f"Training took {time.time()-t0:.1f} seconds")
 trainer.save_model()
 
 print("Fine-tuning complete!")
-
-
