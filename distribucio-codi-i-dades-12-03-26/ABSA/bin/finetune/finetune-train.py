@@ -6,7 +6,7 @@ from pathlib import Path
 import numpy as np
 import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, AutoModel, BitsAndBytesConfig
-from peft import LoraConfig, get_peft_model
+from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from datasets import Dataset
 
 SCRIPT_DIR = Path(__file__).resolve().parent
@@ -14,7 +14,7 @@ PARENT_DIR = SCRIPT_DIR.parent
 if str(PARENT_DIR) not in sys.path:
     sys.path.insert(0, str(PARENT_DIR))
 
-from common import ABSA_DIR, ASPECTS, DEFAULT_MODEL_PATH, OUTPUT_DIR, get_prompts, load_dataset as load_absa_dataset, prepare_messages
+from common import ABSA_DIR, ASPECTS, DEFAULT_MODEL_PATH, OUTPUT_DIR, POLARITIES, get_prompts, load_dataset as load_absa_dataset, render_template
 
 
 # ========== ABSA-MMR SELECTION CONSTANTS ==========
@@ -97,11 +97,15 @@ def load_embedding_model():
         trust_remote_code=True,
         device_map="auto",
     )
+    embedding_tokenizer = AutoTokenizer.from_pretrained(
+        str(DEFAULT_EMBEDDING_MODEL_PATH),
+        trust_remote_code=True,
+    )
     embedding_model.eval()
-    return embedding_model
+    return embedding_model, embedding_tokenizer
 
 
-def embed_texts(embedding_model, texts):
+def embed_texts(embedding_model, embedding_tokenizer, texts):
     """Embed multiple texts using Qwen embedding model."""
     embeddings = []
     with torch.no_grad():
@@ -113,19 +117,66 @@ def embed_texts(embedding_model, texts):
             if hasattr(embedding_model, 'encode'):
                 emb = embedding_model.encode(text, convert_to_numpy=False)
             else:
-                # Fallback: tokenize and forward pass
-                inputs = tokenizer(text, return_tensors="pt", truncation=True, max_length=512).to(embedding_model.device)
+                # Fallback: tokenize and forward pass with embedding model's tokenizer
+                inputs = embedding_tokenizer(text, return_tensors="pt", truncation=True, max_length=512)
+                # Move inputs to same device as model
+                inputs = {k: v.to(embedding_model.device) for k, v in inputs.items()}
                 outputs = embedding_model(**inputs, output_hidden_states=True)
-                # Use pooled representation (CLS token or mean pooling)
-                emb = outputs.pooler_output[0]
+                # Use last hidden state with mean pooling
+                if hasattr(outputs, 'pooler_output') and outputs.pooler_output is not None:
+                    emb = outputs.pooler_output[0]
+                else:
+                    # Mean pooling over last hidden state
+                    emb = outputs.last_hidden_state.mean(dim=1)[0]
             
             if isinstance(emb, np.ndarray):
-                emb = torch.tensor(emb, dtype=torch.float32)
+                emb = torch.tensor(emb, dtype=torch.float32, device="cpu")
             elif not isinstance(emb, torch.Tensor):
-                emb = torch.tensor(emb, dtype=torch.float32)
+                emb = torch.tensor(emb, dtype=torch.float32, device="cpu")
+            else:
+                # Move to CPU if it's on GPU (for consistency in processing)
+                emb = emb.cpu().float()
             
             embeddings.append(emb)
     return embeddings
+
+
+def build_mmr_cache(examples, example_embeddings):
+    """Precompute reusable metadata for ABSA-MMR scoring."""
+    embedding_rows = []
+    for emb in example_embeddings:
+        if isinstance(emb, torch.Tensor):
+            embedding_rows.append(emb.detach().cpu().float().view(-1))
+        elif isinstance(emb, np.ndarray):
+            embedding_rows.append(torch.tensor(emb, dtype=torch.float32).view(-1))
+        else:
+            embedding_rows.append(torch.tensor(emb, dtype=torch.float32).view(-1))
+
+    embedding_matrix = torch.stack(embedding_rows)
+    embedding_matrix = torch.nn.functional.normalize(embedding_matrix, p=2, dim=1)
+
+    return {
+        "examples": examples,
+        "embeddings": embedding_matrix,
+        "languages": [ex.get("language", "unknown") for ex in examples],
+        "lengths": np.array([len(ex.get("text", "")) for ex in examples], dtype=np.float32),
+        "label_counts": np.array([len(ex.get("gold", {})) for ex in examples], dtype=np.float32),
+        "hard_bonus": np.array([
+            calculate_hard_label_bonus(ex.get("gold", {})) for ex in examples
+        ], dtype=np.float32),
+        "cue_lists": [
+            tuple(
+                cue
+                for aspect in ex.get("gold", {})
+                for cue in ASPECT_CUES.get(aspect, [])
+            )
+            for ex in examples
+        ],
+        "cue_scale": np.array([
+            max(1, len({cue for aspect in ex.get("gold", {}) for cue in ASPECT_CUES.get(aspect, [])}))
+            for ex in examples
+        ], dtype=np.float32),
+    }
 
 
 def cosine_similarity(emb1, emb2):
@@ -139,6 +190,17 @@ def cosine_similarity(emb1, emb2):
         emb1.unsqueeze(0), emb2.unsqueeze(0)
     ).item()
     return (cos_sim + 1.0) / 2.0  # Normalize to [0, 1]
+
+
+def build_user_message(prompts, example):
+    """Render only the user turn for a chat example."""
+    values = {
+        "text": example["text"],
+        "language": example.get("language", "unknown"),
+        "aspects": ", ".join(ASPECTS),
+        "polarities": ", ".join(POLARITIES),
+    }
+    return {"role": "user", "content": render_template(prompts["user"], values)}
 
 
 def calculate_aspect_cue_overlap(target_text_lower, gold_aspects, aspect_cues):
@@ -178,7 +240,14 @@ def calculate_length_label_fit(target_ex, candidate_ex):
     return 1.0 - (len_diff + label_diff) / 2.0
 
 
-def select_absa_mmr(target_example, train_examples, train_embeddings, k=8):
+def select_absa_mmr(
+    target_example,
+    target_embedding,
+    candidate_indices,
+    mmr_cache,
+    k=8,
+    prefilter_size=200,
+):
     """
     ABSA-aware MMR selection: semantic similarity + diversity + hard examples.
     
@@ -186,78 +255,98 @@ def select_absa_mmr(target_example, train_examples, train_embeddings, k=8):
     """
     target_text_lower = target_example.get("text", "").lower()
     target_lang = target_example.get("language", "unknown")
-    
-    # Embed target
-    target_embedding = embed_texts(None, [target_example["text"]])[0]
-    
-    # Compute base scores for all train examples
-    similarities = []
-    base_scores_list = []
-    
-    for idx, (example, train_emb) in enumerate(zip(train_examples, train_embeddings)):
-        # Semantic similarity (normalized)
-        sim = cosine_similarity(target_embedding, train_emb)
-        similarities.append(sim)
-        
-        # ABSA-aware base score
-        same_lang = 1.0 if target_lang == example.get("language", "unknown") else 0.0
-        aspect_coverage = calculate_aspect_cue_overlap(
-            target_text_lower, example.get("gold", {}), ASPECT_CUES
-        )
-        hard_bonus = calculate_hard_label_bonus(example.get("gold", {}))
-        length_fit = calculate_length_label_fit(target_example, example)
-        
-        base_score = (
-            0.72 * sim +
-            0.06 * same_lang +
-            0.14 * aspect_coverage +
-            0.05 * hard_bonus +
-            0.03 * length_fit
-        )
-        base_scores_list.append(base_score)
-    
-    # Get top-50 candidates by base score
-    top_indices = np.argsort(base_scores_list)[::-1][:50]
-    
-    # MMR selection from top-50
+    target_len = len(target_example.get("text", ""))
+    target_labels = len(target_example.get("gold", {}))
+
+    if not candidate_indices:
+        return []
+
+    target_embedding = target_embedding.detach().cpu().float().view(-1)
+    target_embedding = torch.nn.functional.normalize(target_embedding, p=2, dim=0)
+
+    candidate_embeddings = mmr_cache["embeddings"][candidate_indices]
+    similarities = torch.matmul(candidate_embeddings, target_embedding).cpu().numpy()
+
+    if len(candidate_indices) > prefilter_size:
+        top_local = np.ascontiguousarray(np.argsort(similarities)[::-1][:prefilter_size])
+        candidate_indices = [candidate_indices[i] for i in top_local]
+        candidate_embeddings = candidate_embeddings[top_local]
+        similarities = similarities[top_local]
+
+    same_lang = np.fromiter(
+        (1.0 if mmr_cache["languages"][idx] == target_lang else 0.0 for idx in candidate_indices),
+        dtype=np.float32,
+        count=len(candidate_indices),
+    )
+    hard_bonus = mmr_cache["hard_bonus"][candidate_indices]
+    candidate_lengths = mmr_cache["lengths"][candidate_indices]
+    candidate_label_counts = mmr_cache["label_counts"][candidate_indices]
+    length_fit = 1.0 - (
+        (
+            np.abs(target_len - candidate_lengths) / (target_len + 1.0)
+            + np.abs(target_labels - candidate_label_counts) / (target_labels + candidate_label_counts + 1.0)
+        ) / 2.0
+    )
+
+    aspect_coverage = np.fromiter(
+        (
+            sum(cue in target_text_lower for cue in mmr_cache["cue_lists"][idx])
+            / mmr_cache["cue_scale"][idx]
+            for idx in candidate_indices
+        ),
+        dtype=np.float32,
+        count=len(candidate_indices),
+    )
+
+    base_scores = (
+        0.72 * similarities
+        + 0.06 * same_lang
+        + 0.14 * aspect_coverage
+        + 0.05 * hard_bonus
+        + 0.03 * length_fit
+    )
+
+    top_base_local = np.ascontiguousarray(np.argsort(base_scores)[::-1][: min(50, len(candidate_indices))])
+    candidate_indices = [candidate_indices[i] for i in top_base_local]
+    candidate_embeddings = candidate_embeddings[top_base_local]
+    similarities = similarities[top_base_local]
+    base_scores = base_scores[top_base_local]
+
     lambda_k = LAMBDA_BY_K.get(k, 0.72)
-    selected_indices = []
-    candidate_set = set(top_indices.tolist())
-    
-    while len(selected_indices) < k and candidate_set:
-        best_idx = None
-        best_score = -float('inf')
-        
-        for idx in candidate_set:
-            # Diversity penalty: penalize if too similar to already selected
+    similarity_matrix = torch.matmul(candidate_embeddings, candidate_embeddings.T).cpu().numpy()
+    selected_local = []
+    candidate_pool = list(range(len(candidate_indices)))
+
+    while len(selected_local) < k and candidate_pool:
+        best_local = None
+        best_score = -float("inf")
+
+        for local_idx in list(candidate_pool):
             diversity_penalty = 0.0
-            if selected_indices:
-                max_similarity = max(
-                    cosine_similarity(train_embeddings[idx], train_embeddings[s])
-                    for s in selected_indices
-                )
-                # Hard redundancy guard: skip if > 0.92 similarity
-                if max_similarity > 0.92 and len(candidate_set) > k - len(selected_indices):
+            if selected_local:
+                max_similarity = float(similarity_matrix[local_idx, selected_local].max())
+                if max_similarity > 0.92 and len(candidate_pool) > k - len(selected_local):
                     continue
                 diversity_penalty = (1 - lambda_k) * max_similarity
-            
-            final_score = lambda_k * base_scores_list[idx] - diversity_penalty
+
+            final_score = lambda_k * float(base_scores[local_idx]) - diversity_penalty
             if final_score > best_score:
                 best_score = final_score
-                best_idx = idx
-        
-        if best_idx is not None:
-            selected_indices.append(best_idx)
-            candidate_set.remove(best_idx)
-    
-    # Sort by similarity (least similar first, most similar last -> closest to target in prompt)
+                best_local = local_idx
+
+        if best_local is None:
+            break
+
+        selected_local.append(best_local)
+        candidate_pool.remove(best_local)
+
+    selected_indices = [candidate_indices[i] for i in selected_local]
     selected_sorted = sorted(
         selected_indices,
-        key=lambda i: similarities[i],
-        reverse=False
+        key=lambda i: float(torch.matmul(mmr_cache["embeddings"][i], target_embedding).item()),
+        reverse=False,
     )
-    
-    return [train_examples[i] for i in selected_sorted]
+    return [mmr_cache["examples"][i] for i in selected_sorted]
 
 
 # ========== LOAD MODEL AND TOKENIZER ==========
@@ -281,11 +370,18 @@ def load_model(load_in_4bit=False, fp16=False):
 
     # load model
     model = AutoModelForCausalLM.from_pretrained(MODEL_PATH, **model_kwargs)
-        
+    model.config.use_cache = False
+
     # Load the tokenizer
     tokenizer = AutoTokenizer.from_pretrained(MODEL_PATH)
     tokenizer.pad_token_id = tokenizer.eos_token_id
     tokenizer.truncation_side = "left"
+
+    if load_in_4bit:
+        model = prepare_model_for_kbit_training(model)
+    else:
+        model.gradient_checkpointing_enable()
+        model.enable_input_require_grads()
 
     # Add LoRa fine-tunable layers
     lora_config = LoraConfig(
@@ -298,9 +394,10 @@ def load_model(load_in_4bit=False, fp16=False):
     )
     model = get_peft_model(model, lora_config)
 
-    # Now, after adding PEFT layers, we can load to GPU.
-    if not load_in_4bit:
-        model = model.to("cuda")
+    # Keep memory use down during training.
+    model.config.use_cache = False
+    if hasattr(model, "gradient_checkpointing_enable"):
+        model.gradient_checkpointing_enable()
     
     print(f"Model loading took {time.time()-t0:.1f} seconds")
     return model, tokenizer
@@ -408,9 +505,7 @@ def tokenize_dataset_simple(tokenizer, dataset, prompts):
         messages = [{"role": "system", "content": prompts["system"]}]
         
         # Add target example
-        target_msg = prepare_messages(prompts, example)
-        for msg in target_msg:
-            messages.append(msg)
+        messages.append(build_user_message(prompts, example))
         
         # Add assistant response (gold)
         messages.append({
@@ -437,7 +532,7 @@ def tokenize_dataset_simple(tokenizer, dataset, prompts):
 
 
 # ------------ tokenize dataset WITH in-context examples from ABSA-MMR selection -----------------
-def tokenize_dataset_with_fewshot(tokenizer, dataset, prompts, embedding_model, k_shots=8):
+def tokenize_dataset_with_fewshot(tokenizer, dataset, prompts, embedding_model, embedding_tokenizer, k_shots=8):
     """
     Tokenize dataset augmented with best few-shot examples per item.
     Uses ABSA-MMR selection to find K best training examples for context.
@@ -445,8 +540,10 @@ def tokenize_dataset_with_fewshot(tokenizer, dataset, prompts, embedding_model, 
     print(f"\nEmbedding {len(dataset)} training examples for MMR selection...")
     t0 = time.time()
     
-    # Pre-embed all training examples once
-    train_embeddings = embed_texts(embedding_model, [ex["text"] for ex in dataset])
+    # Pre-embed all training examples once and reuse them for every target
+    train_embeddings = embed_texts(embedding_model, embedding_tokenizer, [ex["text"] for ex in dataset])
+    mmr_cache = build_mmr_cache(dataset, train_embeddings)
+    target_embeddings = train_embeddings
     print(f"Embedding took {time.time()-t0:.1f} seconds")
     
     # Tokenize with in-context examples
@@ -457,21 +554,21 @@ def tokenize_dataset_with_fewshot(tokenizer, dataset, prompts, embedding_model, 
             print(f"Processing example {idx}/{len(dataset)} for tokenization...", flush=True)
         
         # Select K best examples using ABSA-MMR (excluding self)
-        candidates = [e for i, e in enumerate(dataset) if i != idx]
-        candidate_embeddings = [e for i, e in enumerate(train_embeddings) if i != idx]
-        
-        selected_shots = select_absa_mmr(target_example, candidates, candidate_embeddings, k=k_shots)
+        candidate_indices = [i for i in range(len(dataset)) if i != idx]
+        selected_shots = select_absa_mmr(
+            target_example,
+            target_embeddings[idx],
+            candidate_indices,
+            mmr_cache,
+            k=k_shots,
+        )
         
         # Build few-shot messages
         messages = [{"role": "system", "content": prompts["system"]}]
         
         # Add few-shot examples
         for shot_ex in selected_shots:
-            shot_msg = prepare_messages(prompts, shot_ex)
-            # shot_msg is [{role: "user", content: ...}]
-            # Add the user part
-            for msg in shot_msg:
-                messages.append(msg)
+            messages.append(build_user_message(prompts, shot_ex))
             # Add the assistant response (gold)
             messages.append({
                 "role": "assistant",
@@ -479,9 +576,7 @@ def tokenize_dataset_with_fewshot(tokenizer, dataset, prompts, embedding_model, 
             })
         
         # Add target example as user query
-        target_msg = prepare_messages(prompts, target_example)
-        for msg in target_msg:
-            messages.append(msg)
+        messages.append(build_user_message(prompts, target_example))
         
         # Add assistant response (gold)
         messages.append({
@@ -521,6 +616,7 @@ def create_trainer(model, train_dataset, val_dataset, outputdir, args):
         learning_rate=args.learning_rate,  # Conservative for LoRA
         num_train_epochs=args.num_epochs,  # Fewer epochs than full FT
         eval_strategy="epoch",
+        gradient_checkpointing=True,
         save_total_limit=2,
         load_best_model_at_end=True,
         save_strategy="epoch",
@@ -595,13 +691,13 @@ if use_fewshot:
     print("="*60)
     
     # Load embedding model for ABSA-MMR selection
-    embedding_model = load_embedding_model()
+    embedding_model, embedding_tokenizer = load_embedding_model()
     
     # Tokenize train with few-shot examples (K=8 is optimal)
     print("Tokenizing training data with few-shot examples...")
     t_tok = time.time()
     train_dataset = tokenize_dataset_with_fewshot(
-        tokenizer, train_examples, prompts, embedding_model, k_shots=args.k_shots
+        tokenizer, train_examples, prompts, embedding_model, embedding_tokenizer, k_shots=args.k_shots
     )
     print(f"Train tokenization took {time.time()-t_tok:.1f} seconds")
     
@@ -629,9 +725,7 @@ for idx, example in enumerate(val_examples):
         print(f"Processing val example {idx}/{len(val_examples)}", flush=True)
     
     msg = [{"role": "system", "content": prompts["system"]}]
-    target_msg = prepare_messages(prompts, example)
-    for m in target_msg:
-        msg.append(m)
+    msg.append(build_user_message(prompts, example))
     msg.append({
         "role": "assistant",
         "content": json.dumps(example.get("gold", {}), ensure_ascii=False)

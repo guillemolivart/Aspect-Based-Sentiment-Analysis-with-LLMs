@@ -31,6 +31,24 @@ def resolve_path(path, base=ABSA_DIR):
     path = Path(path)
     if path.is_absolute():
         return path
+    
+    # First check if path exists relative to cwd
+    if (Path.cwd() / path).exists():
+        return (Path.cwd() / path).resolve()
+    
+    # Then try relative to base (ABSA_DIR)
+    if (base / path).exists():
+        return base / path
+    
+    # If path looks like it contains ABSA directory structure but doesn't exist,
+    # still try to resolve it relative to cwd (for newly created files)
+    path_str = str(path)
+    if "ABSA" in path_str or "distribucio-codi-i-dades" in path_str:
+        candidate = (Path.cwd() / path).resolve()
+        # Return it even if it doesn't exist yet
+        return candidate
+    
+    # Default: append to base
     return base / path
 
 
