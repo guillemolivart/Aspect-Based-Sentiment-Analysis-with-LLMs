@@ -19,18 +19,23 @@ deactivate
 
 # Usage examples and notes:
 #
-# 1) Run interactively on the node (default: uses few-shot selection)
-#    ./finetune-train.sh ../prompts/absa_v8.json train --learning-rate 2e-4 --num-epochs 3 --per-device-train-batch 2 --batch-size 4
+# 1) Strong default LoRA SFT run (no few-shot in training; output-only loss)
+#    ./finetune-train.sh ../prompts/absa_v6.json train \
+#      --learning-rate 1e-4 --num-epochs 5 --max-length 3072 \
+#      --per-device-train-batch 1 --gradient-accumulation-steps 8
 #
-# 2) Run without few-shot (explicit flag):
-#    ./finetune-train.sh ../prompts/absa_v8.json train --learning-rate 2e-4 --num-epochs 3 --per-device-train-batch 2 --batch-size 4 --no-fewshot
+# 2) QLoRA 4-bit version requested by the project statement
+#    ./finetune-train.sh ../prompts/absa_v6.json train \
+#      --load-in-4bit --learning-rate 1e-4 --num-epochs 5 --max-length 3072 \
+#      --per-device-train-batch 1 --gradient-accumulation-steps 8
 #
-# 3) Submit via Slurm (example):
-#    sbatch finetune-train.sh ../prompts/absa_v8.json train --learning-rate 2e-4 --num-epochs 3 --per-device-train-batch 2 --batch-size 4
-#    sbatch finetune-train.sh ../prompts/absa_v8.json train --learning-rate 2e-4 --num-epochs 3 --per-device-train-batch 2 --batch-size 4 --no-fewshot
+# 3) Higher-capacity LoRA ablation
+#    ./finetune-train.sh ../prompts/absa_v6.json train \
+#      --lora-r 32 --lora-alpha 64 --learning-rate 5e-5 --num-epochs 5 \
+#      --max-length 3072 --per-device-train-batch 1 --gradient-accumulation-steps 8
 #
 # Output location:
 # The script uses the configured `OUTPUT_DIR` (from common.py) and creates a folder named
-# `FT.<dataset_stem>.<suffix>.weights`, e.g. `FT.train.fewshot.weights` or `FT.train.simple.weights`.
+# `outputs/finetune/FT.<dataset>.<prompt>.<mode>.<shots>.<targets>.r<rank>.lr<lr>.weights`.
 # Check that directory after the run for checkpoints, `training_args.bin`, `trainer_state.json` and
 # the final saved model.

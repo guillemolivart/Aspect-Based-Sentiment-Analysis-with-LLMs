@@ -31,7 +31,7 @@ def parse_args():
         "--weights",
         default=None,
         help="Path to fine-tuned LoRA weights. Auto-detect if not specified:\n"
-             "  Tries FT.fewshot.weights first (preferred), then FT.simple.weights"
+             "  Tries the newest outputs/finetune/FT.*.weights run, then legacy names"
     )
     parser.add_argument(
         "--use-fewshot-weights",
@@ -112,16 +112,21 @@ def parse_args():
 def load_model(weights_path, prompt_path, load_in_4bit=False):
     t0 = time.time()
     MODEL_PATH = str(DEFAULT_MODEL_PATH)
+    if torch.cuda.is_available():
+        torch_dtype = torch.bfloat16 if torch.cuda.is_bf16_supported() else torch.float16
+    else:
+        torch_dtype = torch.float32
 
     model_kwargs = {"device_map": "auto"}
     if load_in_4bit:
         model_kwargs["quantization_config"] = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
-            bnb_4bit_compute_dtype=torch.bfloat16,
+            bnb_4bit_use_double_quant=True,
+            bnb_4bit_compute_dtype=torch_dtype,
         )
     else:
-        model_kwargs["torch_dtype"] = torch.bfloat16
+        model_kwargs["torch_dtype"] = torch_dtype
 
     # load base model
     model = AutoModelForCausalLM.from_pretrained(MODEL_PATH, **model_kwargs)
@@ -145,9 +150,18 @@ args = parse_args()
 # Auto-detect weights if not specified
 if args.weights is None:
     weights_path = None
-    if args.use_simple_weights:
-        # Prefer simple weights
-        weights_path = OUTPUT_DIR / "FT.simple.weights"
+    finetune_runs = sorted(
+        (OUTPUT_DIR / "finetune").glob("FT.*.weights"),
+        key=lambda path: path.stat().st_mtime,
+        reverse=True,
+    )
+    legacy_simple = OUTPUT_DIR / "FT.simple.weights"
+    if args.use_simple_weights and legacy_simple.exists():
+        weights_path = legacy_simple
+    elif finetune_runs:
+        weights_path = finetune_runs[0]
+    elif args.use_simple_weights:
+        weights_path = legacy_simple
     else:
         # Prefer fewshot weights
         weights_path = OUTPUT_DIR / "FT.fewshot.weights"
@@ -161,6 +175,7 @@ if args.weights is None:
         if not weights_path.exists():
             raise FileNotFoundError(
                 f"No fine-tuned weights found. Tried:\n"
+                f"  - newest {OUTPUT_DIR / 'finetune' / 'FT.*.weights'}\n"
                 f"  - {OUTPUT_DIR / 'FT.fewshot.weights'}\n"
                 f"  - {OUTPUT_DIR / 'FT.simple.weights'}\n"
                 f"  - {OUTPUT_DIR / 'FT.weights'}"

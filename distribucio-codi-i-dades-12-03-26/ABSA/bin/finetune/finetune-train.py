@@ -5,7 +5,15 @@ import sys
 from pathlib import Path
 import numpy as np
 import torch
-from transformers import AutoModelForCausalLM, AutoTokenizer, TrainingArguments, Trainer, AutoModel, BitsAndBytesConfig
+from transformers import (
+    AutoModel,
+    AutoModelForCausalLM,
+    AutoTokenizer,
+    BitsAndBytesConfig,
+    DataCollatorForSeq2Seq,
+    Trainer,
+    TrainingArguments,
+)
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
 from datasets import Dataset
 
@@ -86,6 +94,17 @@ BASE_SCORE_WEIGHTS = {
     "rare_or_hard_label_helpfulness": 0.05,
     "length_label_count_fit": 0.03,
 }
+
+QWEN_ALL_LINEAR_TARGETS = [
+    "q_proj",
+    "k_proj",
+    "v_proj",
+    "o_proj",
+    "gate_proj",
+    "up_proj",
+    "down_proj",
+]
+QWEN_ATTENTION_TARGETS = ["q_proj", "k_proj", "v_proj", "o_proj"]
 
 
 # ========== EMBEDDING & SCORING FUNCTIONS ==========
@@ -201,6 +220,89 @@ def build_user_message(prompts, example):
         "polarities": ", ".join(POLARITIES),
     }
     return {"role": "user", "content": render_template(prompts["user"], values)}
+
+
+def gold_to_json(gold):
+    return json.dumps(gold or {}, ensure_ascii=False, sort_keys=True, separators=(",", ":"))
+
+
+def apply_chat_template(tokenizer, messages, add_generation_prompt=False):
+    try:
+        return tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=add_generation_prompt,
+            enable_thinking=False,
+        )
+    except TypeError:
+        return tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=add_generation_prompt,
+        )
+
+
+def build_sft_feature(tokenizer, prompt_messages, answer_json, max_length):
+    """
+    Build a causal-LM SFT example where only the final assistant JSON is trainable.
+    The system/user prompt and any few-shot demonstrations are masked with -100.
+    """
+    prompt_text = apply_chat_template(tokenizer, prompt_messages, add_generation_prompt=True)
+    full_messages = prompt_messages + [{"role": "assistant", "content": answer_json}]
+    full_text = apply_chat_template(tokenizer, full_messages, add_generation_prompt=False)
+
+    prompt_ids = tokenizer(prompt_text, add_special_tokens=False)["input_ids"]
+    full_ids = tokenizer(full_text, add_special_tokens=False)["input_ids"]
+
+    if full_ids[: len(prompt_ids)] != prompt_ids:
+        raise ValueError("Chat template prefix mismatch; refusing to build unsafe SFT labels.")
+
+    labels = [-100] * len(prompt_ids) + full_ids[len(prompt_ids) :]
+    original_length = len(full_ids)
+    truncated = False
+    if len(full_ids) > max_length:
+        overflow = len(full_ids) - max_length
+        full_ids = full_ids[overflow:]
+        labels = labels[overflow:]
+        truncated = True
+
+    return {
+        "input_ids": full_ids,
+        "attention_mask": [1] * len(full_ids),
+        "labels": labels,
+        "full_length": original_length,
+        "trainable_tokens": sum(label != -100 for label in labels),
+        "truncated": truncated,
+    }
+
+
+def dataset_from_features(features):
+    metadata_keys = {"full_length", "trainable_tokens", "truncated"}
+    dataset_features = [
+        {key: value for key, value in feature.items() if key not in metadata_keys}
+        for feature in features
+    ]
+    return Dataset.from_dict({
+        "input_ids": [feature["input_ids"] for feature in dataset_features],
+        "attention_mask": [feature["attention_mask"] for feature in dataset_features],
+        "labels": [feature["labels"] for feature in dataset_features],
+    })
+
+
+def report_tokenization_stats(features, split_name):
+    lengths = np.array([len(feature["input_ids"]) for feature in features], dtype=np.int32)
+    trainable = np.array([feature["trainable_tokens"] for feature in features], dtype=np.int32)
+    truncated = sum(1 for feature in features if feature["truncated"])
+    print(
+        f"{split_name} token stats: "
+        f"n={len(features)}, "
+        f"len_p50={np.percentile(lengths, 50):.0f}, "
+        f"len_p95={np.percentile(lengths, 95):.0f}, "
+        f"len_max={lengths.max()}, "
+        f"target_p50={np.percentile(trainable, 50):.0f}, "
+        f"target_max={trainable.max()}, "
+        f"truncated={truncated}"
+    )
 
 
 def calculate_aspect_cue_overlap(target_text_lower, gold_aspects, aspect_cues):
@@ -349,22 +451,43 @@ def select_absa_mmr(
     return [mmr_cache["examples"][i] for i in selected_sorted]
 
 
+def resolve_lora_targets(target_spec):
+    if target_spec == "all-linear":
+        return QWEN_ALL_LINEAR_TARGETS
+    if target_spec == "attention":
+        return QWEN_ATTENTION_TARGETS
+    if target_spec == "qv":
+        return ["q_proj", "v_proj"]
+    return [item.strip() for item in target_spec.split(",") if item.strip()]
+
+
+def resolve_precision(fp16=False):
+    if not torch.cuda.is_available():
+        return torch.float32, False, False
+    if fp16:
+        return torch.float16, False, True
+    if torch.cuda.is_bf16_supported():
+        return torch.bfloat16, True, False
+    return torch.float16, False, True
+
+
 # ========== LOAD MODEL AND TOKENIZER ==========
-def load_model(load_in_4bit=False, fp16=False):
+def load_model(args):
     t0 = time.time()
 
     MODEL_PATH = str(DEFAULT_MODEL_PATH)
 
-    torch_dtype = torch.float16 if fp16 else torch.bfloat16
+    torch_dtype, use_bf16, use_fp16 = resolve_precision(args.fp16)
     model_kwargs = {
-        "device_map": "auto" if load_in_4bit else None,
+        "device_map": "auto" if args.load_in_4bit else None,
         "torch_dtype": torch_dtype,
     }
-    if load_in_4bit:
+    if args.load_in_4bit:
         model_kwargs.pop("torch_dtype", None)
         model_kwargs["quantization_config"] = BitsAndBytesConfig(
             load_in_4bit=True,
             bnb_4bit_quant_type="nf4",
+            bnb_4bit_use_double_quant=True,
             bnb_4bit_compute_dtype=torch_dtype,
         )
 
@@ -377,30 +500,46 @@ def load_model(load_in_4bit=False, fp16=False):
     tokenizer.pad_token_id = tokenizer.eos_token_id
     tokenizer.truncation_side = "left"
 
-    if load_in_4bit:
+    if args.load_in_4bit:
         model = prepare_model_for_kbit_training(model)
     else:
-        model.gradient_checkpointing_enable()
-        model.enable_input_require_grads()
+        if args.gradient_checkpointing:
+            model.gradient_checkpointing_enable()
+        if hasattr(model, "enable_input_require_grads"):
+            model.enable_input_require_grads()
 
     # Add LoRa fine-tunable layers
-    lora_config = LoraConfig(
-        r=8,
-        lora_alpha=16,
-        target_modules=["q_proj", "v_proj"],
-        lora_dropout=0.05,
+    lora_kwargs = dict(
+        r=args.lora_r,
+        lora_alpha=args.lora_alpha,
+        target_modules=resolve_lora_targets(args.lora_targets),
+        lora_dropout=args.lora_dropout,
         bias="none",
         task_type="CAUSAL_LM",
     )
+    if args.use_rslora:
+        try:
+            import inspect
+
+            if "use_rslora" in inspect.signature(LoraConfig).parameters:
+                lora_kwargs["use_rslora"] = True
+            else:
+                print("WARNING: installed PEFT does not support use_rslora; continuing without it.")
+        except (TypeError, ValueError):
+            print("WARNING: could not inspect PEFT LoraConfig; continuing without use_rslora.")
+
+    lora_config = LoraConfig(**lora_kwargs)
     model = get_peft_model(model, lora_config)
+    model.print_trainable_parameters()
 
     # Keep memory use down during training.
     model.config.use_cache = False
-    if hasattr(model, "gradient_checkpointing_enable"):
+    if args.gradient_checkpointing and hasattr(model, "gradient_checkpointing_enable"):
         model.gradient_checkpointing_enable()
     
+    print(f"precision: dtype={torch_dtype}, bf16={use_bf16}, fp16={use_fp16}")
     print(f"Model loading took {time.time()-t0:.1f} seconds")
-    return model, tokenizer
+    return model, tokenizer, use_bf16, use_fp16
 
 
 # ------------ parse command-line arguments -----------------
@@ -421,20 +560,22 @@ def parse_args():
     parser.add_argument(
         "--learning-rate",
         type=float,
-        default=1e-5,
-        help="Learning rate for LoRA fine-tuning (default: 1e-5, conservative for LoRA)"
+        default=1e-4,
+        help="Learning rate for LoRA/QLoRA SFT (default: 1e-4)"
     )
     parser.add_argument(
         "--num-epochs",
         type=int,
-        default=3,
-        help="Number of training epochs (default: 3, LoRA needs fewer epochs than full FT)"
+        default=5,
+        help="Number of training epochs (default: 5)"
     )
     parser.add_argument(
+        "--gradient-accumulation-steps",
         "--batch-size",
+        dest="gradient_accumulation_steps",
         type=int,
-        default=4,
-        help="Gradient accumulation steps per device (default: 4)"
+        default=8,
+        help="Gradient accumulation steps per device (default: 8). --batch-size is kept as a backward-compatible alias."
     )
     parser.add_argument(
         "--per-device-train-batch",
@@ -447,6 +588,86 @@ def parse_args():
         type=int,
         default=1,
         help="Per-device eval batch size (default: 1)"
+    )
+    parser.add_argument(
+        "--max-length",
+        type=int,
+        default=3072,
+        help="Maximum prompt+gold token length (default: 3072, fits 100% of train/devel for absa_v6)"
+    )
+    parser.add_argument(
+        "--lora-r",
+        type=int,
+        default=16,
+        help="LoRA rank (default: 16)"
+    )
+    parser.add_argument(
+        "--lora-alpha",
+        type=int,
+        default=32,
+        help="LoRA alpha (default: 32)"
+    )
+    parser.add_argument(
+        "--lora-dropout",
+        type=float,
+        default=0.05,
+        help="LoRA dropout (default: 0.05)"
+    )
+    parser.add_argument(
+        "--lora-targets",
+        default="all-linear",
+        help="LoRA target modules: all-linear, attention, qv, or comma-separated module names (default: all-linear)"
+    )
+    parser.add_argument(
+        "--use-rslora",
+        action="store_true",
+        help="Use rank-stabilized LoRA if supported by the installed PEFT version"
+    )
+    parser.add_argument(
+        "--weight-decay",
+        type=float,
+        default=0.01,
+        help="AdamW weight decay (default: 0.01)"
+    )
+    parser.add_argument(
+        "--warmup-ratio",
+        type=float,
+        default=0.05,
+        help="Warmup ratio (default: 0.05)"
+    )
+    parser.add_argument(
+        "--lr-scheduler-type",
+        default="cosine",
+        help="Learning-rate scheduler type passed to TrainingArguments (default: cosine)"
+    )
+    parser.add_argument(
+        "--max-grad-norm",
+        type=float,
+        default=0.3,
+        help="Gradient clipping norm (default: 0.3)"
+    )
+    parser.add_argument(
+        "--optim",
+        default="auto",
+        help="Optimizer for TrainingArguments. auto = paged_adamw_8bit for QLoRA, adamw_torch for LoRA."
+    )
+    parser.add_argument(
+        "--eval-strategy",
+        choices=["steps", "epoch", "no"],
+        default="steps",
+        help="Evaluation strategy (default: steps)"
+    )
+    parser.add_argument(
+        "--eval-steps",
+        type=int,
+        default=50,
+        help="Evaluate/save every N optimizer steps when --eval-strategy=steps (default: 50)"
+    )
+    parser.add_argument(
+        "--save-total-limit",
+        type=int,
+        default=3,
+        help="Maximum number of checkpoints to keep (default: 3)"
     )
     parser.add_argument(
         "--seed",
@@ -462,8 +683,7 @@ def parse_args():
     parser.add_argument(
         "--use-fewshot",
         action="store_true",
-        default=True,
-        help="Use ABSA-MMR few-shot augmentation during training (default: True)"
+        help="Use ABSA-MMR few-shot examples in the training prompt. Off by default to keep SFT aligned with zero-shot inference."
     )
     parser.add_argument(
         "--no-fewshot",
@@ -486,56 +706,58 @@ def parse_args():
         action="store_true",
         help="Use FP16 instead of BF16"
     )
+    parser.add_argument(
+        "--no-gradient-checkpointing",
+        dest="gradient_checkpointing",
+        action="store_false",
+        help="Disable gradient checkpointing"
+    )
+    parser.set_defaults(gradient_checkpointing=True)
     return parser.parse_args()
 
 
 # ------------ tokenize dataset WITHOUT in-context examples (baseline) -----------------
-def tokenize_dataset_simple(tokenizer, dataset, prompts):
+def tokenize_dataset_simple(tokenizer, dataset, prompts, max_length):
     """
-    Simple tokenization without few-shot augmentation.
-    Baseline for comparing with few-shot enhanced training.
+    Simple SFT tokenization without few-shot augmentation.
+    Only the final assistant JSON is included in the loss.
     """
-    newDS = {"input_ids": [], "labels": []}
+    features = []
     
     for idx, example in enumerate(dataset):
         if idx % 100 == 0:
             print(f"Processing example {idx}/{len(dataset)}...", flush=True)
         
-        # Simple: just target example without few-shot
-        messages = [{"role": "system", "content": prompts["system"]}]
-        
-        # Add target example
-        messages.append(build_user_message(prompts, example))
-        
-        # Add assistant response (gold)
-        messages.append({
-            "role": "assistant",
-            "content": json.dumps(example.get("gold", {}), ensure_ascii=False)
-        })
-        
-        # Tokenize
-        text = tokenizer.apply_chat_template(messages, tokenize=False)
-        tokens = tokenizer(
-            text,
-            truncation=True,
-            max_length=512,
-            padding="max_length"
+        messages = [
+            {"role": "system", "content": prompts["system"]},
+            build_user_message(prompts, example),
+        ]
+        features.append(
+            build_sft_feature(
+                tokenizer,
+                messages,
+                gold_to_json(example.get("gold", {})),
+                max_length=max_length,
+            )
         )
-        
-        # Mark padding as -100 (ignored by trainer)
-        labels = [-100 if tk == tokenizer.pad_token_id else tk for tk in tokens["input_ids"]]
-        
-        newDS["input_ids"].append(tokens["input_ids"])
-        newDS["labels"].append(labels)
     
-    return Dataset.from_dict(newDS)
+    report_tokenization_stats(features, "train")
+    return dataset_from_features(features)
 
 
 # ------------ tokenize dataset WITH in-context examples from ABSA-MMR selection -----------------
-def tokenize_dataset_with_fewshot(tokenizer, dataset, prompts, embedding_model, embedding_tokenizer, k_shots=8):
+def tokenize_dataset_with_fewshot(
+    tokenizer,
+    dataset,
+    prompts,
+    embedding_model,
+    embedding_tokenizer,
+    k_shots=8,
+    max_length=3072,
+):
     """
     Tokenize dataset augmented with best few-shot examples per item.
-    Uses ABSA-MMR selection to find K best training examples for context.
+    Demonstration answers are context only; only the final target JSON is trained.
     """
     print(f"\nEmbedding {len(dataset)} training examples for MMR selection...")
     t0 = time.time()
@@ -546,8 +768,7 @@ def tokenize_dataset_with_fewshot(tokenizer, dataset, prompts, embedding_model, 
     target_embeddings = train_embeddings
     print(f"Embedding took {time.time()-t0:.1f} seconds")
     
-    # Tokenize with in-context examples
-    newDS = {"input_ids": [], "labels": []}
+    features = []
     
     for idx, target_example in enumerate(dataset):
         if idx % 50 == 0:
@@ -569,62 +790,100 @@ def tokenize_dataset_with_fewshot(tokenizer, dataset, prompts, embedding_model, 
         # Add few-shot examples
         for shot_ex in selected_shots:
             messages.append(build_user_message(prompts, shot_ex))
-            # Add the assistant response (gold)
             messages.append({
                 "role": "assistant",
-                "content": json.dumps(shot_ex.get("gold", {}), ensure_ascii=False)
+                "content": gold_to_json(shot_ex.get("gold", {})),
             })
         
         # Add target example as user query
         messages.append(build_user_message(prompts, target_example))
-        
-        # Add assistant response (gold)
-        messages.append({
-            "role": "assistant",
-            "content": json.dumps(target_example.get("gold", {}), ensure_ascii=False)
-        })
-        
-        # Tokenize
-        text = tokenizer.apply_chat_template(messages, tokenize=False)
-        tokens = tokenizer(
-            text,
-            truncation=True,
-            max_length=2048,  # Longer context for few-shot
-            padding="max_length"
+        features.append(
+            build_sft_feature(
+                tokenizer,
+                messages,
+                gold_to_json(target_example.get("gold", {})),
+                max_length=max_length,
+            )
         )
-        
-        # Mark padding as -100 (ignored by trainer)
-        labels = [-100 if tk == tokenizer.pad_token_id else tk for tk in tokens["input_ids"]]
-        
-        newDS["input_ids"].append(tokens["input_ids"])
-        newDS["labels"].append(labels)
     
-    return Dataset.from_dict(newDS)
+    report_tokenization_stats(features, "train_fewshot")
+    return dataset_from_features(features)
+
+
+def tokenize_validation_dataset(tokenizer, dataset, prompts, max_length):
+    features = []
+    for idx, example in enumerate(dataset):
+        if idx % 50 == 0:
+            print(f"Processing val example {idx}/{len(dataset)}", flush=True)
+
+        messages = [
+            {"role": "system", "content": prompts["system"]},
+            build_user_message(prompts, example),
+        ]
+        features.append(
+            build_sft_feature(
+                tokenizer,
+                messages,
+                gold_to_json(example.get("gold", {})),
+                max_length=max_length,
+            )
+        )
+
+    report_tokenization_stats(features, "devel")
+    return dataset_from_features(features)
 
 
 # ------------ create trainer with optimized hyperparameters -----------------
-def create_trainer(model, train_dataset, val_dataset, outputdir, args):
+def resolve_optimizer(args):
+    if args.optim != "auto":
+        return args.optim
+    return "paged_adamw_8bit" if args.load_in_4bit else "adamw_torch"
+
+
+def create_trainer(model, tokenizer, train_dataset, val_dataset, outputdir, args, use_bf16, use_fp16):
     # Configure training arguments optimized for LoRA fine-tuning
+    has_eval = args.eval_strategy != "no"
+    save_strategy = args.eval_strategy if has_eval else "epoch"
     training_args = TrainingArguments(
         output_dir=outputdir,
         per_device_train_batch_size=args.per_device_train_batch,
         per_device_eval_batch_size=args.per_device_eval_batch,
-        gradient_accumulation_steps=args.batch_size,
+        gradient_accumulation_steps=args.gradient_accumulation_steps,
         eval_accumulation_steps=2,
-        fp16=args.fp16,
-        bf16=not args.fp16,
-        learning_rate=args.learning_rate,  # Conservative for LoRA
-        num_train_epochs=args.num_epochs,  # Fewer epochs than full FT
-        eval_strategy="epoch",
-        gradient_checkpointing=True,
-        save_total_limit=2,
-        load_best_model_at_end=True,
-        save_strategy="epoch",
-        logging_strategy="epoch",
+        fp16=use_fp16,
+        bf16=use_bf16,
+        learning_rate=args.learning_rate,
+        num_train_epochs=args.num_epochs,
+        eval_strategy=args.eval_strategy,
+        eval_steps=args.eval_steps if args.eval_strategy == "steps" else None,
+        gradient_checkpointing=args.gradient_checkpointing,
+        save_total_limit=args.save_total_limit,
+        load_best_model_at_end=has_eval,
+        metric_for_best_model="eval_loss" if has_eval else None,
+        greater_is_better=False if has_eval else None,
+        save_strategy=save_strategy,
+        save_steps=args.eval_steps if save_strategy == "steps" else None,
+        logging_strategy="steps",
+        logging_steps=10,
         label_names=["labels"],
         seed=args.seed,
-        dataloader_pin_memory=True,
-        optim="paged_adamw_8bit" if args.load_in_4bit else "adamw_torch",
+        data_seed=args.seed,
+        dataloader_pin_memory=torch.cuda.is_available(),
+        optim=resolve_optimizer(args),
+        lr_scheduler_type=args.lr_scheduler_type,
+        warmup_ratio=args.warmup_ratio,
+        weight_decay=args.weight_decay,
+        max_grad_norm=args.max_grad_norm,
+        group_by_length=True,
+        remove_unused_columns=False,
+        report_to="none",
+    )
+
+    data_collator = DataCollatorForSeq2Seq(
+        tokenizer=tokenizer,
+        model=model,
+        label_pad_token_id=-100,
+        pad_to_multiple_of=8,
     )
 
     # Initialize the Trainer
@@ -632,7 +891,8 @@ def create_trainer(model, train_dataset, val_dataset, outputdir, args):
         model=model,
         args=training_args,
         eval_dataset=val_dataset,
-        train_dataset=train_dataset
+        train_dataset=train_dataset,
+        data_collator=data_collator,
     )
     return trainer
 
@@ -647,33 +907,53 @@ fewshot_label = "WITH FEWSHOT" if use_fewshot else "WITHOUT FEWSHOT"
 prompt_file = Path(args.prompt_file)
 dataset_file = args.dataset_file
 
-# Update output dir based on fewshot preference and dataset name
-if args.output_dir is None:
-    dataset_stem = Path(dataset_file).stem if Path(dataset_file).suffix else dataset_file
-    suffix = "fewshot" if use_fewshot else "simple"
-    output_dir = OUTPUT_DIR / f"FT.{dataset_stem}.{suffix}.weights"
-else:
-    output_dir = Path(args.output_dir)
-
 print("========= FINE TUNE ABSA " + fewshot_label + " =========")
 print(f"prompt_file: {prompt_file}")
 print(f"dataset_file: {dataset_file}")
 print(f"learning_rate: {args.learning_rate}")
 print(f"num_epochs: {args.num_epochs}")
-print(f"batch_size (gradient_accumulation): {args.batch_size}")
+print(f"gradient_accumulation_steps: {args.gradient_accumulation_steps}")
 print(f"per_device_train_batch: {args.per_device_train_batch}")
 print(f"per_device_eval_batch: {args.per_device_eval_batch}")
+print(f"max_length: {args.max_length}")
+print(f"lora_r: {args.lora_r}")
+print(f"lora_alpha: {args.lora_alpha}")
+print(f"lora_dropout: {args.lora_dropout}")
+print(f"lora_targets: {args.lora_targets} -> {resolve_lora_targets(args.lora_targets)}")
+print(f"weight_decay: {args.weight_decay}")
+print(f"warmup_ratio: {args.warmup_ratio}")
+print(f"lr_scheduler_type: {args.lr_scheduler_type}")
+print(f"max_grad_norm: {args.max_grad_norm}")
+print(f"optim: {args.optim}")
+print(f"eval_strategy: {args.eval_strategy}")
+print(f"eval_steps: {args.eval_steps}")
 print(f"seed: {args.seed}")
-print(f"output_dir: {output_dir}")
 print(f"use_fewshot: {use_fewshot}")
 print(f"load_in_4bit: {args.load_in_4bit}")
-
-# load model and tokenizer
-model, tokenizer = load_model(load_in_4bit=args.load_in_4bit, fp16=args.fp16)
 
 # load prompts
 prompts = get_prompts(prompt_file)
 print(f"Loaded prompt: {prompts['name']}")
+
+# Update output dir based on model/training configuration.
+if args.output_dir is None:
+    dataset_stem = Path(dataset_file).stem if Path(dataset_file).suffix else dataset_file
+    prompt_stem = Path(prompts["path"]).stem
+    train_mode = "qlora4bit" if args.load_in_4bit else "lora"
+    shot_suffix = f"fewshot{args.k_shots}" if use_fewshot else "simple"
+    target_suffix = args.lora_targets.replace(",", "-")
+    lr_suffix = f"{args.learning_rate:.0e}".replace("+0", "").replace("-0", "-")
+    output_dir = (
+        OUTPUT_DIR
+        / "finetune"
+        / f"FT.{dataset_stem}.{prompt_stem}.{train_mode}.{shot_suffix}.{target_suffix}.r{args.lora_r}.lr{lr_suffix}.weights"
+    )
+else:
+    output_dir = Path(args.output_dir)
+print(f"output_dir: {output_dir}")
+
+# load model and tokenizer
+model, tokenizer, use_bf16, use_fp16 = load_model(args)
 
 # Load training data
 t0 = time.time()
@@ -697,7 +977,13 @@ if use_fewshot:
     print("Tokenizing training data with few-shot examples...")
     t_tok = time.time()
     train_dataset = tokenize_dataset_with_fewshot(
-        tokenizer, train_examples, prompts, embedding_model, embedding_tokenizer, k_shots=args.k_shots
+        tokenizer,
+        train_examples,
+        prompts,
+        embedding_model,
+        embedding_tokenizer,
+        k_shots=args.k_shots,
+        max_length=args.max_length,
     )
     print(f"Train tokenization took {time.time()-t_tok:.1f} seconds")
     
@@ -710,7 +996,7 @@ else:
     # Simple tokenization
     print("Tokenizing training data (simple, no few-shot)...")
     t_tok = time.time()
-    train_dataset = tokenize_dataset_simple(tokenizer, train_examples, prompts)
+    train_dataset = tokenize_dataset_simple(tokenizer, train_examples, prompts, max_length=args.max_length)
     print(f"Train tokenization took {time.time()-t_tok:.1f} seconds")
 
 # Tokenize validation WITHOUT few-shot (always for faster evaluation)
@@ -719,26 +1005,7 @@ print("LOADING VALIDATION DATA (no few-shot)")
 print("="*60)
 print("Tokenizing validation set...")
 t0 = time.time()
-val_dataset_dict = {"input_ids": [], "labels": []}
-for idx, example in enumerate(val_examples):
-    if idx % 50 == 0:
-        print(f"Processing val example {idx}/{len(val_examples)}", flush=True)
-    
-    msg = [{"role": "system", "content": prompts["system"]}]
-    msg.append(build_user_message(prompts, example))
-    msg.append({
-        "role": "assistant",
-        "content": json.dumps(example.get("gold", {}), ensure_ascii=False)
-    })
-    
-    text = tokenizer.apply_chat_template(msg, tokenize=False)
-    tokens = tokenizer(text, truncation=True, max_length=512, padding="max_length")
-    labels = [-100 if tk == tokenizer.pad_token_id else tk for tk in tokens["input_ids"]]
-    
-    val_dataset_dict["input_ids"].append(tokens["input_ids"])
-    val_dataset_dict["labels"].append(labels)
-
-val_dataset = Dataset.from_dict(val_dataset_dict)
+val_dataset = tokenize_validation_dataset(tokenizer, val_examples, prompts, max_length=args.max_length)
 print(f"Validation tokenization took {time.time()-t0:.1f} seconds")
 
 # create trainer for fine tuning
@@ -746,7 +1013,7 @@ print("\n" + "="*60)
 print("STARTING TRAINING")
 print("="*60)
 output_dir.mkdir(parents=True, exist_ok=True)
-trainer = create_trainer(model, train_dataset, val_dataset, output_dir, args)
+trainer = create_trainer(model, tokenizer, train_dataset, val_dataset, output_dir, args, use_bf16, use_fp16)
 
 # Fine-tune the model
 t0 = time.time()
