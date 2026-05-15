@@ -874,7 +874,7 @@ def create_trainer(model, tokenizer, train_dataset, val_dataset, outputdir, args
         warmup_ratio=args.warmup_ratio,
         weight_decay=args.weight_decay,
         max_grad_norm=args.max_grad_norm,
-        group_by_length=True,
+        # group_by_length=True,
         remove_unused_columns=False,
         report_to="none",
     )
