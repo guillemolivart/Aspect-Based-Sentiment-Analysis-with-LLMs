@@ -937,8 +937,8 @@ def parse_args():
     parser.add_argument(
         "--generative-eval-max-new-tokens",
         type=int,
-        default=256,
-        help="Max generated tokens per devel example during generative validation (default: 256)"
+        default=512,
+        help="Max generated tokens per devel example during generative validation (default: 512)"
     )
     parser.add_argument(
         "--group-by-length",
