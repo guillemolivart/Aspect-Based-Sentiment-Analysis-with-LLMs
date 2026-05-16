@@ -1,0 +1,41 @@
+Looking for inference output at: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/FT.devel.json
+
+📊 ANALYSIS: FT.devel.json
+======================================================================
+Total examples: 132
+Examples with predictions: 132/132
+Exact matches (prediction == gold): 60/132
+Exact match accuracy: 45.45%
+
+Aspect                    Precision    Recall      
+--------------------------------------------------
+ambience                   86.84% (33/38 )  70.21% (33/47 )
+drinks_prices             100.00% (2/2  )  66.67% (2/3  )
+drinks_quality             66.67% (6/9  )  60.00% (6/10 )
+drinks_style_options       50.00% (2/4  )  33.33% (2/6  )
+food_prices                81.25% (13/16 )  50.00% (13/26 )
+food_quality               89.22% (91/102)  91.00% (91/100)
+food_style_options         66.67% (2/3  )   8.33% (2/24 )
+location                  100.00% (3/3  )  75.00% (3/4  )
+restaurant_general         87.30% (110/126)  85.94% (110/128)
+restaurant_prices          64.71% (11/17 )  45.83% (11/24 )
+service                    91.03% (71/78 )  86.59% (71/82 )
+
+--- ERROR ANALYSIS ---
+Empty predictions (gold != empty): 3
+Hallucinated predictions (pred != empty, gold empty): 0
+Wrong polarity (right aspect, wrong sentiment): 26
+
+--- SAMPLE ERRORS ---
+
+✗ Text: This place is incredibly tiny.They refuse to seat parties of 3 or more on weeken...
+  Gold: {'service': 'negative', 'food_quality': 'negative', 'restaurant_general': 'negative'}
+  Pred: {'ambience': 'negative', 'food_quality': 'negative', 'restaurant_general': 'negative', 'service': 'negative'}
+
+✗ Text: Un sitio recomendable en pleno centro de barcelona...
+  Gold: {'location': 'positive', 'restaurant_general': 'positive'}
+  Pred: {'restaurant_general': 'positive'}
+
+✗ Text: La verdad es que resulta muy caro para lo que recibes.Tenia unas expectativas mu...
+  Gold: {'restaurant_prices': 'negative', 'food_quality': 'negative', 'ambience': 'negative', 'service': 'negative', 'restaurant_general': 'negative'}
+  Pred: {'ambience': 'negative', 'restaurant_general': 'negative', 'restaurant_prices': 'negative', 'service': 'negative'}

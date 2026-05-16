@@ -42,3 +42,11 @@ optuna/*
 !optuna/*.txt
 !optuna/*.run.log
 !optuna/*.analysis.md
+
+!finetune/
+finetune/*
+!finetune/*.json
+!finetune/*.csv
+!finetune/*.txt
+!finetune/*.run.log
+!finetune/*.analysis.md
