@@ -13,6 +13,7 @@ from transformers import (
     BitsAndBytesConfig,
     DataCollatorForSeq2Seq,
     Trainer,
+    TrainerCallback,
     TrainingArguments,
 )
 from peft import LoraConfig, get_peft_model, prepare_model_for_kbit_training
@@ -23,7 +24,18 @@ PARENT_DIR = SCRIPT_DIR.parent
 if str(PARENT_DIR) not in sys.path:
     sys.path.insert(0, str(PARENT_DIR))
 
-from common import ABSA_DIR, ASPECTS, DEFAULT_MODEL_PATH, OUTPUT_DIR, POLARITIES, get_prompts, load_dataset as load_absa_dataset, render_template
+from common import (
+    ABSA_DIR,
+    ASPECTS,
+    DEFAULT_MODEL_PATH,
+    OUTPUT_DIR,
+    POLARITIES,
+    extract_json,
+    get_prompts,
+    load_dataset as load_absa_dataset,
+    normalize_prediction,
+    render_template,
+)
 
 
 # ========== ABSA-MMR SELECTION CONSTANTS ==========
@@ -304,6 +316,252 @@ def report_tokenization_stats(features, split_name):
         f"target_max={trainable.max()}, "
         f"truncated={truncated}"
     )
+
+
+def flatten_metric_items(value, prefix=""):
+    if isinstance(value, (str, int, float, bool)):
+        return [prefix + ":" + str(value)]
+    if isinstance(value, list):
+        flattened = []
+        for item in value:
+            flattened.extend(flatten_metric_items(item, prefix))
+        return flattened
+    if isinstance(value, dict):
+        flattened = []
+        for key, item in value.items():
+            flattened.extend(flatten_metric_items(item, prefix + f".{key}"))
+        return flattened
+    return []
+
+
+def count_prediction_items(prediction, gold):
+    predicted = flatten_metric_items(prediction)
+    expected = flatten_metric_items(gold)
+    ok = sum(1 for item in predicted if item in expected)
+    return len(predicted), len(expected), ok
+
+
+def prf(predicted, expected, ok):
+    precision = 100.0 * ok / predicted if predicted else 0.0
+    recall = 100.0 * ok / expected if expected else 0.0
+    f1 = 2 * precision * recall / (precision + recall) if precision + recall else 0.0
+    return precision, recall, f1
+
+
+def compute_absa_metrics(examples):
+    predicted_total = expected_total = ok_total = 0
+    precision_macro = recall_macro = f1_macro = 0.0
+    exact_matches = 0
+
+    for example in examples:
+        prediction = normalize_prediction(example.get("prediction", {}))
+        gold = normalize_prediction(example.get("gold", {}))
+        predicted, expected, ok = count_prediction_items(prediction, gold)
+        predicted_total += predicted
+        expected_total += expected
+        ok_total += ok
+
+        precision, recall, f1 = prf(predicted, expected, ok)
+        precision_macro += precision
+        recall_macro += recall
+        f1_macro += f1
+        exact_matches += int(prediction == gold)
+
+    n_examples = max(1, len(examples))
+    precision_macro /= n_examples
+    recall_macro /= n_examples
+    f1_macro /= n_examples
+    precision_micro, recall_micro, f1_micro = prf(
+        predicted_total,
+        expected_total,
+        ok_total,
+    )
+
+    return {
+        "examples": len(examples),
+        "predicted_total": predicted_total,
+        "expected_total": expected_total,
+        "ok_total": ok_total,
+        "exact_matches": exact_matches,
+        "exact_match_accuracy": 100.0 * exact_matches / n_examples,
+        "precision_macro": precision_macro,
+        "recall_macro": recall_macro,
+        "f1_macro": f1_macro,
+        "precision_micro": precision_micro,
+        "recall_micro": recall_micro,
+        "f1_micro": f1_micro,
+    }
+
+
+def build_inference_messages(prompts, example):
+    return [
+        {"role": "system", "content": prompts["system"]},
+        build_user_message(prompts, example),
+    ]
+
+
+def model_input_device(model):
+    try:
+        return next(model.parameters()).device
+    except StopIteration:
+        return torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+
+def generate_greedy_json(model, tokenizer, messages, max_new_tokens):
+    prompt_text = apply_chat_template(tokenizer, messages, add_generation_prompt=True)
+    model_inputs = tokenizer([prompt_text], return_tensors="pt")
+    model_inputs = model_inputs.to(model_input_device(model))
+
+    with torch.no_grad():
+        generated_ids = model.generate(
+            **model_inputs,
+            max_new_tokens=max_new_tokens,
+            do_sample=False,
+            pad_token_id=tokenizer.pad_token_id or tokenizer.eos_token_id,
+        )
+
+    prompt_len = model_inputs["input_ids"].shape[-1]
+    output_ids = generated_ids[0][prompt_len:]
+    raw_generation = tokenizer.decode(output_ids, skip_special_tokens=True)
+    prediction = extract_json(raw_generation)
+    return raw_generation, normalize_prediction(prediction)
+
+
+class GenerativeABSAEvalCallback(TrainerCallback):
+    """
+    Select the best LoRA adapter with the metric used by the assignment script.
+
+    Trainer eval_loss is still logged, but checkpoint selection is based on greedy
+    JSON generation on devel: first micro F1, then macro F1 as tie-breaker.
+    """
+
+    def __init__(self, tokenizer, prompts, val_examples, output_dir, max_new_tokens, limit=None):
+        self.tokenizer = tokenizer
+        self.prompts = prompts
+        self.val_examples = val_examples[:limit] if limit else val_examples
+        self.output_dir = Path(output_dir)
+        self.max_new_tokens = max_new_tokens
+        self.best_f1_micro = -1.0
+        self.best_f1_macro = -1.0
+        self.best_step = None
+        self.best_model_dir = self.output_dir / "best_generative_f1"
+        self.eval_dir = self.output_dir / "generative_eval"
+        self.history_path = self.eval_dir / "history.jsonl"
+        self.best_predictions_path = self.eval_dir / "best_devel_predictions.json"
+        self.best_metrics_path = self.eval_dir / "best_metrics.json"
+        self.evaluated_steps = set()
+
+    def on_evaluate(self, args, state, control, model=None, metrics=None, **kwargs):
+        if model is None:
+            return control
+
+        step = int(state.global_step)
+        self._run_eval(model=model, step=step, metrics=metrics)
+        return control
+
+    def on_train_end(self, args, state, control, model=None, **kwargs):
+        if model is None:
+            return control
+
+        step = int(state.global_step)
+        if step not in self.evaluated_steps:
+            print("[generative_eval] final step was not evaluated; running final devel generation.")
+            self._run_eval(model=model, step=step, metrics=None)
+        return control
+
+    def _run_eval(self, model, step, metrics=None):
+        self.evaluated_steps.add(step)
+        print(
+            f"\n[generative_eval] step={step} examples={len(self.val_examples)} "
+            f"max_new_tokens={self.max_new_tokens}",
+            flush=True,
+        )
+
+        was_training = model.training
+        model.eval()
+        predictions = []
+        started = time.time()
+
+        for idx, example in enumerate(self.val_examples):
+            if idx % 25 == 0:
+                print(f"[generative_eval] generating {idx}/{len(self.val_examples)}", flush=True)
+
+            messages = build_inference_messages(self.prompts, example)
+            raw_generation, prediction = generate_greedy_json(
+                model,
+                self.tokenizer,
+                messages,
+                self.max_new_tokens,
+            )
+            result = dict(example)
+            result["prediction"] = prediction
+            result["prediction_normalized"] = prediction
+            if idx < 5:
+                result["raw_generation"] = raw_generation
+            predictions.append(result)
+
+        if was_training:
+            model.train()
+        if torch.cuda.is_available():
+            torch.cuda.empty_cache()
+
+        eval_metrics = compute_absa_metrics(predictions)
+        eval_metrics.update(
+            {
+                "step": step,
+                "elapsed_seconds": time.time() - started,
+                "max_new_tokens": self.max_new_tokens,
+            }
+        )
+
+        self.eval_dir.mkdir(parents=True, exist_ok=True)
+        with open(self.history_path, "a", encoding="utf-8") as history_fd:
+            history_fd.write(json.dumps(eval_metrics, ensure_ascii=False, sort_keys=True) + "\n")
+
+        if metrics is not None:
+            metrics["generative_precision_macro"] = eval_metrics["precision_macro"]
+            metrics["generative_recall_macro"] = eval_metrics["recall_macro"]
+            metrics["generative_f1_macro"] = eval_metrics["f1_macro"]
+            metrics["generative_precision_micro"] = eval_metrics["precision_micro"]
+            metrics["generative_recall_micro"] = eval_metrics["recall_micro"]
+            metrics["generative_f1_micro"] = eval_metrics["f1_micro"]
+            metrics["generative_exact_match_accuracy"] = eval_metrics["exact_match_accuracy"]
+
+        is_better = (
+            eval_metrics["f1_micro"] > self.best_f1_micro + 1e-9
+            or (
+                abs(eval_metrics["f1_micro"] - self.best_f1_micro) <= 1e-9
+                and eval_metrics["f1_macro"] > self.best_f1_macro + 1e-9
+            )
+        )
+
+        print(
+            "[generative_eval] "
+            f"M.avg={eval_metrics['precision_macro']:.1f}/"
+            f"{eval_metrics['recall_macro']:.1f}/"
+            f"{eval_metrics['f1_macro']:.1f} "
+            f"m.avg={eval_metrics['precision_micro']:.1f}/"
+            f"{eval_metrics['recall_micro']:.1f}/"
+            f"{eval_metrics['f1_micro']:.1f} "
+            f"exact={eval_metrics['exact_matches']}/{eval_metrics['examples']}",
+            flush=True,
+        )
+
+        if is_better:
+            self.best_f1_micro = eval_metrics["f1_micro"]
+            self.best_f1_macro = eval_metrics["f1_macro"]
+            self.best_step = step
+            print(f"[generative_eval] new best checkpoint at step {step}", flush=True)
+
+            model.save_pretrained(self.best_model_dir)
+            self.tokenizer.save_pretrained(self.best_model_dir)
+            model.save_pretrained(self.output_dir)
+            self.tokenizer.save_pretrained(self.output_dir)
+
+            with open(self.best_predictions_path, "w", encoding="utf-8") as predictions_fd:
+                json.dump(predictions, predictions_fd, indent=3, ensure_ascii=False)
+            with open(self.best_metrics_path, "w", encoding="utf-8") as metrics_fd:
+                json.dump(eval_metrics, metrics_fd, indent=3, ensure_ascii=False, sort_keys=True)
 
 
 def calculate_aspect_cue_overlap(target_text_lower, gold_aspects, aspect_cues):
@@ -665,6 +923,24 @@ def parse_args():
         help="Evaluate/save every N optimizer steps when --eval-strategy=steps (default: 50)"
     )
     parser.add_argument(
+        "--no-generative-eval",
+        dest="generative_eval",
+        action="store_false",
+        help="Disable greedy devel generation during validation and fall back to eval_loss checkpoint selection"
+    )
+    parser.add_argument(
+        "--generative-eval-limit",
+        type=int,
+        default=None,
+        help="Limit examples used by generative validation. Default: full devel set."
+    )
+    parser.add_argument(
+        "--generative-eval-max-new-tokens",
+        type=int,
+        default=256,
+        help="Max generated tokens per devel example during generative validation (default: 256)"
+    )
+    parser.add_argument(
         "--group-by-length",
         action="store_true",
         help="Group examples with similar token length in training batches. Disabled by default for maximum compatibility."
@@ -718,7 +994,7 @@ def parse_args():
         action="store_false",
         help="Disable gradient checkpointing"
     )
-    parser.set_defaults(gradient_checkpointing=True)
+    parser.set_defaults(gradient_checkpointing=True, generative_eval=True)
     return parser.parse_args()
 
 
@@ -850,6 +1126,7 @@ def create_trainer(model, tokenizer, train_dataset, val_dataset, outputdir, args
     # Configure training arguments optimized for LoRA fine-tuning
     has_eval = args.eval_strategy != "no"
     save_strategy = args.eval_strategy if has_eval else "epoch"
+    use_eval_loss_best = has_eval and not args.generative_eval
     training_kwargs = {
         "output_dir": outputdir,
         "per_device_train_batch_size": args.per_device_train_batch,
@@ -863,9 +1140,9 @@ def create_trainer(model, tokenizer, train_dataset, val_dataset, outputdir, args
         "eval_steps": args.eval_steps if args.eval_strategy == "steps" else None,
         "gradient_checkpointing": args.gradient_checkpointing,
         "save_total_limit": args.save_total_limit,
-        "load_best_model_at_end": has_eval,
-        "metric_for_best_model": "eval_loss" if has_eval else None,
-        "greater_is_better": False if has_eval else None,
+        "load_best_model_at_end": use_eval_loss_best,
+        "metric_for_best_model": "eval_loss" if use_eval_loss_best else None,
+        "greater_is_better": False if use_eval_loss_best else None,
         "save_strategy": save_strategy,
         "save_steps": args.eval_steps if save_strategy == "steps" else None,
         "logging_strategy": "steps",
@@ -941,6 +1218,9 @@ print(f"max_grad_norm: {args.max_grad_norm}")
 print(f"optim: {args.optim}")
 print(f"eval_strategy: {args.eval_strategy}")
 print(f"eval_steps: {args.eval_steps}")
+print(f"generative_eval: {args.generative_eval}")
+print(f"generative_eval_limit: {args.generative_eval_limit}")
+print(f"generative_eval_max_new_tokens: {args.generative_eval_max_new_tokens}")
 print(f"seed: {args.seed}")
 print(f"use_fewshot: {use_fewshot}")
 print(f"load_in_4bit: {args.load_in_4bit}")
@@ -1028,6 +1308,23 @@ print("STARTING TRAINING")
 print("="*60)
 output_dir.mkdir(parents=True, exist_ok=True)
 trainer = create_trainer(model, tokenizer, train_dataset, val_dataset, output_dir, args, use_bf16, use_fp16)
+generative_eval_callback = None
+if args.generative_eval:
+    if args.eval_strategy == "no":
+        raise ValueError("--generative-eval requires --eval-strategy steps or epoch")
+    generative_eval_callback = GenerativeABSAEvalCallback(
+        tokenizer=tokenizer,
+        prompts=prompts,
+        val_examples=val_examples,
+        output_dir=output_dir,
+        max_new_tokens=args.generative_eval_max_new_tokens,
+        limit=args.generative_eval_limit,
+    )
+    trainer.add_callback(generative_eval_callback)
+    print(
+        "Generative validation enabled: checkpoint selection uses devel m.avg F1 "
+        "with M.avg F1 as tie-breaker."
+    )
 
 # Fine-tune the model
 t0 = time.time()
@@ -1036,7 +1333,28 @@ elapsed = time.time() - t0
 print(f"Training took {elapsed:.1f} seconds ({elapsed/60:.1f} minutes)")
 
 # Save the fine-tuned model weights
-trainer.save_model()
+if generative_eval_callback and generative_eval_callback.best_step is not None:
+    last_dir = output_dir / "last"
+    trainer.save_model(last_dir)
+    torch.save(trainer.args, output_dir / "training_args.bin")
+    best_metrics = {
+        "best_step": generative_eval_callback.best_step,
+        "best_f1_micro": generative_eval_callback.best_f1_micro,
+        "best_f1_macro": generative_eval_callback.best_f1_macro,
+        "selection": "best devel m.avg F1, tie-break by M.avg F1",
+        "root_weights": str(output_dir),
+        "mirror_weights": str(generative_eval_callback.best_model_dir),
+        "last_weights": str(last_dir),
+    }
+    with open(output_dir / "best_generative_f1.json", "w", encoding="utf-8") as best_fd:
+        json.dump(best_metrics, best_fd, indent=3, ensure_ascii=False, sort_keys=True)
+    print(
+        f"Best generative checkpoint: step={generative_eval_callback.best_step}, "
+        f"m.avg F1={generative_eval_callback.best_f1_micro:.1f}, "
+        f"M.avg F1={generative_eval_callback.best_f1_macro:.1f}"
+    )
+else:
+    trainer.save_model()
 print(f"\nFine-tuning complete!")
 print(f"Weights saved to: {output_dir}")
 print(f"Config: prompt={prompts['name']}, lr={args.learning_rate}, epochs={args.num_epochs}, {fewshot_label}")
