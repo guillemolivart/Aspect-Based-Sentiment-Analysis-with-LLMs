@@ -1,4 +1,5 @@
 import argparse
+import inspect
 import json
 import time
 import sys
@@ -664,6 +665,11 @@ def parse_args():
         help="Evaluate/save every N optimizer steps when --eval-strategy=steps (default: 50)"
     )
     parser.add_argument(
+        "--group-by-length",
+        action="store_true",
+        help="Group examples with similar token length in training batches. Disabled by default for maximum compatibility."
+    )
+    parser.add_argument(
         "--save-total-limit",
         type=int,
         default=3,
@@ -844,40 +850,48 @@ def create_trainer(model, tokenizer, train_dataset, val_dataset, outputdir, args
     # Configure training arguments optimized for LoRA fine-tuning
     has_eval = args.eval_strategy != "no"
     save_strategy = args.eval_strategy if has_eval else "epoch"
-    training_args = TrainingArguments(
-        output_dir=outputdir,
-        per_device_train_batch_size=args.per_device_train_batch,
-        per_device_eval_batch_size=args.per_device_eval_batch,
-        gradient_accumulation_steps=args.gradient_accumulation_steps,
-        eval_accumulation_steps=2,
-        fp16=use_fp16,
-        bf16=use_bf16,
-        learning_rate=args.learning_rate,
-        num_train_epochs=args.num_epochs,
-        eval_strategy=args.eval_strategy,
-        eval_steps=args.eval_steps if args.eval_strategy == "steps" else None,
-        gradient_checkpointing=args.gradient_checkpointing,
-        save_total_limit=args.save_total_limit,
-        load_best_model_at_end=has_eval,
-        metric_for_best_model="eval_loss" if has_eval else None,
-        greater_is_better=False if has_eval else None,
-        save_strategy=save_strategy,
-        save_steps=args.eval_steps if save_strategy == "steps" else None,
-        logging_strategy="steps",
-        logging_steps=10,
-        label_names=["labels"],
-        seed=args.seed,
-        data_seed=args.seed,
-        dataloader_pin_memory=torch.cuda.is_available(),
-        optim=resolve_optimizer(args),
-        lr_scheduler_type=args.lr_scheduler_type,
-        warmup_ratio=args.warmup_ratio,
-        weight_decay=args.weight_decay,
-        max_grad_norm=args.max_grad_norm,
-        # group_by_length=True,
-        remove_unused_columns=False,
-        report_to="none",
-    )
+    training_kwargs = {
+        "output_dir": outputdir,
+        "per_device_train_batch_size": args.per_device_train_batch,
+        "per_device_eval_batch_size": args.per_device_eval_batch,
+        "gradient_accumulation_steps": args.gradient_accumulation_steps,
+        "eval_accumulation_steps": 2,
+        "fp16": use_fp16,
+        "bf16": use_bf16,
+        "learning_rate": args.learning_rate,
+        "num_train_epochs": args.num_epochs,
+        "eval_steps": args.eval_steps if args.eval_strategy == "steps" else None,
+        "gradient_checkpointing": args.gradient_checkpointing,
+        "save_total_limit": args.save_total_limit,
+        "load_best_model_at_end": has_eval,
+        "metric_for_best_model": "eval_loss" if has_eval else None,
+        "greater_is_better": False if has_eval else None,
+        "save_strategy": save_strategy,
+        "save_steps": args.eval_steps if save_strategy == "steps" else None,
+        "logging_strategy": "steps",
+        "logging_steps": 10,
+        "label_names": ["labels"],
+        "seed": args.seed,
+        "data_seed": args.seed,
+        "dataloader_pin_memory": torch.cuda.is_available(),
+        "optim": resolve_optimizer(args),
+        "lr_scheduler_type": args.lr_scheduler_type,
+        "warmup_ratio": args.warmup_ratio,
+        "weight_decay": args.weight_decay,
+        "max_grad_norm": args.max_grad_norm,
+        "group_by_length": args.group_by_length,
+        "remove_unused_columns": False,
+        "report_to": "none",
+    }
+    training_params = inspect.signature(TrainingArguments.__init__).parameters
+    if "eval_strategy" in training_params:
+        training_kwargs["eval_strategy"] = args.eval_strategy
+    else:
+        training_kwargs["evaluation_strategy"] = args.eval_strategy
+    training_kwargs = {
+        key: value for key, value in training_kwargs.items() if key in training_params
+    }
+    training_args = TrainingArguments(**training_kwargs)
 
     data_collator = DataCollatorForSeq2Seq(
         tokenizer=tokenizer,

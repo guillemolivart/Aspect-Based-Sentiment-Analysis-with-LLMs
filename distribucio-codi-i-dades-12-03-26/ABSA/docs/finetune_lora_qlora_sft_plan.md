@@ -70,6 +70,7 @@ scheduler: cosine
 warmup_ratio: 0.05
 weight_decay: 0.01
 max_grad_norm: 0.3
+group_by_length: disabled by default; enable with --group-by-length if the runtime supports it
 optimizer:
   - LoRA: adamw_torch
   - QLoRA: paged_adamw_8bit
@@ -156,6 +157,6 @@ few-shot absa_mmr K=8: F1_micro about 73.9 on devel
 - The default training path is now no-few-shot SFT, because previous few-shot training created a mismatch with zero-shot inference.
 - QLoRA is not a different task from LoRA; it is LoRA with the base model quantized in 4-bit.
 - The inference script now looks for the newest run under `outputs/finetune/FT.*.weights`, while still supporting legacy output names.
+- `group_by_length` is only a batching optimization. It reduces padding by batching examples of similar length, but it is disabled by default for compatibility with older `transformers` installations.
 - Local validation completed: Python syntax compilation and `git diff --check`.
 - Runtime validation still needs a GPU environment with `torch`, `transformers`, `peft`, `bitsandbytes`, and the local model files installed.
-
