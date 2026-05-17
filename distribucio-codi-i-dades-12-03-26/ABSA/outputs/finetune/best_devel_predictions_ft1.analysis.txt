@@ -1,0 +1,44 @@
+ANALYSIS: best_devel_predictions_ft1.json
+======================================================================
+Total examples: 132
+Examples with predictions: 132/132
+Exact matches (prediction == gold): 72/132
+Exact match accuracy: 54.55%
+
+Aspect                    Precision          Recall            
+----------------------------------------------------------------------
+ambience                   90.24% (37/41  )  78.72% (37/47  )
+drinks_prices             100.00% (3/3   ) 100.00% (3/3   )
+drinks_quality             88.89% (8/9   )  80.00% (8/10  )
+drinks_style_options      100.00% (2/2   )  33.33% (2/6   )
+food_prices                75.00% (15/20  )  57.69% (15/26  )
+food_quality               91.00% (91/100 )  91.00% (91/100 )
+food_style_options         68.00% (17/25  )  70.83% (17/24  )
+location                  100.00% (3/3   )  75.00% (3/4   )
+restaurant_general         89.92% (116/129 )  90.62% (116/128 )
+restaurant_prices          62.50% (15/24  )  62.50% (15/24  )
+service                    96.30% (78/81  )  95.12% (78/82  )
+
+ERROR ANALYSIS
+----------------------------------------------------------------------
+Empty predictions (gold != empty): 0
+Hallucinated predictions (pred != empty, gold empty): 0
+Wrong polarity (right aspect, wrong sentiment): 22
+
+SAMPLE ERRORS
+----------------------------------------------------------------------
+[1] id=1131595
+Text: This place is incredibly tiny.They refuse to seat parties of 3 or more on weekends.The hostess is rude to the point of b...
+Gold: {'service': 'negative', 'food_quality': 'negative', 'restaurant_general': 'negative'}
+Pred: {'ambience': 'negative', 'food_quality': 'negative', 'restaurant_general': 'negative', 'service': 'negative'}
+
+[2] id=es_9reinas_28_JoseManuelBarcenaFernandez_2013-07-20
+Text: Un sitio recomendable en pleno centro de barcelona...
+Gold: {'location': 'positive', 'restaurant_general': 'positive'}
+Pred: {'restaurant_general': 'positive'}
+
+[3] id=es_bodega-de-chema-la-zaragoza_comment-4180
+Text: Ultimamente hemos ido en varias ocasiones a la Bodega de Chema.La especialidad del restaurante (cabrito con patatas) es ...
+Gold: {'food_quality': 'positive', 'food_style_options': 'positive', 'food_prices': 'positive', 'drinks_quality': 'positive', 'restaurant_general': 'positive'}
+Pred: {'food_prices': 'positive', 'food_quality': 'positive', 'food_style_options': 'positive', 'restaurant_general': 'positive'}
+

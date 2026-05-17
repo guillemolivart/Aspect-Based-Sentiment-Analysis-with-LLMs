@@ -1,0 +1,12 @@
+aspect,precision_pct,precision_correct,precision_total,recall_pct,recall_correct,recall_total
+ambience,90.24,37,41,78.72,37,47
+drinks_prices,100.00,3,3,100.00,3,3
+drinks_quality,88.89,8,9,80.00,8,10
+drinks_style_options,100.00,2,2,33.33,2,6
+food_prices,75.00,15,20,57.69,15,26
+food_quality,91.00,91,100,91.00,91,100
+food_style_options,68.00,17,25,70.83,17,24
+location,100.00,3,3,75.00,3,4
+restaurant_general,89.92,116,129,90.62,116,128
+restaurant_prices,62.50,15,24,62.50,15,24
+service,96.30,78,81,95.12,78,82
