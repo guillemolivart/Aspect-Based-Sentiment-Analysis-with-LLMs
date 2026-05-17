@@ -46,6 +46,7 @@ optuna/*
 !finetune/
 finetune/*
 !finetune/*.json
+!finetune/*.jsonl
 !finetune/*.csv
 !finetune/*.txt
 !finetune/*.run.log

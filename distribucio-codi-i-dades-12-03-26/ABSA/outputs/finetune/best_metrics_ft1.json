@@ -1,0 +1,17 @@
+{
+   "elapsed_seconds": 112.51256823539734,
+   "exact_match_accuracy": 54.54545454545455,
+   "exact_matches": 72,
+   "examples": 132,
+   "expected_total": 454,
+   "f1_macro": 84.43879773425228,
+   "f1_micro": 86.41975308641975,
+   "max_new_tokens": 512,
+   "ok_total": 385,
+   "precision_macro": 86.38167388167388,
+   "precision_micro": 88.10068649885584,
+   "predicted_total": 437,
+   "recall_macro": 83.61020923520923,
+   "recall_micro": 84.80176211453744,
+   "step": 450
+}
