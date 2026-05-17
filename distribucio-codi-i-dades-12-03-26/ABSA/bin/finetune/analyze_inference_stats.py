@@ -24,7 +24,7 @@ def parse_args():
     parser.add_argument(
         "input_json",
         nargs="?",
-        default=str(OUTPUT_DIR / "finetune" / "best_devel_predictions_ft1.json"),
+        default=str(OUTPUT_DIR / "finetune" / "best_devel_predictions_qlora.json"),
         help="Path to predictions JSON",
     )
     parser.add_argument(
