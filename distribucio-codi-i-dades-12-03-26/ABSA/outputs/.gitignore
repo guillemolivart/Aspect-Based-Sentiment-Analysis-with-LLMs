@@ -51,3 +51,9 @@ finetune/*
 !finetune/*.txt
 !finetune/*.run.log
 !finetune/*.analysis.md
+
+!figures/
+figures/*
+!figures/*.png
+!figures/*.jpg
+!figures/*.jpeg
