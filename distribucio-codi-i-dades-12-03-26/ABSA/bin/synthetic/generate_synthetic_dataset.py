@@ -19,6 +19,7 @@ import math
 import os
 import random
 import re
+import ssl
 import subprocess
 import sys
 import time
@@ -121,6 +122,16 @@ def parse_args():
     parser.add_argument("--api-key", default=None)
     parser.add_argument("--api-key-file", default=str(ABSA_DIR / ".openai_api_key"))
     parser.add_argument("--endpoint", default=OPENAI_CHAT_COMPLETIONS_URL)
+    parser.add_argument(
+        "--ca-bundle",
+        default=os.environ.get("SSL_CERT_FILE"),
+        help="Optional CA bundle path. If omitted, certifi is used when installed.",
+    )
+    parser.add_argument(
+        "--insecure-skip-ssl-verify",
+        action="store_true",
+        help="Disable SSL verification. Use only for a local smoke test if the host CA store is broken.",
+    )
     parser.add_argument("--temperature", type=float, default=0.8)
     parser.add_argument("--top-p", type=float, default=0.95)
     parser.add_argument("--max-completion-tokens", type=int, default=900)
@@ -217,6 +228,22 @@ def read_api_key(args):
         "OpenAI API key not found. Set OPENAI_API_KEY, pass --api-key, "
         f"or write it to {key_path}."
     )
+
+
+def build_ssl_context(args):
+    if args.insecure_skip_ssl_verify:
+        return ssl._create_unverified_context()
+
+    ca_bundle = args.ca_bundle
+    if ca_bundle:
+        return ssl.create_default_context(cafile=ca_bundle)
+
+    try:
+        import certifi
+
+        return ssl.create_default_context(cafile=certifi.where())
+    except ImportError:
+        return ssl.create_default_context()
 
 
 def counter_to_jsonable(counter):
@@ -374,43 +401,52 @@ def prediction_error_profile(examples, predictions):
 
 def summarize_train_difficulty(train_examples, train_predictions, difficulty_scores, limit=30):
     pred_by_id = {str(row.get("id")): row for row in train_predictions}
+    has_predictions = bool(train_predictions)
     rows = []
     for ex in train_examples:
         ex_id = str(ex.get("id"))
         gold = gold_for_row(ex)
-        pred_row = pred_by_id.get(ex_id)
-        pred = prediction_for_row(pred_row) if pred_row else {}
-        missing = {asp: pol for asp, pol in gold.items() if asp not in pred}
-        wrong = {
-            asp: {"gold": pol, "pred": pred[asp]}
-            for asp, pol in gold.items()
-            if asp in pred and pred[asp] != pol
-        }
-        extra = {asp: pol for asp, pol in pred.items() if asp not in gold}
-        error_count = len(missing) + len(wrong) + len(extra)
         score = float(difficulty_scores[str(ex.get("id"))])
-        if train_predictions and error_count == 0:
-            continue
+        pred = None
+        errors = None
+        error_count = 0
+
+        if has_predictions:
+            pred_row = pred_by_id.get(ex_id)
+            pred = prediction_for_row(pred_row) if pred_row else {}
+            missing = {asp: pol for asp, pol in gold.items() if asp not in pred}
+            wrong = {
+                asp: {"gold": pol, "pred": pred[asp]}
+                for asp, pol in gold.items()
+                if asp in pred and pred[asp] != pol
+            }
+            extra = {asp: pol for asp, pol in pred.items() if asp not in gold}
+            error_count = len(missing) + len(wrong) + len(extra)
+            if error_count == 0:
+                continue
+            errors = {
+                "missing": missing,
+                "wrong": wrong,
+                "extra": extra,
+                "total": error_count,
+            }
+
         rows.append(
             {
                 "id": ex_id,
                 "language": ex.get("language"),
                 "difficulty_score": round(score, 4),
+                "score_source": "model_train_errors" if has_predictions else "fallback_rare_priority_score",
                 "gold": gold,
-                "prediction": pred if train_predictions else None,
-                "errors": {
-                    "missing": missing,
-                    "wrong": wrong,
-                    "extra": extra,
-                    "total": error_count,
-                },
+                "prediction": pred,
+                "errors": errors,
                 "text_preview": re.sub(r"\s+", " ", ex.get("text", "")).strip()[:260],
             }
         )
 
     rows.sort(
         key=lambda row: (
-            row["errors"]["total"],
+            row["errors"]["total"] if row["errors"] else 0,
             row["difficulty_score"],
             len(row["gold"]),
         ),
@@ -814,14 +850,21 @@ def post_openai_chat_completion(args, api_key, messages):
             },
         },
     }
-    return post_json_with_fallback(args.endpoint, api_key, payload, args.max_retries, args.retry_base_seconds)
+    return post_json_with_fallback(
+        args.endpoint,
+        api_key,
+        payload,
+        args.max_retries,
+        args.retry_base_seconds,
+        build_ssl_context(args),
+    )
 
 
-def post_json_with_fallback(endpoint, api_key, payload, max_retries, retry_base_seconds):
+def post_json_with_fallback(endpoint, api_key, payload, max_retries, retry_base_seconds, ssl_context):
     last_error = None
     for attempt in range(max_retries):
         try:
-            return post_json(endpoint, api_key, payload)
+            return post_json(endpoint, api_key, payload, ssl_context)
         except urllib.error.HTTPError as exc:
             body = exc.read().decode("utf-8", errors="replace")
             last_error = f"HTTP {exc.code}: {body}"
@@ -829,7 +872,7 @@ def post_json_with_fallback(endpoint, api_key, payload, max_retries, retry_base_
                 fallback = dict(payload)
                 fallback["max_tokens"] = fallback.pop("max_completion_tokens")
                 try:
-                    return post_json(endpoint, api_key, fallback)
+                    return post_json(endpoint, api_key, fallback, ssl_context)
                 except urllib.error.HTTPError as inner_exc:
                     body = inner_exc.read().decode("utf-8", errors="replace")
                     last_error = f"HTTP {inner_exc.code}: {body}"
@@ -843,7 +886,7 @@ def post_json_with_fallback(endpoint, api_key, payload, max_retries, retry_base_
     raise RuntimeError(last_error or "OpenAI request failed")
 
 
-def post_json(endpoint, api_key, payload):
+def post_json(endpoint, api_key, payload, ssl_context):
     request = urllib.request.Request(
         endpoint,
         data=json.dumps(payload).encode("utf-8"),
@@ -853,7 +896,7 @@ def post_json(endpoint, api_key, payload):
         },
         method="POST",
     )
-    with urllib.request.urlopen(request, timeout=120) as response:
+    with urllib.request.urlopen(request, timeout=120, context=ssl_context) as response:
         return json.loads(response.read().decode("utf-8"))
 
 
@@ -1159,10 +1202,12 @@ def main():
         train_predictions = load_json(train_predictions_path)
         difficulty_scores = train_difficulty_scores(train, train_predictions)
         train_score_source = str(train_predictions_path)
+        train_selection_mode = "model_train_errors"
     else:
         train_predictions = []
         difficulty_scores = fallback_train_scores(train)
         train_score_source = "fallback rare-pair and priority-aspect train scoring"
+        train_selection_mode = "fallback_rare_priority_score"
 
     devel_errors = analyze_devel_errors(devel_predictions)
     train_profile = prediction_error_profile(train, train_predictions) if train_predictions else None
@@ -1203,6 +1248,7 @@ def main():
                 "planned_language_counts": dict(planned_language_counts),
                 "bucket_quotas": BUCKET_QUOTAS,
                 "train_score_source": train_score_source,
+                "train_selection_mode": train_selection_mode,
                 "train_error_profile": (
                     {
                         "examples": train_profile["examples"],
@@ -1325,6 +1371,7 @@ def main():
                 "total_candidates": total_candidates,
                 "bucket_quotas": BUCKET_QUOTAS,
                 "train_score_source": train_score_source,
+                "train_selection_mode": train_selection_mode,
                 "top_train_difficult_examples": top_train_difficult,
             },
         )
@@ -1343,6 +1390,7 @@ def main():
             "total_candidates": total_candidates,
             "bucket_quotas": BUCKET_QUOTAS,
             "train_score_source": train_score_source,
+            "train_selection_mode": train_selection_mode,
             "train_error_profile": (
                 {
                     "examples": train_profile["examples"],
