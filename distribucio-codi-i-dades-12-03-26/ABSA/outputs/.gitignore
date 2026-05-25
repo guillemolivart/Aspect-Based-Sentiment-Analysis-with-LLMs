@@ -52,6 +52,15 @@ finetune/*
 !finetune/*.run.log
 !finetune/*.analysis.md
 
+!synthetic/
+synthetic/*
+!synthetic/*.json
+!synthetic/*.jsonl
+!synthetic/*.csv
+!synthetic/*.txt
+!synthetic/*.run.log
+!synthetic/*.analysis.md
+
 !figures/
 figures/*
 !figures/*.png

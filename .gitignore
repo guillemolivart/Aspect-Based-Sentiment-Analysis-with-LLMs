@@ -144,6 +144,10 @@ ENV/
 env.bak/
 venv.bak/
 
+# Local API secrets
+.openai_api_key
+distribucio-codi-i-dades-12-03-26/ABSA/.openai_api_key
+
 # Spyder project settings
 .spyderproject
 .spyproject
