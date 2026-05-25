@@ -137,7 +137,12 @@ def parse_args():
     parser.add_argument("--max-completion-tokens", type=int, default=900)
     parser.add_argument("--workers", type=int, default=8)
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--candidate-multiplier", type=float, default=1.45)
+    parser.add_argument(
+        "--candidate-multiplier",
+        type=float,
+        default=1.0,
+        help="Per-wave overgeneration factor. Default 1.0 generates only missing quota slots.",
+    )
     parser.add_argument("--max-candidates", type=int, default=430)
     parser.add_argument("--max-retries", type=int, default=3)
     parser.add_argument("--retry-base-seconds", type=float, default=2.0)
@@ -775,6 +780,8 @@ def aspect_reference_text():
 def build_messages(plan, seed_examples):
     target_json = json.dumps(plan.target_gold, ensure_ascii=False, sort_keys=True)
     avoid = ", ".join(plan.avoid_aspects) if plan.avoid_aspects else "none"
+    non_target_aspects = [aspect for aspect in ASPECTS if aspect not in plan.target_gold]
+    non_target = ", ".join(non_target_aspects) if non_target_aspects else "none"
     style_blocks = []
     for idx, ex in enumerate(seed_examples, start=1):
         style_blocks.append(
@@ -801,6 +808,9 @@ Bucket: {plan.bucket}
 Target gold labels, exact and complete:
 {target_json}
 
+Non-target aspects:
+{non_target}
+
 Difficulty to express:
 {plan.difficulty}
 
@@ -816,10 +826,20 @@ Polarity rules:
 - conflict: explicit mixed opinion about the same aspect or clear positive and negative evidence.
 - Absent means not included. Never use neutral for an absent aspect.
 
+Naturalness rules:
+- Make the review sound like a real customer wrote it, not like a label-generation exercise.
+- Use concrete restaurant details, but vary dishes, drinks, situations, and phrasing across examples.
+- Do not express every target label in a separate obvious sentence; weave the evidence naturally.
+- Do not express explicit or implicit sentiment about non-target aspects. If a non-target aspect is mentioned, keep it factual and neutral.
+- Avoid generic repetitive phrases such as "fresh and flavorful", "solid spot", "happily come back", "muy recomendable", unless they fit the specific review.
+- For neutral or conflict labels, make the evidence unambiguous enough for annotation while keeping the wording natural.
+- For empty hard-negative examples, avoid evaluative adjectives or sentiment words about restaurant aspects.
+
 Output requirements:
 - Return JSON only.
 - `gold_items` must contain exactly the target aspects and polarities, no more and no fewer.
 - Each `support_span` must be a short exact phrase copied from the generated text that justifies that aspect.
+- For restaurant_general, the support span should justify the overall opinion, not only a local food, service, ambience, location, price, or drinks opinion.
 - The review should be {plan.min_words}-{plan.max_words} words.
 - Do not mention labels, aspects, sentiment, JSON, annotation, or this task in the review text.
 - Do not use bullet points or markdown.
