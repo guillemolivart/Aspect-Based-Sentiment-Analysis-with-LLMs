@@ -1,0 +1,4325 @@
+[
+  {
+    "plan_id": "price_0005",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Overall restaurant value is good even if the review does not discuss individual dish prices.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_maur_muntaner_32_Nando_2012-03-10",
+      "es_cullera_de_boix_96_JoseAQuerol_2011-01-24",
+      "es_l_olive_63_Gonzalo_2009-08-04"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0002",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_salamanca_33_Livia_2013-12-26",
+      "es_cafe_kafka_56_Mangeles_2011-06-25",
+      "es_l_olive_47_EnricPorxas_2010-09-16"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0007",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "735448",
+      "535248",
+      "1189674"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0001",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "conflict",
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Mixed value judgment: good food but service makes the final value questionable.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_colette-zaragoza_comment-257",
+      "es_balmes_rossello_16_AlbertAlonso_2015-02-17",
+      "es_balmes_rossello_23_Sonia_2015-01-04"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0008",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "en_CatalRestaurant__UvaBar_477862052",
+      "BFC#7",
+      "1189674"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0004",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "restaurant_prices": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "The restaurant is poor value overall because the experience is not worth the price.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_bal-donsera-zaragoza_comment-2240",
+      "es_bal-donsera-zaragoza_comment-3493",
+      "es_colette-zaragoza_comment-1142"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0006",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_matilde-la-zaragoza_comment-1564",
+      "es_l_olive_71_Joan_2008-07-30",
+      "es_salamanca_10_Sebastia_2015-01-24"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0003",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Overall restaurant value is good even if the review does not discuss individual dish prices.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "1496205",
+      "632121",
+      "RL#3"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0013",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "744478",
+      "1253117",
+      "en_Ray'sBoathouse_477775915"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0015",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_9reinas_62_LuciaLinaresSilveria_2011-06-17",
+      "es_barceloneta_137_Gema_2007-09-28",
+      "es_cafe_kafka_56_Mangeles_2011-06-25"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0012",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "restaurant_prices": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "The restaurant is poor value overall because the experience is not worth the price.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_l_olive_77_Mathews_2007-12-07",
+      "es_colette-zaragoza_comment-251",
+      "es_cullera_de_boix_70_JoanCompanyArpa_2012-03-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0011",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_104_Pedro_2010-01-20",
+      "es_salamanca_32_AntoniMiretAlomar_2014-01-13",
+      "es_matilde-la-zaragoza_comment-1564"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0016",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food, but the restaurant feels expensive overall for what it offers. Do not label food_prices unless a specific dish or menu price is evaluated.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "713152",
+      "624715",
+      "496132"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0014",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "1269216",
+      "1340075",
+      "404464"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0010",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Overall restaurant value is good even if the review does not discuss individual dish prices.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_puerto-de-santa-maria-zaragoza_comment-36",
+      "es_balmes_rossello_8_SantiagoMartinezJimenez_2015-03-09",
+      "es_bodega-de-chema-la-zaragoza_comment-4255"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0009",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "conflict",
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Mixed value judgment: good food but service makes the final value questionable.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_la-scala-zaragoza_comment-3907",
+      "es_doble-uno-zaragoza_comment-4729",
+      "es_bal-donsera-zaragoza_comment-3237"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0019",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "en_Ray'sBoathouse_477775915",
+      "1719567",
+      "1726427"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0021",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_luis-candelas-zaragoza_comment-4502",
+      "es_barceloneta_146_Pepe_2006-09-21",
+      "es_bal-donsera-zaragoza_comment-3636"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0020",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Overall restaurant value is good even if the review does not discuss individual dish prices.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_salamanca_10_Sebastia_2015-01-24",
+      "es_colette-zaragoza_comment-257",
+      "es_balmes_rossello_90_SoniaFernandezCaras_2012-04-18"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0022",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Overall restaurant value is good even if the review does not discuss individual dish prices.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_40_ManuelMonteroAlfonso_2013-06-04",
+      "es_asador-la-junquera-zaragoza_comment-4494",
+      "es_doble-uno-zaragoza_comment-4609"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0024",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_74_ElisabetBasPujol_2012-01-17",
+      "es_luis-candelas-zaragoza_comment-4502",
+      "es_balmes_rossello_4_MariaRosaRicartPellicer_2015-03-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0017",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_16_J",
+      "es_balmes_rossello_23_Sonia_2015-01-04",
+      "es_luis-candelas-zaragoza_comment-3173"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0023",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food, but the restaurant feels expensive overall for what it offers. Do not label food_prices unless a specific dish or menu price is evaluated.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "en_Patsy'sPizzeria_478232062",
+      "1347423",
+      "1125006"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0018",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_colette-zaragoza_comment-3056",
+      "es_cullera_de_boix_19_AlfredoOtalCebrian_2014-05-13",
+      "es_wok-aragonia-dinasty-zaragoza_comment-2372"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0026",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "restaurant_prices": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "The restaurant is poor value overall because the experience is not worth the price.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_37_JaumeMunozGonzalez_2013-07-01",
+      "es_barceloneta_45_JuanGutierrezCarricoba_2012-12-15",
+      "es_la_poma_9_AnnaAsoJaca_2014-12-15"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0025",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "restaurant_prices": "conflict",
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Mixed value judgment: good food but service makes the final value questionable.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "1349391",
+      "en_SchoonerOrLater_477965850",
+      "404464"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0028",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_la_poma_10_MayraDominguezSanchez_2014-12-09",
+      "es_cafe_kafka_56_Mangeles_2011-06-25",
+      "es_cullera_de_boix_73_SoniaDominguez_2012-02-26"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0029",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food, but the restaurant feels expensive overall for what it offers. Do not label food_prices unless a specific dish or menu price is evaluated.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "1719567",
+      "BzG#2",
+      "en_StackRestaurant__Bar_478538239"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0027",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "conflict",
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Mixed value judgment: good food but service makes the final value questionable.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_l_olive_83_Pablo_2007-04-27",
+      "es_puerto-de-santa-maria-zaragoza_comment-1562",
+      "es_barceloneta_37_JaumeMunozGonzalez_2013-07-01"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0030",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_bodega-de-chema-la-zaragoza_comment-4202",
+      "es_cafe_kafka_12_Elena_2014-06-29",
+      "es_barceloneta_10_AntonioUbedaFernandez_2015-03-01"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0031",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "conflict",
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Mixed value judgment: good food but service makes the final value questionable.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_57_Lucia_2012-08-10",
+      "es_maur_muntaner_13_GemaCardaIsach_2013-12-26",
+      "es_cafe_kafka_12_Elena_2014-06-29"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0032",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "conflict",
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Mixed value judgment: good food but service makes the final value questionable.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_57_Lucia_2012-08-10",
+      "es_salamanca_28_JuanCarlosEnguixPeiro_2014-05-10",
+      "es_barceloneta_37_JaumeMunozGonzalez_2013-07-01"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0033",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_l_olive_18_Igor_2012-10-08",
+      "es_puerto-de-santa-maria-zaragoza_comment-1492",
+      "es_balmes_rossello_12_LauraRamosMartinez_2015-02-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0034",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food, but the restaurant feels expensive overall for what it offers. Do not label food_prices unless a specific dish or menu price is evaluated.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_balmes_rossello_12_LauraRamosMartinez_2015-02-23",
+      "es_barceloneta_117_Anonimo_2008-12-06",
+      "es_barceloneta_10_AntonioUbedaFernandez_2015-03-01"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0036",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_colette-zaragoza_comment-3056",
+      "es_bal-donsera-zaragoza_comment-3237",
+      "es_balmes_rossello_74_GeorginaRubio_2013-03-04"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0035",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "1086415",
+      "en_India'sGrill_477960696",
+      "DBG#6"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0040",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "620892",
+      "WE#1",
+      "1439875"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0037",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Overall restaurant value is good even if the review does not discuss individual dish prices.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "744478",
+      "en_MercedesRestaurant_478010600",
+      "1726427"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0038",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_l_olive_6_DanielGarcia_2014-08-12",
+      "es_cullera_de_boix_10_EsteveVidalSelga_2015-01-05",
+      "es_cullera_de_boix_38_Anonimo_2013-05-31"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0041",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "restaurant_prices": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "The restaurant is poor value overall because the experience is not worth the price.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_117_Anonimo_2008-12-06",
+      "es_cullera_de_boix_38_Anonimo_2013-05-31",
+      "es_bal-donsera-zaragoza_comment-3493"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0042",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_balmes_rossello_4_MariaRosaRicartPellicer_2015-03-23",
+      "es_maur_muntaner_18_GeraldPalomarGracia_2013-05-08",
+      "es_cafe_kafka_51_JesusJimenez_2011-11-18"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0039",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "1269216",
+      "en_OpenSesame_477970938",
+      "512925"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0044",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_bodega-de-chema-la-zaragoza_comment-4255",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-4185",
+      "es_l_olive_61_Victor_2009-08-22"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0045",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food, but the restaurant feels expensive overall for what it offers. Do not label food_prices unless a specific dish or menu price is evaluated.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_95_Berta_2010-12-14",
+      "es_maur_muntaner_29_RicardGonzalez_2012-06-17",
+      "es_cafe_kafka_60_CarlaBigio_2011-06-06"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0043",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "conflict",
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Mixed value judgment: good food but service makes the final value questionable.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_cafe_casa_lletres_20_NataliaArizcuren_2014-09-25",
+      "es_doble-uno-zaragoza_comment-4729",
+      "es_colette-zaragoza_comment-3257"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0047",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food, but the restaurant feels expensive overall for what it offers. Do not label food_prices unless a specific dish or menu price is evaluated.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_80_JordiB_2011-06-25",
+      "es_9reinas_61_JoseLuis_2011-07-09",
+      "es_colette-zaragoza_comment-1142"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0046",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food, but the restaurant feels expensive overall for what it offers. Do not label food_prices unless a specific dish or menu price is evaluated.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "1471273",
+      "1189674",
+      "Z#6"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0048",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "negative",
+      "restaurant_prices": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "The restaurant is poor value overall because the experience is not worth the price.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "en_CatalRestaurant__UvaBar_477861893",
+      "1167434",
+      "1713185"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0051",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_balmes_rossello_12_LauraRamosMartinez_2015-02-23",
+      "es_bodega-de-chema-la-zaragoza_comment-4202",
+      "es_barceloneta_18_JoseRamonGranollersGonzalez_2014-06-21"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0052",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_73_SoniaDominguez_2012-02-26",
+      "es_cullera_de_boix_42_PereCastellsBonet_2013-04-24",
+      "es_l_olive_13_GianmarcoLeon_2013-10-11"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0050",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "conflict",
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Mixed value judgment: good food but service makes the final value questionable.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_la-scala-zaragoza_comment-3907",
+      "es_l_olive_63_Gonzalo_2009-08-04",
+      "es_9reinas_61_JoseLuis_2011-07-09"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0053",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "The price is explicitly described as acceptable/fair/normal while the food is good.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "1723402",
+      "565344",
+      "TFS#10"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0054",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_balmes_rossello_82_CarlosBardajil_2013-02-03",
+      "es_cullera_de_boix_68_Gaby_2012-03-29",
+      "es_balmes_rossello_74_GeorginaRubio_2013-03-04"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0055",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food, but the restaurant feels expensive overall for what it offers. Do not label food_prices unless a specific dish or menu price is evaluated.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_colette-zaragoza_comment-251",
+      "es_cullera_de_boix_10_EsteveVidalSelga_2015-01-05",
+      "es_balmes_rossello_4_MariaRosaRicartPellicer_2015-03-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0049",
+    "bucket": "price_value_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "The food tastes good, but a specific dish, menu, or portion is overpriced. This is food_prices, not restaurant_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_puerto-de-santa-maria-zaragoza_comment-36",
+      "es_gamberro-zaragoza_comment-4867",
+      "es_l_olive_19_MatildeAnglesDominguez_2012-09-16"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "price_0056",
+    "bucket": "price_value_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A menu or dish price is praised together with portions or variety; keep price at food_prices.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "DBG#6",
+      "535248",
+      "632121"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0057",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_balmes_rossello_16_AlbertAlonso_2015-02-17",
+      "es_cullera_de_boix_64_ElisendaBurgueraVidiella_2012-05-29",
+      "es_comer-balneario-paracuellos-jiloca_comment-2322"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0059",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1623276",
+      "1615322",
+      "404464"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0058",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food and generous/varied menu, but dish/menu price is too high.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "Z#6",
+      "1145510",
+      "en_OpenSesame_477970937"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0060",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_SnoozeanAMEatery_480171723",
+      "1615322",
+      "BFC#7"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0061",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1470334",
+      "1338124",
+      "1451107"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0063",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la_poma_1_FinaJordaRoura_2015-05-05",
+      "es_matilde-la-zaragoza_comment-1564",
+      "es_balmes_rossello_60_Lu_2014-01-20"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0062",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Creative or varied menu but disappointing taste/cooking.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_bal-donsera-zaragoza_comment-3636",
+      "es_comer-balneario-paracuellos-jiloca_comment-1489",
+      "es_aragonia-palafox-zaragoza_comment-4199"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0064",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_BlueRibbonSushi_478218334",
+      "en_StackRestaurant__Bar_478538239",
+      "en_India'sGrill_477960696"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0065",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_maur_muntaner_23_JacintoGinestaVentura_2013-02-24",
+      "es_balmes_rossello_65_ManuelAguileraSanchez_2013-09-12",
+      "es_cafe_kafka_56_Mangeles_2011-06-25"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0066",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la_poma_1_FinaJordaRoura_2015-05-05",
+      "es_cafe_kafka_14_AngelesBasildoAndujar_2014-02-17",
+      "es_balmes_rossello_73_MarissaMinichello_2013-03-13"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0068",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_doble-uno-zaragoza_comment-4743",
+      "es_colette-zaragoza_comment-1142",
+      "es_balmes_rossello_45_JoanLluisOlmoLorenzo_2014-03-03"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0067",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_bal-donsera-zaragoza_comment-1302",
+      "es_colette-zaragoza_comment-250",
+      "es_cullera_de_boix_108_MariaCervantes_2009-02-03"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0069",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_salamanca_33_Livia_2013-12-26",
+      "es_colette-zaragoza_comment-1142",
+      "es_colette-zaragoza_comment-3056"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0070",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_puerto-de-santa-maria-zaragoza_comment-1562",
+      "es_aragonia-palafox-zaragoza_comment-4199",
+      "es_comer-balneario-paracuellos-jiloca_comment-2322"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0071",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food and generous/varied menu, but dish/menu price is too high.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "929329",
+      "740923",
+      "en_CatalRestaurant__UvaBar_477861889"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0072",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_asador-la-junquera-zaragoza_comment-4490",
+      "es_cafe_kafka_6_GorkaSalvadorGaraizabal_2015-01-26",
+      "es_cullera_de_boix_73_SoniaDominguez_2012-02-26"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0074",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Limited menu/options or poor portions without a clear taste evaluation.",
+    "avoid_aspects": [
+      "food_quality"
+    ],
+    "style_seed_ids": [
+      "1496205",
+      "746254",
+      "1269216"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0075",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Creative or varied menu but disappointing taste/cooking.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_65_JavierFarreDomingo_2012-03-04",
+      "es_cullera_de_boix_2_Yolanda_2015-08-19",
+      "es_la_poma_0_NoeliaExposito_2015-05-22"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0077",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Limited menu/options or poor portions without a clear taste evaluation.",
+    "avoid_aspects": [
+      "food_quality"
+    ],
+    "style_seed_ids": [
+      "1338124",
+      "1430994",
+      "1269216"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0073",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_StackRestaurant__Bar_478538239",
+      "en_SnoozeanAMEatery_479991844",
+      "1726001"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0076",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_balmes_rossello_73_MarissaMinichello_2013-03-13",
+      "es_colette-zaragoza_comment-1142",
+      "es_luis-candelas-zaragoza_comment-4553"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0078",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la-scala-zaragoza_comment-2800",
+      "es_balmes_rossello_71_ElisabethSolfMoran_2013-04-10",
+      "es_maur_muntaner_7_Ana_2015-02-08"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0079",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_comer-balneario-paracuellos-jiloca_comment-2322",
+      "es_la-scala-zaragoza_comment-3907",
+      "es_balmes_rossello_23_Sonia_2015-01-04"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0080",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Limited menu/options or poor portions without a clear taste evaluation.",
+    "avoid_aspects": [
+      "food_quality"
+    ],
+    "style_seed_ids": [
+      "1125284",
+      "682250",
+      "en_CatalRestaurant__UvaBar_477861889"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0081",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food tastes good, but portions, menu variety, or presentation are criticized.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_bodega-de-chema-la-zaragoza_comment-4031",
+      "es_balmes_rossello_45_JoanLluisOlmoLorenzo_2014-03-03",
+      "es_bal-donsera-zaragoza_comment-1302"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0082",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Creative or varied menu but disappointing taste/cooking.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_bal-donsera-zaragoza_comment-3237",
+      "es_casa-pelentos-sandinies-comer-en-formigal_comment-3818",
+      "es_9reinas_62_LuciaLinaresSilveria_2011-06-17"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0084",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food and generous/varied menu, but dish/menu price is too high.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_cafe_casa_lletres_2_AinaGarciaAndreu_2015-05-04",
+      "es_casa-pelentos-sandinies-comer-en-formigal_comment-3818",
+      "es_l_olive_77_Mathews_2007-12-07"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0086",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_luis-candelas-zaragoza_comment-4553",
+      "es_colette-zaragoza_comment-3056",
+      "es_cullera_de_boix_66_FranciscoYNieves_2012-05-13"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0085",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food and generous/varied menu, but dish/menu price is too high.",
+    "avoid_aspects": [
+      "restaurant_prices"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_115_Ivan_2008-02-23",
+      "es_l_olive_77_Mathews_2007-12-07",
+      "es_cafe_kafka_51_JesusJimenez_2011-11-18"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0087",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Creative or varied menu but disappointing taste/cooking.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1430994",
+      "1432551",
+      "BG#5"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0083",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Creative or varied menu but disappointing taste/cooking.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_9reinas_62_LuciaLinaresSilveria_2011-06-17",
+      "es_l_olive_83_Pablo_2007-04-27",
+      "es_balmes_rossello_4_MariaRosaRicartPellicer_2015-03-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0090",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Limited menu/options or poor portions without a clear taste evaluation.",
+    "avoid_aspects": [
+      "food_quality"
+    ],
+    "style_seed_ids": [
+      "es_maur_muntaner_20_FranciscoCarlosAgathonBonilla_2013-03-30",
+      "es_puerto-de-santa-maria-zaragoza_comment-1562",
+      "es_gamberro-zaragoza_comment-4857"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0088",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Creative or varied menu but disappointing taste/cooking.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3407",
+      "es_cafe_kafka_56_Mangeles_2011-06-25",
+      "es_cullera_de_boix_19_AlfredoOtalCebrian_2014-05-13"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0089",
+    "bucket": "food_style_options_boundary",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Creative or varied menu but disappointing taste/cooking.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1496205",
+      "BG#5",
+      "682250"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0092",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Food is acceptable, while variety/presentation/originality is explicitly praised.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_balmes_rossello_16_AlbertAlonso_2015-02-17",
+      "es_l_olive_64_Lidia_2009-06-22",
+      "es_cullera_de_boix_111_RomonPerez_2008-05-12"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "foodstyle_0091",
+    "bucket": "food_style_options_boundary",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Creative or varied menu but disappointing taste/cooking.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_16_J",
+      "es_la_poma_1_FinaJordaRoura_2015-05-05",
+      "es_cullera_de_boix_79_SantiagoSoley_2011-12-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0096",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_SnoozeanAMEatery_480412257",
+      "1632445",
+      "955711"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0094",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Explicitly pleasant atmosphere/decor/comfort together with good staff.",
+    "avoid_aspects": [
+      "location"
+    ],
+    "style_seed_ids": [
+      "en_PagodaRestaurant_478006816",
+      "519425",
+      "1367358"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0095",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe_kafka_56_Mangeles_2011-06-25",
+      "es_la_poma_15_LolaDelgadoHelguera_2014-09-12",
+      "es_cullera_de_boix_88_Sebastian_2011-04-25"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0093",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1162037",
+      "1632445",
+      "en_MercedesRestaurant_480852899"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0098",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la_poma_9_AnnaAsoJaca_2014-12-15",
+      "es_cafe_casa_lletres_2_AinaGarciaAndreu_2015-05-04",
+      "es_balmes_rossello_65_ManuelAguileraSanchez_2013-09-12"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0099",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1655521",
+      "584025",
+      "875139"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0100",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_asador-la-junquera-zaragoza_comment-4309",
+      "es_l_olive_4_AntonioSerranoPueyo_2014-09-27",
+      "es_l_olive_96_LauraRodriguez_2006-07-09"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0103",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Friendly or efficient staff are praised, but ambience is not evaluated.",
+    "avoid_aspects": [
+      "ambience"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_40_ManuelMonteroAlfonso_2013-06-04",
+      "es_bodega-de-chema-la-zaragoza_comment-4255",
+      "es_barceloneta_13_AntonioSerranoPueyo_2014-11-21"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0102",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la_poma_15_LolaDelgadoHelguera_2014-09-12",
+      "es_cafe_casa_lletres_33_MConsueloBeldaVazquez_2014-01-28",
+      "es_l_olive_47_EnricPorxas_2010-09-16"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0101",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_l_olive_87_Mireia_2006-12-12",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3407",
+      "es_la_poma_9_AnnaAsoJaca_2014-12-15"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0104",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Explicitly pleasant atmosphere/decor/comfort together with good staff.",
+    "avoid_aspects": [
+      "location"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_40_ManuelMonteroAlfonso_2013-06-04",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-4825",
+      "es_doble-uno-zaragoza_comment-4596"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0106",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe_kafka_30_Eloy_2013-02-17",
+      "es_barceloneta_59_JosepLluisTomasSavall_2012-05-13",
+      "es_asador-la-junquera-zaragoza_comment-4494"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0105",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "location": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Central location or views are praised, but no interior atmosphere opinion should be inferred.",
+    "avoid_aspects": [
+      "ambience"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_10_AntonioUbedaFernandez_2015-03-01",
+      "es_balmes_rossello_4_MariaRosaRicartPellicer_2015-03-23",
+      "es_balmes_rossello_62_SergiLopez_2014-01-02"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0107",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_real-el-zaragoza_comment-4591",
+      "es_cafe_kafka_56_Mangeles_2011-06-25",
+      "es_maur_muntaner_0_MarcelinoXimenes_2015-05-11"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0097",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_50_CarlosMunozFresquet_2012-09-27",
+      "es_cullera_de_boix_116_Jesus_2008-02-15",
+      "es_cullera_de_boix_70_JoanCompanyArpa_2012-03-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0110",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_maur_muntaner_1_MarisolMosqueraMosquera_2015-03-23",
+      "es_l_olive_54_Anonimo_2009-12-23",
+      "es_l_olive_47_EnricPorxas_2010-09-16"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0109",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_CatalRestaurant__UvaBar_477861893",
+      "1280179",
+      "TM#5"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0108",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_asador-la-junquera-zaragoza_comment-4461",
+      "es_barceloneta_137_Gema_2007-09-28",
+      "es_puerto-de-santa-maria-zaragoza_comment-1562"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0111",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Friendly or efficient staff are praised, but ambience is not evaluated.",
+    "avoid_aspects": [
+      "ambience"
+    ],
+    "style_seed_ids": [
+      "1125284",
+      "en_StackRestaurant__Bar_478538239",
+      "en_SnoozeanAMEatery_480412257"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0112",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_79_SantiagoSoley_2011-12-23",
+      "es_maur_muntaner_23_JacintoGinestaVentura_2013-02-24",
+      "es_balmes_rossello_71_ElisabethSolfMoran_2013-04-10"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0113",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_bal-donsera-zaragoza_comment-3636",
+      "es_cullera_de_boix_115_Ivan_2008-02-23",
+      "es_maur_muntaner_18_GeraldPalomarGracia_2013-05-08"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0114",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Explicitly pleasant atmosphere/decor/comfort together with good staff.",
+    "avoid_aspects": [
+      "location"
+    ],
+    "style_seed_ids": [
+      "en_ParkChaletGardenRestaurant_477778171",
+      "1264954",
+      "en_MiopostoCaffe_478543072"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0116",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Friendly or efficient staff are praised, but ambience is not evaluated.",
+    "avoid_aspects": [
+      "ambience"
+    ],
+    "style_seed_ids": [
+      "es_bodega-de-chema-la-zaragoza_comment-3991",
+      "es_9reinas_31_Sp_2013-06-22",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3407"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0115",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "location": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Central location or views are praised, but no interior atmosphere opinion should be inferred.",
+    "avoid_aspects": [
+      "ambience"
+    ],
+    "style_seed_ids": [
+      "es_barceloneta_40_ManuelMonteroAlfonso_2013-06-04",
+      "es_salamanca_3_Isabel_2015-08-19",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3719"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0118",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Atmosphere is explicitly described as normal/acceptable/plain, while food is good.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_puerto-de-santa-maria-zaragoza_comment-36",
+      "es_barceloneta_147_Arturo_2006-09-16",
+      "es_bal-donsera-zaragoza_comment-1054"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0119",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Explicitly pleasant atmosphere/decor/comfort together with good staff.",
+    "avoid_aspects": [
+      "location"
+    ],
+    "style_seed_ids": [
+      "en_BlueRibbonSushi_478218339",
+      "1451107",
+      "PP#4"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0117",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe_kafka_56_Mangeles_2011-06-25",
+      "es_salamanca_33_Livia_2013-12-26",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3719"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0121",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "location": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Central location or views are praised, but no interior atmosphere opinion should be inferred.",
+    "avoid_aspects": [
+      "ambience"
+    ],
+    "style_seed_ids": [
+      "1225162",
+      "TR#8",
+      "1357554"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0120",
+    "bucket": "ambience_location_service_boundary",
+    "language": "en",
+    "target_gold": {
+      "location": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Central location or views are praised, but no interior atmosphere opinion should be inferred.",
+    "avoid_aspects": [
+      "ambience"
+    ],
+    "style_seed_ids": [
+      "en_MercedesRestaurant_478010605",
+      "Z#6",
+      "445960"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0123",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A specific drink tastes good or coffee/wine quality is praised; variety is not evaluated.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "es_colette-zaragoza_comment-3056",
+      "es_frances-zaragoza_comment-1356",
+      "es_cafe_casa_lletres_6_MontseGarciaCalzado_2015-02-16"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "ambience_0122",
+    "bucket": "ambience_location_service_boundary",
+    "language": "es",
+    "target_gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but the place is noisy, cramped, uncomfortable, dirty, or badly decorated.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_luis-candelas-zaragoza_comment-4630",
+      "es_cullera_de_boix_88_Sebastian_2011-04-25",
+      "es_salamanca_33_Livia_2013-12-26"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0124",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A specific drink tastes good or coffee/wine quality is praised; variety is not evaluated.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "es_cafe_kafka_60_CarlaBigio_2011-06-06",
+      "es_bal-donsera-zaragoza_comment-3636",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-4185"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0126",
+    "bucket": "drinks_rare_aspects",
+    "language": "en",
+    "target_gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Drink selection is limited or disappointing without judging drink taste.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "en_BlueRibbonSushi_478218334",
+      "1448587",
+      "en_SchoonerOrLater_479842021"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0125",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_quality": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but cocktails/wine/coffee quality is explicitly bad.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "es_casa-pelentos-sandinies-comer-en-formigal_comment-3818",
+      "es_puerto-de-santa-maria-zaragoza_comment-4300",
+      "es_cafe_casa_lletres_27_AnnaMariaTrias_2014-03-17"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0127",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A specific drink tastes good or coffee/wine quality is praised; variety is not evaluated.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_116_Jesus_2008-02-15",
+      "es_bodega-de-chema-la-zaragoza_comment-3991",
+      "es_doble-uno-zaragoza_comment-4847"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0129",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Drink selection is limited or disappointing without judging drink taste.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "es_cullera_de_boix_10_EsteveVidalSelga_2015-01-05",
+      "es_cafe_kafka_60_CarlaBigio_2011-06-06",
+      "es_balmes_rossello_4_MariaRosaRicartPellicer_2015-03-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0128",
+    "bucket": "drinks_rare_aspects",
+    "language": "en",
+    "target_gold": {
+      "drinks_quality": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but cocktails/wine/coffee quality is explicitly bad.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "en_SchoonerOrLater_477965848",
+      "1232468",
+      "1041457"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0130",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Drink selection is limited or disappointing without judging drink taste.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "es_balmes_rossello_77_ElsaPachecoGonzalez_2013-02-18",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-4334",
+      "es_barceloneta_82_LuisR_2011-05-06"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0132",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Drink selection is limited or disappointing without judging drink taste.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "es_bal-donsera-zaragoza_comment-1302",
+      "es_asador-la-junquera-zaragoza_comment-4309",
+      "es_barceloneta_135_Pedro_2007-11-24"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0131",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A specific drink tastes good or coffee/wine quality is praised; variety is not evaluated.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "es_cafe_kafka_60_CarlaBigio_2011-06-06",
+      "es_frances-zaragoza_comment-1356",
+      "es_la-scala-zaragoza_comment-2800"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0134",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Drink selection is limited or disappointing without judging drink taste.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "es_colette-zaragoza_comment-1150",
+      "es_balmes_rossello_41_JuanAyoraRedondo_2014-03-17",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-4185"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0135",
+    "bucket": "drinks_rare_aspects",
+    "language": "en",
+    "target_gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Drink selection is limited or disappointing without judging drink taste.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "Y#3",
+      "en_ProfessorThom's_478606538",
+      "ADLT#6"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0133",
+    "bucket": "drinks_rare_aspects",
+    "language": "en",
+    "target_gold": {
+      "drinks_prices": "negative",
+      "drinks_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "A drink is good but explicitly too expensive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_BlueRibbonSushi_478218333",
+      "426805",
+      "Z#6"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0137",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A specific drink tastes good or coffee/wine quality is praised; variety is not evaluated.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "es_balmes_rossello_8_SantiagoMartinezJimenez_2015-03-09",
+      "es_bodega-de-chema-la-zaragoza_comment-4548",
+      "es_salamanca_32_AntoniMiretAlomar_2014-01-13"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0136",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_style_options": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Wine list, beer selection, cocktails, or beverage variety are praised; this is drinks_style_options, not drinks_quality.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "es_bodega-de-chema-la-zaragoza_comment-4255",
+      "es_cullera_de_boix_56_JuanBelmonteSandoval_2012-08-30",
+      "es_asador-la-junquera-zaragoza_comment-4461"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0140",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Drink selection is limited or disappointing without judging drink taste.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "es_bal-donsera-zaragoza_comment-1054",
+      "es_barceloneta_82_LuisR_2011-05-06",
+      "es_matilde-la-zaragoza_comment-4830"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0138",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A specific drink tastes good or coffee/wine quality is praised; variety is not evaluated.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "es_la_poma_0_NoeliaExposito_2015-05-22",
+      "es_cullera_de_boix_116_Jesus_2008-02-15",
+      "es_puerto-de-santa-maria-zaragoza_comment-4300"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0139",
+    "bucket": "drinks_rare_aspects",
+    "language": "en",
+    "target_gold": {
+      "drinks_quality": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but cocktails/wine/coffee quality is explicitly bad.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "1353599",
+      "426805",
+      "BFC#7"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0141",
+    "bucket": "drinks_rare_aspects",
+    "language": "en",
+    "target_gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Drink selection is limited or disappointing without judging drink taste.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "404464",
+      "1430994",
+      "498657"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0142",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_prices": "negative",
+      "drinks_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "A drink is good but explicitly too expensive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_balmes_rossello_32_C_2014-08-24",
+      "es_la-scala-zaragoza_comment-3622",
+      "es_la-scala-zaragoza_comment-3907"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0143",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_style_options": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Wine list, beer selection, cocktails, or beverage variety are praised; this is drinks_style_options, not drinks_quality.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "es_9reinas_62_LuciaLinaresSilveria_2011-06-17",
+      "es_cullera_de_boix_78_Manuel_2011-12-25",
+      "es_colette-zaragoza_comment-3056"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0144",
+    "bucket": "drinks_rare_aspects",
+    "language": "es",
+    "target_gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "A specific drink tastes good or coffee/wine quality is praised; variety is not evaluated.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3719",
+      "es_comer-balneario-paracuellos-jiloca_comment-1489",
+      "es_cullera_de_boix_89_CaroleGouaillier_2011-03-27"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0145",
+    "bucket": "drinks_rare_aspects",
+    "language": "en",
+    "target_gold": {
+      "drinks_style_options": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Wine list, beer selection, cocktails, or beverage variety are praised; this is drinks_style_options, not drinks_quality.",
+    "avoid_aspects": [
+      "drinks_quality"
+    ],
+    "style_seed_ids": [
+      "en_BlueRibbonSushi_478218513",
+      "1041457",
+      "1357554"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0147",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_16_J",
+      "es_cafe_kafka_60_CarlaBigio_2011-06-06",
+      "es_puerto-de-santa-maria-zaragoza_comment-36"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "drinks_0146",
+    "bucket": "drinks_rare_aspects",
+    "language": "en",
+    "target_gold": {
+      "drinks_quality": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Food is good but cocktails/wine/coffee quality is explicitly bad.",
+    "avoid_aspects": [
+      "drinks_style_options"
+    ],
+    "style_seed_ids": [
+      "en_BlueRibbonSushi_478219453",
+      "Z#6",
+      "en_MercedesRestaurant_478010601"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0150",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Explicitly fair price and average food, with no strong recommendation.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la_poma_1_FinaJordaRoura_2015-05-05",
+      "es_balmes_rossello_74_GeorginaRubio_2013-03-04",
+      "es_barceloneta_144_Sergio_2006-10-30"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0149",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_1_Raquel_2015-08-20",
+      "es_cullera_de_boix_38_Anonimo_2013-05-31",
+      "es_la_poma_0_NoeliaExposito_2015-05-22"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0152",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food but poor overall value leads to mixed overall sentiment.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "en_India'sGrill_477960693",
+      "1189674",
+      "TM#3"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0153",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_9reinas_62_LuciaLinaresSilveria_2011-06-17",
+      "es_cullera_de_boix_101_XavierPlanasFont_2010-09-24",
+      "es_l_olive_19_MatildeAnglesDominguez_2012-09-16"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0154",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_40_ManuelMonteroAlfonso_2013-06-04",
+      "es_bodega-de-chema-la-zaragoza_comment-4165",
+      "es_puerto-de-santa-maria-zaragoza_comment-1492"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0156",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_144_Sergio_2006-10-30",
+      "es_cullera_de_boix_19_AlfredoOtalCebrian_2014-05-13",
+      "es_doble-uno-zaragoza_comment-4847"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0157",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Food and overall experience are explicitly average, correct, acceptable, normal, or nothing special.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "NP#3",
+      "464342",
+      "1459569"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0155",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_balmes_rossello_23_Sonia_2015-01-04",
+      "es_colette-zaragoza_comment-1142",
+      "es_la-scala-zaragoza_comment-2800"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0158",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Food and overall experience are explicitly average, correct, acceptable, normal, or nothing special.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1102681",
+      "632121",
+      "en_MercedesRestaurant_480852899"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0159",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "restaurant_general": "neutral",
+      "food_quality": "positive",
+      "ambience": "negative"
+    },
+    "difficulty": "Mixed signals but final overall statement is explicitly neutral rather than positive or negative.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_10_EsteveVidalSelga_2015-01-05",
+      "es_l_olive_77_Mathews_2007-12-07",
+      "es_l_olive_6_DanielGarcia_2014-08-12"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0160",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_144_Sergio_2006-10-30",
+      "es_l_olive_47_EnricPorxas_2010-09-16",
+      "es_asador-la-junquera-zaragoza_comment-4494"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0162",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "restaurant_general": "neutral",
+      "food_quality": "positive",
+      "ambience": "negative"
+    },
+    "difficulty": "Mixed signals but final overall statement is explicitly neutral rather than positive or negative.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_l_olive_19_MatildeAnglesDominguez_2012-09-16",
+      "es_cullera_de_boix_79_SantiagoSoley_2011-12-23",
+      "es_doble-uno-zaragoza_comment-4616"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0164",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food but poor overall value leads to mixed overall sentiment.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "1241906",
+      "en_BlueRibbonSushi_478218715",
+      "1609375"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0148",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Food and overall experience are explicitly average, correct, acceptable, normal, or nothing special.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe_casa_lletres_20_NataliaArizcuren_2014-09-25",
+      "es_cullera_de_boix_9_JuanJoseAullonLlompart_2015-01-08",
+      "es_l_olive_61_Victor_2009-08-22"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0163",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_l_olive_87_Mireia_2006-12-12",
+      "es_salamanca_10_Sebastia_2015-01-24",
+      "es_barceloneta_82_LuisR_2011-05-06"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0165",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1126814",
+      "en_BlueRibbonSushi_478218520",
+      "378848"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0161",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "restaurant_general": "neutral",
+      "food_quality": "positive",
+      "ambience": "negative"
+    },
+    "difficulty": "Mixed signals but final overall statement is explicitly neutral rather than positive or negative.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "620892",
+      "CLF#4",
+      "en_BlueRibbonSushi_478218512"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0167",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "restaurant_general": "neutral",
+      "food_quality": "positive",
+      "ambience": "negative"
+    },
+    "difficulty": "Mixed signals but final overall statement is explicitly neutral rather than positive or negative.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe-meccano-gastrobar-zaragoza_comment-4821",
+      "es_l_olive_71_Joan_2008-07-30",
+      "es_cullera_de_boix_88_Sebastian_2011-04-25"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0166",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1232468",
+      "430342",
+      "717570"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0170",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "restaurant_general": "neutral",
+      "food_quality": "positive",
+      "ambience": "negative"
+    },
+    "difficulty": "Mixed signals but final overall statement is explicitly neutral rather than positive or negative.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1041457",
+      "541532",
+      "Z#7"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0171",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la-scala-zaragoza_comment-3907",
+      "es_maur_muntaner_32_Nando_2012-03-10",
+      "es_cullera_de_boix_19_AlfredoOtalCebrian_2014-05-13"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0172",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food but poor overall value leads to mixed overall sentiment.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "1471273",
+      "1347423",
+      "en_BlueRibbonSushi_478219453"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0168",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1189674",
+      "BG#5",
+      "en_MercedesRestaurant_480852899"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0169",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_2_Yolanda_2015-08-19",
+      "es_cullera_de_boix_10_EsteveVidalSelga_2015-01-05",
+      "es_balmes_rossello_32_C_2014-08-24"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0173",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_137_Gema_2007-09-28",
+      "es_l_olive_28_JoseManuelArranzHernandez_2011-09-05",
+      "es_matilde-la-zaragoza_comment-2452"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0151",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_maur_muntaner_11_JuanAntonioFloresMartos_2014-01-07",
+      "es_la-scala-zaragoza_comment-4618",
+      "es_asador-la-junquera-zaragoza_comment-4461"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0174",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_104_Vanesa_2010-03-04",
+      "es_bodega-de-chema-la-zaragoza_comment-4370",
+      "es_bal-donsera-zaragoza_comment-3237"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0175",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Explicitly fair price and average food, with no strong recommendation.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_asador-la-junquera-zaragoza_comment-4494",
+      "es_9reinas_14_AngelEspanolPuig_2014-06-26",
+      "es_la_poma_9_AnnaAsoJaca_2014-12-15"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0177",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe_kafka_60_CarlaBigio_2011-06-06",
+      "es_barceloneta_80_JordiB_2011-06-25",
+      "es_la_poma_0_NoeliaExposito_2015-05-22"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0176",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3407",
+      "es_l_olive_71_Joan_2008-07-30",
+      "es_cullera_de_boix_42_PereCastellsBonet_2013-04-24"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0179",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la_poma_15_LolaDelgadoHelguera_2014-09-12",
+      "es_matilde-la-zaragoza_comment-4495",
+      "es_balmes_rossello_32_C_2014-08-24"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0178",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "restaurant_prices": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Good food but poor overall value leads to mixed overall sentiment.",
+    "avoid_aspects": [
+      "food_prices"
+    ],
+    "style_seed_ids": [
+      "es_maur_muntaner_29_RicardGonzalez_2012-06-17",
+      "es_cafe_kafka_20_Montse_2013-10-06",
+      "es_kupela-la-sidreria-zaragoza_comment-4515"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0181",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Explicitly fair price and average food, with no strong recommendation.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la_poma_9_AnnaAsoJaca_2014-12-15",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-4185",
+      "es_9reinas_61_JoseLuis_2011-07-09"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0180",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Food and overall experience are explicitly average, correct, acceptable, normal, or nothing special.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_ParkChaletGardenRestaurant_477778211",
+      "en_CatalRestaurant__UvaBar_477862052",
+      "498657"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0182",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_salamanca_28_JuanCarlosEnguixPeiro_2014-05-10",
+      "es_la-scala-zaragoza_comment-2800",
+      "es_matilde-la-zaragoza_comment-4216"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0183",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "service": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Service is explicitly adequate/correct but not warm; food is positive.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_maur_muntaner_11_JuanAntonioFloresMartos_2014-01-07",
+      "es_mas-torres-zaragoza_comment-4312",
+      "es_cafe_kafka_60_CarlaBigio_2011-06-06"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0185",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Explicitly fair price and average food, with no strong recommendation.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "713152",
+      "1347423",
+      "1102681"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "polarity_0184",
+    "bucket": "neutral_conflict_polarity",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Some dishes are praised and others criticized; overall is mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_38_Anonimo_2013-05-31",
+      "es_la-scala-zaragoza_comment-2800",
+      "es_bal-donsera-zaragoza_comment-1413"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "negative_0187",
+    "bucket": "hard_negatives_empty",
+    "language": "en",
+    "target_gold": {},
+    "difficulty": "Mentions dishes, location, or staff factually, but avoids evaluative language.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "1162037",
+      "1476493",
+      "en_SnoozeanAMEatery_480412257"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "polarity_0186",
+    "bucket": "neutral_conflict_polarity",
+    "language": "en",
+    "target_gold": {
+      "restaurant_prices": "neutral",
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Explicitly fair price and average food, with no strong recommendation.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "TM#3",
+      "ADLT#6",
+      "1661757"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "negative_0189",
+    "bucket": "hard_negatives_empty",
+    "language": "en",
+    "target_gold": {},
+    "difficulty": "Mentions dishes, location, or staff factually, but avoids evaluative language.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "DBG#6",
+      "740923",
+      "en_BlueRibbonSushi_478218512"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0188",
+    "bucket": "hard_negatives_empty",
+    "language": "en",
+    "target_gold": {},
+    "difficulty": "Mentions dishes, location, or staff factually, but avoids evaluative language.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "ADLT#6",
+      "1118167",
+      "en_BlueRibbonSushi_478218513"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0190",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {},
+    "difficulty": "Mentions dishes, location, or staff factually, but avoids evaluative language.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_balmes_rossello_79_ValleHerrero_2013-02-11",
+      "es_la_poma_24_JosepMMora_2014-03-23",
+      "es_balmes_rossello_23_Sonia_2015-01-04"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0193",
+    "bucket": "hard_negatives_empty",
+    "language": "en",
+    "target_gold": {},
+    "difficulty": "Factual restaurant visit description with no explicit opinion about any aspect.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "464215",
+      "565344",
+      "1041457"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0191",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Very minimal explicit overall neutral opinion, with no other aspect sentiment.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_l_olive_71_Joan_2008-07-30",
+      "es_balmes_rossello_74_GeorginaRubio_2013-03-04",
+      "es_maur_muntaner_30_MJesusRicoCuadrillero_2012-04-25"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0196",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Very minimal explicit overall neutral opinion, with no other aspect sentiment.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_135_Pedro_2007-11-24",
+      "es_cafe_casa_lletres_35_JoanLluisOlmoLorenzo_2014-01-12",
+      "es_gamberro-zaragoza_comment-4867"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0194",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {},
+    "difficulty": "Factual restaurant visit description with no explicit opinion about any aspect.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_la_poma_0_NoeliaExposito_2015-05-22",
+      "es_colette-zaragoza_comment-1147",
+      "es_barceloneta_65_JavierFarreDomingo_2012-03-04"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0197",
+    "bucket": "hard_negatives_empty",
+    "language": "en",
+    "target_gold": {},
+    "difficulty": "Factual restaurant visit description with no explicit opinion about any aspect.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_StackRestaurant__Bar_478538239",
+      "NP#4",
+      "1439875"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0195",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {},
+    "difficulty": "Factual restaurant visit description with no explicit opinion about any aspect.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_67_Ernesto_2012-05-01",
+      "es_cafe_casa_lletres_20_NataliaArizcuren_2014-09-25",
+      "es_asador-la-junquera-zaragoza_comment-4494"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0192",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {},
+    "difficulty": "Mentions dishes, location, or staff factually, but avoids evaluative language.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_l_olive_87_Mireia_2006-12-12",
+      "es_cullera_de_boix_10_EsteveVidalSelga_2015-01-05",
+      "es_bal-donsera-zaragoza_comment-1302"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0198",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {},
+    "difficulty": "Factual restaurant visit description with no explicit opinion about any aspect.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe_casa_lletres_20_NataliaArizcuren_2014-09-25",
+      "es_balmes_rossello_84_JuanEnriqueSoleTeixidor_2012-11-12",
+      "es_asador-la-junquera-zaragoza_comment-4494"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0199",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {
+      "restaurant_general": "neutral"
+    },
+    "difficulty": "Very minimal explicit overall neutral opinion, with no other aspect sentiment.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_mas-torres-zaragoza_comment-4007",
+      "es_cafe_kafka_56_Mangeles_2011-06-25",
+      "es_barceloneta_65_JavierFarreDomingo_2012-03-04"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "negative_0200",
+    "bucket": "hard_negatives_empty",
+    "language": "es",
+    "target_gold": {},
+    "difficulty": "Mentions dishes, location, or staff factually, but avoids evaluative language.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_balmes_rossello_32_C_2014-08-24",
+      "es_salamanca_32_AntoniMiretAlomar_2014-01-13",
+      "es_salamanca_10_Sebastia_2015-01-24"
+    ],
+    "min_words": 10,
+    "max_words": 80
+  },
+  {
+    "plan_id": "regular_0201",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Ordinary positive review with common aspects only.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_luis-candelas-zaragoza_comment-4854",
+      "es_cullera_de_boix_98_AfricaIbanezDeOpacua_2010-12-27",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3407"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0202",
+    "bucket": "natural_regularizers",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Natural mixed review: food positive, ambience negative, overall mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_ProfessorThom's_478606540",
+      "436868",
+      "929329"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0203",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Natural mixed review: food positive, ambience negative, overall mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_73_SoniaDominguez_2012-02-26",
+      "es_barceloneta_59_JosepLluisTomasSavall_2012-05-13",
+      "es_balmes_rossello_64_David_2013-09-29"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0205",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Natural mixed review: food positive, ambience negative, overall mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_71_MontserratCasasTulsa_2012-02-27",
+      "es_asador-la-junquera-zaragoza_comment-4494",
+      "es_barceloneta_65_JavierFarreDomingo_2012-03-04"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0204",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "service": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Ordinary negative review with common aspects only.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_balmes_rossello_16_AlbertAlonso_2015-02-17",
+      "es_cullera_de_boix_7_AlbertoFernandez_2015-02-09",
+      "es_cullera_de_boix_73_SoniaDominguez_2012-02-26"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0206",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "service": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Ordinary negative review with common aspects only.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cullera_de_boix_38_Anonimo_2013-05-31",
+      "es_asador-la-junquera-zaragoza_comment-4494",
+      "es_barceloneta_65_JavierFarreDomingo_2012-03-04"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0207",
+    "bucket": "natural_regularizers",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "ambience": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Natural positive review with 3-4 common labels.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "TM#3",
+      "430342",
+      "WE#4"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0209",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "negative",
+      "service": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Ordinary negative review with common aspects only.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_47_Fast_65_2012-12-07",
+      "es_cullera_de_boix_28_AlfredoPostigoRuiz_2013-11-24",
+      "es_cafe-meccano-gastrobar-zaragoza_comment-4821"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0208",
+    "bucket": "natural_regularizers",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "negative",
+      "service": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Ordinary negative review with common aspects only.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "404464",
+      "en_MiopostoCaffe_478542919",
+      "624715"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0213",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Ordinary positive review with common aspects only.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_matilde-la-zaragoza_comment-4325",
+      "es_cafe_casa_lletres_25_ArturMirabetGea_2014-03-24",
+      "es_l_olive_59_PacoBalcells_2009-09-21"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0211",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "ambience": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Natural positive review with 3-4 common labels.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_gamberro-zaragoza_comment-4834",
+      "es_l_olive_25_GloriaFerranGatell_2011-10-03",
+      "es_barceloneta_28_EsperanzaDiesteSantatala_2013-09-27"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0212",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "ambience": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Natural positive review with 3-4 common labels.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_luis-candelas-zaragoza_comment-3173",
+      "es_barceloneta_13_AntonioSerranoPueyo_2014-11-21",
+      "es_puerto-de-santa-maria-zaragoza_comment-1562"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0210",
+    "bucket": "natural_regularizers",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "ambience": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Natural positive review with 3-4 common labels.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "957145",
+      "TM#3",
+      "519425"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0214",
+    "bucket": "natural_regularizers",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Natural mixed review: food positive, service negative, overall mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "ADLT#11",
+      "740923",
+      "757762"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0215",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Natural mixed review: food positive, service negative, overall mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_cafe-meccano-gastrobar-zaragoza_comment-3719",
+      "es_barceloneta_37_JaumeMunozGonzalez_2013-07-01",
+      "es_doble-uno-zaragoza_comment-4743"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0216",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "ambience": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Natural positive review with 3-4 common labels.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_barceloneta_13_AntonioSerranoPueyo_2014-11-21",
+      "es_bodega-de-chema-la-zaragoza_comment-4151",
+      "es_cafe_kafka_48_JesusMOrdonezOrzaiz_2011-12-06"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0220",
+    "bucket": "natural_regularizers",
+    "language": "en",
+    "target_gold": {
+      "food_quality": "negative",
+      "service": "negative",
+      "restaurant_general": "negative"
+    },
+    "difficulty": "Ordinary negative review with common aspects only.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "en_SnoozeanAMEatery_480412257",
+      "Y#5",
+      "1310217"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0218",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Natural mixed review: food positive, ambience negative, overall mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_l_olive_87_Mireia_2006-12-12",
+      "es_cullera_de_boix_116_Jesus_2008-02-15",
+      "es_aragonia-palafox-zaragoza_comment-4199"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0219",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    },
+    "difficulty": "Natural mixed review: food positive, service negative, overall mixed.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_bal-donsera-zaragoza_comment-3493",
+      "es_cullera_de_boix_57_Lucia_2012-08-10",
+      "es_balmes_rossello_4_MariaRosaRicartPellicer_2015-03-23"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  },
+  {
+    "plan_id": "regular_0217",
+    "bucket": "natural_regularizers",
+    "language": "es",
+    "target_gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    },
+    "difficulty": "Ordinary positive review with common aspects only.",
+    "avoid_aspects": [],
+    "style_seed_ids": [
+      "es_9reinas_62_LuciaLinaresSilveria_2011-06-17",
+      "es_asador-la-junquera-zaragoza_comment-4309",
+      "es_cafe_casa_lletres_20_NataliaArizcuren_2014-09-25"
+    ],
+    "min_words": 15,
+    "max_words": 140
+  }
+]

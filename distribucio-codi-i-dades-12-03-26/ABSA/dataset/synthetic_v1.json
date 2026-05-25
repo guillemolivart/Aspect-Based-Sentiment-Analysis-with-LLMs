@@ -1,0 +1,2143 @@
+[
+  {
+    "id": "synth_v1_0001",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y salimos contentos con la experiencia. Las croquetas estaban muy bien hechas y el pescado tenía buen punto. En conjunto, el sitio funciona bien y deja una impresión muy positiva. Además, el precio nos pareció razonable para lo que ofrecen.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0002",
+    "language": "es",
+    "text": "La paella estaba muy buena, con el arroz en su punto y buen sabor, pero el plato del día me pareció caro para lo que trae. Salimos contentos con la comida, aunque ese detalle de precio me dejó un sabor agridulce. No está mal para ir una vez, pero no creo que pida ese plato otra vez.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0003",
+    "language": "en",
+    "text": "We stopped in for dinner after a movie, and the place was better than I expected. The pasta was cooked well and the sauce had plenty of flavor. The bill was fair for what we got, not cheap but not overpriced either. Overall, it was a good meal and I’d go back if I’m in the area again.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0004",
+    "language": "es",
+    "text": "La comida nos gustó bastante: el arroz estaba en su punto y el pescado tenía muy buen sabor. El problema fue que el camarero tardó mucho en atendernos y al final la cuenta salió más alta de lo que esperábamos para lo que comimos. En conjunto, salí con la sensación de que come bien, pero no compensa del todo.",
+    "gold": {
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_prices": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0005",
+    "language": "en",
+    "text": "We stopped in on a weeknight and had a really good meal. The salmon was cooked just right and the vegetables were still crisp, so the food quality was better than I expected. Overall, it was an easy place to enjoy dinner, and I’d gladly go back. The bill was about what I’d call fair for what we ordered, nothing cheap but not overpriced either.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0006",
+    "language": "es",
+    "text": "Fuimos a cenar con ganas de salir contentos, pero la experiencia fue floja de principio a fin. La carne llegó seca y la pasta, bastante sosa. Además, para lo que ponen en el plato, nos pareció caro. Al final salimos con la sensación de que no compensa pagar tanto por una comida así, así que no creo que vuelva.",
+    "gold": {
+      "food_quality": "negative",
+      "restaurant_general": "negative",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0007",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y la experiencia fue bastante buena. Pedimos unas croquetas y un solomillo que estaban muy bien hechos, con buen sabor y en su punto. El local es correcto y el trato fue amable. La cuenta salió por unos 28 euros por persona, un precio normal para lo que ofrecen, así que no me pareció ni barato ni caro. En conjunto, salimos contentos con la visita.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0008",
+    "language": "en",
+    "text": "We stopped in after a show and ended up staying longer than planned. The pasta was cooked well and the sauce had real depth, so the meal felt worth every penny. Nothing about it felt fancy, but the whole experience was better than I expected for the price, and I’d happily send friends there for an easy dinner. The menu was simple, yet it did the job.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0009",
+    "language": "en",
+    "text": "I really liked the pasta and the sauce had a lot of flavor, so the kitchen clearly knows what it’s doing. The only thing that bothered me was paying $24 for the truffle gnocchi, which felt too high for that portion. I’d still say the meal itself was good, but the bill made it hard to feel great about the visit.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0010",
+    "language": "es",
+    "text": "La ensalada de burrata y el risotto estaban muy buenos, con sabor casero y bien hechos. Lo único que no me convenció fue que el plato de pulpo me pareció caro para la cantidad que traía. En conjunto salí contento, aunque con esa pega no lo veo como un sitio para ir a menudo.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0011",
+    "language": "es",
+    "text": "Fui con la idea de cenar bien y salí bastante decepcionado. La carne llegó seca y el pescado tenía poco sabor, así que la comida no estuvo a la altura. Además, por lo que cobran, la experiencia me pareció cara y poco justa. En conjunto, no me dejó ganas de volver.",
+    "gold": {
+      "food_quality": "negative",
+      "restaurant_general": "negative",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0012",
+    "language": "es",
+    "text": "Pedimos el menú del día y nos sorprendió lo ajustado que estaba para lo que traía: raciones generosas, varias opciones para elegir y un plato principal bien resuelto. La comida llegó caliente y con buen sabor, sin complicaciones pero cuidada. Por ese precio, la relación calidad-precio me pareció excelente. Salimos contentos y con ganas de repetir otro día.",
+    "gold": {
+      "food_prices": "positive",
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0013",
+    "language": "en",
+    "text": "The pasta and grilled fish were genuinely well cooked, and the sauces had a lot of flavor. That said, the overall bill felt high for what we got, so I left thinking it was a bit overpriced. I’d still say the kitchen is doing good work, but I’m not sure the experience adds up to the cost.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0014",
+    "language": "en",
+    "text": "I went in expecting a quick lunch and ended up pleasantly surprised. The chicken platter was only $12.95, came with a generous side, and there were enough vegetarian and gluten-free choices that everyone at my table found something. The portions were bigger than I expected for the price, and the food itself was well cooked and nicely seasoned. For what you pay, it feels like a very good deal, and I’d gladly come back.",
+    "gold": {
+      "food_prices": "positive",
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0015",
+    "language": "es",
+    "text": "Fuimos a cenar sin muchas expectativas y salimos muy contentos. La carne estaba en su punto, las verduras bien hechas y todo tenía buen sabor. En conjunto, el sitio funciona muy bien y deja una impresión muy buena. Además, la relación calidad-precio me pareció buena para lo que ofrecen.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0016",
+    "language": "es",
+    "text": "La comida me gustó bastante: el risotto estaba en su punto y la carne, bien hecha. El problema fue que el camarero tardó en tomar nota y parecía ir con prisa, así que la atención me dejó frío. Al final, la cuenta me pareció algo alta para lo que recibimos; con esa comida esperaba salir más satisfecho. En conjunto, el sitio tiene cocina buena, pero entre el trato y el precio me quedé con dudas sobre si compensa.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0017",
+    "language": "en",
+    "text": "We had dinner here last night and both of us left happy. The grilled salmon was cooked just right and the pasta special had a lot of flavor. The bill was fair for what we ordered, not cheap but not out of line either. Overall, it was a good meal and a place I’d be comfortable coming back to.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0018",
+    "language": "es",
+    "text": "La merluza estaba muy bien hecha y el arroz tenía buen punto, pero el bocadillo de pulpo nos pareció caro para lo que llevaba. Al final salimos con la sensación de que la cocina funciona, aunque la cuenta se nos fue más de lo esperado. No es un sitio malo, pero esa ración me dejó dudas.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0019",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y salimos contentos: el trato fue correcto, la comida llegó bien hecha y el conjunto del sitio nos dejó una impresión muy buena. Pedimos arroz y carne, y todo estaba en su punto. Además, por lo que pagamos, nos pareció una cuenta razonable para lo que ofrecen. No es un lugar barato, pero la relación calidad-precio compensa bastante.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0020",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes sin reserva y salimos contentos. La comida estaba muy bien preparada, especialmente el arroz y el pescado del día, y el trato general del local fue muy bueno. Además, los precios me parecieron razonables para lo que ofrecen, así que la cuenta no nos sorprendió. En conjunto, fue una experiencia agradable y me dejó buena impresión.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0021",
+    "language": "es",
+    "text": "Pedimos el menú del día y salimos encantados: por lo que cuesta, las raciones son generosas y hay bastante variedad para elegir. El pescado estaba bien hecho y la pasta, en su punto. Me gustó que tuvieran opciones distintas entre primeros y segundos, así que la comida no se hace repetitiva. En conjunto, fue una comida muy satisfactoria y me quedé con ganas de volver.",
+    "gold": {
+      "food_prices": "positive",
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0022",
+    "language": "es",
+    "text": "Fuimos a cenar sin muchas expectativas y salimos encantados. Pedimos el menú del día y por ese precio las raciones eran generosas; además había bastante variedad para elegir entre ensalada, pasta y carne. La comida estaba bien hecha, con buen sabor y sin fallos. En conjunto, me pareció un sitio que vale lo que cuesta y al que volvería sin dudar.",
+    "gold": {
+      "food_prices": "positive",
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0023",
+    "language": "en",
+    "text": "We ordered the roast chicken and a pasta special, and both were excellent, especially the sauce on the pasta. The only thing that threw me off was the bill; for a casual dinner it felt higher than it should have been. I left thinking the kitchen knows what it’s doing, but the place as a whole isn’t quite worth the money. I’d eat there again if I were in the mood for the food, just not often.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0024",
+    "language": "es",
+    "text": "Fuimos a cenar y salimos contentos: la carta no es enorme, pero hay bastante donde elegir y las raciones son generosas. Pedimos pasta y una carne al horno, todo bien hecho y con buen sabor. Además, los platos están a un precio razonable para lo que sirven, así que no da la sensación de estar pagando de más. En conjunto, me pareció un sitio muy agradable para repetir.",
+    "gold": {
+      "food_style_options": "positive",
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0025",
+    "language": "es",
+    "text": "Fuimos con la idea de cenar bien y salimos bastante decepcionados. La comida llegó templada y con poco sabor, y al final la sensación fue que el sitio no está a la altura de lo que cobran. Pagamos demasiado para lo que ofrecen, así que no me parece una buena opción. No creo que vuelva.",
+    "gold": {
+      "food_quality": "negative",
+      "restaurant_general": "negative",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0026",
+    "language": "en",
+    "text": "We went in expecting a pricey meal, and the salmon and risotto were both really well done, but the bill still felt hard to swallow after the long wait for our order and the rushed checkout. The kitchen clearly knows what it is doing, yet the slow, inattentive staff made the whole visit feel like poor value. I liked the food enough, but I left thinking the experience was uneven.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0027",
+    "language": "es",
+    "text": "Fuimos dos personas y salimos contentos: el menú del día tenía varios platos para elegir, las raciones eran generosas y por ese precio comimos muy bien. Probamos la lasaña y el pollo al horno, y todo estaba en su punto. Me gustó que hubiera opciones distintas en cada apartado, así no cuesta repetir. En conjunto, el sitio deja muy buena impresión y da ganas de volver.",
+    "gold": {
+      "food_prices": "positive",
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0028",
+    "language": "en",
+    "text": "The pasta and grilled salmon were both excellent, cooked just right and full of flavor. I liked the meal a lot, but the bill was higher than I expected for what we got. So while the food was good, I left feeling like the place was a bit overpriced overall.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0029",
+    "language": "es",
+    "text": "La comida me sorprendió para bien: la merluza estaba en su punto y las croquetas caseras tenían mucho sabor. El problema fue que nos hicieron esperar demasiado para todo y al final la cuenta me pareció alta para lo que recibimos. En conjunto, salí contento por la cocina, pero no tanto como para decir que merezca lo que cuesta ni que repetiría sin pensarlo.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0030",
+    "language": "es",
+    "text": "La comida nos sorprendió para bien: la merluza estaba en su punto y las croquetas caseras tenían mucho sabor. En conjunto, el sitio me dejó una impresión muy buena. Los precios me parecieron normales para lo que ofrecen, sin ser una ganga ni un abuso.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0031",
+    "language": "es",
+    "text": "La comida estaba realmente buena, sobre todo el arroz y el postre. El problema fue que el camarero tardó bastante en atendernos y, con todo eso, el sitio me dejó una sensación rara: no lo veo barato para lo que ofrece, aunque tampoco diría que sea caro del todo. Salí satisfecho por la cocina, pero no por la experiencia completa.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0032",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y el arroz salió muy bueno, en su punto y con buen sabor. El problema es que nos cobraron bastante para lo que ofrecían y el camarero tardó en atendernos varias veces. En conjunto, salí con sensaciones mezcladas: la cocina me gustó, pero el trato y la cuenta me dejaron dudando de si merece la pena repetir.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0033",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos contentos: el restaurante me pareció muy correcto en conjunto y la comida estaba realmente buena. Probamos unas croquetas caseras y un risotto de setas que llegaron en su punto. El precio me pareció normal, sin sorpresas, así que la cuenta estuvo dentro de lo esperado. No es un sitio espectacular, pero cumple bien.",
+    "gold": {
+      "restaurant_general": "positive",
+      "food_quality": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0034",
+    "language": "es",
+    "text": "La cocina me sorprendió para bien: el pescado estaba en su punto y los postres salieron muy logrados. En cambio, para lo que ofrece el sitio, me pareció bastante caro y salí con la sensación de que no compensa del todo. Aun así, la experiencia en mesa fue buena por la comida, aunque el conjunto me dejó dudas.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0035",
+    "language": "es",
+    "text": "Fuimos a cenar un martes y nos sorprendió lo bien cocinado que estaba todo, especialmente el bacalao y el arroz. El sitio me dejó muy buena impresión en general, porque salimos contentos y con ganas de volver. La cuenta nos pareció normal para lo que pedimos, ni barata ni exagerada.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0036",
+    "language": "en",
+    "text": "We stopped in for dinner and ended up sharing the tasting platter and a couple of mains; the portions were generous, there were enough vegetarian choices to keep everyone happy, and the dishes were cooked really well. The menu prices felt fair for how much food came out, so the whole meal seemed like a good deal. Between the quality of the food and the variety on the menu, it was an easy place to enjoy. I’d go back without thinking twice.",
+    "gold": {
+      "food_prices": "positive",
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0037",
+    "language": "en",
+    "text": "We tried the truffle gnocchi and the roasted chicken, and both were really well cooked and full of flavor. The only thing that bothered me was the gnocchi, which felt overpriced for such a small plate. That said, the meal itself was good enough that I’d still consider coming back, even if I’d skip that dish next time.",
+    "gold": {
+      "food_prices": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0038",
+    "language": "en",
+    "text": "We went in expecting a decent dinner and left genuinely impressed. The salmon was cooked perfectly, the flavors were balanced, and every plate came out looking well put together. For what you pay, the whole meal feels like a good deal, especially since the portions and quality match the bill. It’s the kind of place I’d happily recommend to friends when they want a reliable night out.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0039",
+    "language": "es",
+    "text": "La hamburguesa estaba muy bien hecha y la carne tenía buen sabor, pero el plato de pulpo me pareció caro para la cantidad que traía. En conjunto salí contento con la comida, aunque ese detalle me dejó una sensación algo agridulce. El local estaba lleno y el servicio fue correcto.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0040",
+    "language": "es",
+    "text": "Fuimos con la idea de cenar bien y al final salimos con la sensación de haber pagado demasiado por una comida bastante floja. El risotto llegó pasado y la carne, seca. Para lo que cobran, esperaba mucho más. No me pareció un sitio para repetir; en conjunto, la experiencia fue decepcionante y no compensa lo que cuesta.",
+    "gold": {
+      "food_quality": "negative",
+      "restaurant_general": "negative",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0041",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y nos sorprendió para bien. El arroz estaba en su punto y el pescado tenía muy buen sabor. La cuenta me pareció normal, sin sustos, y en conjunto salimos contentos con la experiencia.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0042",
+    "language": "en",
+    "text": "I went in expecting a decent lunch and ended up really impressed. The grilled chicken plate was cooked well, the flavors were clean, and the portions were generous. What made it stand out was that the menu had plenty of choices, including a few lighter dishes, and the prices on those meals felt fair for what you got. It’s the kind of place I’d happily suggest to friends when they want a good meal without overpaying.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0043",
+    "language": "es",
+    "text": "La merluza estaba muy bien hecha y el arroz tenía buen sabor, pero la ración de pulpo me pareció cara para lo que traía. En general salí contento con la comida, aunque no con todo lo que pedimos. El sitio cumple, sin más; volvería por algunos platos, no por esa cuenta.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0044",
+    "language": "es",
+    "text": "La comida nos sorprendió para bien: el risotto estaba en su punto y el pescado tenía muy buen sabor. Eso sí, al final la cuenta se nos hizo alta para lo que ofrecen, y aunque salimos contentos con lo que comimos, no me pareció un sitio al que volvería a menudo. En conjunto, está bien para ir una vez, pero me dejó sensaciones encontradas.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0045",
+    "language": "es",
+    "text": "Fuimos a cenar y la comida nos sorprendió para bien: el bacalao estaba en su punto y el arroz tenía buen sabor. El problema es que, para lo que comimos, la cuenta se nos hizo alta, y al final la experiencia queda rara porque el trato fue bastante seco y tuvimos que esperar mucho entre platos. Con esa combinación, no me parece un sitio redondo, aunque la cocina sí está a la altura.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0046",
+    "language": "es",
+    "text": "La comida me gustó mucho: el arroz estaba en su punto y la carne, muy bien hecha. Sin embargo, para lo que ofrecen, el sitio me pareció caro y la cuenta se me hizo alta. En conjunto salí contento con lo que comí, pero no con la sensación de haber pagado demasiado para repetir a menudo.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0047",
+    "language": "en",
+    "text": "The ravioli and roasted chicken were both excellent, with rich flavors and everything cooked just right. That said, the place feels pricey for the kind of meal you get, and I left thinking the overall value was only okay. I’d still call the dinner good, but not enough to make me overlook the bill.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0048",
+    "language": "en",
+    "text": "We left feeling pretty disappointed. The burger was dry and the fries tasted stale, so the meal was nothing special. For what they charge, the whole visit felt overpriced and not worth it at all. I wouldn't call it a place I'd return to.",
+    "gold": {
+      "food_quality": "negative",
+      "restaurant_prices": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0049",
+    "language": "es",
+    "text": "Probé el arroz con verduras y el pescado del día, y ambos estaban muy bien hechos, con buen sabor y en su punto. En conjunto, salí contento porque el sitio funciona bien y deja una impresión positiva. El precio me pareció normal, sin sorpresas ni excesos. Pedimos agua y café, nada especial en ese sentido.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0050",
+    "language": "es",
+    "text": "La merluza al horno estaba muy bien hecha y el arroz tenía buen sabor, pero el plato de pulpo nos pareció caro para la ración que traía. En conjunto salimos contentos con la comida, aunque el precio de ese plato nos dejó un poco fríos. No diría que fue una mala experiencia, pero tampoco me pareció redonda.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0051",
+    "language": "es",
+    "text": "La comida me sorprendió para bien: el arroz estaba en su punto y la carne, muy bien hecha. El problema es que la cuenta sube demasiado para lo que ofrecen y, con el trato que recibimos, se queda en una experiencia irregular. Tardaron bastante en atendernos y luego casi había que llamarles cada vez. Salí con la sensación de que se come bien, pero que el conjunto no compensa lo que pagas.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0052",
+    "language": "en",
+    "text": "We stopped in for dinner after a show and the place was better than I expected. The grilled salmon was cooked well and the vegetables were done just right. The bill was fair for what we got, not cheap but not out of line either. Overall, it was a good meal and I’d be happy to go back when we’re in the area.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0053",
+    "language": "es",
+    "text": "Fuimos a cenar y salimos contentos. El menú tenía bastante variedad y las raciones eran generosas, así que no parecían caras para lo que ofrecían. La pasta estaba bien hecha y los postres caseros nos gustaron mucho. En conjunto, el sitio nos dejó una impresión muy buena.",
+    "gold": {
+      "food_prices": "positive",
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0054",
+    "language": "es",
+    "text": "La comida me sorprendió para bien: la carne estaba en su punto y la salsa tenía mucho sabor. Eso sí, al final me pareció un sitio caro para lo que ofrece, porque la cuenta sube bastante. No diría que sea una mala experiencia, pero tampoco me dejó con ganas de repetir pronto.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0055",
+    "language": "es",
+    "text": "La ensalada templada y el arroz negro estaban muy bien hechos, con buen sabor y en su punto. Eso sí, por una ración de pulpo cobraron bastante más de lo que esperaba para lo que traía el plato. En conjunto salí contento, aunque ese detalle me dejó un sabor agridulce.",
+    "gold": {
+      "food_quality": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0056",
+    "language": "en",
+    "text": "We stopped in for lunch and the menu had a nice range of bowls, sandwiches, and specials. My grilled chicken wrap was packed with filling, and the portion was bigger than I expected for the price. The salmon plate was also reasonably priced, especially for how much food came with it. Everything tasted fresh and well cooked, and the place left me with a very good impression overall.",
+    "gold": {
+      "food_prices": "positive",
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0057",
+    "language": "es",
+    "text": "La comida me pareció correcta, sin nada especial, pero las tapas estaban muy bien presentadas y había bastante variedad en la carta. Probamos un risotto con un emplatado curioso y unos entrantes con ideas distintas. En conjunto, salimos contentos con la experiencia y el sitio nos dejó buena impresión.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0058",
+    "language": "en",
+    "text": "The pasta and grilled chicken were really well cooked and full of flavor, but the menu felt limited and the portions were smaller than I expected. I liked the meal itself, yet there just weren’t many choices beyond the usual standards. It was good enough for a quick dinner, though not a place I’d go out of my way for.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0059",
+    "language": "en",
+    "text": "We went for dinner on a Saturday and I left impressed by the cooking, especially the roasted chicken and the handmade pasta. The menu has plenty to choose from, including a few vegetarian dishes and some seasonal specials, so there’s real variety. I do think the individual plates are overpriced for what you get, though. I’d still say the place itself is worth trying, but not if you’re looking for an affordable meal.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0060",
+    "language": "en",
+    "text": "The salmon tasted great and the seasoning was spot on, but the menu was oddly limited for a place this size. I expected a few more choices, and the portions were smaller than I hoped. Because of that, I left satisfied with the meal itself but not with the overall experience. I’d come back for the food, though I wouldn’t bring anyone who wants a lot of options.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0061",
+    "language": "en",
+    "text": "We stopped in for dinner and the meal was fine, nothing special, but the menu had a lot of interesting choices and the plates were arranged with real care. I liked that there were several dishes I hadn’t seen elsewhere, including a seasonal pasta and a couple of small-plate options. Overall, it was a pleasant experience and I’d order from here again.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0062",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y la comida estaba muy buena, sobre todo el cordero y las croquetas. Lo que me dejó frío fue la carta: poca variedad y raciones bastante pequeñas, así que sales con ganas de más. En conjunto me gustó la experiencia, aunque no diría que sea un sitio para repetir sin pensarlo; depende de lo que busques. Al menos, lo que pedimos estaba bien cocinado y con buen sabor.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0063",
+    "language": "es",
+    "text": "Fuimos por curiosidad y la carta tenía platos bastante originales, con opciones de temporada, varias medias raciones y hasta un menú vegetariano bastante completo. Eso sí, aunque la propuesta es creativa, varios platos llegaron demasiado cocidos y con poco sabor; el arroz, por ejemplo, estaba pasado y la carne seca. En conjunto me dejó sensaciones encontradas: por la variedad del menú repetiría para probar otras cosas, pero por cómo estaba la comida no salí satisfecho.",
+    "gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0064",
+    "language": "en",
+    "text": "The food here is genuinely good, especially the grilled chicken and the sauce on the side. My problem was the menu felt really limited, and the portions were smaller than I expected for the kind of place it is. I left satisfied with the meal itself, but not with the overall experience, so I’m a bit torn on it. I’d come back for the taste, though I’d probably order carefully.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0065",
+    "language": "es",
+    "text": "Fuimos a cenar y el sitio nos dejó una buena impresión. La comida estaba correcta, sin más, pero la carta tiene bastante variedad y los platos llegan muy bien presentados, con ideas originales que se agradecen. Probamos un risotto y unas croquetas de boletus, nada espectacular en sabor, aunque bien resueltos. En conjunto salimos contentos y me parece un restaurante para tener en cuenta.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0066",
+    "language": "es",
+    "text": "La comida estaba muy rica, sobre todo el arroz y la carne, pero la carta se queda corta y las raciones me parecieron pequeñas para lo que cobran. El sitio tiene cosas buenas, aunque salimos con la sensación de que faltan más opciones y de que el conjunto no termina de compensar. Aun así, el sabor de los platos sí merece la pena.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0067",
+    "language": "es",
+    "text": "Fuimos a cenar un martes y la experiencia fue buena en conjunto. La comida estaba correcta, sin más, pero el plato de temporada venía con una presentación muy cuidada y el menú tenía opciones bastante originales. Me gustó especialmente que no era la típica carta de siempre, con combinaciones distintas y bastante variedad para elegir. El local estaba tranquilo y el servicio salió sin problemas, aunque eso no fue lo que más me llamó la atención. Para una cena sin complicaciones, salió bien.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0068",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y salimos contentos con la experiencia. El local estaba correcto y el trato fue amable. La comida estaba bien, sin nada especial, pero el menú tenía opciones distintas, con platos bien presentados y alguna combinación poco habitual que nos gustó mucho. Probamos una ensalada templada y un pescado al horno, normales de sabor, pero el conjunto nos pareció muy cuidado. En general, el sitio nos dejó una buena impresión y repetiría para probar más cosas de la carta.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0069",
+    "language": "es",
+    "text": "La comida estaba muy buena, sobre todo el bacalao y la carne, pero la carta era corta y las raciones me parecieron escasas. Además, apenas había opciones para elegir, así que al final todo se sentía un poco limitado. En conjunto salí contento por lo que comí, aunque no diría que el sitio sea redondo; tiene cosas muy logradas y otras que flojean bastante.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0070",
+    "language": "es",
+    "text": "La comida estaba muy buena, sobre todo el arroz y la carne, con buen punto y sabor. Lo que me dejó frío fue la carta: poca variedad y raciones bastante pequeñas para lo que cobran. Salimos contentos con el plato, pero no con la experiencia completa; hay cosas que están bien y otras que no tanto. En resumen, para comer sí, pero no para repetir a menudo.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0071",
+    "language": "en",
+    "text": "We tried the ramen, a curry bowl, and a couple of small plates, and everything was cooked well and tasted better than I expected. The menu had plenty of choices, including vegetarian options and a few dishes I hadn't seen elsewhere. The only downside was that the dishes were a bit overpriced for what they were. I liked the place overall, but I wouldn't call it good value.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0072",
+    "language": "es",
+    "text": "La comida estaba correcta, sin más, pero me gustó mucho cómo presentaban los platos y la variedad de opciones de la carta. Había varias combinaciones poco habituales y algunos platos llegaban con un emplatado muy cuidado. En conjunto, el sitio me dejó una buena impresión y salí satisfecho.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0073",
+    "language": "en",
+    "text": "I wanted more than the small handful of dishes on the menu, but there just wasn’t much to choose from. The portions were on the small side too, so the meal felt a bit underwhelming. I left feeling like the place was not worth a second visit.",
+    "gold": {
+      "food_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0074",
+    "language": "es",
+    "text": "La carta tiene platos muy originales y varias opciones vegetarianas, que me parecieron un acierto, pero luego la comida salió bastante sosa. El risotto estaba pasado de cocción y el pescado, seco. En conjunto, el sitio me dejó sensaciones encontradas: la idea del restaurante es buena, aunque la ejecución no termina de convencer.",
+    "gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0075",
+    "language": "en",
+    "text": "We went in expecting a decent dinner, but the menu was so limited that there was barely anything to choose from, and the portions were small enough that we left hungry. It felt like the place had very little to offer beyond the basics. Overall, it was a disappointing experience, and I wouldn't rush back.",
+    "gold": {
+      "food_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0076",
+    "language": "en",
+    "text": "The salmon was cooked really well and had plenty of flavor, so the food itself was the best part of the meal. What let it down was the menu, which felt too limited and the portions were tiny for the price. I left liking the kitchen but not the way the dishes were offered. It was an odd experience overall: good cooking, but not enough choices or quantity to make the visit feel complete.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0077",
+    "language": "es",
+    "text": "Fui a cenar con ganas de probar algo distinto y la verdad es que la comida estaba muy rica, sobre todo el guiso y el postre casero. Pero la carta me pareció muy corta y las raciones, bastante justas; en dos platos que pedimos daba la sensación de quedarse uno con hambre. Salí contento con lo que comí, aunque el sitio me dejó una impresión irregular porque la cocina cumple, pero la oferta es poca y no invita a repetir enseguida.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0078",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y la experiencia fue buena en conjunto. La comida estaba correcta, sin nada especial, pero me gustó mucho la presentación de los platos y que la carta tuviera opciones distintas a lo habitual. El tartar venía muy bien montado y el postre tenía un toque original. Además, el local tiene un ambiente agradable y el personal nos atendió con rapidez.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0079",
+    "language": "es",
+    "text": "Fuimos a cenar y la comida estaba muy rica, sobre todo el arroz y el pescado. Eso sí, la carta se queda corta y las raciones me parecieron demasiado pequeñas para el precio. Salí con sensaciones encontradas: comí bien, pero no creo que repita si no amplían más opciones.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0080",
+    "language": "en",
+    "text": "We stopped in for dinner and the menu was so limited that there was barely anything to choose from. The portions were small too, so we left hungry. It felt more like a place to grab a quick bite than a proper meal, and I wouldn't go back for a full dinner.",
+    "gold": {
+      "food_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0081",
+    "language": "es",
+    "text": "La comida estaba muy buena, sobre todo el arroz y la carne, pero la carta se queda corta y los platos llegan con una presentación bastante simple. Pedimos varias raciones para compartir y parecían pensadas para una sola persona. En conjunto salí contento por el sabor, aunque el sitio me dejó una sensación a medias porque esperaba más variedad y algo más cuidado en los platos.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0082",
+    "language": "es",
+    "text": "La carta tiene platos muy originales y bastante variedad, con opciones para compartir y para quien busca algo distinto. Eso sí, la merluza me llegó seca y la salsa parecía recalentada, así que la cocina me dejó frío. Salí con la sensación de que el sitio tiene ideas interesantes, pero no termina de convencerme por cómo preparan la comida.",
+    "gold": {
+      "food_style_options": "positive",
+      "food_quality": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0083",
+    "language": "es",
+    "text": "La comida nos sorprendió para bien: el arroz salió en su punto y las verduras tenían buen sabor. Además, la carta trae bastantes opciones, desde platos para compartir hasta varias alternativas vegetarianas, así que no cuesta elegir. Lo único que me dejó frío fue el precio de los platos, que me pareció demasiado alto para lo que sirven. En conjunto, salí contento con lo que probé, aunque no creo que vuelva a menudo por ese motivo.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0084",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos contentos. La carta no es enorme, pero sí bastante original y con platos bien presentados; además hay opciones distintas para no repetir siempre lo mismo. La comida me pareció correcta, sin más, aunque el conjunto funciona muy bien. El local estaba lleno y aun así todo fue ágil. En general, es un sitio agradable para volver.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0085",
+    "language": "es",
+    "text": "La cocina me gustó bastante: la merluza estaba en su punto y la pasta, bien resuelta. Además, la carta es amplia, con varias opciones de temporada y platos para compartir, así que no te quedas corto al elegir. Lo único que me frenó fue el precio de cada plato, que me pareció demasiado alto para lo que ofrecen. En conjunto salí contento con lo que comí, aunque no diría que el sitio sea para ir a menudo.",
+    "gold": {
+      "food_quality": "positive",
+      "food_style_options": "positive",
+      "food_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0086",
+    "language": "en",
+    "text": "The menu was all over the place in a good way, with ramen, small plates, and a few vegetarian specials I hadn't seen elsewhere. I liked having that many options, but the curry I ordered was bland and the noodles were overcooked. The place itself is hard to judge because I enjoyed the variety yet left disappointed overall.",
+    "gold": {
+      "food_style_options": "positive",
+      "food_quality": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0087",
+    "language": "es",
+    "text": "La carta es bastante original, con varios platos que no ves en otros sitios y opciones para compartir, pero la comida me dejó frío: el risotto estaba pasado y la carne, seca. Pedimos varios entrantes para probar más cosas y eso sí me gustó, aunque el sabor general no acompañó. En conjunto salí con sensaciones encontradas; no me arrepiento de haber ido, pero tampoco creo que repita pronto.",
+    "gold": {
+      "food_style_options": "positive",
+      "food_quality": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0088",
+    "language": "es",
+    "text": "Fuimos a cenar y la carta se nos quedó corta; había muy pocas opciones y las raciones eran escasas. Con eso, salimos bastante decepcionados y no creo que repita. Al menos el camarero nos atendió con normalidad y el local estaba correcto.",
+    "gold": {
+      "food_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0089",
+    "language": "es",
+    "text": "La carta tiene platos bastante originales y opciones para todos, incluso un par de sugerencias vegetarianas que no suelen verse. Eso sí, lo que pedimos salió bastante soso y la carne llegó demasiado hecha. El sitio me dejó una impresión rara: por un lado me gustó la variedad, pero por otro salí con la sensación de que la cocina no estuvo a la altura.",
+    "gold": {
+      "food_style_options": "positive",
+      "food_quality": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0090",
+    "language": "en",
+    "text": "We stopped in for dinner and the menu was surprisingly creative, with a lot of dishes I hadn't seen elsewhere and several vegetarian choices. Unfortunately, the food itself was bland and a couple of plates came out overcooked. I liked the variety, but the cooking missed the mark. I left feeling torn: there was enough on the menu to make it interesting, yet I wouldn't go back for the meals.",
+    "gold": {
+      "food_quality": "negative",
+      "food_style_options": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0091",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y, en general, salimos contentos con la experiencia. La comida estaba correcta, sin más, pero la carta tenía bastante variedad y los platos llegaban con una presentación muy cuidada. Probamos un arroz negro, unas croquetas de boletus y un postre casero con una decoración bastante original. Para una cena tranquila, el sitio funciona muy bien.",
+    "gold": {
+      "food_quality": "neutral",
+      "food_style_options": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0092",
+    "language": "es",
+    "text": "Fuimos por la carta, que tiene varias opciones vegetarianas y platos fuera de lo típico, y eso me gustó mucho. Pedí unas verduras al horno con una mezcla de especias que sonaba bien, pero llegaron algo secas y con poco sabor. En cambio, el conjunto del local me dejó una impresión desigual: por la variedad del menú sí volvería a probar otras cosas, aunque la cocina no estuvo a la altura esta vez.",
+    "gold": {
+      "food_style_options": "positive",
+      "food_quality": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0093",
+    "language": "en",
+    "text": "The chicken curry was rich and well seasoned, and the naan came out hot. I just wish I could say the same about the room: it was cramped, noisy, and the tables were too close together, so it was hard to relax. I liked the food enough, but the overall experience was a mixed bag and I left feeling unsure about coming back.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0094",
+    "language": "en",
+    "text": "We stopped in on a rainy night and the dining room felt warm and relaxed, with soft lighting and enough space between tables to actually talk. The staff greeted us right away, kept checking on us without hovering, and made the whole visit easy. By the end of dinner, we both agreed it was a place we'd gladly return to.",
+    "gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0095",
+    "language": "es",
+    "text": "La comida nos sorprendió para bien: el arroz estaba en su punto y las croquetas, muy ricas. Pero el local es otra historia, con mesas demasiado juntas, mucho ruido y una decoración bastante descuidada. Salimos con la sensación de haber comido bien, aunque la experiencia en conjunto fue incómoda y no me apetece repetir.",
+    "gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0096",
+    "language": "en",
+    "text": "The tacos were genuinely good, with well-seasoned meat and fresh toppings, but I can’t say the same for the room itself. It was noisy, cramped, and a bit dirty, so eating there wasn’t very comfortable. I left thinking the kitchen does a nice job, yet the overall experience was mixed and I’m not sure I’d rush back.",
+    "gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0097",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y el local tenía un ambiente normal, sin nada especial. Pedimos unas croquetas y un arroz, y la comida estaba muy buena, bien hecha y en su punto. En conjunto salimos contentos; es un sitio que funciona bien para una cena tranquila.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0098",
+    "language": "en",
+    "text": "We stopped in after a movie and found the room pretty plain, nothing special but comfortable enough. The pasta was really good, and the chicken in my dish was cooked well. Overall, it was a pleasant dinner and I’d happily go back.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0099",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y el local tenía un ambiente normal, sin nada especial. Aun así, la comida nos gustó bastante: el arroz estaba en su punto y las croquetas salieron muy buenas. En conjunto, salimos contentos con la visita y nos pareció un sitio agradable para repetir.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0100",
+    "language": "es",
+    "text": "Fuimos a cenar un martes y la experiencia fue muy buena. El personal nos recibió con mucha amabilidad y estuvo pendiente sin agobiar, así que todo salió rápido y sin líos. En conjunto, salimos contentos con el sitio y con ganas de repetir otro día.",
+    "gold": {
+      "restaurant_general": "positive",
+      "service": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0101",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y el sitio estaba correcto, sin nada especial, pero cómodo para estar un rato. Pedimos arroz y pescado, y ambos platos salieron muy buenos, con buena cocción y sabor. En conjunto salimos contentos y con ganas de repetir porque la experiencia fue agradable.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0102",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y la comida nos sorprendió para bien: la lasaña estaba muy sabrosa y el pescado, en su punto. Lo malo es que la sala estaba tan apretada que apenas podíamos mover las sillas, y además había mucho ruido y mesas pegadas. Con ese ambiente, la experiencia se hace incómoda. No diría que el sitio sea malo, pero tampoco me dejó con ganas de repetir tal como está ahora.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0103",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y salimos muy contentos. El salón es acogedor, con una decoración cuidada y un ambiente tranquilo que invita a quedarse un rato más. El personal fue amable y atento desde que llegamos, sin hacerse pesado, y eso hizo la visita todavía mejor. En conjunto, el sitio nos gustó mucho y dejó muy buena impresión.",
+    "gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0104",
+    "language": "es",
+    "text": "La comida estaba muy buena, sobre todo las croquetas y el arroz, pero el local era pequeño, con mucho ruido y las mesas demasiado juntas. Salí contento por lo que comí, aunque la experiencia en sala fue incómoda y no me apeteció quedarme mucho rato.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0105",
+    "language": "es",
+    "text": "Está en pleno centro, muy cómodo para llegar a pie y con unas vistas al puerto que merecen la visita. Salimos satisfechos porque todo funcionó como esperábamos y el sitio nos dejó una muy buena impresión. Para una cena tranquila en esa zona, me pareció una opción acertada.",
+    "gold": {
+      "location": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0106",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y el local era bastante normal, sin nada especial en la decoración ni en el ambiente. Pedimos unas croquetas y un arroz con setas que estaban muy buenos, con buen punto y sabor. En general salimos contentos; el sitio cumple y la comida merece la pena.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0107",
+    "language": "es",
+    "text": "La comida me gustó bastante: el arroz estaba en su punto y las tapas salían bien hechas. Pero el local es pequeño, muy ruidoso y las mesas están demasiado juntas, así que cenar allí resulta incómodo. Salí con la sensación de que se come bien, aunque el sitio no acompaña y no me dejó una impresión del todo buena.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0108",
+    "language": "es",
+    "text": "La sala era normal, sin mucho encanto pero tampoco incómoda. Pedimos el arroz y el pescado del día, y ambos estaban muy bien cocinados, con buen sabor. En conjunto salimos contentos; es un sitio al que volvería sin problema.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0109",
+    "language": "en",
+    "text": "The tacos were really good, with plenty of flavor and the chicken cooked just right. I liked the meal overall, but the dining room was cramped and noisy, with sticky tables and a worn-out look that made it hard to relax. I wouldn’t rush back unless they changed the space, even though the food itself was worth it.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0110",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y el local era normal, sin nada especial, pero la comida salió bastante buena. Pedimos unas croquetas y un arroz que estaban muy bien hechos, con buen sabor. En conjunto nos dejó una impresión positiva y no me importaría repetir otro día.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0111",
+    "language": "en",
+    "text": "I stopped in for dinner after work and left in a much better mood. The host got me seated right away, and the server was friendly without hovering. I ordered the grilled chicken sandwich, which came out quickly and exactly as I asked. Between the easy meal and the pleasant staff, the whole visit felt like a good choice for a weeknight.",
+    "gold": {
+      "restaurant_general": "positive",
+      "service": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0112",
+    "language": "es",
+    "text": "La comida me sorprendió para bien: la paella estaba en su punto y el pescado, muy bien hecho. Pero el local es pequeño, con las mesas demasiado juntas, bastante ruido y una decoración algo descuidada. Salí con la sensación de que se come bien, aunque el sitio no invita a quedarse mucho rato; no sé si volvería.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0113",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y el local estaba correcto, sin nada especial, con un ambiente normal y bastante tranquilo. Pedimos unas croquetas y un risotto, y la comida estaba muy buena, bien hecha y con buen sabor. En conjunto salimos contentos; es un sitio que cumple y al que no me importaría volver.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0114",
+    "language": "en",
+    "text": "We stopped in after a long day and ended up staying much longer than planned because the room felt warm and inviting, with soft lighting and enough space to actually relax. The staff greeted us right away and kept checking in without hovering. Overall, it was an easy place to settle into, and I left thinking it was one of the better dinners I've had lately.",
+    "gold": {
+      "ambience": "positive",
+      "restaurant_general": "positive",
+      "service": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0115",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y la experiencia fue muy buena en conjunto. Nos atendieron con mucha amabilidad y sin hacernos esperar, y eso hizo la visita muy cómoda. Salimos satisfechos y con ganas de volver otro día.",
+    "gold": {
+      "restaurant_general": "positive",
+      "service": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0116",
+    "language": "es",
+    "text": "Fuimos a cenar porque está en pleno centro y se llega andando sin problema. Desde la terraza se ve la plaza y eso le da un plus. La experiencia en conjunto fue muy buena, así que salimos contentos y con ganas de repetir. Pedimos unas raciones para compartir y todo salió bien, pero lo que más me convenció fue la ubicación, que hace muy cómodo quedar allí.",
+    "gold": {
+      "location": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0117",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y el sitio era normal, sin nada especial, pero cómodo para estar un rato. Lo mejor fue la comida: el arroz estaba en su punto y el pescado tenía muy buen sabor. En conjunto salimos contentos y con ganas de repetir.",
+    "gold": {
+      "ambience": "neutral",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0118",
+    "language": "en",
+    "text": "I went in on a rainy Thursday and was surprised by how warm and calm the dining room felt. The lighting, the seating, and the low background music made it easy to relax, and the staff were genuinely attentive without hovering. Everything ran smoothly from start to finish, so the whole visit felt easy and enjoyable. I’d happily choose it again for a quiet dinner.",
+    "gold": {
+      "ambience": "positive",
+      "restaurant_general": "positive",
+      "service": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0119",
+    "language": "es",
+    "text": "La comida me gustó bastante: el arroz estaba en su punto y las croquetas caseras tenían mucho sabor. Pero el local no acompaña nada, con mesas demasiado juntas, ruido constante y una sensación de suciedad que quitaba las ganas de quedarse. Al final salimos contentos por lo que comimos, aunque el sitio en sí me pareció incómodo y poco agradable. No sé si volvería, porque la experiencia fue buena por un lado y muy floja por el otro.",
+    "gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0120",
+    "language": "en",
+    "text": "We stopped here after a long walk because it’s right by the waterfront and easy to find. The view alone makes the detour worth it, and the whole visit felt like a good choice. I’d happily send friends here for the setting and the overall experience.",
+    "gold": {
+      "location": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0121",
+    "language": "en",
+    "text": "We grabbed dinner here after a show and the place was easy to find right off the main square. The view from the windows over the river was the real highlight. I liked the restaurant overall, and it was an easy choice for a relaxed night out. The menu was straightforward, the food came out quickly, and everything felt well put together.",
+    "gold": {
+      "location": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0122",
+    "language": "es",
+    "text": "Fuimos a cenar sin prisa y lo que más me gustó fue el café, que estaba muy bien hecho y con buen aroma. La comida estaba correcta, sin más, pero el sitio en conjunto nos dejó una buena impresión y salimos contentos. No pedimos nada especial fuera de eso, así que no puedo hablar de más.",
+    "gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0123",
+    "language": "es",
+    "text": "La comida me sorprendió para bien: el arroz estaba en su punto y las raciones salieron muy sabrosas. Pero el local es otra cosa, con mesas demasiado juntas, bastante ruido y una sensación de suciedad que no ayuda nada. Al final salimos contentos por lo que comimos, aunque el sitio en sí me dejó una impresión bastante mala.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0124",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y me quedé con buena impresión. El café estaba muy bien hecho, con un sabor bastante redondo, y eso fue lo mejor de la noche. La comida me pareció correcta, sin más, nada que destacar ni para bien ni para mal. En conjunto salimos contentos y con ganas de repetir otro día, porque el sitio cumple y el ambiente general invita a quedarse un rato.",
+    "gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0125",
+    "language": "en",
+    "text": "The burgers were fine, but the place feels half-finished and the menu is pretty bare. I was hoping for a decent beer list, yet the only choices were a couple of basic lagers and one house cocktail. By the end of the meal I was disappointed enough that I wouldn’t go back.",
+    "gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0126",
+    "language": "es",
+    "text": "La comida me sorprendió para bien: el arroz estaba en su punto y el pescado, muy bien hecho. En cambio, los cócteles salieron flojos y el café tenía un sabor quemado que no esperaba. Con esa mezcla, la visita me dejó sensaciones encontradas; por la cocina volvería, pero por las bebidas no.",
+    "gold": {
+      "food_quality": "positive",
+      "drinks_quality": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0127",
+    "language": "es",
+    "text": "Fuimos a cenar sin reservar y salimos contentos. El café estaba muy bueno, con un sabor intenso y bien hecho. La comida cumplió, sin más, porque pedimos algo sencillo y no destacó ni para bien ni para mal. En conjunto, el sitio nos dejó una buena impresión y me parece un lugar al que se puede volver.",
+    "gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0128",
+    "language": "es",
+    "text": "Fuimos a cenar y el sitio en general nos dejó fríos; no creo que repitamos. La carta de bebidas era muy corta, con pocas opciones de cócteles y casi nada para elegir. Pedimos comida y estuvo correcta, sin más, pero la sensación final fue bastante decepcionante.",
+    "gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0129",
+    "language": "en",
+    "text": "We came for dinner and the food was genuinely good, especially the salmon and the risotto, but the cocktails were flat and the coffee tasted burnt. I liked the meal enough, yet the overall experience was disappointing because the drinks were such a letdown. I would still order the food again, just not the bar menu.",
+    "gold": {
+      "drinks_quality": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0130",
+    "language": "es",
+    "text": "La comida estuvo bien, pero la carta de bebidas me dejó frío: solo había cerveza, refrescos y dos vinos. Para un sitio así esperaba más opciones. En conjunto salí bastante decepcionado y no creo que repita.",
+    "gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0131",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y la experiencia me dejó bastante frío. La carta de bebidas era muy corta, con pocas opciones aparte de cerveza y un par de cócteles, así que para quien busca elegir algo distinto se queda corto. En conjunto, el sitio no me convenció y no creo que repita.",
+    "gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0132",
+    "language": "es",
+    "text": "Fuimos a cenar anoche y el sitio nos dejó una buena impresión desde el principio. Pedí un café solo que estaba muy bien hecho, con buen aroma y punto justo. La comida quedó en un segundo plano: el risotto me pareció correcto, sin más. En conjunto salimos contentos y me parece un lugar al que se puede volver sin problema.",
+    "gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0133",
+    "language": "es",
+    "text": "Fuimos a cenar y, aunque la comida estuvo correcta, salimos con mala impresión. La carta de bebidas era muy corta: solo había dos cervezas y unos pocos vinos, nada más. Para un sitio así me esperaba más opciones. Al final el local me dejó frío y no creo que repita.",
+    "gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0134",
+    "language": "en",
+    "text": "We came for dinner and left disappointed. The menu barely had any cocktails, and the only beer choices were the usual big brands, so there wasn’t much to pick from. That alone made the place feel limited. The meal was fine, but nothing about the visit made me want to return.",
+    "gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0135",
+    "language": "en",
+    "text": "I had a cocktail that was genuinely well made, but at $18 it felt overpriced for what it was. The drink itself was crisp and balanced, though I kept thinking the menu was pushing the price too far. Overall, I left torn: the bar part impressed me, but the visit as a whole did not feel worth it.",
+    "gold": {
+      "drinks_prices": "negative",
+      "drinks_quality": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0136",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos contentos. Pedimos un café después de la comida y estaba muy bueno, con buen aroma y bien hecho. La cena estuvo correcta, sin más, pero el ambiente tranquilo y el trato del personal hicieron que la visita fuera agradable. En conjunto, es un sitio al que no me importaría volver.",
+    "gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0137",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y salimos encantados. La carta de vinos está muy bien escogida y la selección de cervezas también me pareció muy completa. Pedimos unas croquetas y un arroz negro, y ambos platos estaban muy bien hechos. En conjunto, el sitio nos dejó muy buena impresión y nos pareció una apuesta segura para volver.",
+    "gold": {
+      "drinks_style_options": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0138",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos bastante decepcionados. La comida cumplió sin más, pero la carta de bebidas era corta: solo había dos cervezas y muy pocos vinos por copa, así que acabamos pidiendo agua. Para una cena especial esperaba más opciones. El sitio estaba correcto y nos atendieron con rapidez, pero la experiencia en conjunto no me convenció.",
+    "gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0139",
+    "language": "es",
+    "text": "Fuimos a cenar sin muchas expectativas y salimos contentos. El café estaba muy bueno, con buen aroma y bien hecho. La cena fue correcta, sin más, así que no tengo quejas ni elogios especiales sobre la comida. Al final, el sitio nos dejó una impresión agradable y me pareció una opción a la que se puede volver tranquilamente.",
+    "gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0140",
+    "language": "en",
+    "text": "We came for dinner and the food really won me over—the roast chicken was juicy and the pasta had plenty of flavor. The problem was the drinks: the house cocktail tasted watered down, the red wine was flat, and even the coffee at the end was awful. I left liking the meal but not the place overall, so I’m torn on whether I’d go back.",
+    "gold": {
+      "drinks_quality": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0141",
+    "language": "en",
+    "text": "We left after dinner feeling pretty underwhelmed. The menu had almost no wine by the glass, and the beer list was basically just the usual domestic brands, so the drinks style options were disappointing. The burger was fine, but nothing here made me want to come back.",
+    "gold": {
+      "drinks_style_options": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0142",
+    "language": "es",
+    "text": "Pedí un gin tonic y estaba muy bien servido, con buen sabor y la ginebra se notaba de calidad, pero me pareció carísimo para lo que era. El local estaba correcto y el camarero nos atendió sin problemas. En conjunto salí contento con la bebida, aunque no creo que vuelva a pagar ese precio por ella.",
+    "gold": {
+      "drinks_quality": "positive",
+      "drinks_prices": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0143",
+    "language": "es",
+    "text": "Fuimos a cenar y salimos contentos con la experiencia. El arroz estaba en su punto y el pescado, muy bien preparado. Además, tenían una carta de vinos bastante amplia, varias cervezas artesanas y cócteles bien pensados. El sitio me dejó muy buena impresión en general, así que volvería sin problema.",
+    "gold": {
+      "drinks_style_options": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0144",
+    "language": "es",
+    "text": "Fuimos a cenar sin mucha expectativa y salimos contentos. El café de después estaba muy bien hecho, con buen aroma y sabor, y eso fue de lo mejor de la noche. La comida cumplió, sin más: nada destacable, pero tampoco hubo fallos. En conjunto, el sitio nos dejó una buena impresión y me parece un lugar al que se puede volver tranquilamente.",
+    "gold": {
+      "drinks_quality": "positive",
+      "food_quality": "neutral",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0145",
+    "language": "en",
+    "text": "We stopped in for dinner after work and ended up staying longer than planned. The duck confit was cooked beautifully, and the dessert special was just as good. I also liked the wine list, which had a nice range of reds and a few interesting bottles by the glass. By the end of the meal, I felt like this was a place worth coming back to.",
+    "gold": {
+      "drinks_style_options": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0146",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y salimos contentos: el local cumple y la experiencia en general fue buena. Probamos unas croquetas caseras y un arroz meloso que estaban realmente bien hechos, con buen punto y sabor. El camarero fue correcto en todo momento, aunque bastante serio y sin muchas palabras. No hubo nada fuera de lugar, así que la visita nos dejó una impresión positiva.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0147",
+    "language": "en",
+    "text": "We came for dinner expecting a nice all-around meal, and the food delivered while the drinks really did not. The grilled salmon was cooked well and the pasta had good flavor, but the cocktails tasted watered down, the wine was flat, and even the coffee at the end was bitter and off. Because of that, I left feeling a bit let down overall, even though the kitchen was doing its part. I’d still say the meal itself was worth it, just not the bar.",
+    "gold": {
+      "drinks_quality": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0148",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y la experiencia fue correcta en general. Pedimos una ensalada, unas croquetas y un plato de carne; la comida estaba en su punto, sin destacar especialmente. La cuenta nos salió en un rango razonable para lo que tomamos, así que el precio me pareció justo. No me dejó una impresión fuerte, pero tampoco salí descontento.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0149",
+    "language": "es",
+    "text": "Pedí el risotto y estaba muy bueno, pero la lasaña llegó seca y bastante sosa. En conjunto, la cena fue irregular: salí contento con un plato y decepcionado con el otro. El comedor es tranquilo y el camarero nos atendió rápido, aunque no compensa del todo la experiencia. No sé si volvería, porque hubo cosas que me gustaron y otras que no.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0150",
+    "language": "en",
+    "text": "The salmon was cooked really well and the flavors were on point, but the bill felt hard to justify for what we got. I left thinking the kitchen knows what it's doing, yet the overall experience was a mixed bag because the prices were too high for a meal like this. I would probably try it again if someone else were paying, but not on my own.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0151",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos contentos. La comida estaba muy buena, sobre todo el risotto y el pescado, bien cocinados y con buen sabor. El restaurante nos dejó una impresión positiva en conjunto. El servicio fue correcto, sin más: nos atendieron bien y a tiempo, pero sin mucha cercanía.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0152",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y nos quedamos bastante contentos. La comida salió muy bien, sobre todo el arroz y el pescado, que estaban en su punto. El trato fue correcto, sin más: nos atendieron bien y con rapidez, pero sin mucha cercanía. En conjunto, el sitio nos dejó una impresión muy buena y salimos con ganas de repetir.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0153",
+    "language": "es",
+    "text": "Fuimos a cenar un martes sin reserva y salimos contentos. El local es sencillo, pero la cocina nos sorprendió: el arroz meloso estaba en su punto y el pulpo, bien hecho. La atención fue correcta, sin más, nos tomaron nota y sirvieron a tiempo. En conjunto, la experiencia fue buena y para repetir si estamos por la zona.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0154",
+    "language": "en",
+    "text": "We stopped in for dinner and everything was just average. The pasta was fine, nothing special, and the overall meal felt perfectly acceptable for a weeknight. The dining room was clean and the staff got us seated without any trouble, so the experience was normal enough. I wouldn’t call it memorable, but it wasn’t bad either.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0155",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y el sitio me dejó sensaciones encontradas. El risotto estaba muy bien hecho y el pescado del día salió en su punto, pero la hamburguesa llegó seca y las patatas parecían recalentadas. El camarero fue amable y la mesa estaba lista a la hora reservada. En conjunto, la experiencia no fue mala, aunque tampoco como para repetir sin pensarlo.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0156",
+    "language": "en",
+    "text": "We stopped in for a late dinner and everything was just fine, nothing more and nothing less. The salmon was cooked properly, but it didn't really stand out, and the same could be said for the rest of the meal. Overall, it was an average experience and I wouldn't call it memorable, though it did the job.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0157",
+    "language": "es",
+    "text": "La comida estaba muy bien cocinada y con buen sabor, aunque el local resultó bastante ruidoso y la música estaba alta. En conjunto, la experiencia fue correcta, sin más.",
+    "gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0158",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y salimos contentos con la experiencia. El risotto estaba en su punto y el pescado llegó muy bien cocinado, así que la comida nos gustó bastante. El trato fue correcto, sin más, y no hubo ningún problema con la mesa. En conjunto, el sitio me pareció una buena opción para volver otro día.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0159",
+    "language": "es",
+    "text": "La comida me sorprendió para bien, especialmente el arroz y el pescado del día. Eso sí, el comedor estaba bastante ruidoso y las mesas muy juntas, así que el ambiente no fue agradable. En conjunto, la experiencia fue correcta, sin más: comimos bien y pasamos un rato normal.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0160",
+    "language": "en",
+    "text": "The pasta was genuinely good, with a rich sauce and well-cooked seafood, but I left feeling like the bill was hard to justify. I’d call the meal enjoyable, yet the overall experience was only mixed because the prices were high for what we got. I might order the same dish again, but not if I’m paying that much for dinner.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0161",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y la experiencia fue normal, sin nada que destacar. Pedimos un arroz y un pescado del día; estaban correctos, bien resueltos, pero tampoco especialmente sabrosos. En conjunto, el sitio me pareció aceptable para una comida tranquila, aunque no me dejó ganas de volver enseguida.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0162",
+    "language": "es",
+    "text": "Fuimos a cenar y la verdad es que unos platos salieron muy bien, pero el risotto llegó pasado y sin gracia. Las croquetas estaban ricas, aunque el pescado del día me pareció bastante seco. En conjunto, la experiencia fue irregular: hubo cosas que me gustaron y otras que no, así que me fui con sensaciones encontradas. El local estaba lleno pero nos atendieron a tiempo.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0163",
+    "language": "en",
+    "text": "We ordered the ramen and the grilled salmon, and the ramen was rich and well seasoned while the salmon came out dry and overcooked. That kind of hit-and-miss meal made the whole visit feel inconsistent, so I left liking parts of it but not the restaurant as a whole. The server was polite and the room was quiet.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0164",
+    "language": "en",
+    "text": "The dining room was pretty bare and the music was loud enough that we had to lean in to talk, so the atmosphere wasn't great. The roast chicken, though, was cooked well and the vegetables were better than I expected. Overall, it was an okay meal and I wouldn't call it a bad experience, just nothing special.",
+    "gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0165",
+    "language": "es",
+    "text": "Fuimos un jueves por la noche y el local estaba bastante ruidoso, con las mesas muy juntas, así que el ambiente no fue agradable. Aun así, la merluza al horno salió en su punto y las patatas estaban bien hechas. En conjunto, el sitio está correcto para una comida sin complicaciones, aunque no me dejó una impresión especial.",
+    "gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0166",
+    "language": "en",
+    "text": "We stopped in for dinner after a show, and the kitchen did a really nice job with the salmon and the risotto. The meal felt put together well, and the restaurant overall was a good experience. Our waiter was efficient and handled everything correctly, just not especially warm or chatty. Still, nothing was off, and the food made the visit worthwhile.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0167",
+    "language": "en",
+    "text": "We went on a quiet Tuesday and the room felt a bit drab, with dim lighting that made it seem smaller than it was. The salmon was cooked nicely and the risotto had good flavor. Overall, it was an ordinary dinner: nothing special, but nothing to complain about either.",
+    "gold": {
+      "ambience": "negative",
+      "food_quality": "positive",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0168",
+    "language": "es",
+    "text": "Probamos unas croquetas y un arroz que estaban muy bien hechos, pero la lasaña salió seca y con poco sabor. En conjunto, la cena me dejó sensaciones encontradas: hay platos que salen muy bien y otros que no están a la altura, así que el sitio me parece irregular. El comedor estaba lleno y la atención fue correcta.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0169",
+    "language": "en",
+    "text": "The steak was cooked exactly how I asked and the pasta had a lot of flavor, so the kitchen clearly knows what it is doing. That said, the bill came out higher than I expected for what we ordered, and the overall value felt poor. I left pleased with the meal itself, but not with what I paid for it.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0170",
+    "language": "en",
+    "text": "We ordered the grilled salmon and the burger, and it was a strange mix. The salmon was cooked nicely and had good seasoning, but the burger came out dry and overcooked. The menu also had a few interesting options, and the room was quiet enough for a conversation. I left feeling unsure about the place overall because one plate was great while the other was disappointing. I might try it again, but I wouldn't call the meal consistently good.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0171",
+    "language": "es",
+    "text": "El arroz del primer plato estaba en su punto y la merluza tenía buen sabor, pero las croquetas llegaron frías y bastante aceitosas. En conjunto, la comida me dejó sensaciones encontradas. El local es correcto y el servicio fue rápido.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0172",
+    "language": "es",
+    "text": "Fuimos a cenar y el entrante de setas estaba muy bueno, pero el plato principal, un solomillo, llegó seco y bastante pasado. Al final salí con la sensación de que la cocina tiene altibajos: algunos platos salen bien y otros no tanto. En conjunto, el sitio me dejó una impresión irregular y no sé si repetiría.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0173",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos contentos con la experiencia. La paella estaba muy bien hecha, con buen punto de arroz y sabor, y eso fue lo mejor de la visita. El trato fue correcto, sin más, y nos tomaron nota y sirvieron a tiempo. En conjunto, el sitio nos dejó una impresión positiva.",
+    "gold": {
+      "food_quality": "positive",
+      "service": "neutral",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0174",
+    "language": "es",
+    "text": "Fuimos por la cena y quedó claro que no todo estaba al mismo nivel: la paella salió muy sabrosa, pero el pescado estaba pasado de cocción y algo seco. El entrante de croquetas también nos gustó bastante. En conjunto, la comida tuvo aciertos y fallos. El local estaba tranquilo y el camarero fue correcto, sin más. No me parece un sitio malo, pero tampoco uno para ir con la idea de acertar siempre.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0175",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y todo estuvo correcto. La comida fue normal, sin nada que destacar, y el precio nos pareció justo para lo que pedimos. No salimos especialmente impresionados, pero tampoco decepcionados; simplemente cumplió. Pedimos unas croquetas y un arroz, y ambos estaban bien preparados, sin más. Para una comida tranquila puede servir, aunque no lo pondría como un sitio imprescindible.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0176",
+    "language": "es",
+    "text": "Pedimos croquetas y un arroz negro: las croquetas estaban muy buenas, pero el arroz llegó algo pasado de punto. El trato fue correcto y el local estaba tranquilo. En conjunto, salí con sensaciones encontradas; hay platos que merecen la pena y otros que no tanto.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0177",
+    "language": "es",
+    "text": "Pedimos varias cosas para compartir y la sensación fue muy desigual: las croquetas estaban muy buenas, pero el pulpo salió duro y bastante soso. El resto de la comida quedó en un punto intermedio, así que no salí descontento del todo, aunque tampoco con ganas de volver pronto. El local estaba lleno y el servicio fue correcto, sin más.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0178",
+    "language": "es",
+    "text": "Cenamos allí un sábado y la experiencia fue irregular. Las croquetas y el risotto estaban muy bien hechos, pero el pescado del día llegó seco y con poco sabor. Al final salimos con la sensación de que la cocina tiene altibajos. El camarero fue correcto y la mesa estaba lista a la hora reservada, pero eso no compensó una cena tan desigual. No creo que repita, aunque alguna cosa sí me gustó.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0179",
+    "language": "es",
+    "text": "La cena empezó muy bien: el arroz estaba en su punto y el pescado tenía muy buen sabor. Sin embargo, al final la cuenta me pareció excesiva para lo que pedimos, así que salí contento con la comida pero no con la experiencia completa. No creo que vuelva a menudo.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "restaurant_prices": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0180",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y la experiencia fue bastante normal. Pedimos una ensalada y un plato de pollo, y la comida estaba correcta, sin destacar ni para bien ni para mal. La cuenta nos pareció justa para lo que comimos, así que el precio me pareció razonable. En conjunto, el sitio cumple, pero no deja una impresión especial.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0181",
+    "language": "en",
+    "text": "We stopped in for lunch after running errands and had a pretty standard meal. The burger was cooked fine and the salad was just average, nothing memorable either way. The place itself was also just okay: clean enough, not too noisy, and the staff handled things normally. I wouldn't call it a bad experience, but I also didn't feel like there was anything special about it.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0182",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y, en conjunto, salimos contentos. El arroz estaba bien hecho y el pescado, muy sabroso. El camarero nos atendió correctamente, sin más, y no hubo esperas largas. No es un sitio especialmente cálido, pero cumplió de sobra para una comida tranquila.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0183",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y salimos contentos. El arroz estaba en su punto, con buen sabor y bien hecho. El trato fue correcto, sin más, y nos tomaron nota y sirvieron sin problemas. En conjunto, me pareció un sitio agradable y bien resuelto para una cena tranquila.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0184",
+    "language": "en",
+    "text": "We stopped in for dinner after work and the meal was fine overall. The grilled chicken was average, nothing special but cooked properly, and the bill felt fair for what we got. It wasn't the kind of place I'd rave about, but it also didn't disappoint.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_general": "neutral",
+      "restaurant_prices": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0185",
+    "language": "es",
+    "text": "Fui con dos amigos y la experiencia me dejó sensaciones encontradas. La lasaña estaba bien hecha y la salsa tenía bastante sabor, pero el risotto llegó pasado y algo insípido. El local es correcto, sin más, y el servicio fue atento aunque algo lento. Con la cuenta no hubo sorpresas. Salí pensando que hay platos que merecen la pena y otros que no repetiría; en conjunto, el restaurante me pareció irregular.",
+    "gold": {
+      "food_quality": "conflict",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0186",
+    "language": "en",
+    "text": "We stopped in for lunch and ordered the chicken sandwich and a bowl of tomato soup. The restaurant is on Main Street, next to the pharmacy, and there is parking out front. Our server brought the check when we asked and the meal came out in about fifteen minutes.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0187",
+    "language": "en",
+    "text": "We stopped in for lunch and everything was pretty average in a good way. The pasta was cooked fine and the sauce was okay, nothing special but not bad either. Prices were fair for the area, so I didn't feel overcharged. Overall it was an acceptable meal, just not the kind of place I'd go out of my way to visit again.",
+    "gold": {
+      "food_quality": "neutral",
+      "restaurant_prices": "neutral",
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0188",
+    "language": "en",
+    "text": "We stopped in after the museum and ordered the chicken sandwich, a bowl of tomato soup, and iced tea. The receipt listed the items separately, and the server brought water and napkins when we asked. The dining room had a few small tables near the window.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0189",
+    "language": "en",
+    "text": "We stopped in for lunch and had the chicken sandwich, a bowl of clam chowder, and iced tea. The dining room had three tables open, and our server brought water and the check without much delay.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0190",
+    "language": "es",
+    "text": "Comimos arroz con verduras, merluza al horno y café. El local está en una calle pequeña, cerca de la estación, y la mesa junto a la ventana daba a la acera. La camarera tomó nota y dejó la cuenta al final.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0191",
+    "language": "en",
+    "text": "We arrived at 7:30, were shown to a table by the window, and ordered the chicken sandwich with fries and a lemonade. The receipt listed the items clearly, and we left after about an hour.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0192",
+    "language": "es",
+    "text": "Fuimos un martes por la noche y todo transcurrió con normalidad; la reserva estaba hecha y la mesa lista. Comimos, pagamos y nos fuimos sin incidencias.",
+    "gold": {
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0193",
+    "language": "es",
+    "text": "Fuimos un martes por la noche y todo estuvo correcto. Pedimos unas tapas y una cerveza, sin más comentarios. El sitio estaba lleno a medias y la cuenta salió como esperábamos.",
+    "gold": {
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0194",
+    "language": "es",
+    "text": "Llegamos a las ocho, enseñamos la reserva y nos sentaron junto a la ventana. Pedimos agua, una ensalada y pasta, y después café. La cuenta llegó en una sola nota y pagamos con tarjeta. El local estaba casi lleno y salimos a las diez.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0195",
+    "language": "en",
+    "text": "We arrived at 7:15, checked our coats, and were shown to a table by the window. I ordered grilled chicken with rice, my partner had pasta, and we each had water. The check came separately, and we left around nine after paying in cash.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0196",
+    "language": "es",
+    "text": "Llegamos a las ocho, nos asignaron mesa junto a la ventana y pedimos agua, una ensalada y dos platos del día. La cuenta llegó separada y pagamos con tarjeta. Había bastante gente en la sala y sonaba música baja. Salimos a las diez y media.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0197",
+    "language": "es",
+    "text": "Llegamos a las ocho, nos dieron mesa junto a la ventana y pedimos tortilla, ensalada y café. El local está en una calle tranquila, con aparcamiento cerca. La camarera tomó nota y trajo la cuenta al final.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0198",
+    "language": "es",
+    "text": "Fuimos el sábado por la noche y pedimos dos menús y una botella de agua. Nos sentamos junto a la ventana, pagamos en efectivo y salimos después de las diez. Había reserva a nombre de García y nos entregaron la cuenta al final.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0199",
+    "language": "es",
+    "text": "Fuimos un martes por la noche y todo transcurrió con normalidad. La mesa estaba lista a la hora prevista y el local seguía su ritmo habitual. Pedimos agua y un plato del día, y salimos sin ninguna sorpresa.",
+    "gold": {
+      "restaurant_general": "neutral"
+    }
+  },
+  {
+    "id": "synth_v1_0200",
+    "language": "es",
+    "text": "Pedimos tortilla de patatas, arroz con pollo y un café solo. La mesa estaba junto a la ventana y el camarero anotó el pedido en una libreta. Había varias personas en la sala y una música suave de fondo. También vimos una pizarra con el menú del día y un cartel de horario en la entrada.",
+    "gold": {}
+  },
+  {
+    "id": "synth_v1_0201",
+    "language": "es",
+    "text": "Fuimos a cenar el viernes y salimos encantados. La comida estaba muy rica, bien cocinada y se notaba que usaban buen producto. Además, el camarero nos atendió rápido y con mucha amabilidad, sin hacernos esperar. En conjunto, fue una experiencia muy agradable y el sitio nos dejó muy buena impresión.",
+    "gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0202",
+    "language": "en",
+    "text": "The salmon was cooked perfectly and the risotto had real depth, so the kitchen clearly knows what it is doing. I wish I could say the same about the dining room, which felt cramped and noisy the whole night. Even with the great food, I left feeling torn about the place overall, since it was one of those dinners where the meal was the highlight but the experience itself was hard to enjoy.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0203",
+    "language": "es",
+    "text": "La comida me sorprendió para bien: el risotto estaba en su punto y el pescado tenía muy buen sabor. El problema fue el ambiente, con música demasiado alta y una mesa pegada a la entrada que hacía incómoda la cena. En conjunto salí contento por lo que comí, pero no por la experiencia completa.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0204",
+    "language": "es",
+    "text": "La comida me sorprendió para bien: el arroz estaba en su punto y el pescado sabía realmente bien. Sin embargo, la sala era muy ruidosa y las mesas estaban demasiado juntas, así que se hacía incómodo hablar. En conjunto salí contento por lo que comí, aunque el sitio no me terminó de convencer del todo.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0205",
+    "language": "es",
+    "text": "Salimos bastante decepcionados: el sitio promete más de lo que ofrece y no creo que repitamos. Pedimos unas croquetas y un entrecot, y la comida llegó seca y sin sabor. Además, el camarero tardó en atendernos y luego parecía que tenía prisa por quitarnos la mesa. Con una cena así, la experiencia se hace larga y frustrante.",
+    "gold": {
+      "food_quality": "negative",
+      "restaurant_general": "negative",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0206",
+    "language": "es",
+    "text": "Fuimos a cenar y salimos bastante decepcionados. La merluza llegó seca y el arroz tenía un sabor raro, como recalentado. Además, el camarero tardó mucho en venir y luego parecía que nos hacía un favor cada vez que pedíamos algo. En conjunto, no me gustó nada y no creo que vuelva.",
+    "gold": {
+      "food_quality": "negative",
+      "restaurant_general": "negative",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0207",
+    "language": "en",
+    "text": "We stopped in for dinner after a long day and ended up having a really nice meal. The dining room was calm and comfortable, with soft lighting that made it easy to relax. Our server was friendly and checked on us at the right times without hovering. The salmon was cooked perfectly and the vegetables were still crisp. Everything came together so well that I left feeling like it was a great choice overall.",
+    "gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0208",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos bastante descontentos. La paella llegó pasada y con poco sabor, y el pollo estaba seco. Además, el camarero tardó mucho en tomarnos nota y luego apenas apareció por la mesa. En conjunto, el sitio me dejó mala impresión; no creo que repitamos.",
+    "gold": {
+      "food_quality": "negative",
+      "service": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0209",
+    "language": "en",
+    "text": "We tried this place on a quiet weeknight and left pretty disappointed. The chicken tasted dry and the pasta sauce was bland, so the meal never really came together. Our waiter also seemed rushed and forgot to bring the water we asked for. Between the weak food and the poor attention, I wouldn't call it a good experience.",
+    "gold": {
+      "food_quality": "negative",
+      "service": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0210",
+    "language": "es",
+    "text": "Fuimos a cenar entre semana y salimos muy contentos. La comida estaba bien cocinada y con buen sabor, y el camarero nos atendió con mucha amabilidad y sin hacernos esperar. En conjunto, fue una experiencia muy agradable y me quedé con ganas de volver otro día.",
+    "gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0211",
+    "language": "es",
+    "text": "Fuimos a cenar y salimos encantados: el local tiene un ambiente muy acogedor y se estaba muy a gusto. La comida llegó bien presentada y con un sabor casero que nos gustó mucho. El trato fue cercano y atento desde que entramos hasta que nos fuimos. En conjunto, es un sitio que deja muy buena impresión y al que apetece volver.",
+    "gold": {
+      "ambience": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive",
+      "service": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0212",
+    "language": "es",
+    "text": "Fuimos a cenar un viernes y salimos encantados. El local es acogedor y bastante tranquilo, con una decoración sencilla pero agradable. La comida llegó a buen ritmo y todo estaba bien hecho: la carne en su punto y las verduras sabrosas. El trato del camarero fue cercano y atento en todo momento. En conjunto, fue una experiencia muy buena y seguro que repetiremos.",
+    "gold": {
+      "ambience": "positive",
+      "food_quality": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0213",
+    "language": "en",
+    "text": "We stopped in after a long day and ended up staying longer than planned because the room felt so comfortable and relaxed. The staff greeted us right away, got us settled quickly, and checked back without being pushy. Our pasta and grilled chicken were both cooked well and tasted better than we expected. Overall, it was an easy place to enjoy a quiet dinner, and I left thinking we had picked a really good restaurant.",
+    "gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0214",
+    "language": "en",
+    "text": "We came in expecting a quick dinner and the kitchen delivered: the grilled salmon was cooked just right and the risotto had plenty of flavor. Unfortunately, our server seemed rushed from the start, forgot our drinks, and we waited a long time for the check. I liked the meal enough that I would eat there again, but the experience as a whole was a bit frustrating.",
+    "gold": {
+      "food_quality": "positive",
+      "service": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0215",
+    "language": "es",
+    "text": "Fuimos a cenar ayer y la comida nos sorprendió para bien: el arroz estaba en su punto y el pescado, muy bien hecho. Sin embargo, tardaron bastante en tomarnos nota y luego hubo que pedir dos veces la cuenta. La experiencia en conjunto me dejó dudas; por la cocina repetiría, pero no puedo decir que saliera contento del todo.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0216",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos encantados. El comedor tenía una luz muy agradable y un ambiente tranquilo, sin ruido excesivo. Nos atendieron con mucha amabilidad y no tardaron nada en traer los platos. La paella estaba en su punto y el pescado se notaba bien hecho, así que la comida nos gustó mucho. En conjunto, fue una experiencia muy buena y nos dejó con ganas de repetir.",
+    "gold": {
+      "ambience": "positive",
+      "service": "positive",
+      "food_quality": "positive",
+      "restaurant_general": "positive"
+    }
+  },
+  {
+    "id": "synth_v1_0217",
+    "language": "en",
+    "text": "I left pretty disappointed. The burger was overcooked and dry, and the fries tasted stale. Our waiter barely checked on us, so we had to flag someone down for the bill. Overall, it was not a place I’d rush back to.",
+    "gold": {
+      "food_quality": "negative",
+      "service": "negative",
+      "restaurant_general": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0218",
+    "language": "es",
+    "text": "La cena nos sorprendió para bien: el risotto estaba en su punto y el pescado tenía mucho sabor. Eso sí, la sala estaba bastante ruidosa y casi no se podía hablar sin levantar la voz. En conjunto salí contento por la comida, aunque la experiencia no fue del todo agradable.",
+    "gold": {
+      "food_quality": "positive",
+      "ambience": "negative",
+      "restaurant_general": "conflict"
+    }
+  },
+  {
+    "id": "synth_v1_0219",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y la verdad es que la comida nos sorprendió para bien: el arroz negro estaba en su punto y el pescado, muy bien hecho. Eso sí, salí con sensaciones encontradas porque el trato fue bastante seco; tuvimos que pedir dos veces la cuenta y nadie parecía tener prisa por atendernos. Con la cocina repetiría sin dudar, pero por el servicio no tengo claro que vuelva.",
+    "gold": {
+      "food_quality": "positive",
+      "restaurant_general": "conflict",
+      "service": "negative"
+    }
+  },
+  {
+    "id": "synth_v1_0220",
+    "language": "es",
+    "text": "Fuimos a cenar un sábado y salimos muy contentos. Pedimos unas croquetas caseras y un arroz meloso que estaba en su punto, con sabor de verdad. El camarero nos atendió con mucha amabilidad y sin hacernos esperar. En conjunto, el sitio nos dejó una muy buena impresión y seguro que repetimos cuando estemos por la zona.",
+    "gold": {
+      "food_quality": "positive",
+      "service": "positive",
+      "restaurant_general": "positive"
+    }
+  }
+]

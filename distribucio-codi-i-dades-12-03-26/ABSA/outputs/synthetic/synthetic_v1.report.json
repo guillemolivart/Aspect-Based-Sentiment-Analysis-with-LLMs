@@ -1,0 +1,2225 @@
+{
+  "accepted": 220,
+  "rejected": 0,
+  "planned": 220,
+  "aspect_counts": {
+    "food_quality": 181,
+    "restaurant_general": 209,
+    "restaurant_prices": 46,
+    "food_prices": 23,
+    "service": 40,
+    "food_style_options": 46,
+    "ambience": 37,
+    "location": 4,
+    "drinks_quality": 13,
+    "drinks_style_options": 11,
+    "drinks_prices": 2
+  },
+  "polarity_counts": {
+    "positive": 294,
+    "negative": 134,
+    "conflict": 109,
+    "neutral": 75
+  },
+  "bucket_counts": {
+    "price_value_boundary": 56,
+    "food_style_options_boundary": 36,
+    "ambience_location_service_boundary": 30,
+    "drinks_rare_aspects": 24,
+    "neutral_conflict_polarity": 40,
+    "hard_negatives_empty": 14,
+    "natural_regularizers": 20
+  },
+  "language_counts": {
+    "es": 148,
+    "en": 72
+  },
+  "label_count_distribution": {
+    "0": 11,
+    "1": 3,
+    "2": 36,
+    "3": 143,
+    "4": 27
+  },
+  "top_reject_reasons": [],
+  "complete": true,
+  "total_candidates": 220,
+  "bucket_quotas": {
+    "price_value_boundary": 56,
+    "food_style_options_boundary": 36,
+    "ambience_location_service_boundary": 30,
+    "drinks_rare_aspects": 24,
+    "neutral_conflict_polarity": 40,
+    "hard_negatives_empty": 14,
+    "natural_regularizers": 20
+  },
+  "train_score_source": "/workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/finetune/best_train_predictions_qlora.json",
+  "train_selection_mode": "model_train_errors",
+  "train_error_profile": {
+    "examples": 1056,
+    "with_predictions": 1056,
+    "exact_matches": 788,
+    "exact_match_accuracy": 0.7462121212121212,
+    "missing": [
+      {
+        "key": [
+          "food_prices",
+          "positive"
+        ],
+        "count": 17
+      },
+      {
+        "key": [
+          "food_quality",
+          "positive"
+        ],
+        "count": 17
+      },
+      {
+        "key": [
+          "food_style_options",
+          "negative"
+        ],
+        "count": 14
+      },
+      {
+        "key": [
+          "restaurant_prices",
+          "positive"
+        ],
+        "count": 13
+      },
+      {
+        "key": [
+          "food_prices",
+          "negative"
+        ],
+        "count": 12
+      },
+      {
+        "key": [
+          "food_style_options",
+          "positive"
+        ],
+        "count": 12
+      },
+      {
+        "key": [
+          "restaurant_prices",
+          "negative"
+        ],
+        "count": 6
+      },
+      {
+        "key": [
+          "drinks_quality",
+          "positive"
+        ],
+        "count": 4
+      },
+      {
+        "key": [
+          "restaurant_prices",
+          "neutral"
+        ],
+        "count": 3
+      },
+      {
+        "key": [
+          "service",
+          "positive"
+        ],
+        "count": 3
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "negative"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "food_style_options",
+          "neutral"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "drinks_prices",
+          "positive"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "food_prices",
+          "neutral"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "location",
+          "neutral"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "ambience",
+          "positive"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "location",
+          "positive"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "neutral"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "negative"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "drinks_prices",
+          "negative"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "positive"
+        ],
+        "count": 1
+      }
+    ],
+    "extra": [
+      {
+        "key": [
+          "restaurant_prices",
+          "positive"
+        ],
+        "count": 14
+      },
+      {
+        "key": [
+          "location",
+          "positive"
+        ],
+        "count": 14
+      },
+      {
+        "key": [
+          "location",
+          "neutral"
+        ],
+        "count": 10
+      },
+      {
+        "key": [
+          "ambience",
+          "positive"
+        ],
+        "count": 10
+      },
+      {
+        "key": [
+          "food_quality",
+          "positive"
+        ],
+        "count": 9
+      },
+      {
+        "key": [
+          "food_prices",
+          "positive"
+        ],
+        "count": 9
+      },
+      {
+        "key": [
+          "restaurant_prices",
+          "negative"
+        ],
+        "count": 9
+      },
+      {
+        "key": [
+          "food_style_options",
+          "positive"
+        ],
+        "count": 9
+      },
+      {
+        "key": [
+          "service",
+          "negative"
+        ],
+        "count": 8
+      },
+      {
+        "key": [
+          "service",
+          "positive"
+        ],
+        "count": 6
+      },
+      {
+        "key": [
+          "food_style_options",
+          "negative"
+        ],
+        "count": 6
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "positive"
+        ],
+        "count": 5
+      },
+      {
+        "key": [
+          "ambience",
+          "negative"
+        ],
+        "count": 5
+      },
+      {
+        "key": [
+          "drinks_style_options",
+          "positive"
+        ],
+        "count": 4
+      },
+      {
+        "key": [
+          "location",
+          "negative"
+        ],
+        "count": 3
+      },
+      {
+        "key": [
+          "food_prices",
+          "negative"
+        ],
+        "count": 3
+      },
+      {
+        "key": [
+          "restaurant_prices",
+          "neutral"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "ambience",
+          "neutral"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "drinks_quality",
+          "negative"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "food_style_options",
+          "neutral"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "drinks_style_options",
+          "negative"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "drinks_quality",
+          "positive"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "neutral"
+        ],
+        "count": 1
+      }
+    ],
+    "wrong": [
+      {
+        "key": [
+          "restaurant_general",
+          "conflict",
+          "positive"
+        ],
+        "count": 13
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "neutral",
+          "positive"
+        ],
+        "count": 12
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "conflict",
+          "negative"
+        ],
+        "count": 11
+      },
+      {
+        "key": [
+          "ambience",
+          "conflict",
+          "negative"
+        ],
+        "count": 9
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "conflict",
+          "neutral"
+        ],
+        "count": 8
+      },
+      {
+        "key": [
+          "food_quality",
+          "conflict",
+          "negative"
+        ],
+        "count": 7
+      },
+      {
+        "key": [
+          "food_style_options",
+          "conflict",
+          "positive"
+        ],
+        "count": 6
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "neutral",
+          "negative"
+        ],
+        "count": 6
+      },
+      {
+        "key": [
+          "service",
+          "neutral",
+          "negative"
+        ],
+        "count": 6
+      },
+      {
+        "key": [
+          "food_style_options",
+          "neutral",
+          "negative"
+        ],
+        "count": 5
+      },
+      {
+        "key": [
+          "food_quality",
+          "conflict",
+          "positive"
+        ],
+        "count": 5
+      },
+      {
+        "key": [
+          "food_quality",
+          "positive",
+          "neutral"
+        ],
+        "count": 4
+      },
+      {
+        "key": [
+          "food_style_options",
+          "conflict",
+          "negative"
+        ],
+        "count": 4
+      },
+      {
+        "key": [
+          "service",
+          "neutral",
+          "positive"
+        ],
+        "count": 4
+      },
+      {
+        "key": [
+          "service",
+          "conflict",
+          "neutral"
+        ],
+        "count": 3
+      },
+      {
+        "key": [
+          "food_prices",
+          "neutral",
+          "positive"
+        ],
+        "count": 3
+      },
+      {
+        "key": [
+          "service",
+          "conflict",
+          "positive"
+        ],
+        "count": 3
+      },
+      {
+        "key": [
+          "ambience",
+          "neutral",
+          "conflict"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "food_prices",
+          "conflict",
+          "negative"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "food_style_options",
+          "neutral",
+          "positive"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "ambience",
+          "conflict",
+          "neutral"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "service",
+          "conflict",
+          "negative"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "service",
+          "negative",
+          "conflict"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "food_style_options",
+          "positive",
+          "negative"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "ambience",
+          "neutral",
+          "negative"
+        ],
+        "count": 2
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "positive",
+          "negative"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "neutral",
+          "negative"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "drinks_style_options",
+          "neutral",
+          "positive"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "positive",
+          "negative"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "ambience",
+          "negative",
+          "neutral"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "negative",
+          "neutral"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "neutral",
+          "conflict"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "service",
+          "positive",
+          "conflict"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "restaurant_prices",
+          "neutral",
+          "positive"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "ambience",
+          "positive",
+          "conflict"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "restaurant_prices",
+          "neutral",
+          "negative"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "neutral",
+          "conflict"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "positive",
+          "conflict"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "conflict",
+          "neutral"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "neutral",
+          "positive"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "ambience",
+          "negative",
+          "positive"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "service",
+          "positive",
+          "negative"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "negative",
+          "conflict"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "restaurant_general",
+          "positive",
+          "neutral"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "location",
+          "neutral",
+          "negative"
+        ],
+        "count": 1
+      },
+      {
+        "key": [
+          "food_quality",
+          "negative",
+          "positive"
+        ],
+        "count": 1
+      }
+    ]
+  },
+  "top_train_difficult_examples": [
+    {
+      "id": "es_balmes_rossello_74_GeorginaRubio_2013-03-04",
+      "language": "es",
+      "difficulty_score": 8.53,
+      "score_source": "model_train_errors",
+      "gold": {
+        "food_quality": "positive",
+        "restaurant_prices": "positive",
+        "service": "positive",
+        "restaurant_general": "positive"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "food_prices": "positive",
+        "food_style_options": "positive",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "food_quality": "positive",
+          "restaurant_prices": "positive"
+        },
+        "wrong": {},
+        "extra": {
+          "ambience": "positive",
+          "food_prices": "positive",
+          "food_style_options": "positive"
+        },
+        "total": 5
+      },
+      "text_preview": "El menu de calçotada nos parecio de lo mas completo y la relacion calidad precio muy alta ademas de que el servicio fue muy bueno y el lugar es muy lindo."
+    },
+    {
+      "id": "es_cafe-meccano-gastrobar-zaragoza_comment-3719",
+      "language": "es",
+      "difficulty_score": 8.37,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_general": "conflict",
+        "ambience": "conflict",
+        "food_quality": "conflict",
+        "service": "conflict",
+        "food_style_options": "negative",
+        "drinks_quality": "positive",
+        "drinks_prices": "positive"
+      },
+      "prediction": {
+        "ambience": "negative",
+        "drinks_quality": "positive",
+        "drinks_style_options": "positive",
+        "food_quality": "conflict",
+        "food_style_options": "negative",
+        "restaurant_general": "negative",
+        "service": "conflict"
+      },
+      "errors": {
+        "missing": {
+          "drinks_prices": "positive"
+        },
+        "wrong": {
+          "restaurant_general": {
+            "gold": "conflict",
+            "pred": "negative"
+          },
+          "ambience": {
+            "gold": "conflict",
+            "pred": "negative"
+          }
+        },
+        "extra": {
+          "drinks_style_options": "positive"
+        },
+        "total": 4
+      },
+      "text_preview": "Luces y sombras en mi esperada primera visita al Meccano.Es un sitio original y atractivo, pero en resumen, y ciñéndome a la comida, se queda escaso en cantidad y, en alguno de los platos, en calidad o, mejor dicho, en elaboración.Éramos 9 personas y tomamos e"
+    },
+    {
+      "id": "en_BlueRibbonSushi_478219453",
+      "language": "en",
+      "difficulty_score": 8.13,
+      "score_source": "model_train_errors",
+      "gold": {
+        "food_quality": "conflict",
+        "food_style_options": "conflict",
+        "service": "negative",
+        "restaurant_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "prediction": {
+        "food_prices": "negative",
+        "food_quality": "positive",
+        "food_style_options": "negative",
+        "restaurant_general": "negative",
+        "service": "negative"
+      },
+      "errors": {
+        "missing": {
+          "restaurant_prices": "negative"
+        },
+        "wrong": {
+          "food_quality": {
+            "gold": "conflict",
+            "pred": "positive"
+          },
+          "food_style_options": {
+            "gold": "conflict",
+            "pred": "negative"
+          }
+        },
+        "extra": {
+          "food_prices": "negative"
+        },
+        "total": 4
+      },
+      "text_preview": "I have eaten here three times and have found the quality and variety of the fish to be excellent.However, the value and service are both severely lacking.Portions contain less fish than one would expect, particularly since prices are in line with the best sush"
+    },
+    {
+      "id": "es_cafe_kafka_60_CarlaBigio_2011-06-06",
+      "language": "es",
+      "difficulty_score": 7.77,
+      "score_source": "model_train_errors",
+      "gold": {
+        "ambience": "conflict",
+        "food_quality": "negative",
+        "service": "neutral",
+        "drinks_quality": "positive",
+        "restaurant_general": "negative"
+      },
+      "prediction": {
+        "ambience": "negative",
+        "drinks_style_options": "positive",
+        "food_quality": "negative",
+        "restaurant_general": "negative",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "drinks_quality": "positive"
+        },
+        "wrong": {
+          "ambience": {
+            "gold": "conflict",
+            "pred": "negative"
+          },
+          "service": {
+            "gold": "neutral",
+            "pred": "positive"
+          }
+        },
+        "extra": {
+          "drinks_style_options": "positive"
+        },
+        "total": 4
+      },
+      "text_preview": "El lugar es precioso, la decoracion impresionante.La comida la encontramos poco original, y tiene demasiada patata en cada plato.Uno de los platos se les olvido poner la guarnicion que ponia en la carta.Servicio bueno pero muy rapido, y las mesas estaban muy j"
+    },
+    {
+      "id": "es_barceloneta_137_Gema_2007-09-28",
+      "language": "es",
+      "difficulty_score": 7.42,
+      "score_source": "model_train_errors",
+      "gold": {
+        "food_quality": "positive",
+        "ambience": "conflict",
+        "service": "positive",
+        "food_prices": "positive",
+        "restaurant_general": "positive"
+      },
+      "prediction": {
+        "ambience": "negative",
+        "food_quality": "positive",
+        "location": "positive",
+        "restaurant_general": "positive",
+        "restaurant_prices": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "food_prices": "positive"
+        },
+        "wrong": {
+          "ambience": {
+            "gold": "conflict",
+            "pred": "negative"
+          }
+        },
+        "extra": {
+          "location": "positive",
+          "restaurant_prices": "positive"
+        },
+        "total": 4
+      },
+      "text_preview": "Un lugar magnífico para comer buen marisco y cualquiera de sus arroces o suquet, aunque muy recomendable, no lo recomendaría para una cena íntima romántica, puesto que las conversaciones de las mmesas vecinas son muy animadas, puesto que el local se presta a e"
+    },
+    {
+      "id": "es_puerto-de-santa-maria-zaragoza_comment-3168",
+      "language": "es",
+      "difficulty_score": 4.0,
+      "score_source": "model_train_errors",
+      "gold": {},
+      "prediction": {
+        "ambience": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {},
+        "extra": {
+          "ambience": "positive",
+          "food_quality": "positive",
+          "restaurant_general": "positive",
+          "service": "positive"
+        },
+        "total": 4
+      },
+      "text_preview": "hola buenas agradezco a todas las personas que hayan puesto estos comentarios porque esto la verdad te deja saber lo bueno y lo malo que tiene el restaurante pero yo recomiendo a todas las personas este restaurante porque muy pocos restaurantes en zaragoza tie"
+    },
+    {
+      "id": "Z#6",
+      "language": "en",
+      "difficulty_score": 10.2882,
+      "score_source": "model_train_errors",
+      "gold": {
+        "ambience": "positive",
+        "restaurant_general": "positive",
+        "location": "neutral",
+        "service": "positive",
+        "food_prices": "positive",
+        "food_style_options": "positive",
+        "food_quality": "positive",
+        "drinks_quality": "positive",
+        "restaurant_prices": "positive"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "drinks_quality": "positive",
+        "food_prices": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "location": "neutral",
+          "food_style_options": "positive",
+          "restaurant_prices": "positive"
+        },
+        "wrong": {},
+        "extra": {},
+        "total": 3
+      },
+      "text_preview": "Possibly the Most Romantic Restaurant in the CityThis is undoubtedly my favorite modern Japanese brasserie (that don’t serve sushi), and in my opinion, one of the most romantic restaurants in the city!Not only is it an adventure getting to this somewhat hidden"
+    },
+    {
+      "id": "es_cafe_kafka_56_Mangeles_2011-06-25",
+      "language": "es",
+      "difficulty_score": 8.4769,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_general": "positive",
+        "food_prices": "positive",
+        "food_quality": "positive",
+        "ambience": "positive",
+        "service": "positive",
+        "drinks_style_options": "neutral"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "drinks_style_options": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive",
+        "restaurant_prices": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "food_prices": "positive"
+        },
+        "wrong": {
+          "drinks_style_options": {
+            "gold": "neutral",
+            "pred": "positive"
+          }
+        },
+        "extra": {
+          "restaurant_prices": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "Un buen restaurante relación calidad-precio muy buena, local con decoración cuidada, luz baja pero suficiente y un hilo musical muy bien seleccionado.Ideal para una cena en pareja.El solomillo de ternera impresionante, carne de muy buena calidad y justo al pun"
+    },
+    {
+      "id": "en_StackRestaurant__Bar_478538239",
+      "language": "en",
+      "difficulty_score": 7.8241,
+      "score_source": "model_train_errors",
+      "gold": {
+        "food_quality": "conflict",
+        "service": "positive",
+        "ambience": "conflict",
+        "food_style_options": "neutral",
+        "food_prices": "neutral",
+        "restaurant_prices": "neutral",
+        "restaurant_general": "positive"
+      },
+      "prediction": {
+        "ambience": "conflict",
+        "food_quality": "conflict",
+        "food_style_options": "positive",
+        "location": "neutral",
+        "restaurant_general": "positive",
+        "restaurant_prices": "neutral",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "food_prices": "neutral"
+        },
+        "wrong": {
+          "food_style_options": {
+            "gold": "neutral",
+            "pred": "positive"
+          }
+        },
+        "extra": {
+          "location": "neutral"
+        },
+        "total": 3
+      },
+      "text_preview": "Good Food, Great Service, Average Prices (For the Strip)– I decided to eat at Stack because of their price fixed pre-show dinner.When I walked in, I was taken aback by their incredible wood decor.The music playing was very hip, 20-30 something pop music, but t"
+    },
+    {
+      "id": "404464",
+      "language": "en",
+      "difficulty_score": 7.52,
+      "score_source": "model_train_errors",
+      "gold": {
+        "service": "positive",
+        "food_quality": "negative",
+        "ambience": "positive",
+        "food_style_options": "negative",
+        "food_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "food_quality": "negative",
+        "restaurant_general": "negative",
+        "restaurant_prices": "negative",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "food_style_options": "negative",
+          "food_prices": "negative"
+        },
+        "wrong": {},
+        "extra": {
+          "restaurant_prices": "negative"
+        },
+        "total": 3
+      },
+      "text_preview": "Thalia is a beautiful restaurant with beautiful people serving you, but the food doesn't quite match up.I ordered the smoked salmon and roe appetizer and it was off flavor.The entree was bland and small, dessert was not inspired.I expected quite a bit more fro"
+    },
+    {
+      "id": "en_SnoozeanAMEatery_480412257",
+      "language": "en",
+      "difficulty_score": 7.27,
+      "score_source": "model_train_errors",
+      "gold": {
+        "ambience": "negative",
+        "service": "negative",
+        "food_quality": "neutral",
+        "food_style_options": "conflict",
+        "food_prices": "negative",
+        "restaurant_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "prediction": {
+        "ambience": "negative",
+        "food_prices": "negative",
+        "food_quality": "negative",
+        "food_style_options": "positive",
+        "location": "negative",
+        "restaurant_general": "negative",
+        "restaurant_prices": "negative",
+        "service": "negative"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {
+          "food_quality": {
+            "gold": "neutral",
+            "pred": "negative"
+          },
+          "food_style_options": {
+            "gold": "conflict",
+            "pred": "positive"
+          }
+        },
+        "extra": {
+          "location": "negative"
+        },
+        "total": 3
+      },
+      "text_preview": "Overpriced– We dined at the Colorado location today.Waited 35 minutes for a table for 8 which was ok for such a big crowd.The waiter was a bit unfriendly and the feel of the restaurant was crowded.Also, there was only one bathroom stall- probably need more for"
+    },
+    {
+      "id": "es_balmes_rossello_4_MariaRosaRicartPellicer_2015-03-23",
+      "language": "es",
+      "difficulty_score": 7.13,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_prices": "positive",
+        "food_style_options": "positive",
+        "service": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "prediction": {
+        "food_prices": "positive",
+        "food_style_options": "positive",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "restaurant_prices": "positive",
+          "food_quality": "positive"
+        },
+        "wrong": {},
+        "extra": {
+          "food_prices": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "Todo muy correcto: relación calidad-precio, la facilidad para combinar menú calçotada con carta, servicio amable y la cocina muy bien.El comensal más joven de la mesa (20 años) aseguró que volvería por su cuenta."
+    },
+    {
+      "id": "es_asador-la-junquera-zaragoza_comment-4494",
+      "language": "es",
+      "difficulty_score": 7.02,
+      "score_source": "model_train_errors",
+      "gold": {
+        "service": "positive",
+        "ambience": "positive",
+        "restaurant_general": "positive",
+        "food_prices": "positive",
+        "food_style_options": "positive",
+        "food_quality": "neutral"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "restaurant_general": "positive",
+        "restaurant_prices": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "food_prices": "positive"
+        },
+        "wrong": {
+          "food_quality": {
+            "gold": "neutral",
+            "pred": "positive"
+          }
+        },
+        "extra": {
+          "restaurant_prices": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "Servicio bienentorno muy agradable, realmente recomendable podremos repetir seguro.En cuanto a la comida relación precio calidad buena, los platos bien servidos y con cantidad suficiente, no nos quedamos con hambre, estuvimos tres personas.Unicamente comentar "
+    },
+    {
+      "id": "en_SchoonerOrLater_477965848",
+      "language": "en",
+      "difficulty_score": 6.98,
+      "score_source": "model_train_errors",
+      "gold": {
+        "food_style_options": "negative",
+        "food_quality": "negative",
+        "food_prices": "negative",
+        "service": "negative",
+        "restaurant_general": "negative"
+      },
+      "prediction": {
+        "food_quality": "negative",
+        "restaurant_general": "negative",
+        "restaurant_prices": "negative",
+        "service": "negative"
+      },
+      "errors": {
+        "missing": {
+          "food_style_options": "negative",
+          "food_prices": "negative"
+        },
+        "wrong": {},
+        "extra": {
+          "restaurant_prices": "negative"
+        },
+        "total": 3
+      },
+      "text_preview": "NOT THE PLACE IT ONCE WAS– It is sad to see a place that was once \"THE\" place to meet and eat for Bfast or Lunch, now be the place that is a big \"DONT BOTHER.\"The food is not what it once was (potions have seriously seen downsizing) prices have gone up, and th"
+    },
+    {
+      "id": "1041457",
+      "language": "en",
+      "difficulty_score": 6.74,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_general": "negative",
+        "food_quality": "conflict",
+        "food_style_options": "positive",
+        "ambience": "conflict"
+      },
+      "prediction": {
+        "ambience": "negative",
+        "food_quality": "negative",
+        "restaurant_general": "negative"
+      },
+      "errors": {
+        "missing": {
+          "food_style_options": "positive"
+        },
+        "wrong": {
+          "food_quality": {
+            "gold": "conflict",
+            "pred": "negative"
+          },
+          "ambience": {
+            "gold": "conflict",
+            "pred": "negative"
+          }
+        },
+        "extra": {},
+        "total": 3
+      },
+      "text_preview": "I had my eyes on this place, promising myself I will one day 'give it a try.'And I hate to say this but I doubt I'll ever go back.The food is very average...the Thai fusion stuff is a bit too sweet, every thing they serve is too sweet here.The only thing I mod"
+    },
+    {
+      "id": "es_l_olive_71_Joan_2008-07-30",
+      "language": "es",
+      "difficulty_score": 6.67,
+      "score_source": "model_train_errors",
+      "gold": {
+        "ambience": "negative",
+        "service": "positive",
+        "food_quality": "positive",
+        "drinks_style_options": "negative",
+        "food_prices": "negative",
+        "restaurant_general": "neutral"
+      },
+      "prediction": {
+        "ambience": "negative",
+        "drinks_style_options": "negative",
+        "food_quality": "positive",
+        "food_style_options": "neutral",
+        "restaurant_general": "neutral",
+        "restaurant_prices": "negative",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "food_prices": "negative"
+        },
+        "wrong": {},
+        "extra": {
+          "food_style_options": "neutral",
+          "restaurant_prices": "negative"
+        },
+        "total": 3
+      },
+      "text_preview": "Sin duda, lo peor del restaurante es la decoración, extrañamente alabada por algunos.¿Minimalista?Impersonal, lo peor que le puede pasar a un restaurante que quiere tener voz propia.Por lo demás, el servicio bueno dentro de que como decía un político pepero (C"
+    },
+    {
+      "id": "es_barceloneta_37_JaumeMunozGonzalez_2013-07-01",
+      "language": "es",
+      "difficulty_score": 6.57,
+      "score_source": "model_train_errors",
+      "gold": {
+        "service": "positive",
+        "ambience": "positive",
+        "food_quality": "negative",
+        "restaurant_prices": "negative",
+        "restaurant_general": "neutral"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "food_prices": "negative",
+        "food_quality": "negative",
+        "restaurant_general": "negative",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "restaurant_prices": "negative"
+        },
+        "wrong": {
+          "restaurant_general": {
+            "gold": "neutral",
+            "pred": "negative"
+          }
+        },
+        "extra": {
+          "food_prices": "negative"
+        },
+        "total": 3
+      },
+      "text_preview": "El servicio y el local es muy aceptable,pero la relación calidad precio esta descompensada.se le tendría que explicar al cocinero,que el pulpo no se calienta en el microondas y menos si se le pone el pimentón y el aceite ya que se quema y reseca.El resto,pasab"
+    },
+    {
+      "id": "es_barceloneta_65_JavierFarreDomingo_2012-03-04",
+      "language": "es",
+      "difficulty_score": 6.38,
+      "score_source": "model_train_errors",
+      "gold": {
+        "service": "positive",
+        "food_quality": "positive",
+        "food_style_options": "negative",
+        "restaurant_general": "neutral"
+      },
+      "prediction": {
+        "food_quality": "conflict",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "food_style_options": "negative"
+        },
+        "wrong": {
+          "food_quality": {
+            "gold": "positive",
+            "pred": "conflict"
+          },
+          "restaurant_general": {
+            "gold": "neutral",
+            "pred": "positive"
+          }
+        },
+        "extra": {},
+        "total": 3
+      },
+      "text_preview": "Buen servicio, con mucha paciencia y siempre presentes.Del menu 3 un buen 2ºplato, el primero, de pica-pica, un poco pobre."
+    },
+    {
+      "id": "es_colette-zaragoza_comment-1142",
+      "language": "es",
+      "difficulty_score": 6.13,
+      "score_source": "model_train_errors",
+      "gold": {
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "restaurant_prices": "neutral",
+        "service": "neutral",
+        "restaurant_general": "positive"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "restaurant_general": "positive",
+        "restaurant_prices": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {
+          "restaurant_prices": {
+            "gold": "neutral",
+            "pred": "positive"
+          },
+          "service": {
+            "gold": "neutral",
+            "pred": "positive"
+          }
+        },
+        "extra": {
+          "ambience": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "Ayer estuvimos cenando en Colette.¡Excelente cena!Hacía mucho tiempo que un restaurante en Zaragoza no me sorprendía de esta manera: Gran calidad del producto, numerosos detalles, puntos de cocción perfectos en casi todos los platos, raciones abundantes y un p"
+    },
+    {
+      "id": "es_cullera_de_boix_42_PereCastellsBonet_2013-04-24",
+      "language": "es",
+      "difficulty_score": 5.92,
+      "score_source": "model_train_errors",
+      "gold": {
+        "service": "negative",
+        "ambience": "negative",
+        "food_quality": "negative",
+        "food_prices": "negative",
+        "restaurant_general": "negative"
+      },
+      "prediction": {
+        "ambience": "negative",
+        "drinks_quality": "negative",
+        "food_quality": "negative",
+        "food_style_options": "negative",
+        "restaurant_general": "negative",
+        "service": "negative"
+      },
+      "errors": {
+        "missing": {
+          "food_prices": "negative"
+        },
+        "wrong": {},
+        "extra": {
+          "drinks_quality": "negative",
+          "food_style_options": "negative"
+        },
+        "total": 3
+      },
+      "text_preview": "Creo que el título lo indica todo.Reserva de 2 personas a las 14,30.Carta + copa cava.Llegamos puntualmente.Considerable espera de pie (larga cola).Intento de buscar mesa libre arriba y abajo.Al final encuentran una por casualidad en un rincón incomodo.Encima "
+    },
+    {
+      "id": "es_la_poma_9_AnnaAsoJaca_2014-12-15",
+      "language": "es",
+      "difficulty_score": 5.82,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_general": "neutral",
+        "food_quality": "conflict",
+        "service": "conflict",
+        "ambience": "conflict"
+      },
+      "prediction": {
+        "ambience": "neutral",
+        "food_quality": "neutral",
+        "restaurant_general": "neutral",
+        "service": "neutral"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {
+          "food_quality": {
+            "gold": "conflict",
+            "pred": "neutral"
+          },
+          "service": {
+            "gold": "conflict",
+            "pred": "neutral"
+          },
+          "ambience": {
+            "gold": "conflict",
+            "pred": "neutral"
+          }
+        },
+        "extra": {},
+        "total": 3
+      },
+      "text_preview": "Mi opinión sobre el restaurante La Poma es que es correcto, pero no extraordinario.Pedimos un risotto (acceptable) y una pizza (muy mejorable) y postres (lo mejor).El servicio era eficiente pero no especialmente amable.Se equivocaron al traer uno de los platos"
+    },
+    {
+      "id": "es_la-scala-zaragoza_comment-3907",
+      "language": "es",
+      "difficulty_score": 5.7,
+      "score_source": "model_train_errors",
+      "gold": {
+        "food_quality": "positive",
+        "food_prices": "negative",
+        "restaurant_general": "conflict"
+      },
+      "prediction": {
+        "food_prices": "negative",
+        "food_style_options": "negative",
+        "restaurant_general": "negative"
+      },
+      "errors": {
+        "missing": {
+          "food_quality": "positive"
+        },
+        "wrong": {
+          "restaurant_general": {
+            "gold": "conflict",
+            "pred": "negative"
+          }
+        },
+        "extra": {
+          "food_style_options": "negative"
+        },
+        "total": 3
+      },
+      "text_preview": "Hemos comido de menú de temporada ( 26 € ) : Todo bueno, pero sales con la sensación de haber pagado más de lo que deberías ( y eso que no he pagado yo ) .Y el menú para niños es un cuadra cuentas; el menú sigue la lógica de lo que un niño puede comer sin comp"
+    },
+    {
+      "id": "es_salamanca_28_JuanCarlosEnguixPeiro_2014-05-10",
+      "language": "es",
+      "difficulty_score": 5.32,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_general": "conflict",
+        "ambience": "conflict",
+        "service": "positive",
+        "food_quality": "positive"
+      },
+      "prediction": {
+        "ambience": "conflict",
+        "food_quality": "neutral",
+        "restaurant_general": "positive",
+        "restaurant_prices": "negative",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {
+          "restaurant_general": {
+            "gold": "conflict",
+            "pred": "positive"
+          },
+          "food_quality": {
+            "gold": "positive",
+            "pred": "neutral"
+          }
+        },
+        "extra": {
+          "restaurant_prices": "negative"
+        },
+        "total": 3
+      },
+      "text_preview": "Es un lugar entrañable de Barcelona que hay que conocer, ambiente inigualable (pero ruidoso, no es para una cena íntima) y cosmopolita.El servicio de los camareros, excelente, muy profesionales.La paella es de las buenas, aunque no la mejor de Barcelona, exces"
+    },
+    {
+      "id": "en_ParkChaletGardenRestaurant_477778171",
+      "language": "en",
+      "difficulty_score": 5.27,
+      "score_source": "model_train_errors",
+      "gold": {
+        "food_quality": "positive",
+        "drinks_quality": "positive",
+        "service": "conflict",
+        "ambience": "positive",
+        "restaurant_general": "positive"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "drinks_quality": "positive",
+        "drinks_style_options": "positive",
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {
+          "service": {
+            "gold": "conflict",
+            "pred": "positive"
+          }
+        },
+        "extra": {
+          "drinks_style_options": "positive",
+          "food_style_options": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "great beer– My first time to dine at this restaurant was with my son and it was absolutely horrible!We waited over 30 minutes for our drinks and over 1 1/2 hours for our food.I swore never to return for a warm beer and mediocre meal.HOWEVER, one Sunday afterno"
+    },
+    {
+      "id": "es_balmes_rossello_41_JuanAyoraRedondo_2014-03-17",
+      "language": "es",
+      "difficulty_score": 5.05,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_general": "positive",
+        "restaurant_prices": "positive"
+      },
+      "prediction": {
+        "food_prices": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "errors": {
+        "missing": {
+          "restaurant_prices": "positive"
+        },
+        "wrong": {},
+        "extra": {
+          "food_prices": "positive",
+          "food_quality": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "bueno, calidad precio"
+    },
+    {
+      "id": "es_balmes_rossello_77_ElsaPachecoGonzalez_2013-02-18",
+      "language": "es",
+      "difficulty_score": 5.05,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_prices": "positive",
+        "restaurant_general": "positive"
+      },
+      "prediction": {
+        "food_prices": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "errors": {
+        "missing": {
+          "restaurant_prices": "positive"
+        },
+        "wrong": {},
+        "extra": {
+          "food_prices": "positive",
+          "food_quality": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "Perfecto calidad-precio."
+    },
+    {
+      "id": "es_pasta-city-zaragoza_comment-3667",
+      "language": "es",
+      "difficulty_score": 4.28,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_general": "neutral",
+        "service": "negative",
+        "food_quality": "neutral"
+      },
+      "prediction": {
+        "ambience": "negative",
+        "food_quality": "neutral",
+        "location": "neutral",
+        "restaurant_general": "negative",
+        "service": "negative"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {
+          "restaurant_general": {
+            "gold": "neutral",
+            "pred": "negative"
+          }
+        },
+        "extra": {
+          "ambience": "negative",
+          "location": "neutral"
+        },
+        "total": 3
+      },
+      "text_preview": "Restaurante de pasta y cocina americana con una calidad regular.Si los comedores no estan muy llenos el servicio y la comida no estan mal.El problema viene cuando se llenan, puesto que no tienen el personal suficiente para poder atenderlos.Este restaurante se "
+    },
+    {
+      "id": "es_salamanca_37_XavierMartinez_2013-01-28",
+      "language": "es",
+      "difficulty_score": 3.3,
+      "score_source": "model_train_errors",
+      "gold": {
+        "restaurant_general": "positive"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {},
+        "extra": {
+          "ambience": "positive",
+          "food_quality": "positive",
+          "service": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "Mi padre y mi hermano van a comer una vez por semana al Salamanca desde hace muchos años (entre semana) porque se sienten como en casa y en general a toda mi familia les gusta mucho.Respecto al servicio estoy en desacuerdo con la critica de abajo, tanto Silves"
+    },
+    {
+      "id": "es_colette-zaragoza_comment-1147",
+      "language": "es",
+      "difficulty_score": 3.0,
+      "score_source": "model_train_errors",
+      "gold": {},
+      "prediction": {
+        "ambience": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "positive"
+      },
+      "errors": {
+        "missing": {},
+        "wrong": {},
+        "extra": {
+          "ambience": "positive",
+          "food_quality": "positive",
+          "restaurant_general": "positive"
+        },
+        "total": 3
+      },
+      "text_preview": "Gracias por la aclaración Pedro, si utilizan sólo esta tendencia en presentación de plato no me importa, si por contra utilizaran productos alterados genéticamente ya mo me haría tanta gracias, que parece ser que no es el caso.Por lo que me cuentas es un resta"
+    },
+    {
+      "id": "es_bal-donsera-zaragoza_comment-3237",
+      "language": "es",
+      "difficulty_score": 8.3437,
+      "score_source": "model_train_errors",
+      "gold": {
+        "location": "negative",
+        "ambience": "positive",
+        "drinks_style_options": "positive",
+        "drinks_quality": "positive",
+        "drinks_prices": "positive",
+        "food_style_options": "positive",
+        "food_quality": "positive",
+        "restaurant_general": "negative",
+        "service": "conflict",
+        "restaurant_prices": "neutral"
+      },
+      "prediction": {
+        "ambience": "positive",
+        "drinks_quality": "positive",
+        "drinks_style_options": "positive",
+        "food_quality": "positive",
+        "food_style_options": "positive",
+        "location": "negative",
+        "restaurant_general": "negative",
+        "restaurant_prices": "neutral",
+        "service": "positive"
+      },
+      "errors": {
+        "missing": {
+          "drinks_prices": "positive"
+        },
+        "wrong": {
+          "service": {
+            "gold": "conflict",
+            "pred": "positive"
+          }
+        },
+        "extra": {},
+        "total": 2
+      },
+      "text_preview": "Siento mucho la opinión que tiene usted de este restaurante, así como la de alguno de los lectores de esta web.Le voy a intentar explicar el porqué de su estrellato, y la forma de entender este tipo de restaurante (cosa que con todos los respetos no es posible"
+    }
+  ],
+  "devel_missing": [
+    {
+      "key": [
+        "ambience",
+        "positive"
+      ],
+      "count": 7
+    },
+    {
+      "key": [
+        "restaurant_prices",
+        "negative"
+      ],
+      "count": 5
+    },
+    {
+      "key": [
+        "food_quality",
+        "positive"
+      ],
+      "count": 4
+    },
+    {
+      "key": [
+        "food_prices",
+        "negative"
+      ],
+      "count": 4
+    },
+    {
+      "key": [
+        "restaurant_prices",
+        "positive"
+      ],
+      "count": 4
+    },
+    {
+      "key": [
+        "drinks_style_options",
+        "positive"
+      ],
+      "count": 3
+    },
+    {
+      "key": [
+        "food_style_options",
+        "negative"
+      ],
+      "count": 3
+    },
+    {
+      "key": [
+        "drinks_quality",
+        "positive"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "service",
+        "negative"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "ambience",
+        "neutral"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "food_style_options",
+        "positive"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "location",
+        "positive"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "ambience",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "drinks_quality",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_prices",
+        "neutral"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "drinks_style_options",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_prices",
+        "conflict"
+      ],
+      "count": 1
+    }
+  ],
+  "devel_extra": [
+    {
+      "key": [
+        "ambience",
+        "positive"
+      ],
+      "count": 4
+    },
+    {
+      "key": [
+        "food_prices",
+        "positive"
+      ],
+      "count": 4
+    },
+    {
+      "key": [
+        "ambience",
+        "negative"
+      ],
+      "count": 3
+    },
+    {
+      "key": [
+        "service",
+        "positive"
+      ],
+      "count": 3
+    },
+    {
+      "key": [
+        "food_prices",
+        "negative"
+      ],
+      "count": 3
+    },
+    {
+      "key": [
+        "food_style_options",
+        "negative"
+      ],
+      "count": 3
+    },
+    {
+      "key": [
+        "food_style_options",
+        "positive"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "food_quality",
+        "positive"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "drinks_quality",
+        "positive"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "location",
+        "positive"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "location",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_quality",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "positive"
+      ],
+      "count": 1
+    }
+  ],
+  "devel_wrong": [
+    {
+      "key": [
+        "restaurant_general",
+        "neutral"
+      ],
+      "count": 4
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "conflict"
+      ],
+      "count": 3
+    },
+    {
+      "key": [
+        "food_quality",
+        "conflict"
+      ],
+      "count": 3
+    },
+    {
+      "key": [
+        "food_quality",
+        "positive"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "positive"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_prices",
+        "neutral"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_quality",
+        "neutral"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_prices",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "service",
+        "conflict"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_prices",
+        "positive"
+      ],
+      "count": 1
+    }
+  ],
+  "devel_wrong_triples": [
+    {
+      "key": [
+        "restaurant_general",
+        "conflict",
+        "neutral"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "neutral",
+        "positive"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "food_quality",
+        "conflict",
+        "negative"
+      ],
+      "count": 2
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "negative",
+        "neutral"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_prices",
+        "neutral",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_quality",
+        "conflict",
+        "positive"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_quality",
+        "neutral",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_quality",
+        "positive",
+        "neutral"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "positive",
+        "neutral"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_prices",
+        "negative",
+        "neutral"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "neutral",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "conflict",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "food_quality",
+        "positive",
+        "conflict"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "service",
+        "conflict",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "positive",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_prices",
+        "positive",
+        "negative"
+      ],
+      "count": 1
+    },
+    {
+      "key": [
+        "restaurant_general",
+        "neutral",
+        "conflict"
+      ],
+      "count": 1
+    }
+  ]
+}

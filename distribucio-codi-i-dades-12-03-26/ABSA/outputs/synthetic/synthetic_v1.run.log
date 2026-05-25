@@ -1,0 +1,127 @@
+Running train inference for difficulty scoring:
+/workspace/absa-venv/bin/python /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/bin/finetune/finetune-inference.py --weights /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/finetune/FT.train.absa_v6.qlora4bit.simple.all-linear.r16.lr1e-4.generative_f1.weights --prompt-file /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/prompts/absa_v6.json --data train --output /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/finetune/best_train_predictions_qlora.json --temperature 0 --top-p 1.0 --top-k 20 --presence-penalty 0.0 --max-new-tokens 512
+========= FT INFERENCE =========
+weights: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/finetune/FT.train.absa_v6.qlora4bit.simple.all-linear.r16.lr1e-4.generative_f1.weights
+prompt_file: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/prompts/absa_v6.json
+data: train
+generation: temp=0.0, top_p=1.0, top_k=20, pp=0.0
+[transformers] `torch_dtype` is deprecated! Use `dtype` instead!
+[transformers] The fast path is not available because one of the required library is not installed. Falling back to torch implementation. To install follow https://github.com/fla-org/flash-linear-attention#installation and https://github.com/Dao-AILab/causal-conv1d
+Loading weights:   0%|          | 0/320 [00:00<?, ?it/s]Loading weights:   0%|          | 1/320 [00:00<00:49,  6.40it/s]Loading weights:  17%|█▋        | 53/320 [00:00<00:01, 249.05it/s]Loading weights:  31%|███▏      | 100/320 [00:00<00:00, 334.89it/s]Loading weights:  46%|████▌     | 147/320 [00:00<00:00, 381.44it/s]Loading weights:  60%|██████    | 192/320 [00:00<00:00, 395.29it/s]Loading weights:  75%|███████▍  | 239/320 [00:00<00:00, 416.16it/s]Loading weights:  89%|████████▉ | 286/320 [00:00<00:00, 425.91it/s]Loading weights: 100%|██████████| 320/320 [00:00<00:00, 376.95it/s]
+Model loading took 5.1 seconds
+Loaded prompt: absa_v6
+Loaded 1056 examples from /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/train.json
+Processing example 0
+Processing example 10
+Processing example 20
+Processing example 30
+Processing example 40
+Processing example 50
+Processing example 60
+Processing example 70
+Processing example 80
+Processing example 90
+Processing example 100
+Processing example 110
+Processing example 120
+Processing example 130
+Processing example 140
+Processing example 150
+Processing example 160
+Processing example 170
+Processing example 180
+Processing example 190
+Processing example 200
+Processing example 210
+Processing example 220
+Processing example 230
+Processing example 240
+Processing example 250
+Processing example 260
+Processing example 270
+Processing example 280
+Processing example 290
+Processing example 300
+Processing example 310
+Processing example 320
+Processing example 330
+Processing example 340
+Processing example 350
+Processing example 360
+Processing example 370
+Processing example 380
+Processing example 390
+Processing example 400
+Processing example 410
+Processing example 420
+Processing example 430
+Processing example 440
+Processing example 450
+Processing example 460
+Processing example 470
+Processing example 480
+Processing example 490
+Processing example 500
+Processing example 510
+Processing example 520
+Processing example 530
+Processing example 540
+Processing example 550
+Processing example 560
+Processing example 570
+Processing example 580
+Processing example 590
+Processing example 600
+Processing example 610
+Processing example 620
+Processing example 630
+Processing example 640
+Processing example 650
+Processing example 660
+Processing example 670
+Processing example 680
+Processing example 690
+Processing example 700
+Processing example 710
+Processing example 720
+Processing example 730
+Processing example 740
+Processing example 750
+Processing example 760
+Processing example 770
+Processing example 780
+Processing example 790
+Processing example 800
+Processing example 810
+Processing example 820
+Processing example 830
+Processing example 840
+Processing example 850
+Processing example 860
+Processing example 870
+Processing example 880
+Processing example 890
+Processing example 900
+Processing example 910
+Processing example 920
+Processing example 930
+Processing example 940
+Processing example 950
+Processing example 960
+Processing example 970
+Processing example 980
+Processing example 990
+Processing example 1000
+Processing example 1010
+Processing example 1020
+Processing example 1030
+Processing example 1040
+Processing example 1050
+
+Processed 1056 examples in 1500.5 seconds (1.42 sec/example)
+Output saved to: /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/outputs/finetune/best_train_predictions_qlora.json
+Starting wave with 220 candidates. Accepted so far: 0 / 220
+Progress saved. Bucket counts: {'price_value_boundary': 56, 'food_style_options_boundary': 36, 'ambience_location_service_boundary': 30, 'drinks_rare_aspects': 24, 'neutral_conflict_polarity': 40, 'hard_negatives_empty': 14, 'natural_regularizers': 20}
+Synthetic dataset written to /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/synthetic_v1.json
+Combined train dataset written to /workspace/Aspect-Based-Sentiment-Analysis-with-LLMs/distribucio-codi-i-dades-12-03-26/ABSA/dataset/train_plus_synthetic_v1.json
+Accepted 220 synthetic examples from 220 candidates.
